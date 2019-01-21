@@ -1,0 +1,43 @@
+{
+  "dependencies": {
+    "prettier": "^1.13.7",
+    "remark-cli": "^5.0.0",
+    "remark-lint-no-dead-urls": "^0.3.0",
+    "remark-lint-write-good": "^1.0.3",
+    "remark-preset-lint-recommended": "^3.0.2",
+    "textlint": "^10.2.1",
+    "textlint-rule-stop-words": "^1.0.3"
+  },
+  "name": "forge-doc",
+  "description": "Forge framework Documentation",
+  "version": "0.1.0",
+  "main": "README.md",
+  "devDependencies": {},
+  "scripts": {
+    "lint:json": "prettier \"**/*.json\" --write",
+    "lint:md": "prettier \"**/*.md\" --write && remark . && textlint \"md/**\"",
+    "lint": "yarn lint:json && yarn lint:md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arcblock/forge-docs.git"
+  },
+  "keywords": [
+    "arcblock",
+    "blockchain",
+    "middleware"
+  ],
+  "author": "ArcBlock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arcblock/forge-docs/issues"
+  },
+  "homepage": "https://arcblock.io/docs/",
+  "remarkConfig": {
+    "plugins": [
+      "remark-lint-no-dead-urls",
+      "remark-lint-write-good",
+      "remark-preset-lint-recommended"
+    ]
+  }
+}

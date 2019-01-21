@@ -1,0 +1,27 @@
+sudo: false
+before_install:
+  - nvm install 10
+branches:
+  only:
+  - master
+before_script: make travis-init
+script: make build
+deploy:
+  - provider: s3
+    access_key_id: AKIAJYXT4M4SX54ER66Q
+    secret_access_key:
+      secure:
+    bucket: docs.arcblock.io
+    local-dir: dist
+    upload-dir: forge
+    skip_cleanup: true
+    region: us-west-2
+  - provider: script
+    skip_cleanup: true
+    script: git clone https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG;
+      cd $TRAVIS_REPO_SLUG; make travis-deploy
+    on:
+      branch: master
+env:
+  global:
+  - secure:
