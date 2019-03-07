@@ -1,5 +1,5 @@
 TOP_DIR=.
-OUTPUT_FOLDER=./dist
+OUTPUT_FOLDER=./dist/forge
 
 VERSION=$(strip $(shell cat version))
 
@@ -8,7 +8,7 @@ build:
 	@echo "All slides are built."
 
 all: build
-	@aws s3 sync dist s3://docs.arcblock.io/forge --region us-west-2 --profile prod
+	@aws s3 sync $(OUTPUT_FOLDER) s3://docs.arcblock.io/forge --region us-west-2 --profile prod
 
 init:
 	@npm install -g vuepress
@@ -31,8 +31,9 @@ watch:
 
 dev:
 	@cd src; vuepress dev
+
 run:
-	@http-server $(OUTPUT_FOLDER) -p 8008 -c-1
+	@http-server ./dist -p 8008 -c-1
 
 travis-deploy: release
 	@echo "Deploy the software by travis"

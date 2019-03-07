@@ -1,8 +1,8 @@
 module.exports = {
 
   ga: '',
-  dest: '../dist',
-  base: '/',
+  dest: '../dist/forge',
+  base: '/forge/',
   markdown: {
     lineNumbers: true,
   },
