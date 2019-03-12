@@ -97,7 +97,7 @@ By default, forge is started as a daemon and it will bring up consensus engine a
 
 All data (consensus db, forge state db, storage), configuration and logs are stored at the path defined in the `forge_release.toml`. By default, it is under `~/.forge_release`. Feel free to change this path to something like `/var/data/forge` or `/mnt/forge`. In this documentation, we will use `$FORGE_HOME` to refer to this path for simplicity.
 
-Congratulations! Now your local forge node started successfully!
+Congratulations! Now your local forge node started successfully! For more information about commands supported by `forge-cli`, feel free to go to: [Forge CLI](../tools/forge_cli.md).
 
 ## Forge Logs
 
@@ -113,6 +113,43 @@ Logs are an important interface between forge and its user. Once forge is starte
 
 For more information about forge logs, please refer to: [Forge Logs](../core/log.md).
 
+## Forge Web
+
+Now you have a basic idea on how forge started - you may want to see how to get an overview for transactions and data stored in forge. In your `forge_release.toml` configuration, forge web is started by default, thus you can directly go to your browser and open `http://localhost:8210`. You will see page like this:
+
+![Forge Web](../imgs/forge_web.jpg)
+
+Currently the forge web has these functionalities:
+
+* dashboard: give you an overview about what happened on the chain.
+* Block Explorer: view and query the data / states in the chain.
+* RPC playground: give you a playground to interact with the RPCs provided by forge.
+
+More information about forge web, please go to: [Forge Web](../tools/forge_web.md).
+
+## Send transactions
+
+The forge web is great but you may be tired of seeing empty data. To populate some simulation transactions, we provide a tool called `forge-simulator` to generate wallets and transactions to make your life easy. Just run:
+
+```bash
+$ forge simulator start
+```
+
+A simulator will be started and after a while in your forge web you'll see transactions are being populated. The simulator will first create 10, 000 wallets, and then sending transactions between wallets.
+
+After a while your forge web dashboard will look like this:
+
+![Forge Web: updated](../imgs/forge_web1.jpg)
+
+And the forge block explorer has data for you to dig in:
+
+![Forge block explorer](../imgs/forge_explorer.jpg)
+
+For more information about forge simulator, please visit: [Forge simulator](../tools/forge_simulator.md).
+
+## Create wallet and send your own txs
+
+Now it's time for you to create your own wallets and send your own txs. Let's go to [send your first tx](./transaction.md)
 
 
 ## Forge SDKs
@@ -122,7 +159,6 @@ If you want to start coding immediately, we prepared several SDKs for you to use
 - [Forge JavaScript/NodeJS SDK](../sdk/javascript.md)
 - [Forge Python SDK](../sdk/python.md)
 - [Forge Elixir SDK](../sdk/elixir.md)
-
 
 ## Want to know more?
 
