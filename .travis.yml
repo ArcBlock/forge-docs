@@ -24,7 +24,7 @@ deploy:
     secret_access_key:
       secure: O7noNpc97C7BGFb2uKRhST66BbC387qXyrz0bQpFq7ukoZ+P6icPjQ/R7jjMtzNiCh82PQ8zhN/O5Xmkv3uZ2fT5ePGt/Dz4skp26RR/gwMjNBrUCje9DbSIaSvXKqbJaZcuwwx8FuWnuLu37zMYSfOPJbquTFkO/nUPd5yToct9jN/WYJbmzCDnbCu99Lko2LHIcrQ0sbUy6TvWyX+VlUi3Ly7vobmn9IVKnXS2uQ6uei0g05IW9gRoNWTRWqxx7jmnDf9hsrThSFsNIqugkG05WuobEzihC0e2DYY3FD6IRnV2SLOAKxcsepMs3oiCeKqGtaY18c1Zkrbm4iTNIncK1YtQ+TbDOtxgz/iwtmJz+o2I9W6PgixkdcdihgKyvKXqCo1PGvjy9NFvuf7MyuZ6LIsNwRh40+VxVUGqhkK1HFlAxj+heCr/4Dse3/6h+cLyXz5rp4zUaNEK5cpKJzDDOe7cGj1Te6qewJ6AOfYYUeZ1SjlWRP6vnCpKqXvp3NMJ8ANf8PjIyGqKrfG2bEh4AxOCYtXfwT9hYnhLCOut3UZmJZ7GLqYjNW4gGRN5BFun5OVAOzfPjuwUHIEKKUd03yu6luzR5aabEBlqhfmbyZ2rasEGCpRzsd2GB9i98dQXqEQnT7ITfDfCWCw7BrgPoOWojq+1E/Cqb3X6nSA=
     bucket: docs.arcblock.io
-    local-dir: dist
+    local-dir: dist/forge
     upload-dir: forge
     skip_cleanup: true
     region: us-west-2
