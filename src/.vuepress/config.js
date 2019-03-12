@@ -40,7 +40,7 @@ module.exports = {
         sidebar: [{
             title: 'Introduction',
             collapsable: false,
-            children: ['/intro/', '/intro/quick-start', '/intro/inside-forge'],
+            children: ['/intro/', '/intro/transaction', '/intro/inside_forge'],
           },
           {
             title: 'Forge SDK',
@@ -53,15 +53,24 @@ module.exports = {
             ],
           },
           {
-            title: 'Tools',
+            title: 'Forge Tools',
             collapsable: false,
-            children: ['/tools/simulator'],
+            children: ['/tools/forge_cli', 'tools/forge_web', '/tools/simulator', 'tools/forge_indexer'],
           },
           {
             title: 'Architecture',
             collapsable: false,
             children: [
               '/arch/overview',
+            ],
+          },
+          {
+            title: 'Forge Core',
+            collapsable: false,
+            children: [
+              '/core/configuration',
+              '/core/log',
+              '/core/tx_protocol',
             ],
           },
         ],

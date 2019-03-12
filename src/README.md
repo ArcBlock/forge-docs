@@ -11,7 +11,7 @@ To get started quickly with an example application, see the [quick start guide](
 To learn the supported SDK we built, see the [Forge SDK](sdk/).
 
 For more details on how Forge framework works, see the respective documentation for
-[Forge Architecture and Core](arch/), [Tools for Forge](tools/).
+[Forge Architecture](arch/), [Forge Core](core/) [Tools](tools/).
 
 
 ## Contribute
