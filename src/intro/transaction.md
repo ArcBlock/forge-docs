@@ -42,9 +42,9 @@ $ forge account:create
 ℹ run forge account z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB to inspect account state
 ```
 
-This CLI will create a wallet and save it as a keystore (you can find the wallet in `$FORGE_HOME/core/keystore/z1f/rPQRqZbW8wELhAPh1nBMV18c7j1FocbB.key` [^1]), encrypted (AES256) with your passphrase. Once you created a wallet in forge CLI, it is unlocked, meaning you can use it to send transactions within a period.
+This CLI will create a wallet and save it as a keystore (you can find the wallet in `$FORGE_HOME/core/keystore/z1f/rPQRqZbW8wELhAPh1nBMV18c7j1FocbB.key`[^1]), encrypted (AES256) with your passphrase. Once you created a wallet in forge CLI, it is unlocked, meaning you can use it to send transactions within a period.
 
-[^1] Note that after running the above CLI, the wallet address you created will be different than this one. So the keystore file is different.
+[^1]: Note that after running the above CLI, the wallet address you created will be different than this one. So the keystore file is different.
 
 ### Create a wallet with forge console
 
@@ -100,27 +100,30 @@ The most secure way to create a wallet for general public is using a wallet app 
 
 Let's use the first wallet address `z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` to see what can we find in forge block explorer. Paste the address (here please paste the address you created with Forge CLI) into the search box in the explorer, and press enter:
 
-![Search wallet](../imgs/search_wallet.jpg)
+![Search wallet](../assets/images/search_wallet.jpg)
 
 Then you would see:
 
-![Search result](../imgs/search_wallet_result.jpg)
+![Search result](../assets/images/search_wallet_result.jpg)
 
 Here we just created a wallet with Forge CLI, why there's transaction sent already?
 
 The transaction you saw is the __Declare Account__ transaction, if you click the transaction hash, you would see:
 
-![Declare Account transaction](../imgs/declare_tx.jpg)
+![Declare Account transaction](../assets/images/declare_tx.jpg)
 
 In forge, a wallet cannot be used without declare tx. This TX serves several purposes:
 
 * create the default state for the address
 * register the address / wallet type / public key in the chain
 
-In Bitcoin / Ethereum, others can send coins / tokens to your wallet without any preconditions. You can have a wallet that just receive tokens, even if the state for that wallet doesn't exist [^2]. In Forge, since the main purpose of it is to allow users to build rich applications, putting the state of the wallet in the chain in advance would unlock and simplify lots of use cases.
+In Bitcoin / Ethereum, others can send coins / tokens to your wallet without any preconditions. You can have a wallet that just receive tokens, even if the state for that wallet doesn't exist[^2]. In Forge, since the main purpose of it is to allow users to build rich applications, putting the state of the wallet in the chain in advance would unlock and simplify lots of use cases.
 
 [^2]: actually Bitcoin is an UTXO system, it doesn't have per wallet state; Ethereum has per wallet state if the wallet has ever sent transactions out.
 
+```math
+f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+```
 ## Send a transaction
 
 Now that you have a wallet, sending a transaction is simple. We will still use the wallet `
@@ -208,7 +211,7 @@ Note that when you pressed enter for `Please enter the itx data object`, an edit
 }
 ```
 
-This `TransferTx` send 1000 unit to `z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis`. Note that by default ``1 token = 10^16 unit``, and when we do transfer the minimum allowed value is 1 unit.
+This `TransferTx` send 1000 unit to `z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis`. Note that by default $1 token = 10^16 unit$, and when we do transfer the minimum allowed value is 1 unit.
 
 Let's see the whole tx sent to the chain:
 
@@ -283,7 +286,17 @@ iex(forge@127.0.0.1)1> itx = ForgeAbi.TransferTx.new(to: "z115hJtnrYgyFTepXQbBEW
 }
 ```
 
-You may see `BigUint` here and the value is pretty weird. We mentioned in previous section that by default ``1 token = 10^16 unit``, and when we do transfer the minimum allowed value is 1 unit. Thus if we want to transfer 100 tokens, it means ``100 x 10^16``. This is a pretty big number. Thus we need a way to encode big integer across all languages (although languages like elixir, python support big number with any digits, many languages only support a fix-size integer). To encode a big number efficiently (the string format is least efficient approach), we use its smallest binary format. For more about `BigUint`, please refer to: [Big integer processing in Forge](../core/bigint.md).
+You may see `BigUint` here and the value is pretty weird. We mentioned in previous section that by default
+
+```math
+1 token = 10^{16} unit
+```
+
+```math
+f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+```
+
+, and when we do transfer the minimum allowed value is 1 unit. Thus if we want to transfer 100 tokens, it means ```$100 x 10^16$```. This is a pretty big number. Thus we need a way to encode big integer across all languages (although languages like elixir, python support big number with any digits, many languages only support a fix-size integer). To encode a big number efficiently (the string format is least efficient approach), we use its smallest binary format. For more about `BigUint`, please refer to: [Big integer processing in Forge](../core/bigint.md).
 
 Before we can send the transaction out, we need to unlock the wallet, same as what we have done in Forge CLI:
 

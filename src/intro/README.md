@@ -117,7 +117,7 @@ For more information about forge logs, please refer to: [Forge Logs](../core/log
 
 Now you have a basic idea on how forge started - you may want to see how to get an overview for transactions and data stored in forge. In your `forge_release.toml` configuration, forge web is started by default, thus you can directly go to your browser and open `http://localhost:8210`. You will see page like this:
 
-![Forge Web](../imgs/forge_web.jpg)
+![Forge Web](../assets/images/forge_web.jpg)
 
 Currently the forge web has these functionalities:
 
@@ -139,11 +139,11 @@ A simulator will be started and after a while in your forge web you'll see trans
 
 After a while your forge web dashboard will look like this:
 
-![Forge Web: updated](../imgs/forge_web1.jpg)
+![Forge Web: updated](../assets/images/forge_web1.jpg)
 
 And the forge block explorer has data for you to dig in:
 
-![Forge block explorer](../imgs/forge_explorer.jpg)
+![Forge block explorer](../assets/images/forge_explorer.jpg)
 
 For more information about forge simulator, please visit: [Forge simulator](../tools/forge_simulator.md).
 
