@@ -1,8 +1,12 @@
+const fs = require('fs');
+const version = fs.readFileSync("../version", "utf-8").trim();
+
 module.exports = {
 
   ga: '',
   dest: '../dist/forge',
   base: '/forge/',
+  version: version,
   markdown: {
     lineNumbers: true,
   },
@@ -71,6 +75,17 @@ module.exports = {
               '/core/configuration',
               '/core/log',
               '/core/tx_protocol',
+              '/core/code',
+              '/core/bigint',
+            ],
+          },
+          {
+            title: 'Forge TX',
+            collapsable: false,
+            children: [
+              '/txs/declare',
+              '/txs/transfer',
+              '/txs/exchange',
             ],
           },
         ],
