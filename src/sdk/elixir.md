@@ -1,1 +1,1 @@
-# Support for Elixir
+# Forge Elixir/Erlang SDK

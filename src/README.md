@@ -6,7 +6,7 @@ Welcome to the ArcBlock Forge Framework documentation!
 
 ## Getting Started
 
-To get started quickly with an example application, see the [quick start guide](intro/quick-start.md).
+To get started quickly with an example application, see the [quick start guide](intro/).
 
 To learn the supported SDK we built, see the [Forge SDK](sdk/).
 
