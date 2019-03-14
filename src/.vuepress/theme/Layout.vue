@@ -179,8 +179,7 @@ export default {
 }
 </script>
 
-
 <style src="katex/dist/katex.css"></style>
 <style src="markdown-it-texmath/css/texmath.css"></style>
-<style src="prismjs/themes/prism.css"></style>
+<style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>

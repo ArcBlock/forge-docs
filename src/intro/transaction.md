@@ -108,26 +108,22 @@ Then you would see:
 
 Here we just created a wallet with Forge CLI, why there's transaction sent already?
 
-The transaction you saw is the __Declare Account__ transaction, if you click the transaction hash, you would see:
+The transaction you saw is the **Declare Account** transaction, if you click the transaction hash, you would see:
 
 ![Declare Account transaction](../assets/images/declare_tx.jpg)
 
 In forge, a wallet cannot be used without declare tx. This TX serves several purposes:
 
-* create the default state for the address
-* register the address / wallet type / public key in the chain
+- create the default state for the address
+- register the address / wallet type / public key in the chain
 
 In Bitcoin / Ethereum, others can send coins / tokens to your wallet without any preconditions. You can have a wallet that just receive tokens, even if the state for that wallet doesn't exist[^2]. In Forge, since the main purpose of it is to allow users to build rich applications, putting the state of the wallet in the chain in advance would unlock and simplify lots of use cases.
 
 [^2]: actually Bitcoin is an UTXO system, it doesn't have per wallet state; Ethereum has per wallet state if the wallet has ever sent transactions out.
 
-```math
-f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
-```
 ## Send a transaction
 
-Now that you have a wallet, sending a transaction is simple. We will still use the wallet `
-z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` to send a transfer tx. The receiver will be the one we created in forge console: `z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis`. Before sending a transaction, you may want to have a look at the account state for the wallet that was created by declare tx. You can use forge cli to do so:
+Now that you have a wallet, sending a transaction is simple. We will still use the wallet `z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` to send a transfer tx. The receiver will be the one we created in forge console: `z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis`. Before sending a transaction, you may want to have a look at the account state for the wallet that was created by declare tx. You can use forge cli to do so:
 
 ```bash
 $ forge account z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB
@@ -178,7 +174,6 @@ $ forge account z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB
 
 An account state created for a wallet is pretty big. So far please don't worry about the data you don't understand. To make development easy, all newly declared wallets will have 10000 tokens in its state. We can use this to transfer tokens to others.
 
-
 ### Transfer with forge CLI
 
 We can use `forge tx:send` CLI to send a transaction. If the wallet you choose to send tx is not unlocked, Forge CLI will prompt you to enter the passphrase so that it can unlock the wallet and use the secret key to sign the transaction:
@@ -204,10 +199,10 @@ Note that when you pressed enter for `Please enter the itx data object`, an edit
 
 ```json
 {
-  to: 'z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis',
-  value: '1000',
-  assets: [],
-  data: null
+  "to": "z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis",
+  "value": "1000",
+  "assets": [],
+  "data": null
 }
 ```
 
@@ -236,10 +231,10 @@ $ forge tx EAF6A091136A7D95AFA704993F43CA175844EFFAA8908A7A2F8F5BF1EE08F4A4
 
 Forge CLI will fill several values for you for the transaction:
 
-* __from__: the sender address.
-* __nonce__: nonce value for this tx.
-* __signature__: the sender's signature of this tx.
-* __chain_id__: which chain this tx belongs to. If you didn't change `forge_release.toml` the default chain id is __forge__.
+- **from**: the sender address.
+- **nonce**: nonce value for this tx.
+- **signature**: the sender's signature of this tx.
+- **chain_id**: which chain this tx belongs to. If you didn't change `forge_release.toml` the default chain id is **forge**.
 
 Once the tx is executed in the chain (you may need to wait 5s), you can get the updated account state for both addresses `z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` and `z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis`:
 
@@ -271,7 +266,6 @@ Congratulations! Now you have sent your first transfer transaction! If you wonde
 
 This section only for the braves or elixir/erlang users. If you know elixir/erlang or you're not afraid on something weird to you, read on.
 
-
 Now enter the forge console again (`~/.forge_cli/release/forge/0.18.2/bin/forge remote_console`).
 
 First of all, let's create a `TransferTx`, we want to give `z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis` 100 tokens, so we put that address in `to` and value to `ForgeAbi.token_to_arc(100)`:
@@ -286,17 +280,7 @@ iex(forge@127.0.0.1)1> itx = ForgeAbi.TransferTx.new(to: "z115hJtnrYgyFTepXQbBEW
 }
 ```
 
-You may see `BigUint` here and the value is pretty weird. We mentioned in previous section that by default
-
-```math
-1 token = 10^{16} unit
-```
-
-```math
-f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
-```
-
-, and when we do transfer the minimum allowed value is 1 unit. Thus if we want to transfer 100 tokens, it means ```$100 x 10^16$```. This is a pretty big number. Thus we need a way to encode big integer across all languages (although languages like elixir, python support big number with any digits, many languages only support a fix-size integer). To encode a big number efficiently (the string format is least efficient approach), we use its smallest binary format. For more about `BigUint`, please refer to: [Big integer processing in Forge](../core/bigint.md).
+You may see `BigUint` here and the value is pretty weird. We mentioned in previous section that by default $1 token = 10^{16} unit$, and when we do transfer the minimum allowed value is 1 unit. Thus if we want to transfer 100 tokens, it means $100x10^{16}$. This is a pretty big number. Thus we need a way to encode big integer across all languages (although languages like elixir, python support big number with any digits, many languages only support a fix-size integer). To encode a big number efficiently (the string format is least efficient approach), we use its smallest binary format. For more about `BigUint`, please refer to: [Big integer processing in Forge](../core/bigint.md).
 
 Before we can send the transaction out, we need to unlock the wallet, same as what we have done in Forge CLI:
 
@@ -313,9 +297,9 @@ iex(forge@127.0.0.1)2> {w, t} = ForgeSdk.load_wallet(address: "z1frPQRqZbW8wELhA
 
 Here we got the wallet data and a token that we could use to tell Forge to load the secret key to sign the tx and send it out. `ForgeSdk.transfer` is a helper function that does all these for you:
 
-* Wrap the `TransferTx` into `Transaction`.
-* Sign the transaction with the wallet and token.
-* Send the transaction out to the chain.
+- Wrap the `TransferTx` into `Transaction`.
+- Sign the transaction with the wallet and token.
+- Send the transaction out to the chain.
 
 ```elixir
 iex(forge@127.0.0.1)3> ForgeSdk.transfer(itx, wallet: w, token: t)
@@ -376,7 +360,7 @@ iex(forge@127.0.0.1)6> ForgeSdk.get_account_state(address: "z1frPQRqZbW8wELhAPh1
 }
 ```
 
-We can see this balance further decreased 100 tokens (100 x 10^16). And not surprisingly, the receiver increased 100 tokens:
+We can see this balance further decreased 100 tokens ($100x10^{16}$). And not surprisingly, the receiver increased 100 tokens:
 
 ```elixir
 iex(forge@127.0.0.1)7> ForgeSdk.get_account_state(address: "z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis") |> ForgeSdk.display()

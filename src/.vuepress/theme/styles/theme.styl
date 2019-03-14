@@ -5,8 +5,6 @@
 @require './arrow'
 @require './wrapper'
 @require './toc'
-@require './image'
-
 
 html, body
   padding 0
@@ -106,6 +104,7 @@ strong
 
 h1, h2, h3, h4, h5, h6
   font-weight 600
+  font-family Avenir
   line-height 1.25
   .content:not(.custom) > &
     margin-top (0.5rem - $navbarHeight)
@@ -174,8 +173,8 @@ th, td
       display: block
   &.no-navbar
     .content:not(.custom) > h1, h2, h3, h4, h5, h6
-        margin-top 1.5rem
-        padding-top 0
+      margin-top 1.5rem
+      padding-top 0
     .sidebar
       top 0
     .custom-layout

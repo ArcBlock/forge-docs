@@ -8,6 +8,6 @@ module.exports = {
   config: md => {
     md.use(footnote)
     md.use(puml)
-    md.use(texmath,{delimiters: 'gitlab'} )
+    md.use(texmath,{delimiters: 'dollars'} )
   }
 }
