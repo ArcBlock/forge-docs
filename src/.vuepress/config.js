@@ -31,8 +31,8 @@ module.exports = {
         label: 'English',
         lastUpdated: 'Last Updated',
         nav: [{
-            text: 'Developer Console',
-            link: 'https://console.arcblock.io'
+            text: 'ABT Test Chain',
+            link: 'http://abt-test.arcblock.co:8210/dashboard'
           },
           {
             text: 'ArcBlock',
@@ -74,6 +74,7 @@ module.exports = {
             title: 'Forge Core',
             collapsable: false,
             children: [
+              '/core/rpc',
               '/core/configuration',
               '/core/log',
               '/core/tx_protocol',
@@ -89,6 +90,11 @@ module.exports = {
               '/txs/transfer',
               '/txs/exchange',
             ],
+          },
+          {
+            title: 'Forge RPC',
+            collapsable: false,
+            children: [],
           },
         ],
       }
