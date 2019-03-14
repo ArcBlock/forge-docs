@@ -94,7 +94,13 @@ module.exports = {
           {
             title: 'Forge RPC',
             collapsable: false,
-            children: [],
+            children: [
+              '/rpc/chain',
+              '/rpc/event',
+              '/rpc/state',
+              '/rpc/statistics',
+              '/rpc/file',
+            ],
           },
         ],
       }
