@@ -1,3 +1,6 @@
+## 0.18.2 (March 16, 2019)
+  - add installation guide
+
 ## 0.18.1 (March 12, 2019)
   - update travis
 

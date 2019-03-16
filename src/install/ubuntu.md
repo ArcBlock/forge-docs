@@ -89,12 +89,14 @@ Add `/usr/local/ssl/bin` after `/usr/local/bin`:
 PATH="/usr/local/sbin:/usr/local/bin:/usr/local/ssl/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 ```
 
-Now login and login. Check your openssl version:
+Now logout and login to activate the `$PATH` change. Check your openssl version:
 
 ```bash
 $ openssl version
 OpenSSL 1.1.1  11 Sep 2018
 ```
+
+### Install erlang crypto (optional)
 
 In ubuntu 16.04, you need to install erlang crypto to make an erlang release works with openssl you installed:
 
@@ -109,6 +111,8 @@ If you missed this step, the Forge release will crash with the error message:
 :::
 
 ## Install Forge CLI
+
+Let's use yarn to install forge cli. Note we install it globally so that different users could use it.
 
 ```bash
 sudo yarn global add @arcblock/forge-cli
