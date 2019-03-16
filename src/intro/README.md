@@ -38,6 +38,8 @@ Now you can start a forge node with forge start
 
 Note that forge is in its very early stage so at the moment we only build osx and ubuntu 16.04 artifacts. We will provide the artifacts for more platforms in near future.
 
+If you're trying to install forge in a ubuntu 16.04 machine, please see [installation guide for Ubuntu](../install/ubuntu.md).
+
 Once you finished initialization, forge-cli will put the artifacts into `~/.forge_cli` folder:
 
 ```bash

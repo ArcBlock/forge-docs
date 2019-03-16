@@ -49,6 +49,11 @@ module.exports = {
             children: ['/intro/', '/intro/transaction', '/intro/inside_forge'],
           },
           {
+            title: 'Installation',
+            collapsable: false,
+            children: ['/install/', '/install/ubuntu'],
+          },
+          {
             title: 'Forge SDK',
             collapsable: false,
             children: [
