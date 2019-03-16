@@ -1,6 +1,11 @@
 # Install Forge on Ubuntu
 
-A brand new ubuntu machine lacks several dependencies that Forge requires. If you met issues on running Forge under Ubuntu, please read on. This guide is tested on ubuntu 16.04 and 18.04.
+A brand new ubuntu machine lacks several dependencies that Forge requires. If you met issues on running Forge under Ubuntu, please read on. This guide is tested on ubuntu 16.04 and 18.04 on a $5/month Digital Ocean machine.
+
+::: warning
+We do not suggest you to run Forge on Ubuntu 14.04 or lower. This guide may even not work for Ubuntu 14.04 (at least nodejs > 10 won't be installed in that version).
+:::
+
 
 ## Setting up users
 
@@ -11,10 +16,11 @@ First of all, let's create a sudo user. Some cloud provider (e.g. digital ocean)
 adduser arcblock
 ```
 
-Then add user to sudo group:
+Then add user to sudo group and remove the password:
 
 ```bash
 usermod -aG sudo arcblock
+sudo passwd -d arcblock
 ```
 
 Then you can do `visudo` to do not require password for sudo user:
@@ -35,7 +41,7 @@ Basically, you need:
 
 ```bash
 sudo apt-get update
-sudo apt-get install build-essential
+sudo apt-get install -y build-essential
 curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
@@ -54,7 +60,7 @@ Although nodejs ships with npm, we highly recommend you install yarn:
 ```bash
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt-get install yarn
+sudo apt-get update && sudo apt-get install -y yarn
 ```
 
 ## Install latest openssl
@@ -83,12 +89,24 @@ Add `/usr/local/ssl/bin` after `/usr/local/bin`:
 PATH="/usr/local/sbin:/usr/local/bin:/usr/local/ssl/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 ```
 
-Now check your openssl version:
+Now login and login. Check your openssl version:
 
 ```bash
 $ openssl version
 OpenSSL 1.1.1  11 Sep 2018
 ```
+
+In ubuntu 16.04, you need to install erlang crypto to make an erlang release works with openssl you installed:
+
+```bash
+sudo apt-get install -y erlang-crypto
+```
+
+::: warning
+If you missed this step, the Forge release will crash with the error message:
+
+> libcrypto.so.1.1: cannot open shared object file: No such file or directory
+:::
 
 ## Install Forge CLI
 
@@ -112,11 +130,10 @@ sudo passwd -d forge
 
 The sudo user `arcblock` shall only be used for ssh to install software, and the normal user `forge` shall only be used to run forge.
 
-Let's sudo to this user: `sudo su forge`.
-
-Then let's init forge:
+Let's sudo to this user: `sudo su forge`, and then init forge:
 
 ```bash
+cd ~
 forge init
 ```
 
