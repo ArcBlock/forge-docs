@@ -1,38 +1,32 @@
-# Install Forge on Ubuntu
+# Install Forge on CentOS
 
-A brand new ubuntu machine lacks several dependencies that Forge requires. If you met issues on running Forge under Ubuntu, please read on. This guide is tested on ubuntu 16.04 and 18.04 on a $5/month Digital Ocean machine.
+A brand new centos machine lacks several dependencies that Forge requires. If you met issues on running Forge under CentOS, please read on. This guide is tested on CentOS 7 on a $5/month Digital Ocean machine.
 
 ::: warning
-We do not suggest you to run Forge on Ubuntu 14.04 or lower. This guide may even not work for Ubuntu 14.04 (at least nodejs > 10 won't be installed in that version).
+We do not suggest you to run Forge on CentOS 6 or lower. This guide may even not work for that version.
 :::
 
 
 ## Setting up users
 
-First of all, let's create a sudo user. Some cloud provider (e.g. digital ocean) ships ubuntu with root user, thus we need to disable it. You can skip this step if you're already a sudo user.
+First of all, let's create a sudo user. Some cloud provider (e.g. digital ocean) ships CentOS with root user, thus we need to disable it. You can skip this step if you're already a sudo user.
 
-Here we created a user named `arcblock`, feel free to use a different one:
+Create user `arcblock` (feel free to change it) and add it to wheel group (sudoer):
 
 ```bash
 adduser arcblock
+usermod -aG wheel arcblock
 ```
 
-Then add user to sudo group and remove the password:
-
-```bash
-usermod -aG sudo arcblock
-sudo passwd -d arcblock
-```
-
-Then you can do `visudo` to do not require password for sudo user:
+Then run `visudo` to allow wheel group to run sudo commands without password:
 
 ```
-%sudo   ALL=(ALL:ALL) NOPASSWD:ALL
-```
+## Allows people in group wheel to run all commands
+# %wheel        ALL=(ALL)       ALL
 
-::: tip
-If you're more familiar with vim, `update-alternatives --config editor` could change the default editor.
-:::
+## Same thing without a password
+%wheel  ALL=(ALL)       NOPASSWD: ALL
+```
 
 From now on we can switch the user to this sudo user.
 
@@ -44,6 +38,13 @@ cat ~/.ssh/id_rsa.pub | ssh root@host "mkdir -p ~arcblock/.ssh && touch ~arcbloc
 ```
 :::
 
+## Install common dependencies
+
+```bash
+sudo yum -y update
+sudo yum install -y autoconf automake epel-release git gcc libtool m4 make ncurses-devel openssl-devel perl-core rpm-build tar vim wget zlib-devel
+```
+
 ## Install nodejs 10/11
 
 Forge CLI requires nodejs runtime, so we shall install latest 10.x or 11.x node. For ubuntu, please follow this guide: [NodeSource Node.js Binary Distributions](https://github.com/nodesource/distributions/blob/master/README.md).
@@ -51,10 +52,8 @@ Forge CLI requires nodejs runtime, so we shall install latest 10.x or 11.x node.
 Basically, you need:
 
 ```bash
-sudo apt-get update
-sudo apt-get install -y build-essential
-curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-sudo apt-get install -y nodejs
+curl -sL https://rpm.nodesource.com/setup_11.x | sudo bash -
+sudo yum install -y nodejs
 ```
 
 If you want to install nodejs 10, just replace `setup_11.x` to `setup_10.x`.
@@ -69,9 +68,8 @@ v11.12.0
 Although nodejs ships with npm, we highly recommend you install yarn:
 
 ```bash
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt-get install -y yarn
+curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+sudo yum install -y yarn
 ```
 
 ## Install latest openssl
@@ -88,19 +86,7 @@ make
 sudo make install
 ```
 
-Then you need to put the openssl path into your `$PATH`:
-
-```
-sudo vim /etc/environment
-```
-
-Add `/usr/local/ssl/bin` after `/usr/local/bin`:
-
-```
-PATH="/usr/local/sbin:/usr/local/bin:/usr/local/ssl/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-```
-
-Now logout and login to activate the `$PATH` change. Check your openssl version:
+Check your openssl version:
 
 ```bash
 $ openssl version
@@ -131,17 +117,13 @@ sudo yarn global add @arcblock/forge-cli
 
 ## Add a non-privileged user and install Forge
 
-We don't recommend running forge on a sudo user. So let's create a new user:
+We don't recommend running forge on a sudo user. So let's create a new user, and add proper path for it:
 
 ```bash
 sudo adduser forge
+echo 'export PATH=/usr/local/bin:/usr/local/ssl/bin:/usr/local/sbin:$PATH' | sudo tee --append ~forge/.bashrc
 ```
 
-Then remove its password:
-
-```bash
-sudo passwd -d forge
-```
 
 The sudo user `arcblock` shall only be used for ssh to install software, and the normal user `forge` shall only be used to run forge.
 
