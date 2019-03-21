@@ -1,4 +1,4 @@
-# Forge logs
+# Forge Logs
 
 ## Transaction log
 
