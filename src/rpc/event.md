@@ -31,7 +31,7 @@ Event RPCs help users to interact with activities they are interested in. All ac
 | :---------------- | :---------------- |
 | code              | int               |
 | One Of Below      |                   |
-| transfer          | Transaction       |
+| transfer          | [Transaction](../../types/type.md#Transaction)       |
 | account_migrate   | Transaction       |
 | confirm           | Transaction       |
 | create_asset      | Transaction       |
