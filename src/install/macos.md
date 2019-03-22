@@ -2,9 +2,6 @@
 
 A brand new centos machine lacks several dependencies that Forge requires. If you met issues on running Forge under MacOS, please read on.
 
-::: warning
-We do not suggest you to run Forge on U.buntu 10.14.0 or lower.
-:::
 
 ## Basic Setup
 
@@ -49,12 +46,14 @@ You can also run `brew upgrade node` to upgrade your `Node` and `npm`
 
 ## Install Forge CLI
 
-In your terminal, enter
 ```bash
 $ npm install -g @arcblock/forge-cli
 ```
+This might take a while to install forge on your computer
 
 ## Run Forge
+
+After forge is installed, you can try running it.
 
 ### Init Forge
 
@@ -66,7 +65,7 @@ $ forge init
 
 ### Start Forge
 
-Then run `forege start` to start forge.
+Then run `forge start` to start forge.
 
 ```bash
 $ forge start
