@@ -51,7 +51,7 @@ module.exports = {
           {
             title: 'Installation',
             collapsable: false,
-            children: ['/install/', '/install/ubuntu'],
+            children: ['/install/', '/install/ubuntu', 'install/centos'],
           },
           {
             title: 'Forge SDK',
