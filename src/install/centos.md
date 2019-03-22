@@ -72,41 +72,6 @@ curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.r
 sudo yum install -y yarn
 ```
 
-## Install latest openssl
-
-The openssl version shipped with ubuntu 16.04 is too old, we shall install a newer one:
-
-```bash
-cd /tmp
-wget https://www.openssl.org/source/openssl-1.1.1.tar.gz
-tar xvf openssl-1.1.1.tar.gz
-cd openssl-1.1.1
-./config -Wl,--enable-new-dtags,-rpath,'$(LIBRPATH)'
-make
-sudo make install
-```
-
-Check your openssl version:
-
-```bash
-$ openssl version
-OpenSSL 1.1.1  11 Sep 2018
-```
-
-### Install erlang crypto (optional)
-
-In ubuntu 16.04, you need to install erlang crypto to make an erlang release works with openssl you installed:
-
-```bash
-sudo apt-get install -y erlang-crypto
-```
-
-::: warning
-If you missed this step, the Forge release will crash with the error message:
-
-> libcrypto.so.1.1: cannot open shared object file: No such file or directory
-:::
-
 ## Install Forge CLI
 
 Let's use yarn to install forge cli. Note we install it globally so that different users could use it.
