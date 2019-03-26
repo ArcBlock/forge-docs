@@ -7,6 +7,7 @@ Event RPCs help users to interact with activities they are interested in. All ac
 
 ## RPC list
 <!-- list rpc -->
+<<<<<<< HEAD
 - Subscribe
 - Unsubscribe
 
@@ -14,6 +15,15 @@ Event RPCs help users to interact with activities they are interested in. All ac
 ### Subscribe
 ----
 <!-- intro what does it do -->
+=======
+- Subscribe  
+- Unsubscribe
+
+
+### Subscribe  
+----
+<!-- intro what does it do -->  
+>>>>>>> dcd0a0f7fa3fb69c2df9fdfdb380da25815e0212
 
 `subscribe(RequestSubscribe) returns (stream ResponseSubscribe)`
 
@@ -31,7 +41,11 @@ Event RPCs help users to interact with activities they are interested in. All ac
 | :---------------- | :---------------- |
 | code              | int               |
 | One Of Below      |                   |
+<<<<<<< HEAD
 | transfer          | [Transaction](../../types/type.md#Transaction)       |
+=======
+| transfer          | Transaction       |
+>>>>>>> dcd0a0f7fa3fb69c2df9fdfdb380da25815e0212
 | account_migrate   | Transaction       |
 | confirm           | Transaction       |
 | create_asset      | Transaction       |
