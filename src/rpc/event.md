@@ -7,8 +7,8 @@ Event RPCs help users to interact with activities they are interested in. All ac
 
 ## RPC list
 <!-- list rpc -->
-- Subscribe
-- Unsubscribe
+- [Subscribe](#subscribe)
+- [Unsubscribe](#unsubscribe)
 
 
 ### Subscribe
@@ -23,6 +23,13 @@ subscribe a certian topic of transactions. Server returns all transactions under
 | :----- | :-------- | :------- | :------- |
 | type   | TopicType | transfer |          |
 | filter | string    | ''       |          |
+
+```protobuf
+message RequestSubscribe {
+  TopicType type = 1;
+  string filter = 2;
+}
+```
 ---
 
 <!-- output -->
@@ -50,6 +57,35 @@ subscribe a certian topic of transactions. Server returns all transactions under
 | forge_state       | [Transaction](../../types/type.md#transaction) |
 | stake_state       | [Transaction](../../types/type.md#transaction) |
 
+```protobuf
+message ResponseSubscribe {
+  StatusCode code = 1;
+  oneof value {
+    string topic = 2;
+    Transaction transfer = 3;
+    Transaction account_migrate = 4;
+    Transaction confirm = 5;
+    Transaction create_asset = 6;
+    Transaction exchange = 7;
+    Transaction revoke = 8;
+
+    abci_vendor.RequestBeginBlock begin_block = 16;
+    abci_vendor.RequestEndBlock end_block = 17;
+
+    Transaction declare = 19;
+    Transaction update_asset = 20;
+    Transaction consensus_upgrade = 21;
+    Transaction declare_file = 22;
+    Transaction sys_upgrade = 23;
+    Transaction stake = 24;
+
+    Transaction account_state = 129;
+    Transaction asset_state = 130;
+    Transaction forge_state = 131;
+    Transaction stake_state = 132;
+  }
+}
+```
 
 #### GRPC Example
 Python
@@ -113,7 +149,9 @@ subscription{
     }
   }
 }
-
+```
+response
+```
 {
   "data": {
     "subscribe": {
@@ -132,16 +170,51 @@ subscription{
 ----
 Unsubscribe a certian topic of transactions. Server stops return this topic of transactions.
 
-`rpc unsubscribe(RequestUnsubscribe) returns (ResponseUnsubscribe)  
+`rpc unsubscribe(RequestUnsubscribe) returns (ResponseUnsubscribe)`
 
 #### RequestSubscribe
 | Name | Data Type | Default  | Required |
 | :--- | :-------- | :------- | :------- |
-| type | TopicType | transfer |          |
+| topic | string |  | Yes         |
 ---
+```protobuf
+message RequestUnsubscribe { string topic = 1; }
+```
 
 <!-- output -->
 #### ResponseSubscribe
 | Name | Data Type  |
 | :--- | :--------- |
 | code | StatusCode |
+
+```protobuf
+message ResponseUnsubscribe { StatusCode code = 1; }
+```
+
+#### GRPC Example
+python
+
+```python
+[1]request = RequestUnsubscribe(topic="WwUhZY4y4mUBMsQOj64eDPJRssDrJr+CSXAiEqWVoF8=")
+[2]EventStub.unsubsribe(request)
+
+```
+#### GraphQL Example
+
+```graphql
+mutation{
+  unsubscribe(topic:"WwUhZY4y4mUBMsQOj64eDPJRssDrJr+CSXAiEqWVoF8=") {
+  	code
+  }
+}
+```
+response
+```
+{
+  "data": {
+    "unsubscribe": {
+      "code": "OK"
+    }
+  }
+}
+```
