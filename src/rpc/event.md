@@ -1,25 +1,24 @@
 # Event RPC
 
-
-<!-- General description - purpose of chain rpc, problem it could solve -->
 Event RPCs help users to interact with activities they are interested in. All activities exist in the form of transactions. By using event RPCs, users can receive real-time information on updates of the transactions type they requested.
 
-
 ## RPC list
-<!-- list rpc -->
+
 - [Subscribe](#subscribe)
 - [Unsubscribe](#unsubscribe)
 
-
 ### Subscribe
-----
+
+---
+
 subscribe a certian topic of transactions. Server returns all transactions under that topic in a stream format.
 
 `subscribe(RequestSubscribe) returns (stream ResponseSubscribe)`
 
-<!-- input -->
+
 #### RequestSubscribe
-|  Name  | Data Type | Default  | Required |
+
+| Name   | Data Type | Default  | Required |
 | :----- | :-------- | :------- | :------- |
 | type   | TopicType | transfer |          |
 | filter | string    | ''       |          |
@@ -30,11 +29,12 @@ message RequestSubscribe {
   string filter = 2;
 }
 ```
+
 ---
 
-<!-- output -->
 #### ResponseSubscribe
-|       Name        |                   Data Type                    |
+
+| Name              | Data Type                                      |
 | :---------------- | :--------------------------------------------- |
 | code              | int                                            |
 | One Of Below      |                                                |
@@ -88,13 +88,15 @@ message ResponseSubscribe {
 ```
 
 #### GRPC Example
+
 Python
+
 ```python
 [1]request = RequestSubscribe(type=16)
 [2]response_stream = EventStub.subsribe(request)
 [3]for response in response_stream:
       print(response)
-    
+
 topic: "WwUhZY4y4mUBMsQOj64eDPJRssDrJr+CSXAiEqWVoF8="
 begin_block {
   hash: "\267\370\234\343\037\361\304\367\350\002V\321\215\311q)\002l\322+\322\026zX\277M\326\t_z\352G"
@@ -138,19 +140,22 @@ begin_block {
 ```
 
 #### GraphQL Example
+
 ```graphql
-subscription{
-  subscribe(type:"16"){
-    beginBlock{
-      hash,
-      header{
+subscription {
+  subscribe(type: "16") {
+    beginBlock {
+      hash
+      header {
         height
       }
     }
   }
 }
 ```
+
 response
+
 ```
 {
   "data": {
@@ -167,22 +172,29 @@ response
 ```
 
 ### Unsubscribe
-----
+
+---
+
 Unsubscribe a certian topic of transactions. Server stops return this topic of transactions.
 
 `rpc unsubscribe(RequestUnsubscribe) returns (ResponseUnsubscribe)`
 
 #### RequestSubscribe
-| Name | Data Type | Default  | Required |
-| :--- | :-------- | :------- | :------- |
-| topic | string |  | Yes         |
+
+| Name  | Data Type | Default | Required |
+| :---- | :-------- | :------ | :------- |
+| topic | string    |         | Yes      |
+
 ---
+
 ```protobuf
 message RequestUnsubscribe { string topic = 1; }
 ```
 
 <!-- output -->
+
 #### ResponseSubscribe
+
 | Name | Data Type  |
 | :--- | :--------- |
 | code | StatusCode |
@@ -192,23 +204,26 @@ message ResponseUnsubscribe { StatusCode code = 1; }
 ```
 
 #### GRPC Example
+
 python
 
 ```python
 [1]request = RequestUnsubscribe(topic="WwUhZY4y4mUBMsQOj64eDPJRssDrJr+CSXAiEqWVoF8=")
 [2]EventStub.unsubsribe(request)
-
 ```
+
 #### GraphQL Example
 
 ```graphql
-mutation{
-  unsubscribe(topic:"WwUhZY4y4mUBMsQOj64eDPJRssDrJr+CSXAiEqWVoF8=") {
-  	code
+mutation {
+  unsubscribe(topic: "WwUhZY4y4mUBMsQOj64eDPJRssDrJr+CSXAiEqWVoF8=") {
+    code
   }
 }
 ```
+
 response
+
 ```
 {
   "data": {
