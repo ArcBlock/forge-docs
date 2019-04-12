@@ -11,8 +11,8 @@ For Chinese users:
 
 For global users:
 
-* OSX: [ABT Chain Node v0.7.2 OSX build](http://releases.arcblock.io/ABTChainNode-0.7.2.dmg)
-* Ubuntu: [ABT Chain Node v0.7.2 Ubuntu build](https://releases.arcblock.io/ABTChainNode_0.7.2_amd64.deb)
+* OSX: [ABT Chain Node v0.7.2 OSX build](http://releases.arcblock.io/node/ABTChainNode-0.7.2.dmg)
+* Ubuntu: [ABT Chain Node v0.7.2 Ubuntu build](https://releases.arcblock.io/node/ABTChainNode_0.7.2_amd64.deb)
 
 
 If you are OSX user, once you downloaded the dmg file and dragged it to application folder, when you try to run it for the first time, it will give you a warning like this:
