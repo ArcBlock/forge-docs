@@ -1,41 +1,41 @@
-# Statistics RPC
+# Stats RPC
 
 
-The statistics RPC is aiming for querying the statistics data, collecting the real-time or a certain past period stats. It included 3 kinds of stats data, common data (e.g. blocks, txs etc), various types of txs stats, tps related stats.
+The stats RPC is aiming for querying the statistics data, collecting the real-time or a certain past period stats. It included 3 kinds of stats data: common data (e.g. blocks, txs etc), various types of txs stats, tps related stats.
 
 ## RPC list
 
-ForgeSdk.get_forge_statistics
+ForgeSdk.get_forge_stats
 
-### RPC Info: get_forge_statistics
+### RPC Info: get_forge_stats
 
 #### Input & Output
 
 Stats1: realtime stats
 
 ``` elixir
-# Input: %ForgeAbi.RequestGetForgeStatistics
-# Output: %ForgeAbi.ForgeStatistics
-> ForgeAbi.RequestGetForgeStatistics.new()
-%ForgeAbi.RequestGetForgeStatistics{value: nil}
+# Input: %ForgeAbi.RequestGetForgeStats
+# Output: %ForgeAbi.ForgeStats
+> ForgeAbi.RequestGetForgeStats.new()
+%ForgeAbi.RequestGetForgeStats{value: nil}
 ```
 
 Stats2: 24 hours stats for a certain date
 
 ```elixir
-# Input: %ForgeAbi.RequestGetForgeStatistics
-# Output: %ForgeAbi.ForgeStatistics
-> ForgeAbi.RequestGetForgeStatistics.new(value: {:date, ForgeAbi.ByHour.new()})
-%ForgeAbi.RequestGetForgeStatistics{value: {:date, %ForgeAbi.ByHour{date: ""}}}
+# Input: %ForgeAbi.RequestGetForgeStats
+# Output: %ForgeAbi.ForgeStats
+> ForgeAbi.RequestGetForgeStats.new(value: {:date, ForgeAbi.ByHour.new()})
+%ForgeAbi.RequestGetForgeStats{value: {:date, %ForgeAbi.ByHour{date: ""}}}
 ```
 
 Stats3: stats by day for a certain date range
 
 ```elixir
-# Input: %ForgeAbi.RequestGetForgeStatistics
-# Output: %ForgeAbi.ForgeStatistics
-> ForgeAbi.RequestGetForgeStatistics.new(value: {:date, ForgeAbi.ByDay.new()})
-%ForgeAbi.RequestGetForgeStatistics{
+# Input: %ForgeAbi.RequestGetForgeStats
+# Output: %ForgeAbi.ForgeStats
+> ForgeAbi.RequestGetForgeStats.new(value: {:date, ForgeAbi.ByDay.new()})
+%ForgeAbi.RequestGetForgeStats{
   value: {:date, %ForgeAbi.ByDay{end_date: "", start_date: ""}}
 }
 ```
@@ -45,29 +45,29 @@ Stats3: stats by day for a certain date range
 Stats1: realtime stats
 
 ``` elixir
-> realtime = ForgeAbi.RequestGetForgeStatistics.new
-%ForgeAbi.RequestGetForgeStatistics{value: nil}
+> realtime = ForgeAbi.RequestGetForgeStats.new
+%ForgeAbi.RequestGetForgeStats{value: nil}
 ```
 
 Stats2: 24 hours stats for a certain date
 
 ```elixir
-> by_hour_stats = ForgeAbi.RequestGetForgeStatistics.new(value: {:date, %ForgeAbi.ByHour{date: "2019-03-16"}})
-%ForgeAbi.RequestGetForgeStatistics{
+> by_hour_stats = ForgeAbi.RequestGetForgeStats.new(value: {:date, %ForgeAbi.ByHour{date: "2019-03-16"}})
+%ForgeAbi.RequestGetForgeStats{
   value: {:date, %ForgeAbi.ByHour{date: "2019-03-16"}}
 }
-> ForgeSdk.get_forge_statistics(by_hour_stats)
+> ForgeSdk.get_forge_stats(by_hour_stats)
 ```
 
 Stats3: stats by day for a certain date range
 
 ```elixir
-> by_day_stats = ForgeAbi.RequestGetForgeStatistics.new(value: {:day_info, %ForgeAbi.ByDay{end_date: "2019-03-19", start_date: "2019-03-16"}})
-%ForgeAbi.RequestGetForgeStatistics{
+> by_day_stats = ForgeAbi.RequestGetForgeStats.new(value: {:day_info, %ForgeAbi.ByDay{end_date: "2019-03-19", start_date: "2019-03-16"}})
+%ForgeAbi.RequestGetForgeStats{
   value: {:day_info,
    %ForgeAbi.ByDay{end_date: "2019-03-19", start_date: "2019-03-16"}}
 }
-> ForgeSdk.get_forge_statistics(by_day_stats)
+> ForgeSdk.get_forge_stats(by_day_stats)
 ```
 
 #### GraphQL example
@@ -76,8 +76,8 @@ Stats1: realtime stats
 
 ```graphql
 {
-  getForgeStatistics{
-    forgeStatistics {
+  getForgeStats{
+    forgeStats {
       avgTps
       maxTps
       numAccountMigrateTxs
@@ -105,8 +105,8 @@ Stats2: 24 hours stats for a certain date
 
 ```graphql
 {
-  getForgeStatisticsByHour(date: "2019-03-16"){
-    forgeStatistics {
+  getForgeStatsByHour(date: "2019-03-16"){
+    forgeStats {
       avgTps
       maxTps
       numAccountMigrateTxs
@@ -134,8 +134,8 @@ Stats3: stats by day for a certain date range
 
 ```graphql
 {
-  getForgeStatisticsByDay(startDate: "2019-03-16", endDate:"2019-03-20"){
-    forgeStatistics {
+  getForgeStatsByDay(startDate: "2019-03-16", endDate:"2019-03-20"){
+    forgeStats {
       avgTps
       maxTps
       numAccountMigrateTxs
@@ -159,8 +159,8 @@ Stats3: stats by day for a certain date range
 }
 
 {
-  getForgeStatisticsByDay(endDate:"2019-03-20"){
-    forgeStatistics {
+  getForgeStatsByDay(endDate:"2019-03-20"){
+    forgeStats {
       avgTps
       maxTps
       numAccountMigrateTxs
@@ -184,8 +184,8 @@ Stats3: stats by day for a certain date range
 }
 
 {
-  getForgeStatisticsByDay(startDate: "2019-03-16"){
-    forgeStatistics {
+  getForgeStatsByDay(startDate: "2019-03-16"){
+    forgeStats {
       avgTps
       maxTps
       numAccountMigrateTxs
