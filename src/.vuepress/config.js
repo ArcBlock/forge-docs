@@ -1,11 +1,11 @@
 const configureWebpack = require('./webpack');
 const markdown = require('./markdown');
 const fs = require('fs');
-const version = fs.readFileSync("../version", "utf-8").trim();
+const version = fs.readFileSync('../version', 'utf-8').trim();
 
 module.exports = {
-  title: "Forge Framework Document",
-  description: "Documentation for forge framework",
+  title: 'Forge Framework Document',
+  description: 'Documentation for forge framework',
   configureWebpack,
   markdown,
   ga: '',
@@ -22,7 +22,7 @@ module.exports = {
       lang: 'zh-CN',
       title: 'ArcBlock Forge 框架文档',
       description: 'ArcBlock Forge 框架相关文档。',
-    }
+    },
   },
   themeConfig: {
     locales: {
@@ -30,20 +30,22 @@ module.exports = {
         selectText: 'Languages',
         label: 'English',
         lastUpdated: 'Last Updated',
-        nav: [{
+        nav: [
+          {
             text: 'ABT Test Chain',
-            link: 'http://abt-test.arcblock.co:8210/dashboard'
+            link: 'http://abt-test.arcblock.co:8210/dashboard',
           },
           {
             text: 'ArcBlock',
-            link: 'https://www.arcblock.io'
+            link: 'https://www.arcblock.io',
           },
           {
             text: 'GitHub',
-            link: 'https://github.com/ArcBlock'
+            link: 'https://github.com/ArcBlock',
           },
         ],
-        sidebar: [{
+        sidebar: [
+          {
             title: 'Introduction',
             collapsable: false,
             children: ['/intro/', '/intro/transaction', '/intro/inside_forge'],
@@ -56,24 +58,23 @@ module.exports = {
           {
             title: 'Forge SDK',
             collapsable: false,
-            children: [
-              '/sdk/javascript',
-              '/sdk/python',
-              '/sdk/elixir',
-              '/sdk/others'
-            ],
+            children: ['/sdk/javascript', '/sdk/python', '/sdk/elixir', '/sdk/others'],
           },
           {
             title: 'Forge Tools',
             collapsable: false,
-            children: ['/tools/forge_cli', 'tools/forge_web', '/tools/simulator', 'tools/forge_indexer'],
+            children: [
+              '/tools/forge_cli',
+              'tools/forge_web',
+              'tools/forge_desktop',
+              '/tools/simulator',
+              'tools/forge_indexer',
+            ],
           },
           {
             title: 'Architecture',
             collapsable: false,
-            children: [
-              '/arch/overview',
-            ],
+            children: ['/arch/overview'],
           },
           {
             title: 'Forge Core',
@@ -90,25 +91,15 @@ module.exports = {
           {
             title: 'Forge TX',
             collapsable: false,
-            children: [
-              '/txs/declare',
-              '/txs/transfer',
-              '/txs/exchange',
-            ],
+            children: ['/txs/declare', '/txs/transfer', '/txs/exchange'],
           },
           {
             title: 'Forge RPC',
             collapsable: false,
-            children: [
-              '/rpc/chain',
-              '/rpc/event',
-              '/rpc/state',
-              '/rpc/statistics',
-              '/rpc/file',
-            ],
+            children: ['/rpc/chain', '/rpc/event', '/rpc/state', '/rpc/statistics', '/rpc/file'],
           },
         ],
-      }
+      },
     },
-  }
+  },
 };
