@@ -12,14 +12,14 @@ For Chinese users:
 For global users:
 
 * OSX: [ABT Chain Node v0.7.2 OSX build](http://releases.arcblock.io/node/ABTChainNode-0.7.2.dmg)
-* Ubuntu: [ABT Chain Node v0.7.2 Ubuntu build](https://releases.arcblock.io/node/ABTChainNode_0.7.2_amd64.deb)
+* Ubuntu: [ABT Chain Node v0.7.2 Ubuntu build](http://releases.arcblock.io/node/ABTChainNode_0.7.2_amd64.deb)
 
 
 If you are OSX user, once you downloaded the dmg file and dragged it to application folder, when you try to run it for the first time, it will give you a warning like this:
 
 ![Chain Node Warning](../assets/images/chain_node_warning.png)
 
-This is because the current preview version of the ABT Chain Node has not yet registered with Apple. You can find more information with this KB: https://support.apple.com/kb/ph25088?locale=en_US.
+This is because the current preview version of the ABT Chain Node has not yet registered with Apple. You can find more information with this KB: [https://support.apple.com/kb/ph25088?locale=en_US](https://support.apple.com/kb/ph25088?locale=en_US).
 
 So don't worry about it for now. You can find the app in the finder, right click it and select "Open" from the menu:
 
