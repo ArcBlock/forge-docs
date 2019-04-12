@@ -107,6 +107,16 @@ module.exports = {
               '/rpc/file',
             ],
           },
+          {
+            title: 'Forge Types',
+            collapsable: false,
+            children: [
+              '/types/type',
+              '/types/enum',
+              '/types/state',
+              '/types/trace_type',
+            ],
+          },
         ],
       }
     },
