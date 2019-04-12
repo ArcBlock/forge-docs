@@ -33,7 +33,7 @@ module.exports = {
         nav: [
           {
             text: 'ABT Test Chain',
-            link: 'http://abt-test.arcblock.co:8210/dashboard',
+            link: 'https://abtnetwork.io',
           },
           {
             text: 'ArcBlock',
