@@ -1,6 +1,6 @@
-# Forge Desktop
+# ABT Chain Node
 
-Also known as **ABT Chain Node**, is a non-developer friendly application that can start/manage a forge node.
+**ABT Chain Node**, a non-developer-user friendly application that can start/manage a forge node.
 
 Forge desktop manages node start/stop automatically, currently we have 2 builds for forge desktop, then both share the same set of features.
 
