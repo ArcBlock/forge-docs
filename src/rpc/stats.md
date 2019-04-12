@@ -1,6 +1,5 @@
 # Stats RPC
 
-
 The stats RPC is aiming for querying the statistics data, collecting the real-time or a certain past period stats. It included 3 kinds of stats data: common data (e.g. blocks, txs etc), various types of txs stats, tps related stats.
 
 ## RPC list
