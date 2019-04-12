@@ -3,6 +3,12 @@
 
 ## Quick Start
 
+::: tip
+
+If you're MAC OSX or ubuntu user, we prepared a desktop version (preview edition) for you to get a node up and running as soon as possible. Please visit [ABT Chain Node](../tools/abt_chain_node.md) to get more details.
+
+:::
+
 If you want to quickly try Forge framework, feel free to install Forge CLI tools:
 
 ```bash

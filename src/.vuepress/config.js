@@ -66,7 +66,7 @@ module.exports = {
           {
             title: 'Forge Tools',
             collapsable: false,
-            children: ['/tools/forge_cli', 'tools/forge_web', '/tools/simulator', 'tools/forge_indexer'],
+            children: ['/tools/forge_cli', 'tools/forge_web', 'tools/abt_chain_node', '/tools/simulator', 'tools/forge_indexer'],
           },
           // {
           //   title: 'Architecture',
