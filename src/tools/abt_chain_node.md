@@ -15,6 +15,39 @@ For global users:
 * Ubuntu: [ABT Chain Node v0.7.2 Ubuntu build](https://releases.arcblock.io/ABTChainNode_0.7.2_amd64.deb)
 
 
+If you are OSX user, once you downloaded the dmg file and dragged it to application folder, when you try to run it for the first time, it will give you a warning like this:
+
+![Chain Node Warning](../assets/images/chain_node_warning.png)
+
+This is because the current preview version of the ABT Chain Node has not yet registered with Apple. You can find more information with this KB: https://support.apple.com/kb/ph25088?locale=en_US.
+
+So don't worry about it for now. You can find the app in the finder, right click it and select "Open" from the menu:
+
+![Open Chain Node](../assets/images/open_chain_node.png)
+
+Then click "Open" again in the popup window to allow it:
+
+![Allow Open Chain Node](../assets/images/allow_open.png)
+
+Then ABT Chain Node shall be successfully opened like this:
+
+![Node Open](../assets/images/node_start_up.jpg)
+
+ and wait a moment you will see the running node like this:
+
+![Node Normal](../assets/images/node_normal.jpg)
+
+If you see node shows certain GraphQL error like this:
+
+![Node Error](../assets/images/node_error.jpg)
+
+don't panic, just click `Command + R` to refresh the page, then it shall work.
+
+A newly started node will have just a few transactions, if you want to generate some transactions, you can start the simulator with integrated API playground:
+
+![Node Simulator](../assets/images/node_simulator.jpg)
+
+
 ## Features
 
 ### Join a network

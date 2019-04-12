@@ -8,10 +8,10 @@ Welcome to the ArcBlock Forge Framework documentation!
 
 To get started quickly with an example application, see the [quick start guide](intro/).
 
-To learn the supported SDK we built, see the [Forge SDK](sdk/).
+<!-- To learn the supported SDK we built, see the [Forge SDK](sdk/).
 
 For more details on how Forge framework works, see the respective documentation for
-[Forge Architecture](arch/), [Forge Core](core/) [Tools](tools/).
+[Forge Architecture](arch/), [Forge Core](core/) [Tools](tools/). -->
 
 
 ## Contribute
