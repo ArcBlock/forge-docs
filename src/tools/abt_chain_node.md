@@ -1,6 +1,6 @@
 # ABT Chain Node
 
-ABT Chain Node is a non-developer, user-friendly application that can start/manage a forge node. It is currently a preview version. For MAC OSX and Ubuntu user, we build desktop edition to manage node start/stop automatically.
+ABT Chain Node is a user-friendly application that can start/manage a forge node. It is currently a preview version. For MAC OSX and Ubuntu user, we build desktop edition to manage node start/stop automatically.
 
 The most up to date build is using forge v0.22.8:
 
@@ -46,6 +46,22 @@ don't panic, just click `Command + R` to refresh the page, then it shall work.
 A newly started node will have just a few transactions, if you want to generate some transactions, you can start the simulator with integrated API playground:
 
 ![Node Simulator](../assets/images/node_simulator.jpg)
+
+## If you stuck...
+
+If you stuck and got error like this:
+
+![Node error](../assets/images/chain_node_error.jpg)
+
+It is highly likely that your osx lacks of the necessary tool chains. If you have homebrew in your system, open a terminal and run this command:
+
+```bash
+brew install automake libtool pkg-config libffi gmp openssl
+```
+
+This is to install openssl and other tools for cryptographic related functions. If you don't have homebrew installed, please follow the first 3 steps in this doc: [Install Forge on OSX](../install/macos.html).
+
+Then rerun the ABTChainNode app. It should work. If not, please let us know. Note that OSX El Captain and lower version is not supported.
 
 
 ## Features
