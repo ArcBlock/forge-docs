@@ -103,7 +103,7 @@ module.exports = {
           //     '/rpc/chain',
           //     '/rpc/event',
           //     '/rpc/state',
-          //     '/rpc/statistics',
+          //     '/rpc/stats',
           //     '/rpc/file',
           //   ],
           // },
