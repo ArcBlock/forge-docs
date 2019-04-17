@@ -3,15 +3,16 @@
 Stats RPC is aiming for querying the statistics data, collecting the real-time or past values for a given period.
 
 ## RPC list
-  - [Get Forge Stats](#get-forge-stats)
-  - [List Transactions](#list-transactions)
-  - [List Assets](#list-assets)
-  - [List Stakes](#list-stakes)
-  - [List Account](#list-account)
-  - [List Top Accounts](#list-top-accounts)
-  - [List Asset Transactions](#list-asset-transactions)
-  - [List Blocks](#list-blocks)
-  - [Get Health Status](#get-health-status)
+
+- [Get Forge Stats](#get-forge-stats)
+- [List Transactions](#list-transactions)
+- [List Assets](#list-assets)
+- [List Stakes](#list-stakes)
+- [List Account](#list-account)
+- [List Top Accounts](#list-top-accounts)
+- [List Asset Transactions](#list-asset-transactions)
+- [List Blocks](#list-blocks)
+- [Get Health Status](#get-health-status)
 
 ---
 
