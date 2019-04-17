@@ -88,9 +88,9 @@ $ tree ~/.forge_release/core/keystore/
 
 Although we use same moniker and passphrase, each time we create a wallet a new keypair is generated and as a result, a new wallet (address) is generated.
 
-### Create a wallet with Forge SDK
+<!-- ### Create a wallet with Forge SDK
 
-You can also create wallet with forge SDK easily, please refer [Forge SDK](../sdk).
+You can also create wallet with forge SDK easily, please refer [Forge SDK](../sdk). -->
 
 ### Create a wallet with Wallet App
 
