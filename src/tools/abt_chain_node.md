@@ -116,13 +116,11 @@ A newly started node has just a few transactions. To generate more transactions,
 
 Use the following steps to join your blockchain to a network:
 
-::: warning
-
+<aside class="warning">
 Joining a new network wipes out your local data. If you want to preserve your
 data, ensure that you create a backup. All of the data that the ABT Chain Node
 app creates is stored in `~/.forge_desktop`.
-
-:::
+</aside>
 
 1. From the application menu (the **ABT Chain Node** menu in the top navigation
    bar), select **Join Another Network**, as shown in the following image:
