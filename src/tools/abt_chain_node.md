@@ -153,13 +153,11 @@ to sync with remote node.
 Resetting chain state stops the node and deletes all of the network data on
 disk.
 
-::: warning
-
+<aside class="warning">
 Resetting chain state wipes out your local data. If you want to preserve your
 data, ensure that you create a backup. All of the data that the ABT Chain Node
 app creates is stored in `~/.forge_desktop`.
-
-:::
+</aside>
 
 Use the following steps to reset chain state:
 
