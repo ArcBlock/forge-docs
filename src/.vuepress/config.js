@@ -104,7 +104,7 @@ module.exports = {
           //     '/rpc/event',
           //     '/rpc/state',
           //     '/rpc/stats',
-          //     '/rpc/file',
+          //     '/rpc/wallet',
           //   ],
           // },
           // {
