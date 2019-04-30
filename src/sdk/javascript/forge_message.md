@@ -5,8 +5,8 @@
 
 Contains basic helper methods to encode/format/mock a protobuf message
 
-**Requires**: <code>module:[**@arcblock/forge-util**](https://github.com/arcblock/forge-util)</code>, <code>module:[**@arcblock/forge-proto**](https://github.com/arcblock/forge-proto)</code>  
-**Example**  
+**Requires**: <code>module:[**@arcblock/forge-util**](https://github.com/arcblock/forge-util)</code>, <code>module:[**@arcblock/forge-proto**](https://github.com/arcblock/forge-proto)</code>
+**Example**
 
 ```js
 yarn add @arcblock/forge-message
@@ -14,31 +14,32 @@ yarn add @arcblock/forge-message
 const { createMessage, fakeMessage, formatMessage } = require('@arcblock/forge-message');
 ```
 
-* [@arcblock/forge-message](#module_@arcblock/forge-message)
-  * [.fakeMessage(type)](#module_@arcblock/forge-message.fakeMessage) ⇒ <code>object</code>
-  * [.formatMessage(type, data)](#module_@arcblock/forge-message.formatMessage) ⇒ <code>object</code>
-  * [.createMessage(type, params)](#module_@arcblock/forge-message.createMessage) ⇒ <code>object</code>
-  * [.decodeAny(data)](#module_@arcblock/forge-message.decodeAny) ⇒ <code>object</code>
-  * [.encodeAny(data)](#module_@arcblock/forge-message.encodeAny) ⇒ <code>object</code>
-  * [.encodeTimestamp(value)](#module_@arcblock/forge-message.encodeTimestamp) ⇒ <code>object</code>
-  * [.decodeTimestamp(data)](#module_@arcblock/forge-message.decodeTimestamp) ⇒ <code>strong</code>
-  * [.encodeBigInt(value, type)](#module_@arcblock/forge-message.encodeBigInt) ⇒ <code>object</code>
-  * [.decodeBigInt(data)](#module_@arcblock/forge-message.decodeBigInt) ⇒ <code>string</code>
+- [**@arcblock/forge-message**](#arcblockforge-message)
+  - [fakeMessage(type) ⇒ <code>object</code>](#fakemessagetype-%E2%87%92-codeobjectcode)
+  - [formatMessage(type, data) ⇒ <code>object</code>](#formatmessagetype-data-%E2%87%92-codeobjectcode)
+  - [createMessage(type, params) ⇒ <code>object</code>](#createmessagetype-params-%E2%87%92-codeobjectcode)
+  - [decodeAny(data) ⇒ <code>object</code>](#decodeanydata-%E2%87%92-codeobjectcode)
+  - [encodeAny(data) ⇒ <code>object</code>](#encodeanydata-%E2%87%92-codeobjectcode)
+  - [encodeTimestamp(value) ⇒ <code>object</code>](#encodetimestampvalue-%E2%87%92-codeobjectcode)
+  - [decodeTimestamp(data) ⇒ <code>strong</code>](#decodetimestampdata-%E2%87%92-codestrongcode)
+  - [encodeBigInt(value, type) ⇒ <code>object</code>](#encodebigintvalue-type-%E2%87%92-codeobjectcode)
+  - [decodeBigInt(data) ⇒ <code>string</code>](#decodebigintdata-%E2%87%92-codestringcode)
+- [Contributors](#contributors)
 
-<a name="module_@arcblock/forge-message.fakeMessage"></a>
+<a name="fakeMessage"></a>
 
-### [**@arcblock/forge-message**](https://github.com/arcblock/forge-message).fakeMessage(type) ⇒ <code>object</code>
+### fakeMessage(type) ⇒ <code>object</code>
 
 Generated a fake message for a type, the message can be RPC request/response
 
-**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)  
-**Access**: public  
+**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)
+**Access**: public
 
 | Param | Type                | Description                                                                |
 | ----- | ------------------- | -------------------------------------------------------------------------- |
 | type  | <code>string</code> | Message type string, should be defined in forge-abi or forge-core-protocol |
 
-**Example**  
+**Example**
 
 ```js
 const { fakeMessage} = require('@arcblock/forge-message');
@@ -55,37 +56,37 @@ const message = fakeMessage('CreateAssetTx');
 }
 ```
 
-<a name="module_@arcblock/forge-message.formatMessage"></a>
+<a name="formatMessage"></a>
 
-### [**@arcblock/forge-message**](https://github.com/arcblock/forge-message).formatMessage(type, data) ⇒ <code>object</code>
+### formatMessage(type, data) ⇒ <code>object</code>
 
 Format an message from RPC to UI friendly
 
-**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)  
-**Returns**: <code>object</code> - [almost same structure as input]  
-**Access**: public  
+**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)
+**Returns**: <code>object</code> - [almost same structure as input]
+**Access**: public
 
 | Param | Type                | Description |
 | ----- | ------------------- | ----------- |
 | type  | <code>string</code> | input type  |
 | data  | <code>object</code> | input data  |
 
-<a name="module_@arcblock/forge-message.createMessage"></a>
+<a name="createMessage"></a>
 
-### [**@arcblock/forge-message**](https://github.com/arcblock/forge-message).createMessage(type, params) ⇒ <code>object</code>
+### createMessage(type, params) ⇒ <code>object</code>
 
 Create an protobuf encoded Typed message with specified data, ready to send to rpc server
 
-**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)  
-**Returns**: <code>object</code> - Message instance  
-**Access**: public  
+**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)
+**Returns**: <code>object</code> - Message instance
+**Access**: public
 
 | Param  | Type                | Description                         |
 | ------ | ------------------- | ----------------------------------- |
 | type   | <code>string</code> | message type defined in forge-proto |
 | params | <code>object</code> | message content                     |
 
-**Example**  
+**Example**
 
 ```js
 const { createMessage } = require('@arcblock/forge-message');
@@ -100,90 +101,90 @@ message.getReadonly(); // false
 message.setReadonly(true);
 ```
 
-<a name="module_@arcblock/forge-message.decodeAny"></a>
+<a name="decodeAny"></a>
 
-### [**@arcblock/forge-message**](https://github.com/arcblock/forge-message).decodeAny(data) ⇒ <code>object</code>
+### decodeAny(data) ⇒ <code>object</code>
 
 Decode an google.protobuf.Any%{ typeUrl, value } => { type, value }
 
-**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)  
-**Returns**: <code>object</code> - Object%{type, value}  
-**Access**: public  
+**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)
+**Returns**: <code>object</code> - Object%{type, value}
+**Access**: public
 
 | Param | Type                | Description         |
 | ----- | ------------------- | ------------------- |
 | data  | <code>object</code> | encoded data object |
 
-<a name="module_@arcblock/forge-message.encodeAny"></a>
+<a name="encodeAny"></a>
 
-### [**@arcblock/forge-message**](https://github.com/arcblock/forge-message).encodeAny(data) ⇒ <code>object</code>
+### encodeAny(data) ⇒ <code>object</code>
 
 Encode { type, value } => google.protobuf.Any%{ typeUrl, value }
 Does nothing on already encoded message
 
-**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)  
-**Returns**: <code>object</code> - google.protobuf.Any  
-**Access**: public  
+**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)
+**Returns**: <code>object</code> - google.protobuf.Any
+**Access**: public
 
 | Param | Type                |
 | ----- | ------------------- |
 | data  | <code>object</code> |
 
-<a name="module_@arcblock/forge-message.encodeTimestamp"></a>
+<a name="encodeTimestamp"></a>
 
-### [**@arcblock/forge-message**](https://github.com/arcblock/forge-message).encodeTimestamp(value) ⇒ <code>object</code>
+### encodeTimestamp(value) ⇒ <code>object</code>
 
 Convert an { seconds, nanos } | date-string to google.protobuf.Timestamp object
 
-**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)  
-**Returns**: <code>object</code> - instanceof google.protobuf.Timestamp  
-**Access**: public  
+**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)
+**Returns**: <code>object</code> - instanceof google.protobuf.Timestamp
+**Access**: public
 
 | Param | Type                                       |
 | ----- | ------------------------------------------ |
 | value | <code>string</code> \| <code>object</code> |
 
-<a name="module_@arcblock/forge-message.decodeTimestamp"></a>
+<a name="decodeTimestamp"></a>
 
-### [**@arcblock/forge-message**](https://github.com/arcblock/forge-message).decodeTimestamp(data) ⇒ <code>strong</code>
+### decodeTimestamp(data) ⇒ <code>strong</code>
 
 Decode google.protobuf.Timestamp message to ISO Date String
 
 FIXME: node strictly equal because we rounded the `nanos` field
 
-**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)  
-**Returns**: <code>strong</code> - String timestamp  
-**Access**: public  
+**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)
+**Returns**: <code>strong</code> - String timestamp
+**Access**: public
 
 | Param | Type                |
 | ----- | ------------------- |
 | data  | <code>object</code> |
 
-<a name="module_@arcblock/forge-message.encodeBigInt"></a>
+<a name="encodeBigInt"></a>
 
-### [**@arcblock/forge-message**](https://github.com/arcblock/forge-message).encodeBigInt(value, type) ⇒ <code>object</code>
+### encodeBigInt(value, type) ⇒ <code>object</code>
 
 Encode BigUint and BigSint types defined in forge-sdk, double encoding is avoided
 
-**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)  
-**Returns**: <code>object</code> - Message  
-**Access**: public  
+**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)
+**Returns**: <code>object</code> - Message
+**Access**: public
 
 | Param | Type                                                              | Description                       |
 | ----- | ----------------------------------------------------------------- | --------------------------------- |
 | value | <code>buffer</code> \| <code>string</code> \| <code>number</code> | value to encode                   |
 | type  | <code>string</code>                                               | type names defined in forge-proto |
 
-<a name="module_@arcblock/forge-message.decodeBigInt"></a>
+<a name="decodeBigInt"></a>
 
-### [**@arcblock/forge-message**](https://github.com/arcblock/forge-message).decodeBigInt(data) ⇒ <code>string</code>
+### decodeBigInt(data) ⇒ <code>string</code>
 
 Convert BigUint and BigSint to string representation of numbers
 
-**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)  
-**Returns**: <code>string</code> - human readable number  
-**Access**: public  
-**Link**: <https://stackoverflow.com/questions/23948278/how-to-convert-byte-array-into-a-signed-big-integer-in-javascript>  
+**Kind**: static method of [<code>@arcblock/forge-message</code>](#module_@arcblock/forge-message)
+**Returns**: <code>string</code> - human readable number
+**Access**: public
+**Link**: <https://stackoverflow.com/questions/23948278/how-to-convert-byte-array-into-a-signed-big-integer-in-javascript>
 
 | Param      | Type                 | Description               |
 | ---------- | -------------------- | ------------------------- |
