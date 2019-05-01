@@ -31,14 +31,6 @@ module.exports = {
         label: 'English',
         lastUpdated: 'Last Updated',
         nav: [{
-            text: 'ABT Network',
-            link: 'http://explorer.abtnetwork.io'
-          },
-          {
-            text: 'ArcBlock',
-            link: 'https://www.arcblock.io'
-          },
-          {
             text: 'GitHub',
             link: 'https://github.com/ArcBlock'
           },

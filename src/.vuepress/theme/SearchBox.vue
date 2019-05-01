@@ -170,7 +170,7 @@ export default {
     padding 0 0.5rem 0 2rem
     outline none
     transition all .2s ease
-    background #fff url(./search.svg) 0.6rem 0.5rem no-repeat
+    background url(./search.svg) 0.6rem 0.5rem no-repeat
     background-size 1rem
     &:focus
       cursor auto
@@ -180,9 +180,9 @@ export default {
     width 20rem
     position absolute
     top 1.5rem
-    border 1px solid darken($borderColor, 10%)
+    box-shadow rgba(0, 0, 0, 0.05) 0px 0px 10px 0px
     border-radius 6px
-    padding 0.4rem
+    padding 0.8rem
     list-style-type none
     &.align-right
       right 0
