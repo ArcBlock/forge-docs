@@ -1,3 +1,6 @@
+## 0.19.0 (May 02, 2019)
+  - add general guide for sdk
+
 ## 0.18.2 (March 16, 2019)
   - add installation guide
 
