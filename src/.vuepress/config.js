@@ -31,10 +31,9 @@ module.exports = {
         label: 'English',
         lastUpdated: 'Last Updated',
         nav: [{
-            text: 'GitHub',
-            link: 'https://github.com/ArcBlock'
-          },
-        ],
+          text: 'GitHub',
+          link: 'https://github.com/ArcBlock'
+        }, ],
         sidebar: [{
             title: 'Introduction',
             collapsable: false,
@@ -49,6 +48,7 @@ module.exports = {
             title: 'Forge SDK',
             collapsable: false,
             children: [
+              '/sdk/',
               '/sdk/javascript',
               '/sdk/python',
               '/sdk/elixir',
