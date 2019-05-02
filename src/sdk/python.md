@@ -1,6 +1,8 @@
 # Python SDK
 ## Forge-python-sdk
-For Forge-related setup, please checkout [Forge](https://github.com/ArcBlock/forge).
+For Forge-related setup, please checkout [Forge](https://github.com/ArcBlock/forge).   
+
+A detailed reference manual for forge-python-sdk can be found [here](https://docs.arcblock.io/forge-python-sdk/index.html).
 
 
 ## Installation
@@ -14,17 +16,21 @@ This sdk supports python verison `>=3.6`.
 :::
 
 ## Usage
-First get your Forge running on local with [Forge Cli](https://github.com/ArcBlock/forge-js/tree/master/packages/forge-cli)
 
+### Step 0
+First get your Forge running on local with [Forge Cli](https://github.com/ArcBlock/forge-js/tree/master/packages/forge-cli). 
+
+### Step 1
 Find the config your forge is using by `forge config`
 
+### Step 2
 Set `FORGE_CONFIG` as your environment variable, pointing to the config your forge is running on.
 
-### Simple RPC examples
+### Simple GRPC examples
 
 #### Import rpc module
 ```python
-from forge.rpc import rpc
+from forge_sdk import rpc
 ```
 ::: warning
 Your forge should be running when you import rpc. Otherwise, rpc module can't be imported correctly. Checkout  [Forge Cli](https://github.com/ArcBlock/forge-js/tree/master/packages/forge-cli) for how to start Forge.
