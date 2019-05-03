@@ -5,6 +5,7 @@ VUEPRESS=../node_modules/vuepress/bin/vuepress.js
 VERSION=$(strip $(shell cat version))
 
 build: $(OUTPUT_FOLDER)
+	@rm -rf $(OUTPUT_FOLDER)/*
 	@cd src; DOC_VERSION=latest $(VUEPRESS) build
 	@cd src; DOC_VERSION=$(VERSION) $(VUEPRESS) build
 	@echo "All slides are built."
