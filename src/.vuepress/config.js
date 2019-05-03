@@ -3,14 +3,16 @@ const markdown = require('./markdown');
 const fs = require('fs');
 const version = fs.readFileSync("../version", "utf-8").trim();
 
+const doc_version = process.env.DOC_VERSION;
+
 module.exports = {
   title: "Forge Framework Document",
   description: "Documentation for forge framework",
   configureWebpack,
   markdown,
   ga: '',
-  dest: '../dist/forge',
-  base: '/forge/',
+  dest: `../dist/forge/${doc_version}`,
+  base: `/forge/${doc_version}/`,
   version: version,
   locales: {
     '/': {

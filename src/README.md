@@ -18,7 +18,3 @@ For more details on how Forge framework works, see the respective documentation 
 
 To contribute to the documentation, see [this file](./DOCS_README.md) for details of the build process and
 considerations when making changes.
-
-## Version
-
-This documentation is built from the following commit:
