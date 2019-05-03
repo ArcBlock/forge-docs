@@ -1,8 +1,8 @@
 # Python SDK
 ## Forge-python-sdk
-For Forge-related setup, please checkout [Forge](https://github.com/ArcBlock/forge).   
+For Forge-related setup, please checkout [Forge](https://github.com/ArcBlock/forge).
 
-A detailed reference manual for forge-python-sdk can be found [here](https://docs.arcblock.io/forge-python-sdk/index.html).
+A detailed reference manual for forge-python-sdk can be found [here](../../../forge-python-sdk).
 
 
 ## Installation
@@ -12,13 +12,13 @@ We recommend installing through `pip`
 pip install forge-python-sdk
 ```
 ::: warning
-This sdk supports python verison `>=3.6`. 
+This sdk supports python verison `>=3.6`.
 :::
 
 ## Usage
 
 ### Step 0
-First get your Forge running on local with [Forge Cli](https://github.com/ArcBlock/forge-js/tree/master/packages/forge-cli). 
+First get your Forge running on local with [Forge CLI](../tools/forge_cli.md).
 
 ### Step 1
 Find the config your forge is using by `forge config`
@@ -31,11 +31,11 @@ Set `FORGE_CONFIG` as your environment variable, pointing to the config your for
 
 ### Level 1 Tutorial: Transfer Money
 
-**Scenario**: Alice wants to transfer 10 TBA to Mike. 
+**Scenario**: Alice wants to transfer 10 TBA to Mike.
 
-::: tip Notes 
-**TBA** is the default currency on Forge Chain. 1 TBA has 16 digits, so it shows as `10000000000000000`. 
-::: 
+::: tip Notes
+**TBA** is the default currency on Forge Chain. 1 TBA has 16 digits, so it shows as `10000000000000000`.
+:::
 
 #### Step 1: create wallets for Alice and Mike
 --------
@@ -78,7 +78,7 @@ Receiving the **hash** means the transaction has been passed to Forge, but doens
 >>> rpc.is_tx_ok('CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2')
 True
 ```
-If `is_tx_ok` returns `True`, that means the transaction has been executed successfully. Now Alice should have 25 TBA in her account. 
+If `is_tx_ok` returns `True`, that means the transaction has been executed successfully. Now Alice should have 25 TBA in her account.
 
 
 Now let's check Alice's account balance. There should be 25 TBA.
@@ -89,14 +89,14 @@ Now let's check Alice's account balance. There should be 25 TBA.
 ```
 
 ::: tip Notes
-**Poke**: Each account can send a **Poke Transaction** to get 25 TBA each day. 
+**Poke**: Each account can send a **Poke Transaction** to get 25 TBA each day.
 **Hash**: The calculated hash of the signed transaction. Each transaction should have its own unique **hash**.
 :::
 
 #### Step 3: Transfer the money from Alice to Mike
 -------
 
-Now Alice has 25 TBA in her account and Mike has nothing. We can help Alice transfer 10 TBA to Mike by sending out a **transfer transaction**. 
+Now Alice has 25 TBA in her account and Mike has nothing. We can help Alice transfer 10 TBA to Mike by sending out a **transfer transaction**.
 
 ```python
 
