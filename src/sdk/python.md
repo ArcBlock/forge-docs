@@ -1,6 +1,8 @@
 # Python SDK
 ## Forge-python-sdk
-For Forge-related setup, please checkout [Forge](https://github.com/ArcBlock/forge).
+For Forge-related setup, please checkout [Forge](https://github.com/ArcBlock/forge).   
+
+A detailed reference manual for forge-python-sdk can be found [here](https://docs.arcblock.io/forge-python-sdk/index.html).
 
 
 ## Installation
@@ -14,91 +16,97 @@ This sdk supports python verison `>=3.6`.
 :::
 
 ## Usage
-First get your Forge running on local with [Forge Cli](https://github.com/ArcBlock/forge-js/tree/master/packages/forge-cli)
 
+### Step 0
+First get your Forge running on local with [Forge Cli](https://github.com/ArcBlock/forge-js/tree/master/packages/forge-cli). 
+
+### Step 1
 Find the config your forge is using by `forge config`
 
+### Step 2
 Set `FORGE_CONFIG` as your environment variable, pointing to the config your forge is running on.
 
-### Simple RPC examples
 
-#### Import rpc module
+## Tutorials
+
+### Level 1 Tutorial: Transfer Money
+
+**Scenario**: Alice wants to transfer 10 TBA to Mike. 
+
+::: tip Notes 
+**TBA** is the default currency on Forge Chain. 1 TBA has 16 digits, so it shows as `10000000000000000`. 
+::: 
+
+#### Step 1: create wallets for Alice and Mike
+--------
 ```python
-from forge.rpc import rpc
+>>> from forge_sdk import rpc, protos
+>>> alice=rpc.create_wallet(moniker='alice', passphrase='abc123')
+>>> mike = rpc.create_wallet(moniker='mike', passphrase='abc123')
 ```
-::: warning
-Your forge should be running when you import rpc. Otherwise, rpc module can't be imported correctly. Checkout  [Forge Cli](https://github.com/ArcBlock/forge-js/tree/master/packages/forge-cli) for how to start Forge.
+
+::: tip Notes
+`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../intro/concepts).
 :::
 
+Let's take a look at Alice's wallet and here account details
 
-#### get chain info
 ```python
-rpc.get_chain_info()
-Out[3]:
-info {
-  id: "fea5f258f30cd184d3c38af42d99e03325f6c875"
-  network: "forge"
-  moniker: "forge-local"
-  consensus_version: "0.30.2"
-  synced: true
-  app_hash: "\345\031\313\021\226\301\360\030\254\360\206+/\200\217\275/\r`\021\026\243\342g1\256\335\340\246lr\213"
-  block_hash: "E\262~\222\3318 \325\337\016\013\321\342\271\347\346\000\264uC\225nc\354\275n\020~\372x#e"
-  block_height: 99833
-  block_time {
-    seconds: 1554851683
-  }
-  address: "zyt5PXcpLoEdYsJrnf7bEAuCFBEM5d7Jg3FP"
-  voting_power: 10
-  total_txs: 264
-  version: "0.21.3"
-  data_version: "1.5"
-  forge_apps_version {
-    key: "Event-Chain"
-    value: "0.1.0"
-  }
-  supported_txs: "fg:t:update_asset"
-  supported_txs: "fg:t:transfer"
-  supported_txs: "fg:t:sys_upgrade"
-  supported_txs: "fg:t:stake"
-  supported_txs: "fg:t:exchange"
-  supported_txs: "fg:t:declare_file"
-  supported_txs: "fg:t:declare"
-  supported_txs: "fg:t:consensus_upgrade"
-  supported_txs: "fg:t:create_asset"
-  supported_txs: "fg:t:consume_asset"
-  supported_txs: "fg:t:poke"
-  supported_txs: "fg:t:account_migrate"
+>>> alice
+token: "886fe22cd8d29a5c0d0fa5b21ec448bd"
+wallet {
+  sk: "\274\262\331z\000\265\374\271O7f\2640<\214\212G\302y\021\232\363\355.E\207\213&\355\362\260Gu\204\360@e\036\353\357\276\323\340\211\371U\3716\2212\304\223\037{\037\366\267\374\233@\021\215W\027"
+  pk: "u\204\360@e\036\353\357\276\323\340\211\371U\3716\2212\304\223\037{\037\366\267\374\233@\021\215W\027"
+  address: "z1brhJCteRSvHUQ9BytsZePkY4KJ9LFBayC"
 }
 
+>>> rpc.get_account_balance(alice.wallet.address)
+0
+```
+#### Step 2: Help Alice send a Poke Transaction to get some money
+------
+
+Now you have created wallets for Alice and Mike, but there's no money in their accounts. Let's help Alice to earn some money by sending a **Poke** transaction.
+
+```python
+>>> rpc.send_poke_tx(alice.wallet, alice.token)
+hash: "CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2"
+```
+Receiving the **hash** means the transaction has been passed to Forge, but doens't mean the transaction is successful. To confirm that the transaction is sent successfully, let's dive deeper into the tranaction details.
+
+```python
+>>> rpc.is_tx_ok('CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2')
+True
+```
+If `is_tx_ok` returns `True`, that means the transaction has been executed successfully. Now Alice should have 25 TBA in her account. 
+
+
+Now let's check Alice's account balance. There should be 25 TBA.
+
+```python
+>>> rpc.get_account_balance(alice.wallet.address)
+250000000000000000
 ```
 
-#### get health status
+::: tip Notes
+**Poke**: Each account can send a **Poke Transaction** to get 25 TBA each day. 
+**Hash**: The calculated hash of the signed transaction. Each transaction should have its own unique **hash**.
+:::
+
+#### Step 3: Transfer the money from Alice to Mike
+-------
+
+Now Alice has 25 TBA in her account and Mike has nothing. We can help Alice transfer 10 TBA to Mike by sending out a **transfer transaction**. 
+
 ```python
-rpc.get_health_status()
-Out[3]: 
-health_status {
-  consensus {
-    health: true
-    synced: true
-    block_height: 121550
-  }
-  network {
-  }
-  storage {
-    health: true
-    indexer_server: "ok"
-    state_db: "ok"
-    disk_space {
-    }
-  }
-  forge {
-    health: true
-    abi_server: "ok"
-    forge_web: "ok"
-    abci_server {
-      abci_consensus: "ok"
-      abci_info: "ok"
-    }
-  }
-}
+
+>>> transfer_itx = protos.TransferTx(to=mike.wallet.address,value=utils.int_to_biguint(100000000000000000))
+
+>>> rpc.send_transfer_tx(transfer_itx, alice.wallet, alice.token)
+ hash: "CAEF155B1A3A684DAF57C595F68821502BC0187BEC514E4660BA1BD568474345"
+
+>>> rpc.is_tx_ok('CAEF155B1A3A684DAF57C595F68821502BC0187BEC514E4660BA1BD568474345')
+True
 ```
+
+ 🎉 Congratulations! You have finished the Level 1 tutorial! Now you should have a general sense about how Forge works. If you want more challenges, go checkout Level 2 and Level 3 tutorials.
