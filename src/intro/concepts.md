@@ -1,5 +1,5 @@
-# Forge SDK Guide
-How to use Forge SDK to build your first application
+# General Concepts
+Essential concepts to use Forge SDK for your first application
 
 ## Introduction
 -----
@@ -26,13 +26,13 @@ message Transaction {
 ```
 Above is the comlete definition of a **transaction**. 
 
-* _from_: the sender address that initiates the transaction
-* _nonce_: an integer that track how many transactions this address has sent
-* _chain_id_: a string that tracks on which chain this transaction happens
-* _pk_: bytes of public key of sender
-* _signature_: bytes of sender's signature over this transaction. Used by   receiver to verify that the content of this transaction has not been changed by other parties.
-* _signatures_: signatures and address of third parties if this transaction requires approval of more than two parties
-* _itx_: type and content of this transaction.
+* `from`: the sender address that initiates the transaction
+* `nonce`: an integer that track how many transactions this address has sent
+* `chain_id`: a string that tracks on which chain this transaction happens
+* `pk`: bytes of public key of sender
+* `signature`: bytes of sender's signature over this transaction. Used by   receiver to verify that the content of this transaction has not been changed by other parties.
+* `signatures`: signatures and address of third parties if this transaction requires approval of more than two parties
+* `itx`: type and content of this transaction.
 
 Detailed explanation of each field will be covered later. 
 
@@ -54,10 +54,10 @@ message WalletInfo {
   string address = 4;
 }
 ```
-* _type_: the cryptographic algorithms used to generate this wallet
-* _sk_: secrety key
-* _pk_: public key
-* _address_: wallet address, which also the account address
+* `type`: the cryptographic algorithms used to generate this wallet
+* `sk`: secrety key
+* `pk`: public key
+* `address`: wallet address, which also the account address
 
 ### Keys
 
@@ -121,3 +121,9 @@ For the complete list of itx types and explanations, please see [Forge ITX](http
 ## Commucation
 
 Users communicate with Forge through [GRPC](https://grpc.io/docs/) calls or [GraphQL](https://graphql.org/learn/).
+
+SDK has implemented many read-to-use GRPC APIs for users to use. Detailed guide for SDK can be found [here](https://docs.arcblock.io/forge/sdk/).
+
+### Protobuf
+
+To communicate in GRPC, all messages should be in the format of [protobuf](https://developers.google.com/protocol-buffers/), which is a format designed to seralize data transferred in **gRPC** calls.
