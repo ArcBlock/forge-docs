@@ -47,6 +47,8 @@ dev:
 run:
 	@http-server ./dist -p 8008 -c-1
 
+travis: build
+
 travis-deploy: release
 	@echo "Deploy the software by travis"
 

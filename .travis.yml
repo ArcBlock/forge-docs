@@ -5,15 +5,13 @@ branches:
   only:
   - master
 before_script: make travis-init
-script: make build
+script: make travis
+before_deploy: make travis-deploy
 deploy:
-  - provider: script
-    skip_cleanup: true
-    script: make travis-deploy
-    on:
-      branch: master
+
   - provider: releases
     skip_cleanup: true
+    tag_name: "$(git describe --tags --exact-match)"
     api_key:
       secure: dZ+SRAYzsTFWm9980WMBZRGPMzzxYk7l12QAUqqP2Om9sqE1aH88Bx2v+HPzgswwXi5pvnXswAwD4emJG7gF97OBI9OTqTAYlRl3s72le9XanDCK6M1TBzgztapOqFCB1tmI5/x5wcy461RRow/bB9qa6vwwGn1sYtbr/4yJHxIlWthQVUq831u+agxNZDRNpI4XjsOCMIrdQPE/3gtmPm1/RDnAfH56LMw2qihXGxPN4ejxi0F0OUw4T6JdXejPcQZ8rsLs7x/x7N8ClJZifI0uvsoMR0Q6sifeXV9DCGlPU1/G1xG5sam3a+tLR8qL7ENRj1TuNxNBPzZezvcXEjKoxAaEmZ7tWwr5Wh7XQ/UuJsTF2hCQ895YoJLrotrOfugGDdUKEaXVxWTBfg+DzX10N+8ptJKQD+73caIXnUqq0Xt0xoHitUsoRAmu5DIA5upimb6rQnLWi3qPERmpXAeWKOlSDqyDE6KVmMdYIO5LUsuaJfn1zrHaZ3UX8TCVV01Gr0keYETDfb+4q7TN3X9TYk1ZtzZ6mFCkyf6CpSW3qwwUlly27pbyy5Qk2r+POCsXBCEIdLR6ucgJ7JYh9qN2hZ9sZjAnwiTl6bX1WA/g3hXMg86LRJxA4oAgTemdwQb2EPamzpHdDiIMRlDHG65Mz1yurL2raS+lqQ+IB6Y=
     on:
