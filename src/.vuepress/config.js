@@ -37,7 +37,7 @@ module.exports = {
         sidebar: [{
             title: 'Introduction',
             collapsable: false,
-            children: ['/intro/', '/intro/transaction', '/intro/inside_forge'],
+            children: ['/intro/', '/intro/concepts', '/intro/transaction', '/intro/inside_forge'],
           },
           {
             title: 'Installation',
