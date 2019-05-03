@@ -11,7 +11,7 @@ build: $(OUTPUT_FOLDER)
 	@echo "All slides are built."
 
 all: build
-	@aws s3 sync $(S3_FOLDER) s3://docs.arcblock.io/forge --region us-west-2 --profile prod
+	@aws s3 sync $(OUTPUT_FOLDER) s3://docs.arcblock.io/forge --region us-west-2 --profile prod
 
 init:
 	@npm install
