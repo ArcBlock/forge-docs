@@ -43,7 +43,7 @@ copy-js-docs:
 	@cp -f ~/Develop/arcblock/abt-did-js/packages/auth/docs/README.md src/sdk/javascript/did_auth.md
 
 dev:
-	@cd src; $(VUEPRESS) dev
+	@cd src; DOC_VERSION=latest $(VUEPRESS) dev
 
 run:
 	@http-server ./dist -p 8008 -c-1
