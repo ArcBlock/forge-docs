@@ -1,17 +1,18 @@
 TOP_DIR=.
 OUTPUT_FOLDER=./dist/forge
+VUEPRESS=../node_modules/vuepress/bin/vuepress.js
 
 VERSION=$(strip $(shell cat version))
 
-build:
-	@cd src; vuepress build
+build: $(OUTPUT_FOLDER)
+	@cd src; DOC_VERSION=latest $(VUEPRESS) build
+	@cd src; DOC_VERSION=$(VERSION) $(VUEPRESS) build
 	@echo "All slides are built."
 
 all: build
-	@aws s3 sync $(OUTPUT_FOLDER) s3://docs.arcblock.io/forge --region us-west-2 --profile prod
+	@aws s3 sync $(S3_FOLDER) s3://docs.arcblock.io/forge --region us-west-2 --profile prod
 
 init:
-	@npm install -g vuepress
 	@npm install
 
 travis-init: init
@@ -41,7 +42,7 @@ copy-js-docs:
 	@cp -f ~/Develop/arcblock/abt-did-js/packages/auth/docs/README.md src/sdk/javascript/did_auth.md
 
 dev:
-	@cd src; vuepress dev
+	@cd src; $(VUEPRESS) dev
 
 run:
 	@http-server ./dist -p 8008 -c-1
