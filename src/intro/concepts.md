@@ -1,8 +1,8 @@
 # General Concepts
-Essential concepts to use Forge SDK for your first application
+
+There are quite a few new concepts introduced in Forge, before you read one, having a basic idea on these basic concepts would be very helpful to under stand forge.
 
 ## Introduction
------
 
 **Forge** is a framework for users to launch their own decentrailized applications on their own chains.
 
@@ -10,8 +10,8 @@ Essential concepts to use Forge SDK for your first application
 
 
 ## Transactions
-------
-The first concept users should understand is **transaction**. A transaction is the smallest unit of activites that can happen on chains built by **Forge**. Everything on a Forge chain are combinations of different **transactions**.
+
+The first concept users should understand is **transaction**. A transaction is the smallest unit of activites that can happen on chains built by **Forge**. Everything on a Forge chain are combinations of different **transactions**. A typical transaction looks like this:
 
 ```protobuf
 message Transaction {
@@ -24,22 +24,25 @@ message Transaction {
   google.protobuf.Any itx = 15;
 }
 ```
-Above is the comlete definition of a **transaction**.
+
+Client must fill in necessary values into these fields to get the transaction executed in the chain. Below is an explanation for each field:
 
 * `from`: the sender address that initiates the transaction
 * `nonce`: an integer that track how many transactions this address has sent
 * `chain_id`: a string that tracks on which chain this transaction happens
 * `pk`: bytes of public key of sender
 * `signature`: bytes of sender's signature over this transaction. Used by   receiver to verify that the content of this transaction has not been changed by other parties.
-* `signatures`: signatures and address of third parties if this transaction requires approval of more than two parties
-* `itx`: type and content of this transaction.
+* `signatures`: extra multisig if this transaction requires extra endorsement from receiver or a 3rd party account. See: [What is Multisig?](../arch/multisig)
+* `itx`: type and content of this transaction. See: [transactions](../txs)
 
 Detailed explanation of each field will be covered later.
 
+All transactions are backed by **transaction protocol**. Transaction protocol is the code that executes the transactions and manipulate the states. It can be dynamically installed, upgraded, activated and deactivated on all running nodes of a chain. For more information on transaction protocols, please see [../txs].
+
 ## Accounts and Wallets
------
 
 ### Accounts
+
 To initiate a **transaction** on a Forge chain, users need to have accounts. Each account is has a unique address used by Forge to identify different users. Each user can have unlimited number of accounts with different addresses.
 
 ### Wallets
