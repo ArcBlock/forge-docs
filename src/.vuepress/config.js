@@ -54,6 +54,7 @@ module.exports = {
               '/sdk/javascript',
               '/sdk/python',
               '/sdk/elixir',
+              '/sdk/java',
               '/sdk/others'
             ],
           },
@@ -85,9 +86,16 @@ module.exports = {
             title: 'Forge TX',
             collapsable: false,
             children: [
-              '/txs/declare',
-              '/txs/transfer',
-              '/txs/exchange',
+              '/txs/',
+              '/txs/account/declare',
+              '/txs/account/account_migrate',
+              '/txs/asset/create_asset',
+              '/txs/asset/update_asset',
+              '/txs/asset/consume_asset',
+              '/txs/asset/create_asset_factory',
+              '/txs/asset/acquire_asset',
+              '/txs/trade/transfer',
+              '/txs/trade/exchange',
             ],
           },
           {

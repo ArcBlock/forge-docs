@@ -38,7 +38,7 @@ and you can find your data in your local disk.
 docker run -p 8210:8210 -v {your custom forge_release.yaml}:/home/arcblock/forge_release.yaml --rm forge-release:latest
 ```
 
-detail config you can find at [Config file]()
+detail config you can find at [Config file](../core/configuration.md)
 
 enjoy it!
 

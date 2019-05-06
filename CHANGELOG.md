@@ -1,3 +1,8 @@
+## 0.25.3 (May 03, 2019)
+  - Merge pull request #35 from ArcBlock/feature/fix-links
+  - finish multisig
+  - fix links
+
 ## 0.19.0 (May 02, 2019)
   - add general guide for sdk
 

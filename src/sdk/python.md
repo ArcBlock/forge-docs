@@ -2,7 +2,7 @@
 ## Forge-python-sdk
 For Forge-related setup, please checkout [Forge](https://github.com/ArcBlock/forge).
 
-A detailed reference manual for forge-python-sdk can be found [here](https://docs.arcblock.io/forge-python-sdk/index.html).
+A detailed reference manual for forge-python-sdk can be found [here](../../../forge-python-sdk).
 
 
 ## Installation
@@ -18,12 +18,15 @@ This sdk supports python verison `>=3.6`.
 ## Usage
 
 ### Step 0
-First get your Forge running on local with [Forge Cli](https://github.com/ArcBlock/forge-js/tree/master/packages/forge-cli).
+
+First get your Forge running on local with [Forge CLI](../tools/forge_cli.md).
 
 ### Step 1
+
 Find the config your forge is using by `forge config`
 
 ### Step 2
+
 Set `FORGE_CONFIG` as your environment variable, pointing to the config your forge is running on.
 
 
@@ -38,8 +41,6 @@ Set `FORGE_CONFIG` as your environment variable, pointing to the config your for
 :::
 
 #### Step 1: create wallets for Alice and Mike
-
---------
 
 ```python
 >>> from forge_sdk import rpc, protos
@@ -67,8 +68,6 @@ wallet {
 ```
 
 #### Step 2: Help Alice send a Poke Transaction to get some money
-
---------
 
 Now you have created wallets for Alice and Mike, but there's no money in their accounts. Let's help Alice to earn some money by sending a **Poke** transaction.
 
@@ -98,8 +97,6 @@ Now let's check Alice's account balance. There should be 25 TBA.
 :::
 
 #### Step 3: Transfer the money from Alice to Mike
-
---------
 
 Now Alice has 25 TBA in her account and Mike has nothing. We can help Alice transfer 10 TBA to Mike by sending out a **transfer transaction**.
 
