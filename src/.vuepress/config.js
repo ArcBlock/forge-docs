@@ -54,6 +54,7 @@ module.exports = {
               '/sdk/javascript',
               '/sdk/python',
               '/sdk/elixir',
+              '/sdk/java',
               '/sdk/others'
             ],
           },
