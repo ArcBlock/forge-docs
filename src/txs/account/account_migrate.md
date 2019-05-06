@@ -23,9 +23,9 @@ You need to fill `pk` and `address` into this itx and then assemble and sign thi
 Here's an example of sending an account migration transaction:
 
 ```elixir
-> old_wallet = ForgeSdk.create_wallet()
-> ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "sisyphus"), wallet: old_wallet)
+old_wallet = ForgeSdk.create_wallet()
+ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "sisyphus"), wallet: old_wallet)
 # after a while you feel old_wallet is not safe any more
-> new_wallet = ForgeSdk.create_wallet()
-> ForgeSdk.account_migrate(ForgeAbi.AccountMigrateTx.new(pk: new_wallet.pk, address: new_wallet.address), wallet: old_wallet)
+new_wallet = ForgeSdk.create_wallet()
+ForgeSdk.account_migrate(ForgeAbi.AccountMigrateTx.new(pk: new_wallet.pk, address: new_wallet.address), wallet: old_wallet)
 ```
