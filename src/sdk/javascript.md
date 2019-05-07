@@ -412,6 +412,108 @@ bob.transfer.balance 30
 
 Now we have completed our first program with Forge Javascript SDK, you are quite familiar with the basic steps to write programs on forge powered blockchain.
 
+The complete source code so far is:
+
+```javascript
+const { types } = require('@arcblock/mcrypto');
+const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
+const { fromUnitToToken, fromTokenToUnit } = require('@arcblock/forge-util');
+const GraphQLClient = require('@arcblock/graphql-client');
+const moment = require('moment');
+
+const type = WalletType({
+  role: types.RoleType.ROLE_ACCOUNT,
+  pk: types.KeyType.ED25519,
+  hash: types.HashType.SHA3,
+});
+
+const alice = fromRandom(type);
+const bob = fromRandom(type);
+
+const host = 'http://127.0.0.1:8210';
+const client = new GraphQLClient({ endpoint: `${host}/api` });
+const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+
+function registerUser(userName, userWallet) {
+  return client.sendDeclareTx({
+    tx: {
+      itx: {
+        moniker: userName,
+      },
+    },
+    wallet: userWallet,
+  });
+}
+
+function getFreeToken(userWallet) {
+  return client.sendPokeTx({
+    tx: {
+      nonce: 0,
+      itx: {
+        date: moment(new Date().toISOString())
+          .utc()
+          .format('YYYY-MM-DD'),
+        address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+      },
+    },
+    wallet: userWallet,
+  });
+}
+
+async function checkBalance(userName, userWallet) {
+  const { state } = await client.getAccountState({ address: userWallet.toAddress() });
+  console.log(`${userName}.balance`, fromUnitToToken(state.balance));
+}
+
+(async () => {
+  console.log('alice.address(userId)', alice.toAddress());
+  console.log('bob.address(userId)', bob.toAddress());
+  try {
+    // Register
+    let hash = await registerUser('alice_test', alice);
+    console.log('register alice', hash);
+    hash = await registerUser('bob_test', bob);
+    console.log('register bob', hash);
+
+    await sleep(5000);
+    await checkBalance('alice.initial', alice);
+    await checkBalance('bob.initial', bob);
+
+    // Get token
+    hash = await getFreeToken(alice);
+    console.log('get token for alice: ', hash);
+    hash = await getFreeToken(bob);
+    console.log('get token for bob: ', hash);
+
+    await sleep(5000);
+    const { state: aliceStateNew } = await client.getAccountState({ address: alice.toAddress() });
+    await checkBalance('alice.getToken', alice);
+    await checkBalance('bob.getToken', bob);
+
+    // Transfer
+    hash = await client.sendTransferTx({
+      tx: {
+        itx: {
+          to: bob.toAddress(),
+          value: fromTokenToUnit(5),
+        },
+      },
+      wallet: alice,
+    });
+    console.log('transfer hash', hash);
+
+    await sleep(5000);
+    await checkBalance('alice.transfer', alice);
+    await checkBalance('bob.transfer', bob);
+  } catch (err) {
+    if (Array.isArray(err.errors)) {
+      console.log(err.errors);
+    }
+    console.error(err);
+  }
+})();
+```
+
 ## Want More ?
 
 Here are some resources for you to learn more:
