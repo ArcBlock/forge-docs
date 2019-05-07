@@ -178,7 +178,7 @@ tx1 = ForgeSdk.finalize_exchange(tx, w1)
 hash = ForgeSdk.send_tx(tx1)
 ```
 
-Now if we check the laptop's owner, the `onwner` in `AssetState` should be Alice's address.
+Now if we check the laptop's owner, the `owner` in `AssetState` should be Alice's address.
 
 ```elixir
 ForgeSdk.get_asset_state(address: asset_address)
