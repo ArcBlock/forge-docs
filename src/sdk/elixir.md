@@ -1,11 +1,17 @@
 # Forge Elixir/Erlang SDK
 
-## Wallets
+## Forge SDK
 
-Before sending any data to forge powered blockchain, we should be aware that, all transaction must be signed with a wallet (secretKey/publicKey pair).
+To develop applications on top of the forge, you shall pick up a SDK. Forge SDK is intended to make the interaction with the chain built by Forge as easy as possible. All SDK APIs are organized into the following categories:
 
-Forge have built-in ability to manage wallets on the node(all keystore files are stored on the disk). But for end users, they usually manage wallets by their own.
+- chain APIs: provide the client wrapper for chain related gRPC
+- wallet APIs: provide the client wrapper for wallet related gRPC
+- state APIs: provide the client wrapper for state related gRPC
+- subscription APIs: provide the client wrapper for subscription related gRPC
+- transaction APIs: the gRPC for transaction is send_tx, this set of APIs provide helper functions to make building and sending a tx easy.
+- misc APIs: parsing configuration, initialize sdk and more.
 
+For more information, please see: [Forge SDK overview](https://docs.arcblock.io/forge/latest/sdk/)
 
 ## Installation
 
@@ -28,19 +34,6 @@ Once forge is started, you can open `http://localhost:8210` in your browser. Sin
 ```bash
 $ forge simulator start
 ```
-
-## Forge SDK
-
-To develop applications on top of the forge, you shall pick up a SDK. Forge SDK is intended to make the interaction with the chain built by Forge as easy as possible. All SDK APIs are organized into the following categories:
-
-- chain APIs: provide the client wrapper for chain related gRPC
-- wallet APIs: provide the client wrapper for wallet related gRPC
-- state APIs: provide the client wrapper for state related gRPC
-- subscription APIs: provide the client wrapper for subscription related gRPC
-- transaction APIs: the gRPC for transaction is send_tx, this set of APIs provide helper functions to make building and sending a tx easy.
-- misc APIs: parsing configuration, initialize sdk and more.
-
-For more information, please see: [Forge SDK overview](https://docs.arcblock.io/forge/latest/sdk/)
 
 ## Usage
 
@@ -176,7 +169,7 @@ Since Bob is going to be the sender, we put the laptop `asset_address` as what h
 ```elixir
 
 sender_info = ForgeAbi.ExchangeInfo.new(assets: [asset_address])
-receiver_info = ForgeAbi.ExchangeInfo.new(value: ForgeSdk.token_to_unit(1))
+receiver_info = ForgeAbi.ExchangeInfo.new(value: ForgeSdk.token_to_unit(10))
 itx = ForgeAbi.ExchangeTx.new(to: w1.address, sender: sender_info, receiver: receiver_info)
 # bob generate the tx
 tx = ForgeSdk.prepare_exchange(itx, wallet: w2)
