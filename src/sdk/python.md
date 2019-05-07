@@ -29,7 +29,6 @@ Find the config your forge is using by `forge config`
 
 Set `FORGE_CONFIG` as your environment variable, pointing to the config your forge is running on.
 
-
 ## Tutorials
 
 ### Level 1: Transfer Money
@@ -43,7 +42,7 @@ Set `FORGE_CONFIG` as your environment variable, pointing to the config your for
 #### Step 1: create wallets for Alice and Mike
 
 ```python
->>> from forge_sdk import rpc, protos
+>>> from forge_sdk import rpc, protos, utils
 >>> alice=rpc.create_wallet(moniker='alice', passphrase='abc123')
 >>> mike = rpc.create_wallet(moniker='mike', passphrase='abc123')
 ```
@@ -72,7 +71,7 @@ wallet {
 Now you have created wallets for Alice and Mike, but there's no money in their accounts. Let's help Alice to earn some money by sending a **Poke** transaction.
 
 ```python
->>> rpc.send_poke_tx(alice.wallet, alice.token)
+>>> rpc.poke(alice.wallet)
 hash: "CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2"
 ```
 Receiving the **hash** means the transaction has been passed to Forge, but doens't mean the transaction is successful. To confirm that the transaction is sent successfully, let's dive deeper into the tranaction details.
@@ -104,7 +103,7 @@ Now Alice has 25 TBA in her account and Mike has nothing. We can help Alice tran
 
 >>> transfer_itx = protos.TransferTx(to=mike.wallet.address,value=utils.int_to_biguint(100000000000000000))
 
->>> rpc.send_transfer_tx(transfer_itx, alice.wallet, alice.token)
+>>> rpc.transfer(transfer_itx, alice.wallet)
  hash: "CAEF155B1A3A684DAF57C595F68821502BC0187BEC514E4660BA1BD568474345"
 
 >>> rpc.is_tx_ok('CAEF155B1A3A684DAF57C595F68821502BC0187BEC514E4660BA1BD568474345')
@@ -125,7 +124,7 @@ Now we can see tht Alice just successfully transferred 10 TBA to Mike's Account!
 #### Step 1: Create accounts for Alice and Mike
 
 ```python
->>> from forge_sdk import rpc, protos
+>>> from forge_sdk import rpc, protos, utils
 >>> alice=rpc.create_wallet(moniker='alice', passphrase='abc123')
 >>> mike = rpc.create_wallet(moniker='mike', passphrase='abc123')
 ```
@@ -133,9 +132,8 @@ Now we can see tht Alice just successfully transferred 10 TBA to Mike's Account!
 After creating accounts for Alice and Mike, we help Alice to get some money to buy Mike's laptop
 
 ```python
->>> from forge_sdk import rpc, protos. utils
 
->>> rpc.send_poke_tx(alice.wallet, alice.token)
+>>> rpc.poke(alice.wallet, alice.token)
 hash: "CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2"
 
 >>> rpc.get_account_balance(alice.wallet.address)
@@ -212,16 +210,18 @@ Now Alice has 25 TBA in her account, and Mike has a laptop asset. What should Mi
 Since Mike is going to be the sender, we put the laptop `asset_address` as what he will exchange. Similarly, Alice will exchange 10 TBA.
 
 ```python
->>> mike_exchange_info = protos.ExhcangeInfo(assets=[asset_address])
->>> alice_exchange_info = protos.ExchangeInfo(value = utils.utils.int_to_biguint(100000000000000000))
+>>> mike_exchange_info = protos.ExchangeInfo(assets=[asset_address])
+>>> alice_exchange_info = protos.ExchangeInfo(value = utils.int_to_biguint(100000000000000000))
 >>> exchange_tx = protos.ExchangeTx(sender = mike_exchange_info, receiver=alice_exchange_info)
 
->>> rpc.send_exchange_tx(exchange_tx, mike.wallet, mike.token)
-hash: "9EAC9AF9136D30E5C02EDD46BEF081AD61F3F722BA6FEF4398CC5FBC363DCA30"
+>>> tx = rpc.prepare_exchange(exchange_tx, mike.wallet)
+>>> tx = rpc.finalize_exchange(tx, alice.wallet)
+>>> res = rpc.send_tx(tx)
 
->>> rpc.is_tx_ok('9EAC9AF9136D30E5C02EDD46BEF081AD61F3F722BA6FEF4398CC5FBC363DCA30)
+>>> rpc.is_tx_ok(res.hash)
 True
 ```
+In the `prepare_exchange`, we ask Mike the seller to verify the transaction; and in the `finalize_exchange`, we ask Alice the buyer to verify the transaction. After both parties have verified, we can send the transaction directly.
 
 Now if we check the laptop's owner, it should be Alice's address.
 
