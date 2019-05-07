@@ -173,7 +173,7 @@ Open explorer: `http://localhost:8210/node/explorer/txs`, we can see that, the 2
 
 > The screenshot above is from [forge-web](../tools/forge_web.md), which contains a build in web dashboard and block explorer for your chain.
 
-> Here are are using `sendDeclareTx` to write data to the blockchain, many other transaction types are supported, please refer to [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html) for full list.
+> Here are are using `sendDeclareTx` to write data to the blockchain, many other [transaction types](../txs/README.md) are supported. Full list of transaction send method list can be found at [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html).
 
 ### 5. Get 25 token for `Alice` and `Bob`
 
