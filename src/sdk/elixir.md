@@ -79,7 +79,7 @@ Let's take a look at Alice's wallet and here account details
 ForgeSdk.get_account_state(address: w1.address)
 ```
 
-#### Step 2: Help Alice send a Poke Transaction to get some money
+#### Step 2: Help Alice send a Checkin Transaction to get some money
 
 Now you have created wallets for Alice and Bob, but there's no money in their accounts. Let's help Alice to earn some money by sending a **Checkin** transaction.
 
