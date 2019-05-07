@@ -1,8 +1,8 @@
 # Forge SDK Overview
 
-Currently we provides SDK support for various languages, inlcuding javascript/nodejs, python, java, elixir/erlang. We will continue evolving the SDKs to supported more languages. If you're interested in building SDK for your favorite language(s), do let us know so our team can provide promptly help.
+Currently we provides SDK support for various languages, including javascript/nodejs, python, java, elixir/erlang. We will continue to evolve the SDKs to support more languages. If you're interested in building SDK for your favorite language(s), please let us know so our team can provide promptly help.
 
-This chapter gives a high level overview of the SDK - before you jump on to the SDK for your favorite language, please read on. If you intended to implement a new SDK, this is the minimum required APIs you shall implement.
+This chapter gives a high level overview of the SDK - before you jump on to the SDK for your favorite language, please read on. If you want to implement a new SDK, these are the minimum required APIs you shall implement.
 
 For relationships between forge powered chain, chain node, forge sdk, and user application:
 
@@ -18,7 +18,6 @@ Forge SDK is intended to make the interaction with the chain built by Forge as e
 * subscription APIs: provide the client wrapper for subscription related gRPC
 * transaction APIs: the gRPC for transaction is `send_tx`, this set of APIs provide helper functions to make building and sending a tx easy.
 * misc APIs: parsing configuration, initialize sdk and more.
-
 
 ### Chain APIs
 
@@ -61,8 +60,8 @@ If you want to have your forge node manage your wallet, use `create_wallet/1`:
 
 Forge provide different types of the state. You can query a state by its address. We provide several APIs for you to easily access the states:
 
-* get_account_state/1: return the state for an account, node, validator or application address.
-* get_asset_state/1: return the state for an asset.
+* get_account_state/1: return the state for an array of account, node, validator or application address.
+* get_asset_state/1: return the state for an array of assets.
 * get_forge_state/1: return global state for forge.
 * get_protocol_state/1: return installed protocol state.
 

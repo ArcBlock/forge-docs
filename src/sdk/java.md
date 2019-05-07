@@ -5,7 +5,7 @@
 forge sdk for java development.
 For Forge-related setup, please checkout [Forge](https://github.com/ArcBlock/forge)
 
-A detailed reference manual for forge-java-sdk can be found [here](../../../forge-java-sdk).
+A detailed reference manual for forge-java-sdk can be found [here](https://docs.arcblock.io/forge/sdks/java/).
 
 ## Installation
 
@@ -13,11 +13,12 @@ if you are using gradle ,you have to add url to your repositories
 
 ``` gradle
  repositories {
-	  maven { url "http://android-docs.arcblock.io/release" }
+      maven { url "http://android-docs.arcblock.io/release" }
  }
 
  dependencies {
- 	  implementation("io.arcblock.forge:core:${forge_version}")
+     implementation("io.arcblock.forge:core:${forge_version}")
+     implementation 'io.grpc:grpc-netty:1.20.0'
  }
 ```
 
@@ -49,7 +50,7 @@ forge.host="127.0.0.1"
 forge.port=28210
 ```
 
-and add `forge = ForgeSDK.connectTo(host, port);` when you application init
+and add `forge = ForgeSDK.connect(host, port);` when you application init
 
 ### Step 2: create a wallet.
 
@@ -79,7 +80,6 @@ forge.getForgeSDK().getAccountState()
 forge.
 val tx = WalletKit.poke(WalletInfo(Alice), forge)
 val response = forge.sendTx(Rpc.RequestSendTx.newBuilder()
-                    .setToken(appDid.getToken())
                     .setTx(createTxResp.getTx())
                     .build());
 ```
@@ -99,7 +99,6 @@ val itx = Transfer.TransferTx.newBuilder()
                 .build()
 val tx = WalletKit.createTx(Alice, 123L, chainId, itx)
 val response = forge.sendTx(Rpc.RequestSendTx.newBuilder()
-                    .setToken(appDid.getToken())
                     .setTx(createTxResp.getTx())
                     .build());
 ```
