@@ -11,7 +11,11 @@ To develop applications on top of the forge, you shall pick up a SDK. Forge SDK 
 - transaction APIs: the gRPC for transaction is send_tx, this set of APIs provide helper functions to make building and sending a tx easy.
 - misc APIs: parsing configuration, initialize sdk and more.
 
-For more information, please see: [Forge SDK overview](https://docs.arcblock.io/forge/latest/sdk/)
+For more document, please see:
+- [Forge SDK overview](https://docs.arcblock.io/forge/latest/sdk/)
+- [Forge SDK](https://hexdocs.pm/forge_sdk/ForgeSdk.html)
+- [Abt Did](https://hexdocs.pm/abt_did_elixir/AbtDid.html)
+- [Forge Abi](https://hexdocs.pm/forge_abi/ForgeAbi.html)
 
 ## Installation
 
