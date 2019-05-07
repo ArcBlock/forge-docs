@@ -32,7 +32,7 @@ Client must fill in necessary values into these fields to get the transaction ex
 * `chain_id`: a string that tracks on which chain this transaction happens
 * `pk`: bytes of public key of sender
 * `signature`: bytes of sender's signature over this transaction. Used by   receiver to verify that the content of this transaction has not been changed by other parties.
-* `signatures`: extra multisig if this transaction requires extra endorsement from receiver or a 3rd party account. See: [What is Multisig?](../arch/multisig)
+* `signatures`: extra multisig if this transaction requires extra endorsement from receiver or a 3rd party account. See: [What is Multisig?](../arch/multisig.md)
 * `itx`: type and content of this transaction. See: [transactions](../txs)
 
 Detailed explanation of each field will be covered later.

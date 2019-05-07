@@ -70,7 +70,7 @@ ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "bob_wallet"), wallet: w2)
 ```
 
 ::: tip Notes
-`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../intro/concepts).
+`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../intro/concepts.md).
 :::
 
 Let's take a look at Alice's wallet and here account details
@@ -175,7 +175,7 @@ itx = ForgeAbi.ExchangeTx.new(to: w1.address, sender: sender_info, receiver: rec
 tx = ForgeSdk.prepare_exchange(itx, wallet: w2)
 # bob gave the tx to alice to multi-sign
 tx1 = ForgeSdk.finalize_exchange(tx, w1)
-hash = ForgeSdk.send_tx(tx1)
+hash = ForgeSdk.send_tx(tx: tx1)
 ```
 
 Now if we check the laptop's owner, the `owner` in `AssetState` should be Alice's address.
