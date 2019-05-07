@@ -113,7 +113,7 @@ To register `Alice` and `Bob` on the chain, we will use GraphQLClient:
 Add `@arcblock/graphql-client` as dependency:
 
 ```terminal
-yarn add @arcblock/graphql-client
+yarn add @arcblock/graphql-client moment
 ```
 
 Then, create an instance of GraphQLClient and `sendDeclareTx`:
@@ -280,8 +280,39 @@ get token for bob:  C9C3A24FB12746F4E8049AD7088B9FADE92D5991152BA14B7C86B0DBDE92
 alice.balanceNew 250000000000000000
 ```
 
-You may notice that the token balance for `Alice` is a very large number, we can format that to human readable number with help of `@arcblock/forge-util`:
+You may notice that the token balance for `Alice` is a very large number, we can format that to human readable number with help of `@arcblock/forge-util`.
 
+> For all utility methods of `@arcblock/forge-util`, please refer to the [documentation](/forge/sdks/javascript/latest/module-@arcblock_forge-util.html)
+
+```terminal
+yarn add @arcblock/forge-util
+```
+
+Then change `index.js`:
+
+```patch
+diff --git a/index.js b/index.js
+@@ -1,5 +1,6 @@
+ const { types } = require('@arcblock/mcrypto');
+ const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
++const { fromUnitToToken } = require('@arcblock/forge-util');
+ const GraphQLClient = require('@arcblock/graphql-client');
+ const moment = require('moment');
+
+@@ -64,6 +65,7 @@ function getFreeToken(userWallet) {
+     await sleep(5000);
+     const { state: aliceStateNew } = await client.getAccountState({ address: alice.toAddress() });
+     console.log('alice.balanceNew', aliceStateNew.balance);
++    console.log('alice.balanceNew.readable', fromUnitToToken(aliceStateNew.balance));
+   } catch (err) {
+```
+
+Run `node index.js` again, we can see that `Alice` got 25 token:
+
+```terminal
+alice.balanceNew 250000000000000000
+alice.balanceNew.readable 25
+```
 
 ## Read/Write blockchain data
 
