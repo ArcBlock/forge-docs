@@ -1,6 +1,6 @@
-# Consume Asset Factory Transaction
+# Create Asset Factory Transaction
 
-**Consume Asset Factory** is used to solve a general problem, here's the original proposal (https://github.com/ArcBlock/forge/issues/770 [1]):
+**Create Asset Factory** is used to solve a general problem, here's the original proposal:
 
 > From event chain (and future certificate app or the use cases like movie tickets, lecture tickets) we found a common requirement that when the issuer creates an asset, they normally want to create a factory that can further create actual asset based on a template, then when someone wants to buy this asset, it just generates the actual asset and transfers it to the buyer.
 
@@ -10,7 +10,7 @@
 
 You could think asset factory is like a vending machine, you pay the requirement tokens and the asset will be generated and given to you.
 
-Note consume asset factory tx is currently in **BETA**, its interface is subjected to change (aggressively).
+Note create asset factory tx is currently in **BETA**, its interface is subjected to change (aggressively).
 
 ## Protocol definition
 
@@ -45,7 +45,7 @@ message CreateAssetTx {
 }
 ```
 
-If you look back on the protocol definition of the [create asset tx](create_asset), you would find out that fields in `AssetFactory` are designed to be able to generate a `CreateAssetTx` internally. That's the purpose of the template, allowed_spec_args, asset_name and attributes:
+If you look back on the protocol definition of the [create asset tx](create_asset.md), you would find out that fields in `AssetFactory` are designed to be able to generate a `CreateAssetTx` internally. That's the purpose of the template, allowed_spec_args, asset_name and attributes:
 
 * template: the template that asset factory will use to generate the asset, template is string that could be processed by EEx with the given args, and its output is json. Then the json will be parsed and converted against the asset_name. e.g. If your asset name is `Ticket`,e.g. the the generated json data will be converted with `ForgeAbi.Ticket.new(json)`.
 * allowed_spec_args: allowed args for the template. In transfer tx, user can transfer tokens to this AssetFactory address with a json string containing necessary args, once the json is parsed, it will be checked against this, if any field not in the list, the transfer tx will fail.
@@ -134,7 +134,7 @@ factory = %{
 ForgeSdk.create_asset_factory("Avenerages: Endgame", factory, wallet: w)
 ```
 
-To acquire an asset from the asset factory, please see [Acquire Asset](./acquire_asset).
+To acquire an asset from the asset factory, please see [Acquire Asset](./acquire_asset.md).
 
 
 
