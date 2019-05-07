@@ -34,8 +34,8 @@ Here's an example of consuming an asset:
 
 ```elixir
 # say we have two wallets: cinema and alice, alice has an asset ticket
-> itx = ForgeAbi.ConsumeAssetTx.new(issuer: cinema.address)
-> tx = ForgeSdk.prepare_consume_asset(itx, wallet: cinema)
+itx = ForgeAbi.ConsumeAssetTx.new(issuer: cinema.address)
+tx = ForgeSdk.prepare_consume_asset(itx, wallet: cinema)
 # then alice attach her signature to this tx
-> tx = ForgeSdk.finalize_consume_asset(tx, ticket.address, wallet)
+tx = ForgeSdk.finalize_consume_asset(tx, ticket.address, wallet)
 ```

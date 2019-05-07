@@ -20,8 +20,8 @@ You just need to fill `moniker` for your wallet and then assemble and sign this 
 Here's an example of sending a declare tx:
 
 ```elixir
-> wallet = ForgeSdk.create_wallet()
-> ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "sisyphus"), wallet: wallet)
+wallet = ForgeSdk.create_wallet()
+ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "sisyphus"), wallet: wallet)
 ```
 
 ## Restricted Declaration
