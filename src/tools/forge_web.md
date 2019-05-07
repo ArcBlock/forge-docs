@@ -1,6 +1,6 @@
 # Forge Web
 
-Unlike most of the blockchain products, Forge Framework ships with a web interface that contains rich functionalities.
+Unlike most of the blockchain products, Forge ships with a web interface that contains rich functionalities.
 
 ## Main components of Fore Web
 
