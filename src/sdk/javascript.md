@@ -2,11 +2,11 @@
 
 If you are a developer from traditional web development and not familiar with blockchain, please checkout [general concepts](../intro/concepts.md) first.
 
-Forge Javascript SDK makes it very easy for developers to building applications on forge framework, it provides concise and simple api to helper developers accomplish following tasks:
+Forge Javascript SDK makes it very easy for developers to building applications on forge, it provides concise and simple api to helper developers accomplish following tasks:
 
 - Create and manipulate wallets using just javascript: [@arcblock/mcrypto](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_mcrypto.html), [@arcblock/forge-wallet](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_forge-wallet.html)
 - Read/Write on-chain data through [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html) or [GRpcClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GRpcClient.html)
-- Derive/validate DID that are used widely in different forge framework components: [@arcblock/did](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did.html), [@arcblock/did-util](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did-util.html)
+- Derive/validate DID that are used widely in different forge components: [@arcblock/did](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did.html), [@arcblock/did-util](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did-util.html)
 - Assemble/encode/sign a transaction that can be sent to any forge powered blockchain
 
 Now, let's walk through the step-by-step guide to write a simple javascript program that may take a developer days or weeks to accomplish on other blockchain platforms:

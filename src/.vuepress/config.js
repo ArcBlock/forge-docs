@@ -6,8 +6,8 @@ const version = fs.readFileSync("../version", "utf-8").trim();
 const doc_version = process.env.DOC_VERSION;
 
 module.exports = {
-  title: "Forge Framework Document",
-  description: "Documentation for forge framework",
+  title: "Forge SDK Documentation",
+  description: "Documentation for ArcBlock Forge SDK",
   configureWebpack,
   markdown,
   ga: '',
@@ -17,8 +17,8 @@ module.exports = {
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'ArcBlock Forge Framework Documentation',
-      description: 'Documentation for Forge framework.',
+      title: 'Forge SDK Documentation',
+      description: 'Documentation for ArcBlock Forge SDK',
     },
     // '/zh/': {
     //   lang: 'zh-CN',
@@ -27,6 +27,7 @@ module.exports = {
     // }
   },
   themeConfig: {
+    logo: './logo.png',
     locales: {
       '/': {
         selectText: 'Languages',
