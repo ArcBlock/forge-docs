@@ -104,7 +104,7 @@ Run `node index.js`, we will get:
 
 Before sending any data to forge powered blockchain, we should be aware that, all transaction must be signed with a wallet (secretKey/publicKey pair).
 
-## 4. Register users on the chain
+## 4. Register user on the chain
 
 Similar to user registration in traditional web applications, forge requires an wallet to declare itself on the chain before generating any further activities such as staking, voting and sending transaction.
 
@@ -177,13 +177,12 @@ Open explorer: `http://localhost:8210/node/explorer/txs`, we can see that, the 2
 
 ## 5. Get 25 token for `Alice` and `Bob`
 
+### 5.1 Default account balance
+
 The most important usage of blockchain is recording state and transfers of value, value are presented with token, forge also support that, if we inspect the account we just created with the following code, we can see there balance is `0`:
 
 ```diff
 diff --git a/index.js b/index.js
-index 536946f..8af3911 100644
---- a/index.js
-+++ b/index.js
 @@ -13,6 +13,7 @@ const bob = fromRandom(type);
 
  const host = 'http://127.0.0.1:8210';
@@ -205,13 +204,12 @@ index 536946f..8af3911 100644
 
 > Here we are using `getAccountState` to read data from the blockchain, we can also use GraphQLClient to read transaction/block/asset/chain info, please refer to [GraphQLClient](/forge/sdks/javascript/latest/GraphQLClient.html) for full list of API.
 
+### 5.2 Get free token
+
 Forge provides an special type for developers to get test tokens for free, let's see the code:
 
 ```patch
 diff --git a/index.js b/index.js
-index fa7b1af..a294680 100644
---- a/index.js
-+++ b/index.js
 @@ -1,6 +1,7 @@
  const { types } = require('@arcblock/mcrypto');
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
@@ -280,6 +278,8 @@ get token for bob:  C9C3A24FB12746F4E8049AD7088B9FADE92D5991152BA14B7C86B0DBDE92
 alice.balanceNew 250000000000000000
 ```
 
+### 5.3 Format account balance
+
 You may notice that the token balance for `Alice` is a very large number, we can format that to human readable number with help of `@arcblock/forge-util`.
 
 > For all utility methods of `@arcblock/forge-util`, please refer to the [documentation](/forge/sdks/javascript/latest/module-@arcblock_forge-util.html)
@@ -288,7 +288,7 @@ You may notice that the token balance for `Alice` is a very large number, we can
 yarn add @arcblock/forge-util
 ```
 
-Then change `index.js`:
+Then change `index.js` to format account balance:
 
 ```patch
 diff --git a/index.js b/index.js
@@ -314,130 +314,6 @@ alice.balanceNew 250000000000000000
 alice.balanceNew.readable 25
 ```
 
-## Read/Write blockchain data
+> Forge allows developers to customize the token name/symbol/decimal on each chain, refer to [configuration](../core/configuration.md) for details.
 
-Since forge support read/write data using both graphql way and grpc way. We have to separate library to help developers do this.
-
-> Since we are going to send transactions to a running blockchain, we need to have a running forge node, if you donnot know how to setup and runninga forge node, reference documentation for forge-cli.
-
-### GraphQL Client
-
-Once we are familiar with wallets, sending data to forge powered blockchain is as easy as an cake!
-
-First, we need to add `@arcblock/graphql-client` as project dependency:
-
-```shell
-npm install @arcblock/graphql-client -S
-```
-
-Then, create a `GraphQLClient` instance, point the instance to our running node:
-
-```javascript
-const GraphqlClient = require('@arcblock/graphql-client');
-
-const client = new GraphqlClient('http://localhost:8210/api'); // local
-
-(async () => {
-  const res = await client.getChainInfo();
-  console.log(res);
-})();
-```
-
-Run above script, we can get something similar to:
-
-```json
-{
-  "code": "OK",
-  "info": {
-    "address": "zyt1k617i54j9JQjJYj1TxwVxjdkoC7pL19V",
-    "appHash": "963637c36a95f1c7c7bae4d9d5cdd8661510a0ad63adc2c4418b8d8c4ea05e02",
-    "blockHash": "20aeec043532a7d80eb191fb27421381c5d5a4c28f1f95117e7d1fa78b2fb119",
-    "blockHeight": 764,
-    "blockTime": "2019-03-26T12:15:02Z",
-    "consensusVersion": "0.31.0",
-    "dataVersion": "1.5",
-    "forgeAppsVersion": [[Object]],
-    "id": "6e9068eb4ac26ccf1c219309e42bf8d987590ac3",
-    "moniker": "forge",
-    "network": "forge",
-    "supportedTxs": [
-      "fg:t:update_asset",
-      "fg:t:transfer",
-      "fg:t:sys_upgrade",
-      "fg:t:stake",
-      "fg:t:exchange",
-      "fg:t:declare_file",
-      "fg:t:declare",
-      "fg:t:consensus_upgrade",
-      "fg:t:create_asset",
-      "fg:t:consume_asset",
-      "fg:t:poke",
-      "fg:t:account_migrate"
-    ],
-    "synced": true,
-    "totalTxs": 89541,
-    "version": "0.20.1",
-    "votingPower": 10
-  }
-}
-```
-
-If you successfully connected to your local forge node with `GraphQLClient`, let's move on and send a transaction.
-
-Before sending any transaction with the random wallet, we should declare that wallet on chain.
-
-> The following script used another package to do data formatting before sending the data onto blockchain
-> Add the package with `npm install @arcblock/forge-util`
-
-```javascript
-const GraphqlClient = require('@arcblock/graphql-client');
-const { types } = require('@arcblock/mcrypto');
-const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
-const { hexToBytes } = require('@arcblock/forge-util');
-
-const wallet = fromRandom(
-  WalletType({
-    role: types.RoleType.ROLE_ACCOUNT,
-    pk: types.KeyType.ED25519,
-    hash: types.HashType.SHA3,
-  })
-);
-
-const client = new GraphqlClient('http://localhost:8210/api'); // local
-
-(async () => {
-  const res = await client.sendDeclareTx({
-    wallet,
-    data: {
-      moniker: 'forge_test_user',
-      pk: Buffer.from(hexToBytes(wallet.publicKey)),
-      type,
-    },
-  });
-
-  console.log(res);
-})();
-```
-
-Run above script, we will get:
-
-```text
-Result { code: 'OK',
-  hash:
-   'E7040867630DAED6E53457C0BA202D0635ACE887F127630B99FF933C1A1B449C' }
-```
-
-The hash `E7040867630DAED6E53457C0BA202D0635ACE887F127630B99FF933C1A1B449C` is the transaction hash returned from forge blockchain, and it should be different from your script, and everytime you run the script, because the wallet is random.
-
-If you want to inspect the transaction, use forge-web or forge-cli:
-
-- `forge tx E7040867630DAED6E53457C0BA202D0635ACE887F127630B99FF933C1A1B449C`
-- search `E7040867630DAED6E53457C0BA202D0635ACE887F127630B99FF933C1A1B449C` in the explorer search box
-
-### gRPC Client
-
-> TODO
-
-## DID
-
-> TODO
+## 6. Transfer 5 token from `Alice` to `Bob`
