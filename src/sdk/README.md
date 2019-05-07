@@ -4,6 +4,10 @@ Currently we provides SDK support for various languages, including javascript/no
 
 This chapter gives a high level overview of the SDK - before you jump on to the SDK for your favorite language, please read on. If you want to implement a new SDK, these are the minimum required APIs you shall implement.
 
+For relationships between forge powered chain, chain node, forge sdk, and user application:
+
+![](../assets/images/forge-platform.png)
+
 ## General overview of the SDK
 
 Forge SDK is intended to make the interaction with the chain built by Forge as easy as possible. All SDK APIs are organized into the following categories:
