@@ -8,7 +8,6 @@ There are quite a few new concepts introduced in Forge, before you read one, hav
 
 **Forge** helps users to build their own chain with three ready-to-use layers: **Consensus**, **Storage**, **Network Connections**. To build a decentralized application, users only need to focus on the top layer: appliciton logic, without worrying infrastructures underneath.
 
-
 ## Transactions
 
 The first concept users should understand is **transaction**. A transaction is the smallest unit of activites that can happen on chains built by **Forge**. Everything on a Forge chain are combinations of different **transactions**. A typical transaction looks like this:
