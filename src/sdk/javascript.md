@@ -1,21 +1,19 @@
 # Javascript SDK
 
-If you are a developer from traditional web development, please checkout [general concepts] first.
+If you are a developer from traditional web development and not familiar with blockchain, please checkout [general concepts](../intro/concepts.md) first.
 
-Forge Javascript SDK provides basic capability for developers to do the following things:
+Forge Javascript SDK makes it very easy for developers to building applications on forge framework:
 
-- Read/Write on-chain data through graphql endpoint: [GraphQLClient]() and grpc endpoint
-- Create and manipulate wallets using just javascript: [mcrypto](), [forge-wallet]()
-- Derive/validate DID that are used widely in different forge framework components: [did], [did-auth], [did-util]
-- Assemble/encode/sign a transaction that can be sent to any forge powered blockchain: [mcrypto]
+- Create and manipulate wallets using just javascript: [@arcblock/mcrypto](/forge/sdks/javascript/latest/module-@arcblock_mcrypto.html), [@arcblock/forge-wallet](/forge/sdks/javascript/latest/module-@arcblock_forge-wallet.html)
+- Read/Write on-chain data through [GraphQLClient](/forge/sdks/javascript/latest/GraphQLClient.html) and [GRpcClient](/forge/sdks/javascript/latest/GRpcClient.html)
+- Derive/validate DID that are used widely in different forge framework components: [@arcblock/did](/forge/sdks/javascript/latest/module-@arcblock_did.html), [@arcblock/did-util](/forge/sdks/javascript/latest/module-@arcblock_did-util.html)
+- Assemble/encode/sign a transaction that can be sent to any forge powered blockchain
 
-Next, let's walk through the basic steps to write a simple javascript program that do the following things:
+Now, let's walk through the step-by-step guide to write a simple javascript program that may take a developer days or weeks to accomplish on other blockchain platforms:
 
-1. Create 2 accounts (`Alice` and `Bob`) on forge powered blockchain, which you can get up and running easily with [forge-cli];
-2. Get 25 free tokens(TBA) to the newly created account
-3. Transfer 5 token from `Alice` to `Bob`
-4. Create an asset(non-fungible token) for `Bob` that can be sold to `Alice` for 10 token
-5. Let `Alice` make an exchange of 10 token with `Bob` for the asset
+1. Create 2 user accounts (`Alice` and `Bob`) on forge powered blockchain, which you can get up and running easily with [forge-cli](../tools/forge_cli.md);
+2. Get 25 free tokens for the newly created account
+3. Transfer 5 token from `Alice` to `Bob`, inspect the balance
 
 The whole process covers most of the tasks that a typical web application will do, such as:
 
@@ -28,11 +26,11 @@ The whole process covers most of the tasks that a typical web application will d
 
 This step is not required to proceed to next steps, because forge javascript sdk is designed to work with any forge powered blockchain.
 
-If you are interested in running a chain node on your local machine, checkout our awesome command line tool: [forge-cli]() and start a node, you can do that within 10 minutes.
+If you are interested in running a chain node on your local machine, take 10 minutes to checkout our awesome command line tool: [forge-cli](../tools/forge_cli.md) and start a node.
 
-Once your chain has started, run `forge web open` to verify that the web dashboard/explorer of your chain is up and running. If the web dashboard of your chain node loads without any errors, means our database is set, we can use `http://127.0.0.1:8210/api` as graphql endpoint.
+Once your chain node has started, run `forge web open` to verify that the web dashboard/explorer of your chain is up and running. If the web dashboard of your chain node loads without any errors, means our database is set, we can use `http://127.0.0.1:8210/api` as graphql endpoint.
 
-If you prefer to use existing chain(public sandbox database), please remember to replace endpoint url to our public testing chain endpoint: `https://test.abtnetwork.io/api`.
+If you prefer to use existing chain(public sandbox database), please remember to replace endpoint in following code to our public testing chain endpoint: `https://test.abtnetwork.io/api`.
 
 ## 2. Init the javascript object
 
@@ -51,7 +49,7 @@ To create user accounts we need first configure some properties of the accounts.
 Add the following dependency:
 
 ```shell
-npm install @arcblock/forge-wallet @arcblock/mcrypto -S
+yarn install @arcblock/forge-wallet @arcblock/mcrypto -S
 touch index.js
 ```
 
@@ -100,15 +98,13 @@ Run `node index.js`, we will get:
      address: 'z1m8hfeWSD4fZcycrHDgpJCRTHi2sowPXBt' } }
 ```
 
-> Please note that, forge supports many wallet types, the above wallet type is a typical one, it's ok to stick with it when testing. For all supported wallet types please refer to [enums](./types/enum)
-
-Before sending any data to forge powered blockchain, we should be aware that, all transaction must be signed with a wallet (secretKey/publicKey pair).
+> Please note that, forge supports many wallet types, and developers can decide on their own which types they want to use, the above wallet type is a typical combination, and it's ok to stick with this even in production. For all supported wallet types please refer to [enums](./types/enum.md)
 
 ## 4. Register user on the chain
 
-Similar to user registration in traditional web applications, forge requires an wallet to declare itself on the chain before generating any further activities such as staking, voting and sending transaction.
+Similar to user registration in traditional web applications, forge requires an wallet(user account) to declare itself on the chain before accepting any further activities such as staking, voting and sending transaction from that wallet.
 
-To register `Alice` and `Bob` on the chain, we will use GraphQLClient:
+To register `Alice` and `Bob` on the chain, we will use [GraphQLClient](/forge/sdks/javascript/latest/GraphQLClient.html):
 
 Add `@arcblock/graphql-client` as dependency:
 
@@ -116,7 +112,7 @@ Add `@arcblock/graphql-client` as dependency:
 yarn add @arcblock/graphql-client moment
 ```
 
-Then, create an instance of GraphQLClient and `sendDeclareTx`:
+Then, create an instance of `GraphQLClient`, then call `sendDeclareTx` on that instance:
 
 ```javascript
 const { types } = require('@arcblock/mcrypto');
@@ -149,10 +145,10 @@ function registerUser(userName, userWallet) {
 (async () => {
   try {
     let hash = await registerUser('alice_test', alice);
-    console.log('create account for alice on chain', hash);
+    console.log('register alice tx:', hash);
 
     hash = await registerUser('bob_test', bob);
-    console.log('create account for bob on chain', hash);
+    console.log('register bob tx:', hash);
   } catch (err) {
     if (Array.isArray(err.errors)) {
       console.log(err.errors);
@@ -165,21 +161,23 @@ function registerUser(userName, userWallet) {
 Run `node index.js` again, we will get:
 
 ```terminal
-create account for alice on chain DC684CA8783665245B909A15CFD884DC36FF0CFB5315517ED5655F7DBD0BCAEC
-create account for bob on chain F61C51A9FE31B5E782276F78CAE35945844D7F848E7E008BC75A396AD552C0CB
+register alice tx: DC684CA8783665245B909A15CFD884DC36FF0CFB5315517ED5655F7DBD0BCAEC
+register bob tx: F61C51A9FE31B5E782276F78CAE35945844D7F848E7E008BC75A396AD552C0CB
 ```
 
-Open explorer: `http://localhost:8210/node/explorer/txs`, we can see that, the 2 accounts are registered on the chain:
+Open explorer: `http://localhost:8210/node/explorer/txs`, we can see that, the 2 accounts have already been registered on the chain:
 
 ![](../assets/images/sdk/js/declare.png)
 
-> Here are are using `sendDeclareTx` to write data to the blockchain, many other data types are supported, please refer to [GraphQLClient](/forge/sdks/javascript/latest/GraphQLClient.html) for full list of API.
+> Here are are using `sendDeclareTx` to write data to the blockchain, many other transaction types are supported, please refer to [GraphQLClient](/forge/sdks/javascript/latest/GraphQLClient.html) for full list.
 
 ## 5. Get 25 token for `Alice` and `Bob`
 
+The most important usage of blockchain is recording state and transfers of value, value are presented with token, forge also support that.
+
 ### 5.1 Default account balance
 
-The most important usage of blockchain is recording state and transfers of value, value are presented with token, forge also support that, if we inspect the account we just created with the following code, we can see there balance is `0`:
+If we inspect the account we just created with the following code, we can see there balance is `0`:
 
 ```diff
 diff --git a/index.js b/index.js
@@ -194,9 +192,8 @@ diff --git a/index.js b/index.js
 @@ -35,6 +36,10 @@ const client = new GraphQLClient({ endpoint: `${host}/api` });
        wallet: bob,
      });
-     console.log('create account for bob on chain', hash);
 +
-+    await sleep(3000);
++    await sleep(5000);
 +    const { state: aliceState } = await client.getAccountState({ address: alice.toAddress() });
 +    console.log('alice.balance', aliceState.balance);
    } catch (err) {
@@ -204,9 +201,11 @@ diff --git a/index.js b/index.js
 
 > Here we are using `getAccountState` to read data from the blockchain, we can also use GraphQLClient to read transaction/block/asset/chain info, please refer to [GraphQLClient](/forge/sdks/javascript/latest/GraphQLClient.html) for full list of API.
 
+> You may also noticed that, we waited for 5 seconds before inspecting Alice's account balance, that's because 5 seconds is the block produce timeout for forge, which means that it takes at most 5 seconds before the transaction was executed by the chain and included in a block.
+
 ### 5.2 Get free token
 
-Forge provides an special type for developers to get test tokens for free, let's see the code:
+Forge provides a special transaction type for developers to get test tokens for free:
 
 ```patch
 diff --git a/index.js b/index.js
@@ -242,13 +241,8 @@ diff --git a/index.js b/index.js
 +  console.log('bob.address(userId)', bob.toAddress());
    try {
      let hash = await registerUser('alice_test', alice);
-     console.log('create account for alice on chain', hash);
 @@ -34,9 +52,18 @@ function registerUser(userName, userWallet) {
-     hash = await registerUser('bob_test', bob);
-     console.log('create account for bob on chain', hash);
 
--    await sleep(3000);
-+    await sleep(5000);
      const { state: aliceState } = await client.getAccountState({ address: alice.toAddress() });
      console.log('alice.balance', aliceState.balance);
 +
@@ -280,7 +274,7 @@ alice.balanceNew 250000000000000000
 
 ### 5.3 Format account balance
 
-You may notice that the token balance for `Alice` is a very large number, we can format that to human readable number with help of `@arcblock/forge-util`.
+You may notice that the token balance for `Alice` is a very large number, the reason big number is used is the deterministic requirement of blockchain, we can format the big number to human readable string with functions provided by `@arcblock/forge-util`.
 
 > For all utility methods of `@arcblock/forge-util`, please refer to the [documentation](/forge/sdks/javascript/latest/module-@arcblock_forge-util.html)
 
@@ -317,3 +311,97 @@ alice.balanceNew.readable 25
 > Forge allows developers to customize the token name/symbol/decimal on each chain, refer to [configuration](../core/configuration.md) for details.
 
 ## 6. Transfer 5 token from `Alice` to `Bob`
+
+Now both `Alice` and `Bob` can spend money on the chain, let's ask `Alice` to transfer 5 token to `Bob`.
+
+Before we do actual transfer, let's do a little refactor: extract account balance inspecting to a helper function that will be reused:
+
+```patch
+diff --git a/index.js b/index.js
+@@ -43,6 +43,11 @@ function getFreeToken(userWallet) {
+   });
+ }
+
++async function checkBalance(userName, userWallet) {
++  const { state } = await client.getAccountState({ address: userWallet.toAddress() });
++  console.log(`${userName}.balance`, fromUnitToToken(state.balance));
++}
++
+ (async () => {
+   console.log('alice.address(userId)', alice.toAddress());
+   console.log('bob.address(userId)', bob.toAddress());
+@@ -54,8 +59,8 @@ function getFreeToken(userWallet) {
+     console.log('create account for bob on chain', hash);
+
+     await sleep(5000);
+-    const { state: aliceState } = await client.getAccountState({ address: alice.toAddress() });
+-    console.log('alice.balance', aliceState.balance);
++    await checkBalance('alice.initial', alice);
++    await checkBalance('bob.initial', bob);
+
+     hash = await getFreeToken(alice);
+     console.log('get token for alice: ', hash);
+@@ -64,8 +69,8 @@ function getFreeToken(userWallet) {
+
+     await sleep(5000);
+     const { state: aliceStateNew } = await client.getAccountState({ address: alice.toAddress() });
+-    console.log('alice.balanceNew', aliceStateNew.balance);
+-    console.log('alice.balanceNew.readable', fromUnitToToken(aliceStateNew.balance));
++    await checkBalance('alice.getToken', alice);
++    await checkBalance('bob.getToken', bob);
+   } catch (err) {
+     if (Array.isArray(err.errors)) {
+       console.log(err.errors);
+```
+
+Token transfer is just a function call:
+
+```diff
+diff --git a/index.js b/index.js
+@@ -1,6 +1,6 @@
+ const { types } = require('@arcblock/mcrypto');
+ const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
+-const { fromUnitToToken } = require('@arcblock/forge-util');
++const { fromUnitToToken, fromTokenToUnit } = require('@arcblock/forge-util');
+ const GraphQLClient = require('@arcblock/graphql-client');
+
+@@ -52,16 +52,17 @@ async function checkBalance(userName, userWallet) {
+     await checkBalance('alice.getToken', alice);
+     await checkBalance('bob.getToken', bob);
++
++    // Transfer
++    hash = await client.sendTransferTx({
++      tx: {
++        itx: {
++          to: bob.toAddress(),
++          value: fromTokenToUnit(5),
++        },
++      },
++      wallet: alice,
++    });
++    console.log('transfer hash', hash);
++
++    await sleep(5000);
++    await checkBalance('alice.transfer', alice);
++    await checkBalance('bob.transfer', bob);
+   } catch (err) {
+     if (Array.isArray(err.errors)) {
+```
+
+Run `node index.js`, we can get:
+
+```terminal
+alice.address(userId) z1WE7HCTNgshF7i5EbnDawA2MthfJghxC5j
+bob.address(userId) z1hWaUK6LHbyWe72p2x1b17iD1xNJuFzVkU
+register alice 309A3098B90519A98B248E05D6D50926F89AD346693CBC5A2322CC24DBBA4211
+register bob B694FE8E64E70019D624454D29A037589D106775E47C1A899A1EDF2309F4643B
+alice.initial.balance 0
+bob.initial.balance 0
+get token for alice:  3D1D6ED02F3F80CEE5AA3630EEB2ED68917252E00FE4533D12B3EA9D4D9B1F0A
+get token for bob:  89090F0EF413545618FBD45C8306175311E18C7C2F2D2C34D69E743C80200CEB
+alice.getToken.balance 25
+bob.getToken.balance 25
+transfer hash 629A6F151085951EB1C8567469E02C9C3276FA3A05B4FB49330C9AAC4B7D16D3
+alice.transfer.balance 20
+bob.transfer.balance 30
+```
