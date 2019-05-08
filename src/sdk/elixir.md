@@ -22,7 +22,6 @@ For more document, please see:
 - [Abt Did](https://hexdocs.pm/abt_did_elixir/AbtDid.html)
 - [Forge Abi](https://hexdocs.pm/forge_abi/ForgeAbi.html)
 
-
 ## Installation
 
 For every new release we ship osx and ubuntu binaries. If you're using these two platforms, you can install latest forge-cli:
