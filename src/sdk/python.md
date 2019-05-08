@@ -1,16 +1,17 @@
 # Python SDK
-## Forge-python-sdk
-For Forge-related setup, please checkout [Forge](https://github.com/ArcBlock/forge).
 
-A detailed reference manual for forge-python-sdk can be found [here](../../../forge-python-sdk).
+A detailed reference manual for forge-python-sdk can be found [here](../../sdks/python/latest).
 
+The source code for this Python SDK is available on [Github](https://github.com/ArcBlock/forge-python-sdk). Please contact us if you have any questions.
 
 ## Installation
 
 We recommend installing through `pip`
+
 ```sh
 pip install forge-python-sdk
 ```
+
 ::: warning
 This sdk supports python verison `>=3.6`.
 :::
@@ -19,7 +20,7 @@ This sdk supports python verison `>=3.6`.
 
 ### Step 0
 
-First get your Forge running on local with [Forge CLI](../tools/forge_cli.md).
+First get your Forge running on local with [Forge CLI](../tools/forge_cli).
 
 ### Step 1
 
@@ -115,7 +116,7 @@ True
 
 Now we can see tht Alice just successfully transferred 10 TBA to Mike's Account!
 
- 🎉 Congratulations! You have finished the Level 1 tutorial! Now you should have a general sense about how Forge works. If you want more challenges, go checkout Level 2 and Level 3 tutorials.
+ 🎉 Congratulations! You have finished the Level 1 tutorial! Now you should have a general sense about how Forge works. If you want more challenges, go checkout Level 2 tutorial.
 
  ### Level 2: Sell a Used Laptop
 
@@ -238,3 +239,5 @@ Alice's account should have only 15 TBA after she pays for the laptop.
 ```
 
  🎉 🎉Congratulations! You have finished the Level 2 tutorial! Now you should have a general sense about how to create an asset and exchange assets with Forge SDK. Try and create more complicated assets!
+
+ That's it. Now you are good to go on your own. Please let us know on [Github](https://github.com/ArcBlock/forge-python-sdk) if you have any questions or suggestions.
