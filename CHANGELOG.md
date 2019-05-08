@@ -1,3 +1,6 @@
+## 0.26.0 (May 08, 2019)
+  - add various SDK docs. Bump version to catch up with forge release version
+
 ## 0.25.4 (May 08, 2019)
   - Merge branch 'wangshijun/logo-and-sdk-wording' of github.com:ArcBlock/forge-docs into wangshijun/logo-and-sdk-wording
   - hack: disable version build for now because it fails on ci

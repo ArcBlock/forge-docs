@@ -27,7 +27,7 @@ module.exports = {
     // }
   },
   themeConfig: {
-    logo: './logo.png',
+    logo: '/logo.png',
     locales: {
       '/': {
         selectText: 'Languages',
