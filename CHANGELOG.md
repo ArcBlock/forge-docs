@@ -1,3 +1,6 @@
+## 0.26.1 (May 14, 2019)
+  - add rpc message zh/en booklet
+
 ## 0.26.0 (May 08, 2019)
   - add various SDK docs. Bump version to catch up with forge release version
 
