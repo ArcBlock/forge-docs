@@ -108,6 +108,7 @@ module.exports = {
               '/rpc/state',
               '/rpc/stats',
               '/rpc/wallet',
+              '/rpc/message_translation_booklet',
             ],
           },
           {
