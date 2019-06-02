@@ -1,3 +1,8 @@
+## 0.26.2 (June 03, 2019)
+  - chore: fix typo
+  - Merge pull request #55 from ArcBlock/refresh-rpc-docs
+  - update rpc/stats
+
 ## 0.26.1 (May 14, 2019)
   - add rpc message zh/en booklet
 
