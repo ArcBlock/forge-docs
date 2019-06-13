@@ -4,6 +4,9 @@
 ## 0.30.0 (June 12, 2019)
   - Release Forge v0.30
 
+## 0.27.0 (May 16, 2019)
+  - chore: add warnings for abt chain node
+
 ## 0.26.2 (June 03, 2019)
   - chore: fix typo
   - Merge pull request #55 from ArcBlock/refresh-rpc-docs
