@@ -16,7 +16,7 @@ Today, forge Workshop includes support for:
 - [Install Forge CLI](https://docs.arcblock.io/forge/latest/tools/forge_cli.html#install-forge-cli)
 - Run command `forge init`, users form China, please run `forge init --mirror http://arcblock.oss-cn-beijing.aliyuncs.com`
 - Run command `forge workshop start`
-- Then `forge workshop open` or just visit `[http://localhost:8807](http://localhost:8807)`
+- Then `forge workshop open` or just visit [http://localhost:8807](http://localhost:8807)
 
 ## How to use
 
