@@ -21,11 +21,11 @@ Today, DApps Workshop includes support for:
 
 ## How to use
 
-DApps Workshop is a place where you can quickly create and test prototypes of your applications. Here you can see how the ABT wallet and your application will work together to finish the authentication process and to process various transactions supported by Forge. You can create different application prototypes to experience these two aspects separately.
+DApps Workshop is a place where you can quickly create and test POCs for your applications. Here you can see how the ABT wallet and an application can work together to finish the authentication process such as logging in, as well as process various transactions supported by the Forge Framework. You can create different application POCs to experience these two aspects separately.
 
 ### Authentication
 
-This part of DApps Workshop lets you see how the ABT wallet and a forge-built application will interact with each other to finish the authentication process under DID Authentication Protocol.
+This part of DApps Workshop lets you see how the ABT wallet and a forge-built application will interact with each other to finish the authentication process using the DID Authentication Protocol.  Here are the steps:
 
 - Step 1: Click the button under Authentication section.
   ![](../assets/images/tools/dapps-workshop/auth-1.png)
@@ -43,7 +43,7 @@ This part of DApps Workshop lets you see how the ABT wallet and a forge-built ap
 
 ### Transaction
 
-This part of DApps Workshop lets you quickly create a prototype of a Forge application and lets you to see how the ABT wallet and your application will work together to finish various transactions through workflows.
+This part of DApps Workshop lets you quickly create a POC of a Forge application and lets you to see how the ABT wallet and your application will work together to finish various transactions through workflows.  Here are the steps: 
 
 - Step 1: Go to the Transactions section.
   ![](../assets/images/tools/dapps-workshop/tx-1.png)
@@ -71,8 +71,8 @@ This part of DApps Workshop lets you quickly create a prototype of a Forge appli
   - **Make sure your ABT wallet and the workshop server are inside the sane local network.**
   - Open your ABT wallet
   - Scan the QR code of this TransferTx
-  - Follow the guide to finish this transaction.
-  - Now you should see an account declared for this application, and there is an asset representing the coupon belongs to this account.
+  - Follow the guide to finish the transaction.
+  - Now you should see an account declared for this application, and there is an asset representing the coupon belonging to this account.
 
 - Step 6: One more transaction.
   ![](../assets/images/tools/dapps-workshop/tx-5.png)
@@ -81,9 +81,9 @@ This part of DApps Workshop lets you quickly create a prototype of a Forge appli
   - Input `CELLPHONE` in field "Asset to offer", input `80` in field "Token to demand" and input `COUPON20` in field "Asset to demand".
   - Click `Create Transaction` button.
 
-- Step 7: Use the wallet to finish this transaction. After you finish the transaction, you will give 80 TBA tokens and the coupon asset to the application but will receive a new asset representing a cellphone.
+- Step 7: Use the ABT Wallet to finish the transaction. After you complete it, you will give 80 TBA tokens and the coupon asset to the application but will receive a new asset representing a cellphone in return.
   
-#### Explanation to Transactions
+#### Transaction Types:
 
   - `PokeTx`: This transaction gives tokens to accounts for free. But an account can only receive tokens through this transaction once a day. If your account does not have any tokens to do transactions, this one will be very helpful.
 
