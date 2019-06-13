@@ -1,4 +1,4 @@
-# Forge Workshop
+  # Forge Workshop
 
 The Forge Workshop lets developers create and test different types of transaction workflows and DID-based authentication requirements for any Forge-built application. 
 
@@ -13,7 +13,9 @@ Today, forge Workshop includes support for:
   
 ## How to run 
 
-`WORKSHOP_CONFIG=path/of/the/config release/path/bin/abt_did_workshop console`
+  - [Install Forge CLI](https://docs.arcblock.io/forge/latest/tools/forge_cli.html#install-forge-cli)
+  - Type command `forge workshop start`
+  - Visit `localhost:8807`
 
 ## How to use
 
@@ -21,7 +23,7 @@ Forge workshop is composed of two parts -- Application and Demo Cases. They are 
 
 ### Application
 
-This part of Forge Workshop lets you try out how the ABT wallet and a forge-built application should interact with each other to finish the authentication process under DID Authentication Protocol. 
+This part of Forge Workshop lets you see how the ABT wallet and a forge-built application will interact with each other to finish the authentication process under DID Authentication Protocol. 
 
   - Step 1: Choose the DID type, DSA algorithm and the Hash algorithm to generate a DID.
   - Step 2: Input the basic information of your application prototype.
