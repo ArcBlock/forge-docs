@@ -6,13 +6,13 @@ The most up to date build is using forge v0.22.8:
 
 For Chinese users:
 
-* OSX: [ABT Chain Node v0.7.2 OSX build](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.7.2/ABTChainNode-0.7.2.dmg)
-* Ubuntu: [ABT Chain Node v0.7.2 Ubuntu build](https://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.7.2/ABTChainNode_0.7.2_amd64.deb)
+* OSX: [ABT Chain Node v0.8.1 OSX build](https://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.25.3/ABTChainNode-0.8.1.dmg)
+* Ubuntu: [ABT Chain Node v0.8.1 Ubuntu build](https://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.25.3/ABTChainNode_0.8.1_amd64.deb)
 
 For global users:
 
-* OSX: [ABT Chain Node v0.7.2 OSX build](http://releases.arcblock.io/node/ABTChainNode-0.7.2.dmg)
-* Ubuntu: [ABT Chain Node v0.7.2 Ubuntu build](http://releases.arcblock.io/node/ABTChainNode_0.7.2_amd64.deb)
+* OSX: [ABT Chain Node v0.8.1 OSX build](http://releases.arcblock.io/node/ABTChainNode-0.8.1.dmg)
+* Ubuntu: [ABT Chain Node v0.8.1 Ubuntu build](http://releases.arcblock.io/node/ABTChainNode_0.8.1_amd64.deb)
 
 ::: warning
 
