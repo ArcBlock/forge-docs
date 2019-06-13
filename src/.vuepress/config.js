@@ -71,7 +71,7 @@ module.exports = {
               '/tools/abt_chain_node',
               '/tools/simulator',
               '/tools/forge_indexer',
-              '/tools/forge_workshop',
+              '/tools/dapps_workshop',
             ],
           },
           {
