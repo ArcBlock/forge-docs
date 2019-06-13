@@ -1,3 +1,6 @@
+## 0.30.1 (June 12, 2019)
+  - Add screenshots for docs of forge workshop.
+
 ## 0.30.0 (June 12, 2019)
   - Release Forge v0.30
 
