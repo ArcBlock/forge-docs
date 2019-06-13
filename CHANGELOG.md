@@ -1,3 +1,6 @@
+## 0.30.2 (June 12, 2019)
+  - Rename to DApps Workshop.
+
 ## 0.30.1 (June 12, 2019)
   - Add screenshots for docs of forge workshop.
 
