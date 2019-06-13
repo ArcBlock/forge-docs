@@ -1,8 +1,8 @@
-# Forge Workshop
+# DApps Workshop
 
-The Forge Workshop lets developers create and test different types of transaction workflows and DID-based authentication requirements for any Forge-built application.
+The DApps Workshop lets developers create and test different types of transaction workflows and DID-based authentication requirements for any Forge-built application.
 
-Today, forge Workshop includes support for:
+Today, DApps Workshop includes support for:
 
 - Trade-related transactions
 - Prebuild workflows and process/rules for all supported Tx types including multi-transaction scenarios
@@ -21,38 +21,38 @@ Today, forge Workshop includes support for:
 
 ## How to use
 
-Forge Workshop is a place where you can quickly create and test prototypes of your applications. Here you can see how the ABT wallet and your application will work together to finish the authentication process and to process various transactions supported by Forge. You can create different application prototypes to experience these two aspects separately.
+DApps Workshop is a place where you can quickly create and test prototypes of your applications. Here you can see how the ABT wallet and your application will work together to finish the authentication process and to process various transactions supported by Forge. You can create different application prototypes to experience these two aspects separately.
 
 ### Authentication
 
-This part of Forge Workshop lets you see how the ABT wallet and a forge-built application will interact with each other to finish the authentication process under DID Authentication Protocol.
+This part of DApps Workshop lets you see how the ABT wallet and a forge-built application will interact with each other to finish the authentication process under DID Authentication Protocol.
 
 - Step 1: Click the button under Authentication section.
-  ![](../assets/images/tools/forge-workshop/auth-1.png)
+  ![](../assets/images/tools/dapps-workshop/auth-1.png)
 - Step 2: Choose the DID type, DSA algorithm and the Hash algorithm to generate a DID.
-  ![](../assets/images/tools/forge-workshop/auth-2.png)
+  ![](../assets/images/tools/dapps-workshop/auth-2.png)
 - Step 3: Input the basic information of your application prototype.
-  ![](../assets/images/tools/forge-workshop/auth-3.png)
+  ![](../assets/images/tools/dapps-workshop/auth-3.png)
 - Step 4: Choose the profiles for users to provide and agreements for users to sign during the authentication process.
-  ![](../assets/images/tools/forge-workshop/auth-4.png)
+  ![](../assets/images/tools/dapps-workshop/auth-4.png)
 - Step 5: Scan the QR code in the ABT wallet to finish the authentication process.
-  ![](../assets/images/tools/forge-workshop/auth-5.png)
+  ![](../assets/images/tools/dapps-workshop/auth-5.png)
 - Step 6: If the authentication process finished successfully, you would be able to see the user information on the web page.
-  ![](../assets/images/tools/forge-workshop/auth-6.png)
+  ![](../assets/images/tools/dapps-workshop/auth-6.png)
 - Step 7: Instead of using the ABT wallet, you can also use the web wallet to test the authentication process.
 
 ### Transaction
 
-This part of Forge Workshop lets you quickly create a prototype of a Forge application and lets you to see how the ABT wallet and your application will work together to finish various transactions through workflows.
+This part of DApps Workshop lets you quickly create a prototype of a Forge application and lets you to see how the ABT wallet and your application will work together to finish various transactions through workflows.
 
 - Step 1: Go to the Transactions section.
-  ![](../assets/images/tools/forge-workshop/tx-1.png)
+  ![](../assets/images/tools/dapps-workshop/tx-1.png)
 
 - Step 2: Click the CREATE APPLICATION button.
-  ![](../assets/images/tools/forge-workshop/tx-2.png)
+  ![](../assets/images/tools/dapps-workshop/tx-2.png)
 
 - Step 3: Fill up the following fields for an application prototype. The first three fields will affect how your application looks like on the ABT wallet.
-  ![](../assets/images/tools/forge-workshop/tx-3.png)
+  ![](../assets/images/tools/dapps-workshop/tx-3.png)
   - `Name`: The name of your application.
   - `Description`: The detailed description of your applications.
   - `Icon URL`: The URL to the logo of your application.
@@ -60,7 +60,7 @@ This part of Forge Workshop lets you quickly create a prototype of a Forge appli
   - Click `SAVE & CONTINUE`.
 
 - Step 4: Create a transaction.
-  ![](../assets/images/tools/forge-workshop/tx-4.png)
+  ![](../assets/images/tools/dapps-workshop/tx-4.png)
   - Select `TransferTx` in Transaction Type drop down menu.
   - Input a name and a description for this transaction. Users will see this information on ABT wallet.
   - Input `COUPON20` in "Asset to offer" field.
@@ -75,7 +75,7 @@ This part of Forge Workshop lets you quickly create a prototype of a Forge appli
   - Now you should see an account declared for this application, and there is an asset representing the coupon belongs to this account.
 
 - Step 6: One more transaction.
-  ![](../assets/images/tools/forge-workshop/tx-5.png)
+  ![](../assets/images/tools/dapps-workshop/tx-5.png)
   - Select `ExchangeTx` in Transaction Type drop down menu.
   - Input a name and description for this transaction.
   - Input `CELLPHONE` in field "Asset to offer", input `80` in field "Token to demand" and input `COUPON20` in field "Asset to demand".
