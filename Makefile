@@ -31,17 +31,6 @@ watch:
 	@echo "Watching templates and slides changes..."
 	@fswatch -o src/ | xargs -n1 -I{} make build
 
-copy-js-docs:
-	@cp -f ~/Develop/arcblock/forge-js/packages/graphql-client/docs/README.md src/sdk/javascript/graphql_client.md
-	@cp -f ~/Develop/arcblock/forge-js/packages/grpc-client/docs/README.md src/sdk/javascript/grpc_client.md
-	@cp -f ~/Develop/arcblock/forge-js/packages/forge-util/docs/README.md src/sdk/javascript/forge_util.md
-	@cp -f ~/Develop/arcblock/forge-js/packages/forge-wallet/docs/README.md src/sdk/javascript/forge_wallet.md
-	@cp -f ~/Develop/arcblock/forge-js/packages/forge-message/docs/README.md src/sdk/javascript/forge_message.md
-	@cp -f ~/Develop/arcblock/forge-js/packages/mcrypto/docs/README.md src/sdk/javascript/mcrypto.md
-	@cp -f ~/Develop/arcblock/abt-did-js/packages/did/docs/README.md src/sdk/javascript/abt_did.md
-	@cp -f ~/Develop/arcblock/abt-did-js/packages/util/docs/README.md src/sdk/javascript/did_util.md
-	@cp -f ~/Develop/arcblock/abt-did-js/packages/auth/docs/README.md src/sdk/javascript/did_auth.md
-
 dev:
 	@cd src; DOC_VERSION=latest $(VUEPRESS) dev
 

@@ -126,7 +126,7 @@ message ForgeStats {
 
 ```graphql
 {
-  getForgeStas{
+  getForgeStats{
     forgeStats {
       avgTps
       maxTps
@@ -506,7 +506,7 @@ message ResponseListStakes {
 
 ```protobuf
 message RequestListAccount {
-  owner_address owner_address = 1;
+  string owner_address = 1;
 }
 ```
 
@@ -809,7 +809,7 @@ message RequestListBlocks {
 
 ---
 
-#### RequestListBlocks
+#### ResponseListBlocks
 
 | Name   | Data Type      | Default | Required |
 | :----- | :------------- | :------ | :------- |

@@ -1,13 +1,13 @@
 const configureWebpack = require('./webpack');
 const markdown = require('./markdown');
 const fs = require('fs');
-const version = fs.readFileSync("../version", "utf-8").trim();
+const version = fs.readFileSync('../version', 'utf-8').trim();
 
 const doc_version = process.env.DOC_VERSION;
 
 module.exports = {
-  title: "Forge SDK Documentation",
-  description: "Documentation for ArcBlock Forge SDK",
+  title: 'Forge SDK Documentation',
+  description: 'Documentation for ArcBlock Forge SDK',
   configureWebpack,
   markdown,
   ga: '',
@@ -33,11 +33,14 @@ module.exports = {
         selectText: 'Languages',
         label: 'English',
         lastUpdated: 'Last Updated',
-        nav: [{
-          text: 'GitHub',
-          link: 'https://github.com/ArcBlock'
-        }, ],
-        sidebar: [{
+        nav: [
+          {
+            text: 'GitHub',
+            link: 'https://github.com/ArcBlock',
+          },
+        ],
+        sidebar: [
+          {
             title: 'Introduction',
             collapsable: false,
             children: ['/intro/', '/intro/concepts', '/intro/transaction', '/intro/inside_forge'],
@@ -56,20 +59,25 @@ module.exports = {
               '/sdk/python',
               '/sdk/elixir',
               '/sdk/java',
-              '/sdk/others'
+              '/sdk/others',
             ],
           },
           {
             title: 'Forge Tools',
             collapsable: false,
-            children: ['/tools/forge_cli', 'tools/forge_web', 'tools/abt_chain_node', '/tools/simulator', 'tools/forge_indexer'],
+            children: [
+              '/tools/forge_cli',
+              '/tools/forge_web',
+              '/tools/abt_chain_node',
+              '/tools/simulator',
+              '/tools/forge_indexer',
+              '/tools/forge_workshop',
+            ],
           },
           {
             title: 'Architecture',
             collapsable: false,
-            children: [
-              '/arch/overview',
-            ],
+            children: ['/arch/overview'],
           },
           {
             title: 'Forge Core',
@@ -114,15 +122,10 @@ module.exports = {
           {
             title: 'Forge Types',
             collapsable: false,
-            children: [
-              '/types/type',
-              '/types/enum',
-              '/types/state',
-              '/types/trace_type',
-            ],
+            children: ['/types/type', '/types/enum', '/types/state', '/types/trace_type'],
           },
         ],
-      }
+      },
     },
-  }
+  },
 };

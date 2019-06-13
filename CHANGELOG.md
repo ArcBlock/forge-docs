@@ -1,3 +1,17 @@
+## 0.30.1 (June 12, 2019)
+  - Add screenshots for docs of forge workshop.
+
+## 0.30.0 (June 12, 2019)
+  - Release Forge v0.30
+
+## 0.26.2 (June 03, 2019)
+  - chore: fix typo
+  - Merge pull request #55 from ArcBlock/refresh-rpc-docs
+  - update rpc/stats
+
+## 0.26.1 (May 14, 2019)
+  - add rpc message zh/en booklet
+
 ## 0.26.0 (May 08, 2019)
   - add various SDK docs. Bump version to catch up with forge release version
 
