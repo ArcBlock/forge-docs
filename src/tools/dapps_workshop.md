@@ -19,6 +19,8 @@ Today, DApps Workshop includes support for:
 - Run command `forge workshop start`
 - Then `forge workshop open` or just visit [http://localhost:8807](http://localhost:8807)
 
+[Watch a demo of here](https://youtu.be/4sGgS9dcvxc)
+
 ## How to use
 
 DApps Workshop is a place where you can quickly create and test POCs for your applications. Here you can see how the ABT wallet and an application can work together to finish the authentication process such as logging in, as well as process various transactions supported by the Forge Framework. You can create different application POCs to experience these two aspects separately.
@@ -81,7 +83,9 @@ This part of DApps Workshop lets you quickly create a POC of a Forge application
   - Input `CELLPHONE` in field "Asset to offer", input `80` in field "Token to demand" and input `COUPON20` in field "Asset to demand".
   - Click `Create Transaction` button.
 
-- Step 7: Use the ABT Wallet to finish the transaction. After you complete it, you will give 80 TBA tokens and the coupon asset to the application but will receive a new asset representing a cellphone in return.
+- Step 7: Use the wallet to finish this transaction. After you finish the transaction, you will give 80 TBA tokens and the coupon asset to the application but will receive a new asset representing a cellphone.
+
+[learn more about setting up a transaction POC here](https://youtu.be/-QZOQ6SiAvI)
   
 #### Transaction Types:
 
