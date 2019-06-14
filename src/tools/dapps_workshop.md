@@ -19,6 +19,8 @@ Today, DApps Workshop includes support for:
 - Run command `forge workshop start`
 - Then `forge workshop open` or just visit [http://localhost:8807](http://localhost:8807)
 
+[Watch a demo of here](https://youtu.be/4sGgS9dcvxc)
+
 ## How to use
 
 DApps Workshop is a place where you can quickly create and test prototypes of your applications. Here you can see how the ABT wallet and your application will work together to finish the authentication process and to process various transactions supported by Forge. You can create different application prototypes to experience these two aspects separately.
@@ -82,6 +84,8 @@ This part of DApps Workshop lets you quickly create a prototype of a Forge appli
   - Click `Create Transaction` button.
 
 - Step 7: Use the wallet to finish this transaction. After you finish the transaction, you will give 80 TBA tokens and the coupon asset to the application but will receive a new asset representing a cellphone.
+
+[learn more about setting up a transaction POC here](https://youtu.be/-QZOQ6SiAvI)
   
 #### Explanation to Transactions
 
