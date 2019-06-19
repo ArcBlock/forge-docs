@@ -13,7 +13,7 @@ To get started quickly with an example application, see the [quick start guide](
 For more details on how Forge SDK works, see the respective documentation for
 [Forge Architecture](arch/), [Forge Core](core/) [Tools](tools/). -->
 
-## Versions of Forge SDK Components
+## Forge SDK Component Latest Version
 
 Here is the list of latest version of various Forge SDK components:
 
