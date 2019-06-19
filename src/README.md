@@ -40,21 +40,21 @@ Included in forge-release, and available from `forge init`:
 
 ### Forge Javascript SDk
 
-- [@arcblock/forge-sdk <img src="https://img.shields.io/npm/v/@arcblock/forge-sdk.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/forge-sdk)
-- [@arcblock/did <img src="https://img.shields.io/npm/v/@arcblock/did.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/did)
-- [@arcblock/did-auth <img src="https://img.shields.io/npm/v/@arcblock/did-auth.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/did-auth)
-- [@arcblock/did-util <img src="https://img.shields.io/npm/v/@arcblock/did-util.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/did-util)
-- [@arcblock/forge-config <img src="https://img.shields.io/npm/v/@arcblock/forge-config.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/forge-config)
-- [@arcblock/forge-message <img src="https://img.shields.io/npm/v/@arcblock/forge-message.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/forge-message)
-- [@arcblock/forge-proto <img src="https://img.shields.io/npm/v/@arcblock/forge-proto.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/forge-proto)
-- [@arcblock/forge-util <img src="https://img.shields.io/npm/v/@arcblock/forge-util.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/forge-util)
-- [@arcblock/forge-wallet <img src="https://img.shields.io/npm/v/@arcblock/forge-wallet.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/forge-wallet)
-- [@arcblock/graphql-client <img src="https://img.shields.io/npm/v/@arcblock/graphql-client.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/graphql-client)
-- [@arcblock/grpc-client <img src="https://img.shields.io/npm/v/@arcblock/grpc-client.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/grpc-client)
-- [@arcblock/mcrypto <img src="https://img.shields.io/npm/v/@arcblock/mcrypto.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/mcrypto)
-- [@arcblock/tcp-server <img src="https://img.shields.io/npm/v/@arcblock/tcp-server.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/tcp-server)
-- [@arcblock/tx-util <img src="https://img.shields.io/npm/v/@arcblock/tx-util.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/tx-util)
-- [@arcblock/react-forge <img src="https://img.shields.io/npm/v/@arcblock/react-forge.svg" alt="Version">](https://www.npmjs.com/package/@arcblock/react-forge)
+- [![](https://img.shields.io/npm/v/@arcblock/forge-sdk?label=@arcblock/did)](https://www.npmjs.com/package/@arcblock/forge-sdk)
+- [![](https://img.shields.io/npm/v/@arcblock/did.svg?label=@arcblock/did)](https://www.npmjs.com/package/@arcblock/did)
+- [![](https://img.shields.io/npm/v/@arcblock/did-auth.svg?label=@arcblock/did-auth)](https://www.npmjs.com/package/@arcblock/did-auth)
+- [![](https://img.shields.io/npm/v/@arcblock/did-util.svg?label=@arcblock/did-util)](https://www.npmjs.com/package/@arcblock/did-util)
+- [![](https://img.shields.io/npm/v/@arcblock/forge-config.svg?label=@arcblock/forge-config)](https://www.npmjs.com/package/@arcblock/forge-config)
+- [![](https://img.shields.io/npm/v/@arcblock/forge-message.svg?label=@arcblock/forge-message)](https://www.npmjs.com/package/@arcblock/forge-message)
+- [![](https://img.shields.io/npm/v/@arcblock/forge-proto.svg?label=@arcblock/forge-proto)](https://www.npmjs.com/package/@arcblock/forge-proto)
+- [![](https://img.shields.io/npm/v/@arcblock/forge-util.svg?label=@arcblock/forge-util)](https://www.npmjs.com/package/@arcblock/forge-util)
+- [![](https://img.shields.io/npm/v/@arcblock/forge-wallet.svg?label=@arcblock/forge-wallet)](https://www.npmjs.com/package/@arcblock/forge-wallet)
+- [![](https://img.shields.io/npm/v/@arcblock/graphql-client.svg?label=@arcblock/graphql-client)](https://www.npmjs.com/package/@arcblock/graphql-client)
+- [![](https://img.shields.io/npm/v/@arcblock/grpc-client.svg?label=@arcblock/grpc-client)](https://www.npmjs.com/package/@arcblock/grpc-client)
+- [![](https://img.shields.io/npm/v/@arcblock/mcrypto.svg?label=@arcblock/mcrypto)](https://www.npmjs.com/package/@arcblock/mcrypto)
+- [![](https://img.shields.io/npm/v/@arcblock/tcp-server.svg?label=@arcblock/tcp-server)](https://www.npmjs.com/package/@arcblock/tcp-server)
+- [![](https://img.shields.io/npm/v/@arcblock/tx-util.svg?label=@arcblock/tx-util)](https://www.npmjs.com/package/@arcblock/tx-util)
+- [![](https://img.shields.io/npm/v/@arcblock/react-forge.svg?label=@arcblock/react-forge)](https://www.npmjs.com/package/@arcblock/react-forge)
 
 ### Forge Java SDK
 
