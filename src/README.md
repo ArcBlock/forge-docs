@@ -58,8 +58,11 @@ Included in forge-release, and available from `forge init`:
 
 ### Forge Java SDK
 
+- [![](https://img.shields.io/github/tag/arcblock/forge-java-sdk.svg?label=forge-java-sdk)](https://github.com/ArcBlock/forge-java-sdk)
 
 ### Forge Python SDK
+
+- [![](https://img.shields.io/github/tag/arcblock/forge-python-sdk.svg?label=forge-python-sdk)](https://github.com/ArcBlock/forge-python-sdk)
 
 ### Forge Elixir SDK
 
