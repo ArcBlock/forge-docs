@@ -13,7 +13,7 @@ To get started quickly with an example application, see the [quick start guide](
 For more details on how Forge SDK works, see the respective documentation for
 [Forge Architecture](arch/), [Forge Core](core/) [Tools](tools/). -->
 
-## Versions of Forge SDk Components
+## Versions of Forge SDK Components
 
 Here is the list of latest version of various Forge SDK components:
 
@@ -38,7 +38,7 @@ Included in forge-release, and available from `forge init`:
 - [![](https://img.shields.io/npm/v/forge-keystone-starter.svg?label=forge-keystone-starter)](https://www.npmjs.com/package/forge-keystone-starter)
 - [![](https://img.shields.io/npm/v/forge-gatsby-starter.svg?label=forge-gatsby-starter)](https://www.npmjs.com/package/forge-gatsby-starter)
 
-### Forge Javascript SDk
+### Forge Javascript SDK
 
 - [![](https://img.shields.io/npm/v/@arcblock/forge-sdk.svg?label=@arcblock/forge-sdk)](https://www.npmjs.com/package/@arcblock/forge-sdk)
 - [![](https://img.shields.io/npm/v/@arcblock/forge-util.svg?label=@arcblock/forge-util)](https://www.npmjs.com/package/@arcblock/forge-util)
