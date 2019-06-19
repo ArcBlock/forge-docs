@@ -28,6 +28,15 @@ module.exports = {
   },
   themeConfig: {
     logo: '/logo.png',
+
+    // Edit on github
+    repo: 'ArcBlock/forge-docs',
+    repoLabel: 'Contribute!',
+    docsDir: 'src',
+    docsBranch: 'master',
+    editLinks: true,
+    editLinkText: 'Edit this page on GitHub',
+
     locales: {
       '/': {
         selectText: 'Languages',
