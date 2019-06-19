@@ -1,3 +1,10 @@
+## 0.31.0 (June 19, 2019)
+  - chore: enable edit on github for all doc pages
+  - fix: typo in make file
+  - chore: add tip for forge-cli users from China
+  - Merge pull request #62 from ArcBlock/matt/docsaddvidoes
+  - added videos
+
 ## 0.30.2 (June 12, 2019)
   - Rename to DApps Workshop.
 
