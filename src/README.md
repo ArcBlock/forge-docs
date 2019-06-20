@@ -17,7 +17,7 @@ For more details on how Forge SDK works, see the respective documentation for
 
 Here is the list of latest version of various Forge SDK components:
 
-### Forge Kernel
+### Forge
 
 - ![](https://img.shields.io/badge/dynamic/json.svg?color=red&label=forge-release&query=%24.latest&url=http%3A%2F%2Freleases.arcblock.io%2Fforge%2Flatest.json): forge-kernel、forge-web、forge-simulator and dapps-workshop included
 
