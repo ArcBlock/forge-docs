@@ -10,6 +10,13 @@ As described on installation chapter, installing Forge CLI is pretty easy:
 $ npm install -g @arcblock/forge-cli
 ```
 
+For users from China, its's recommended to use taobao npm mirror:
+
+```bash
+$ npm install -g @arcblock/forge-cli --registry=https://registry.npm.taobao.org
+```
+
+
 Then you can run `forge` to see what it supports:
 
 ```bash

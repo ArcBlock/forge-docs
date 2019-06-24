@@ -8,7 +8,7 @@ build: $(OUTPUT_FOLDER)
 	@rm -rf $(OUTPUT_FOLDER)/*
 	@cd src; DOC_VERSION=latest $(VUEPRESS) build
 	# @cd src; DOC_VERSION=$(basename $(VERSION)) $(VUEPRESS) build
-	@echo "All slides are built."
+	@echo "All docs are built."
 
 all: build
 	@aws s3 sync $(OUTPUT_FOLDER) s3://docs.arcblock.io/forge --region us-west-2 --profile prod
@@ -21,7 +21,7 @@ travis-init: init
 
 clean:
 	@rm -rf dist
-	@echo "All slides are cleaned."
+	@echo "All docs are cleaned."
 
 $(OUTPUT_FOLDER):
 	@mkdir -p $@
