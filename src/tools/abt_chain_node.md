@@ -2,17 +2,17 @@
 
 ABT Chain Node is a user-friendly application that can start/manage a forge node. It is currently a preview version. For MAC OSX and Ubuntu user, we build desktop edition to manage node start/stop automatically.
 
-The most up to date build is using forge v0.22.8:
+The most up to date build is using forge v0.32.0:
 
 For Chinese users:
 
-* OSX: [ABT Chain Node v0.8.1 OSX build](https://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.25.3/ABTChainNode-0.8.1.dmg)
-* Ubuntu: [ABT Chain Node v0.8.1 Ubuntu build](https://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.25.3/ABTChainNode_0.8.1_amd64.deb)
+* OSX: [ABTChainNode-0.32.0.dmg](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.32.0/ABTChainNode-0.32.0.dmg)
+* Ubuntu: [ABTChainNode_0.32.0_amd64.deb](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.32.0/ABTChainNode_0.32.0_amd64.deb)
 
 For global users:
 
-* OSX: [ABT Chain Node v0.8.1 OSX build](http://releases.arcblock.io/node/ABTChainNode-0.8.1.dmg)
-* Ubuntu: [ABT Chain Node v0.8.1 Ubuntu build](http://releases.arcblock.io/node/ABTChainNode_0.8.1_amd64.deb)
+* OSX: [ABTChainNode-0.32.0.dmg](http://releases.arcblock.io/node/ABTChainNode-0.32.0.dmg)
+* Ubuntu: [ABTChainNode_0.32.0_amd64.deb](http://releases.arcblock.io/node/ABTChainNode_0.32.0_amd64.deb)
 
 ::: warning
 
