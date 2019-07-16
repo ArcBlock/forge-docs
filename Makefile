@@ -6,7 +6,7 @@ VERSION=$(strip $(shell cat version))
 
 build: $(OUTPUT_FOLDER)
 	@rm -rf $(OUTPUT_FOLDER)/*
-	@cd src; DOC_VERSION=latest $(VUEPRESS) build
+	@cd src; DOC_VERSION=latest $(VUEPRESS) build; rm -rf ../$(OUTPUT_FOLDER)/latest/error_codes/error_code; cp -r error_codes/error_code ../$(OUTPUT_FOLDER)/latest/error_codes
 	# @cd src; DOC_VERSION=$(basename $(VERSION)) $(VUEPRESS) build
 	@echo "All docs are built."
 
