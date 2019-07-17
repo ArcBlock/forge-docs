@@ -1,3 +1,16 @@
+## 0.33.0 (July 17, 2019)
+  - Merge pull request #67 from ArcBlock/feature/add-error-code
+  - add default docs
+  - add generated error code
+  - Update README.md (#65)
+  - Update abt_chain_node.md
+  - updates (#61)
+  - chore: add version for python and java sdk
+  - chore: update npm package list
+  - chore: improve npm badge links
+  - show latest version of our software on homepage of the document site
+  - updates
+
 ## 0.31.0 (June 19, 2019)
   - chore: enable edit on github for all doc pages
   - fix: typo in make file
