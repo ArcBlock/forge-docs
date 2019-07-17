@@ -1,0 +1,1 @@
+This asset can not be transferred.
