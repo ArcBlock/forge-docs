@@ -6,13 +6,13 @@ The most up to date build is ![](https://img.shields.io/badge/dynamic/json.svg?c
 
 For Chinese users:
 
-* OSX: [ABTChainNode-latest.dmg](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/latest/ABTChainNode.dmg)
-* Ubuntu: [ABTChainNode_latest_amd64.deb](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/latest/ABTChainNode.deb)
+* OSX: [ABTChainNode.dmg](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/latest/ABTChainNode.dmg)
+* Ubuntu: [ABTChainNode_amd64.deb](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/latest/ABTChainNode.deb)
 
 For global users:
 
-* OSX: [ABTChainNode-latest.dmg](http://releases.arcblock.io/forge/latest/ABTChainNode.dmg)
-* Ubuntu: [ABTChainNode_latest_amd64.deb](http://releases.arcblock.io/forge/latest/ABTChainNode.deb)
+* OSX: [ABTChainNode.dmg](http://releases.arcblock.io/forge/latest/ABTChainNode.dmg)
+* Ubuntu: [ABTChainNode_amd64.deb](http://releases.arcblock.io/forge/latest/ABTChainNode.deb)
 
 ::: warning
 
