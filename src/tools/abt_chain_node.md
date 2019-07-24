@@ -2,17 +2,17 @@
 
 ABT Chain Node is a user-friendly application that can start/manage a forge node. It is currently a preview version. For MAC OSX and Ubuntu user, we build desktop edition to manage node start/stop automatically.
 
-The most up to date build is using forge v0.32.0:
+The most up to date build is ![](https://img.shields.io/badge/dynamic/json.svg?color=red&label=forge&query=%24.latest&url=http%3A%2F%2Freleases.arcblock.io%2Fforge%2Flatest.json):
 
 For Chinese users:
 
-* OSX: [ABTChainNode-0.32.0.dmg](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.32.0/ABTChainNode-0.32.0.dmg)
-* Ubuntu: [ABTChainNode_0.32.0_amd64.deb](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.32.0/ABTChainNode_0.32.0_amd64.deb)
+* OSX: [ABTChainNode-latest.dmg](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/latest/ABTChainNode.dmg)
+* Ubuntu: [ABTChainNode_latest_amd64.deb](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/latest/ABTChainNode.deb)
 
 For global users:
 
-* OSX: [ABTChainNode-0.32.0.dmg](http://releases.arcblock.io/node/ABTChainNode-0.32.0.dmg)
-* Ubuntu: [ABTChainNode_0.32.0_amd64.deb](http://releases.arcblock.io/node/ABTChainNode_0.32.0_amd64.deb)
+* OSX: [ABTChainNode-latest.dmg](http://releases.arcblock.io/forge/latest/ABTChainNode.dmg)
+* Ubuntu: [ABTChainNode_latest_amd64.deb](http://releases.arcblock.io/forge/latest/ABTChainNode.deb)
 
 ::: warning
 
