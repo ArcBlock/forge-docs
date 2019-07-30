@@ -18,6 +18,8 @@ Account related transaction protocols. Including:
 
 * declare: declare a wallet in the chain. See: [Declare Transaction](account/declare).
 * account_migrate: migrate a wallet from one address to another. See: [Account Migration Transaction](account/account_migrate).
+* delegate: delegate certain rights from one account to another. See: [Delegate Transaction](account/delegate).
+* revoke_delegate: revoke existing delegation for certain or whole rights from one account to antoher. See: [Revoke Delegate Transaction](account/revoke_delegate).
 
 ### Asset
 
