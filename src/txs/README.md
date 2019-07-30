@@ -49,6 +49,22 @@ Document will be exposed soon.
 
 Document will be exposed soon.
 
+### Atomic Swap
+
+Atomic swap is a technology to do trading across two chains. The main protocols include:
+
+  * set_up_swap: creates a swap state that temporarily hold the assets and token to swap. See: [Set Up Swap Transaction](atomic-swap/set_up.md)
+  * retrieve_swap: retrieves the token and assets for the receiver of the swap. See: [Retrieve Swap](atomic-swap/retrieve.md)
+  * revoke_swap: revokes the swap for the sender of the swap. See: [Revoke Swap](atomic-swap/revoke.md)
+
+The overall steps to do an atomic swap is like:
+  1. Alice sets up a swap with a hashlock for Bob on chain A.
+  2. Bob sets up a swap with the same hashlock for Alice on chain B.
+  3. Alice retrieves the swap on chain B by revealing the hashkey.
+  4. Bob retrieves the swap on chain A by using the same hashkey.
+
+Alternatively, if Alice wants to cancel this swap before step 3, she can revoke the swap state and then Bob will notice the cancellation and he can revokes his swap as well.
+
 ## How to write a transaction protocol
 
 To write a new transaction protocol you basically need to prepare the following files:
