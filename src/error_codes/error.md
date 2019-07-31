@@ -1,4 +1,16 @@
-# Status Code
+---
+title: "Status Code"
+description: "Status Code"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "error_codes"
+  - "error"
+---
+
+
 
 ## invalid_wallet
 
@@ -443,7 +455,6 @@ There are too many transactions.
 
 This unstake action is banned.
 
-# Status Code
 
 ## invalid_wallet
 
@@ -888,7 +899,6 @@ There are too many transactions.
 
 This unstake action is banned.
 
-# Status Code
 
 ## invalid_wallet
 
@@ -1333,7 +1343,6 @@ There are too many transactions.
 
 This unstake action is banned.
 
-# Status Code
 
 ## invalid_wallet
 
@@ -1778,7 +1787,6 @@ There are too many transactions.
 
 This unstake action is banned.
 
-# Status Code
 
 ## invalid_wallet
 
