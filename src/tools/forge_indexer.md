@@ -1,4 +1,16 @@
-# Forge Indexer
+---
+title: "Forge Indexer"
+description: "Forge Indexer"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "tools"
+  - "forge_indexer"
+---
+
+
 
 By default, forge indexer is enabled. Every operation executed in chain will be indexed into a sqlite3 db (by tuning the configuration you can change it to use postgres).
 

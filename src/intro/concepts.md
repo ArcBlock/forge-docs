@@ -1,4 +1,14 @@
-# General Concepts
+---
+title: 'General Concepts'
+description: 'General Concepts'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'intro'
+  - 'concepts'
+---
 
 There are quite a few new concepts introduced in Forge, before you read one, having a basic idea on these basic concepts would be very helpful to under stand forge.
 
@@ -26,14 +36,13 @@ message Transaction {
 
 Client must fill in necessary values into these fields to get the transaction executed in the chain. Below is an explanation for each field:
 
-* `from`: the sender address that initiates the transaction
-* `nonce`: an integer that track how many transactions this address has sent
-* `chain_id`: a string that tracks on which chain this transaction happens
-* `pk`: bytes of public key of sender
-* `signature`: bytes of sender's signature over this transaction. Used by   receiver to verify that the content of this transaction has not been changed by other parties.
-* `signatures`: extra multisig if this transaction requires extra endorsement from receiver or a 3rd party account. See: [What is Multisig?](../arch/multisig.md)
-* `itx`: type and content of this transaction. See: [transactions](../txs)
-
+- `from`: the sender address that initiates the transaction
+- `nonce`: an integer that track how many transactions this address has sent
+- `chain_id`: a string that tracks on which chain this transaction happens
+- `pk`: bytes of public key of sender
+- `signature`: bytes of sender's signature over this transaction. Used by receiver to verify that the content of this transaction has not been changed by other parties.
+- `signatures`: extra multisig if this transaction requires extra endorsement from receiver or a 3rd party account. See: [What is Multisig?](../arch/multisig.md)
+- `itx`: type and content of this transaction. See: [transactions](../txs)
 
 All transactions are backed by **transaction protocol**. Transaction protocol is the code that executes the transactions and manipulates the states. It can be dynamically installed, upgraded, activated and deactivated on all running nodes of a chain. For more information on transaction protocols, please see [../txs].
 
@@ -55,10 +64,11 @@ message WalletInfo {
   string address = 4;
 }
 ```
-* `type`: the cryptographic algorithms used to generate this wallet
-* `sk`: secrety key
-* `pk`: public key
-* `address`: wallet address, which also the account address
+
+- `type`: the cryptographic algorithms used to generate this wallet
+- `sk`: secrety key
+- `pk`: public key
+- `address`: wallet address, which also the account address
 
 ### Keys
 
@@ -77,33 +87,37 @@ For example, `TransferTx` means this transaction represents a transfer activity 
 ### Format
 
 Each `itx` is encoded in `google.protobuf.Any` format, consisting of `type_url` and `value`.
-* _type_url_: string that represents the identify of this inner transaction, which helps Forge to decide how to decode the `value` field
-* _value_: serialized version of the inner transaction.
 
-#### Type_Urls
+- _type_url_: string that represents the identify of this inner transaction, which helps Forge to decide how to decode the `value` field
+- _value_: serialized version of the inner transaction.
 
-Type_urls are strings that help Forge SDK to correctly decode the serialized itx. Each `type_url` should be registered on forge with the corresponding itx definition. So when Forge sees a `type_url`, it can grab the correct `itx` type to decode the `value` field to get the complete inner transaction.
+### Type Urls
+
+Type Urls are strings that help Forge SDK to correctly decode the serialized itx. Each `type_url` should be registered on forge with the corresponding itx definition. So when Forge sees a `type_url`, it can grab the correct `itx` type to decode the `value` field to get the complete inner transaction.
 
 Since `type_urls` are used by Forge to interprate the type of `itx`, it's important that all `type_urls` follow the same nameing conventions. For example, the `type_url` of a `TransferTx` is
-    ```fg:t:transfer```
+`fg:t:transfer`
 In this case: `fg` stands for Forge, `t` for `transaction`, which means the type of this encoded `value` is a inner transaction, and `transfer` stands for the type of this inner transaction.
 
 Every `protobuf.Any` should contain a `type_url` that specifies a registered format to decode the encoded `value` field. Later we will see more use cases of type_urls other than inner transaction.
 
-#### Values
+### Values
 
 In `protobuf.Any`, `value` contains a serialized version of the inner transaction, which is not human readable.
 
 For example, if we want to transfer 1 unit of currency to some address `zysnfkW9LH5jVUubpwcrGaopnN2oDBPTLmuP`. The `TransferTx` looks like:
+
 ```protobuf
 TransferTx{
     to='zysnfkW9LH5jVUubpwcrGaopnN2oDBPTLmuP',
     value=BigUint(value=b'\x01')
 }
 ```
+
 After serialization, the itx looks like:
-```'\n\x08address1\x12\x03\n\x010'```
+`'\n\x08address1\x12\x03\n\x010'`
 And the entire `itx` should look like:
+
 ```protobuf
 Any{
     type_url='fg:t:transfer',

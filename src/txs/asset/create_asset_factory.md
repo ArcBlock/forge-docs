@@ -1,4 +1,16 @@
-# Create Asset Factory Transaction
+---
+title: "Create Asset Factory Transaction"
+description: "Create Asset Factory Transaction"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "asset"
+  - "create_asset_factory"
+---
+
+
 
 **Create Asset Factory** is used to solve a general problem, here's the original proposal:
 

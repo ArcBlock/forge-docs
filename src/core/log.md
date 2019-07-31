@@ -1,4 +1,16 @@
-# Forge Logs
+---
+title: "Forge Logs"
+description: "Forge Logs"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "core"
+  - "log"
+---
+
+
 
 Forge produces logs for troubleshooting whenever there's an issue. For `tendermint` or `ipfs` they will also provide logs. Here's a summary for default log location:
 

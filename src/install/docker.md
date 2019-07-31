@@ -1,4 +1,16 @@
-# Explore Forge With Docker
+---
+title: "Explore Forge With Docker"
+description: "Explore Forge With Docker"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "install"
+  - "docker"
+---
+
+
 
 ## Fast Start
 

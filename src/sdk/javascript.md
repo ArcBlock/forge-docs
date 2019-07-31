@@ -1,4 +1,16 @@
-# Javascript SDK
+---
+title: "Javascript SDK"
+description: "Javascript SDK"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "sdk"
+  - "javascript"
+---
+
+
 
 If you are a developer from traditional web development and not familiar with blockchain, please checkout [general concepts](../intro/concepts.md) first.
 

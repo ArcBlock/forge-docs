@@ -1,4 +1,16 @@
-# Wallet RPC
+---
+title: "Wallet RPC"
+description: "Wallet RPC"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "rpc"
+  - "wallet"
+---
+
+
 
 Wallet RPC helps user manage their wallet, like create, load, recover etc.
 

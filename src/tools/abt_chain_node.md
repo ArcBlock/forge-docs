@@ -1,4 +1,16 @@
-# ABT Chain Node
+---
+title: "ABT Chain Node"
+description: "ABT Chain Node"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "tools"
+  - "abt_chain_node"
+---
+
+
 
 ABT Chain Node is a user-friendly application that can start/manage a forge node. It is currently a preview version. For MAC OSX and Ubuntu user, we build desktop edition to manage node start/stop automatically.
 

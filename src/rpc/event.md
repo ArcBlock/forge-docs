@@ -1,4 +1,16 @@
-# Event RPC
+---
+title: "Event RPC"
+description: "Event RPC"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "rpc"
+  - "event"
+---
+
+
 
 Event RPCs help users to interact with activities they are interested in. All activities exist in the form of transactions. By using event RPCs, users can receive real-time information on updates of the transactions type they requested.
 

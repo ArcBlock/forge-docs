@@ -1,4 +1,16 @@
-# Installation
+---
+title: "Installation"
+description: "Installation"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "install"
+  - "README"
+---
+
+
 
 Currently Forge is supported in osx, centos and ubuntu natively. For other platforms, you can run forge under docker.
 

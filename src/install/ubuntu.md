@@ -1,4 +1,16 @@
-# Install Forge on Ubuntu
+---
+title: "Install Forge on Ubuntu"
+description: "Install Forge on Ubuntu"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "install"
+  - "ubuntu"
+---
+
+
 
 A brand new ubuntu machine lacks several dependencies that Forge requires. If you met issues on running Forge under Ubuntu, please read on. This guide is tested on ubuntu 16.04 and 18.04 on a $5/month Digital Ocean machine.
 

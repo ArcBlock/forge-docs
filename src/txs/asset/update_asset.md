@@ -1,4 +1,16 @@
-# Update Asset Transaction
+---
+title: "Update Asset Transaction"
+description: "Update Asset Transaction"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "asset"
+  - "update_asset"
+---
+
+
 
 **Update Asset** transaction is used to update an existing asset owned by you. Note that the asset must be created with `readonly = false`. If readonly is true, you cannot update it.
 

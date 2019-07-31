@@ -1,4 +1,16 @@
-# Forge RPC
+---
+title: "Forge RPC"
+description: "Forge RPC"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "core"
+  - "rpc"
+---
+
+
 
 Unlike most of the blockchain platforms, Forge doesn't use JSON RPC as its public interface. JSON RPC is slow, error prone (type insecure), and inefficient (both payload and connection).
 

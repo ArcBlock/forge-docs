@@ -1,4 +1,16 @@
-# Install Forge on MacOS
+---
+title: "Install Forge on MacOS"
+description: "Install Forge on MacOS"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "install"
+  - "macos"
+---
+
+
 
 A brand new centos machine lacks several dependencies that Forge requires. If you met issues on running Forge under MacOS, please read on.
 

@@ -1,4 +1,16 @@
-# Acquire Asset Transaction
+---
+title: "Acquire Asset Transaction"
+description: "Acquire Asset Transaction"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "asset"
+  - "acquire_asset"
+---
+
+
 
 **Acquire Asset** is used to buy/get an asset from the given [asset factory](../create_asset_factory).
 

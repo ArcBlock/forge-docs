@@ -1,4 +1,16 @@
-# Install Forge on CentOS
+---
+title: "Install Forge on CentOS"
+description: "Install Forge on CentOS"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "install"
+  - "centos"
+---
+
+
 
 A brand new centos machine lacks several dependencies that Forge requires. If you met issues on running Forge under CentOS, please read on. This guide is tested on CentOS 7 on a $5/month Digital Ocean machine.
 

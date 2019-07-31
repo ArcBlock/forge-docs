@@ -1,4 +1,16 @@
-# Forge CLI
+---
+title: "Forge CLI"
+description: "Forge CLI"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "tools"
+  - "forge_cli"
+---
+
+
 
 Forge CLI is a command line tool for making your life easier interacting with forge.
 

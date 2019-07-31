@@ -1,4 +1,16 @@
-# Type
+---
+title: "Type"
+description: "Type"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "types"
+  - "type"
+---
+
+
 
 ## Type List
 - [AbciContext](#abcicontext)

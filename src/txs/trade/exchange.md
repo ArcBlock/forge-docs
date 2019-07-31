@@ -1,4 +1,16 @@
-# Exchange Transaction
+---
+title: "Exchange Transaction"
+description: "Exchange Transaction"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "trade"
+  - "exchange"
+---
+
+
 
 **Exchange** transaction is a transaction that requires [multisig](../arch/multisig). It tries to solve this common scenario: Alice wants to buy assets owned by Bob. They agreed on a price and then finished the transaction. This scenario is widely used in the E-Commerce business, and with Exchange tx we make this available in blockchain. Below is a list of inherited scenarios it could support:
 

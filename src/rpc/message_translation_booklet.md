@@ -1,4 +1,16 @@
-# Message Translation Booklet
+---
+title: "Message Translation Booklet"
+description: "Message Translation Booklet"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "rpc"
+  - "message_translation_booklet"
+---
+
+
 
 ## Transaction type
 

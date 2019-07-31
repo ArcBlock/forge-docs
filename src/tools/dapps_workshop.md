@@ -1,4 +1,16 @@
-# DApps Workshop
+---
+title: "DApps Workshop"
+description: "DApps Workshop"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "tools"
+  - "dapps_workshop"
+---
+
+
 
 The DApps Workshop lets developers create and test different types of transaction workflows and DID-based authentication requirements for any Forge-built application.
 

@@ -1,4 +1,16 @@
-# Send your first transaction
+---
+title: "Send your first transaction"
+description: "Send your first transaction"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "intro"
+  - "transaction"
+---
+
+
 
 One important design aspect for forge is to make it as easy as possible for newbies to get familiar with Forge. If you followed the "Quick Start" section of the [Overview](./README.md), you have already used many of them: forge cli, forge web and forge simulator. Now it's time to send your first transaction - but before that, you need a wallet.
 

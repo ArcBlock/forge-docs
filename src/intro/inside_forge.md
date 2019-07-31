@@ -1,4 +1,16 @@
-# More about Forge
+---
+title: "More about Forge"
+description: "More about Forge"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "intro"
+  - "inside_forge"
+---
+
+
 
 Now you should have a good sense about Forge. Let's dive into it.
 

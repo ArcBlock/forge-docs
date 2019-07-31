@@ -1,4 +1,16 @@
-# Upgrade Forge Network
+---
+title: "Upgrade Forge Network"
+description: "Upgrade Forge Network"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "upgrade"
+  - "upgrade_network"
+---
+
+
 
 If you have an existing network running on a specific version, please follow the following upgrade path:
 

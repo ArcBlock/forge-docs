@@ -1,4 +1,16 @@
-# Transafer Transaction
+---
+title: "Transafer Transaction"
+description: "Transafer Transaction"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "trade"
+  - "transfer"
+---
+
+
 
 **Transfer** transaction is the most common transaction in a blockchain, that one account could transfer tokens and/or a list of assets to another account. Once the transfer is finished successfully, the balance of the sender will be reduced and the owner of the assets in the transfer tx would be changed to the receiver.
 

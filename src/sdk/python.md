@@ -1,4 +1,16 @@
-# Python SDK
+---
+title: "Python SDK"
+description: "Python SDK"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "sdk"
+  - "python"
+---
+
+
 
 A detailed reference manual for forge-python-sdk can be found [here](../../sdks/python/latest).
 

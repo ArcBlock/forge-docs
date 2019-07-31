@@ -1,4 +1,16 @@
-# Consume Asset Transaction
+---
+title: "Consume Asset Transaction"
+description: "Consume Asset Transaction"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "asset"
+  - "consume_asset"
+---
+
+
 
 **Consume Asset** transaction is used to consume an asset owned by you. The use cases like:
 

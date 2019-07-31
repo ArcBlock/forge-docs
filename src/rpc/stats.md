@@ -1,4 +1,16 @@
-# Stats RPC
+---
+title: "Stats RPC"
+description: "Stats RPC"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "rpc"
+  - "stats"
+---
+
+
 
 Stats RPC is aiming for querying the statistics data, collecting the real-time or past values for a given period.
 

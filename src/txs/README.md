@@ -1,4 +1,16 @@
-# Forge Transactions
+---
+title: "Forge Transactions"
+description: "Forge Transactions"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "txs"
+  - "README"
+---
+
+
 
 As we discussed earlier, transactions are the smallest activities happened on the Forge backed chains and the code backing the transactions is called transaction protocol. Transaction protocol to Forge transaction is just like smart contract to Ethereum transaction.
 

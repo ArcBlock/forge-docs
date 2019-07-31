@@ -1,4 +1,16 @@
-# Forge Simulator
+---
+title: "Forge Simulator"
+description: "Forge Simulator"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "tools"
+  - "simulator"
+---
+
+
 
 Simulator is used to generate various traffic into the chain. Thus you can use it to test the behavior of the chain. Currently these transactions are supported by simulator:
 

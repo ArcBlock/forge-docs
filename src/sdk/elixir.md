@@ -1,4 +1,16 @@
-# Forge Elixir/Erlang SDK
+---
+title: "Forge Elixir/Erlang SDK"
+description: "Forge Elixir/Erlang SDK"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags: 
+  - "sdk"
+  - "elixir"
+---
+
+
 
 ## Forge SDK
 
