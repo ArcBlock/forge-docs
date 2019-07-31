@@ -18,9 +18,7 @@ const matter = require('gray-matter');
 const processFolder = folder => {
   console.log('migrate folder', folder);
   const allFiles = fs.readdirSync(folder);
-  const mdFiles = allFiles
-    .filter(x => x.endsWith('.md'))
-    .map(x => path.resolve(folder, x));
+  const mdFiles = allFiles.filter(x => x.endsWith('.md')).map(x => path.resolve(folder, x));
 
   mdFiles.forEach(file => processFile(folder, file));
 
@@ -40,8 +38,8 @@ const processFile = (folder, file) => {
       return;
     }
 
-    const lines = content.split('\n').filter(x => x.trim()).filter(Boolean);
-    const [heading] = lines;
+    const lines = content.split('\n');
+    const [heading] = lines.filter(x => x.trim()).filter(Boolean);
     const title = heading.replace('#', '').trim();
     const description = title;
     const tag1 = path.basename(folder);
@@ -61,7 +59,7 @@ const processFile = (folder, file) => {
     ];
     console.log('migrate markdown file', file);
 
-    const newContent = frontMatter.concat(lines);
+    const newContent = frontMatter.concat(lines.filter(x => x !== heading));
     fs.writeFileSync(file, newContent.join('\n'));
   } catch (err) {
     console.error('error migrating markdown file', file, err);
