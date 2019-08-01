@@ -5,10 +5,7 @@ keywords: ""
 robots: "index,follow"
 category: "docs"
 layout: "documentation"
-tags: 
+tags:
   - "core"
   - "index"
 ---
-
-
-# Forge Core Functionalities

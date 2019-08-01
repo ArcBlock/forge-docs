@@ -16,6 +16,9 @@ const path = require('path');
 const matter = require('gray-matter');
 
 const processFolder = folder => {
+  if (folder.indexOf('.error_code') > 0) {
+    return;
+  }
   console.log('migrate folder', folder);
   const allFiles = fs.readdirSync(folder);
   const mdFiles = allFiles.filter(x => x.endsWith('.md')).map(x => path.resolve(folder, x));
@@ -24,11 +27,15 @@ const processFolder = folder => {
 
   const subFolders = allFiles
     .filter(x => !x.endsWith('md') && !mdFiles.includes(x))
+    .filter(x => !['assets', 'status_code', 'images'].includes(x))
     .map(x => path.resolve(folder, x));
   subFolders.forEach(x => processFolder(x));
 };
 
 const processFile = (folder, file) => {
+  if (file.indexOf('.error_code') > 0) {
+    return;
+  }
   console.log('migrate file', file);
   try {
     const content = fs.readFileSync(file).toString();
@@ -38,12 +45,12 @@ const processFile = (folder, file) => {
       return;
     }
 
-    const lines = content.split('\n');
-    const [heading] = lines.filter(x => x.trim()).filter(Boolean);
-    const title = heading.replace('#', '').trim();
-    const description = title;
     const tag1 = path.basename(folder);
     const tag2 = path.basename(file).replace(/\.md$/, '');
+    const lines = content.split('\n');
+    const [heading] = lines.filter(x => x.trim()).filter(Boolean);
+    const title = heading ? heading.replace('#', '').trim() : tag2;
+    const description = title;
 
     const frontMatter = [
       '---',
