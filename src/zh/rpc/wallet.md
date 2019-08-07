@@ -53,7 +53,6 @@ message ResponseCreateWallet {
 }
 ```
 
-
 #### GRPC示例
 
 ```elixir
@@ -71,7 +70,6 @@ message ResponseCreateWallet {
 ```
 
 #### GraphQL示例
-
 
 ### 加载钱包
 
@@ -112,7 +110,6 @@ message ResponseLoadWallet {
 }
 ```
 
-
 #### GRPC示例
 
 ```elixir
@@ -128,7 +125,6 @@ message ResponseLoadWallet {
 ```
 
 #### GraphQL示例
-
 
 ### 恢复钱包
 
@@ -180,7 +176,6 @@ message ResponseRecoverWallet {
 
 #### GraphQL示例
 
-
 ### 列出钱包
 
 ---
@@ -202,14 +197,12 @@ message RequestListWallet {}
 | StatusCode | 代码      |         |          |
 | 地址    | 字符串    |         |          |
 
-
 ```protobuf
 message ResponseListWallet {
   StatusCode code = 1;
   string address = 2;
 }
 ```
-
 
 #### GRPC示例
 
@@ -222,8 +215,6 @@ message ResponseListWallet {
 
 #### GraphQL示例
 
-
-
 ### 移除钱包
 ---
 
@@ -234,7 +225,6 @@ message ResponseListWallet {
 | 名称    | 数据类型 | 默认 | 必须 |
 | :------ | :-------- | :------ | :------- |
 | 地址 | 字符串    |         |          |
-
 
 ```protobuf
 message RequestRemoveWallet { string address = 1; }
@@ -248,7 +238,6 @@ message RequestRemoveWallet { string address = 1; }
 message ResponseRemoveWallet { StatusCode code = 1; }
 ```
 
-
 #### GRPC示例
 
 ```elixir
@@ -257,7 +246,6 @@ message ResponseRemoveWallet { StatusCode code = 1; }
 ```
 
 #### GraphQL示例
-
 
 ### 声明节点
 
@@ -270,7 +258,6 @@ message ResponseRemoveWallet { StatusCode code = 1; }
 | 名称      | 数据类型 | 默认 | 必须 |
 | :-------- | :-------- | :------ | :------- |
 | 验证器 | bool      |         |          |
-
 
 ```protobuf
 message RequestDeclareNode { bool validator = 1; }
@@ -291,7 +278,6 @@ message ResponseDeclareNode {
   WalletInfo wallet = 3;
 }
 ```
-
 
 #### GRPC示例
 

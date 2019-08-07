@@ -24,11 +24,18 @@ pip install forge-python-sdk
 
 ### 第1步
 
-通过`forge config`找到您的forge使用的配置
+创建一个`Forge连接`（Forge Connection）来连接您的Forge端口（如果您是通过 `forge-cli`来运行您的Forge，初始端口为127.0.0.1:28210）。
 
-### 第2步
+```python
+from forge_sdk import ForgeConn
+f = ForgeConn('127.0.0.1:28210')
+rpc = f.rpc
+config = f.config
+```
 
-将`FORGE_CONFIG`设置为您的环境变量，指向您的forge运行的配置。
+::: 建议笔记
+每一个教程都从这一步开始。
+:::
 
 ## 教程
 
@@ -43,13 +50,13 @@ pip install forge-python-sdk
 #### 第1步：为爱丽丝和迈克创建钱包
 
 ```python
->>> from forge_sdk import rpc, protos, utils
+>>> from forge_sdk import protos, utils
 >>> alice=rpc.create_wallet(moniker='alice', passphrase='abc123')
 >>> mike = rpc.create_wallet(moniker='mike', passphrase='abc123')
 ```
 
 ::: 建议笔记
-`moniker`是Forge上该钱包的昵称。`passphrase`由Forge使用，以将钱包加密为一个keystore文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts)。
+`moniker`是Forge上该钱包的昵称。`passphrase`是通过Forge将钱包加密为一个keystore文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts)。
 :::
 
 我们看看爱丽丝的钱包和账户详情
@@ -75,6 +82,7 @@ wallet {
 >>> rpc.poke(alice.wallet)
 hash: "CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2"
 ```
+
 收到**哈希**意味着交易被转移到Forge，但不意味着交易成功。为了确认交易成功发出，让我们深入了解交易详情。
 
 ```python
@@ -92,13 +100,13 @@ True
 ```
 
 ::: 建议笔记
-**签到**每个账户可每天发出一次**签到交易**以获得25 TBA。
-**哈希**：已签署交易所计算的哈希。每笔交易应有其独特的**哈希**。
+**签到**：每个账户可每天发出一次**签到交易**以获得25 TBA。
+**哈希**：通过已签署交易计算的哈希。每笔交易应有其独特的**哈希**。
 :::
 
 #### 第3步：从爱丽丝向迈克转移钱
 
-现在爱丽丝的账户中有25 TBA，迈克的账户中什么也没有。我们可以发出**转移交易**，帮助爱丽丝将10 TBA转移给迈克。
+现在爱丽丝的账户中有25个TBA，迈克的账户中什么也没有。我们可以发出**转移交易**，帮助爱丽丝将10 TBA转给迈克。
 
 ```python
 
@@ -114,11 +122,11 @@ True
 100000000000000000
 ```
 
-现在我们可以看到，爱丽丝刚刚成功地将10 TBA转移到了迈克的账户！
+现在我们可以看到，爱丽丝刚刚成功地将10 TBA转到了迈克的账户！
 
  🎉 祝贺您！您已完成1级教程！现在，您应该对Forge的工作原理有了基本的了解。如果您想迎接更多挑战，请查看2级教程。
 
- ### 2级：出售二手笔记本电脑
+### 2级：出售二手笔记本电脑
 
  **场景**：迈克想向爱丽丝出售一台二手笔记本电脑。
 
@@ -222,6 +230,7 @@ data {
 >>> rpc.is_tx_ok(res.hash)
 True
 ```
+
 在`prepare_exchange`，我们让卖家迈克验证交易；在`finalize_exchange`，我们让买家爱丽丝验证交易。在双方验证后，我们可直接发出交易。
 
 现在，如果我们查看笔记本的所有者，应为爱丽丝的地址。

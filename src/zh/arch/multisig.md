@@ -1,8 +1,8 @@
-# 多重签名是什么？
+# 多重签名是什么
 
-在大部分区块链实现中，仅发送者需签署交易。有了发送者的签名，我们可以相信，发送者批准了操作。[转移](../txs/transfer.md) 之类的交易是发送者向接收者（未经接收者许可）发送代币/资产的典型例子。在现实世界，大量用例需要交易所有参与方的授权。例如，爱丽丝会给鲍勃 20 ABT，买鲍勃有的一张会议入场券。在本次交易中，爱丽丝请求交易她的 20 ABT 和鲍勃的入场券。鲍勃必须授权操作使交易生效。所以，这是多重签名的基础用例。
+在大部分区块链的实现中，只有发送者需要签署交易。有了发送者的签名，我们可以相信，发送者批准了操作。[转移](../txs/transfer.md) 之类的交易是发送者向接收者（未经接收者许可）发送代币/资产的典型例子。在现实世界，大量用例需要交易中所有参与方的授权。例如，爱丽丝会给鲍勃 20 ABT，购买鲍勃拥有的一张会议入场券。在本次交易中，爱丽丝请求交易她的 20 ABT 和鲍勃的入场券。鲍勃必须授权使交易生效。这就是多重签名的基础用例。
 
-在 Forge，交易协议可决定是否要启用多重签名。如果启用了多重签名，则所涉及的参与方必须按顺序根据多重签名结构签署 tx：
+在 Forge 中，交易协议可决定是否要启用多重签名。如果启用了多重签名，则所涉及的参与方必须按顺序根据多重签名结构签署交易（tx）：
 
 ```proto
 message Multisig {
@@ -20,7 +20,7 @@ message Multisig {
 
 多重签名用于交易结构中：
 
-```
+```protobuf
 message Transaction {
   string from = 1;
   uint64 nonce = 2;
@@ -41,7 +41,7 @@ message Transaction {
 }
 ```
 
-通常情况下，多重签名中不需要`data`。签名者需要填写`signer`地址、签名者`pk`，并在交易数据结构的`signatures`阵列开始附上签名。然后即可签署整个交易，之后将生成的签名添加至这个多重签名的`signature`中。
+通常情况下，多重签名中不需要`data`。签名者需要填写`signer`地址、签名者`pk`，并在交易数据结构中`signatures`阵列的开始附上签名。然后即可签署整个交易，并将生成的签名添加至这个多重签名的`signature`中。
 
 我们用[交换](../txs/exchange)交易解释一下上面的例子：
 
@@ -49,7 +49,7 @@ message Transaction {
 
 ### 第一步：爱丽丝创建交换 ITX
 
-爱丽丝会填写交换 itx：
+爱丽丝要填写一个交换 itx：
 
 ```elixir
 %ForgeAbi.ExchangeTx{
@@ -65,7 +65,7 @@ message Transaction {
 }
 ```
 
-然后，添加签名并将其放入交易（您需要将本 itx 编码为 Google.Protobuf.Any，且保护 type_url `fg:t:exchange`）：
+爱丽丝要将该 itx 和她的签名放入交易中（您需要将该 itx 编码为 Google.Protobuf.Any，且将 type_url 定义为 `fg:t:exchange`）：
 
 ```elixir
 %ForgeAbi.Transaction{
@@ -88,7 +88,7 @@ message Transaction {
 }
 ```
 
-然后，通过链下方式将此 tx 交付给鲍勃。例如，发送带 ABT 钱包的电子邮件或消息。鲍勃收到这个 tx 后，他可以按上方的描述生成多重签名，并将其附在 tx 上：
+然后，通过链下方式将此 tx 交付给鲍勃。例如，用ABT 钱包发送电子邮件或消息。鲍勃收到这个 tx 后，他可以按上方的描述生成多重签名，并将其附在 tx 上：
 
 ```elixir
 %ForgeAbi.Transaction{
@@ -122,7 +122,7 @@ message Transaction {
 }
 ```
 
-然后，鲍勃可以将此 tx 交付到链。因为双方都签署了 tx，它将得到执行。
+然后，鲍勃可以将此 tx 交付到链。因为双方都签署了 tx，这个 tx 将得到执行。
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTE3NTQyMjg5Niw3MDUwNTUwNzYsNzA0NT

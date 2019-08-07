@@ -10,6 +10,13 @@ Forge CLI是一个命令线工具，使您与forge的互动更为容易。
 $ npm install -g @arcblock/forge-cli
 ```
 
+对于中国用户，推荐使用：
+
+```bash
+$ npm install -g @arcblock/forge-cli --registry=https://registry.npm.taobao.org
+```
+
+
 然后，您可以运行`forge`，看看它支持什么：
 
 ```bash
@@ -92,7 +99,7 @@ Examples:
 
 ## 启动/停止链节点
 
-`forge start`启动节点，其配置在`~/.forge_cli/forge_release.toml`进行了说明。成功运行节点后，您可以在`http://localhost:8210`打开forge网页（如果您没有更改forge_release.toml中的端口）并在那里进行最多操作。
+`forge start`启动节点，其配置在`~/.forge_cli/forge_release.toml`进行了说明。成功运行节点后，您可以在`http://localhost:8210`打开forge网页（如果您没有更改forge_release.toml中的端口）并在那里进行更多操作。
 
 ```bash
 $ forge start
@@ -122,7 +129,7 @@ $ forge start
 
 ## 运行/停止模拟器
 
-`forge simulator start` / `forge simulator stop`可被用于启动/停止模拟器。模拟器帮助为节点生成流量，使您简单地测试链。
+`forge simulator start` / `forge simulator stop`可被用于启动/停止模拟器。模拟器为节点生成流量，使您简单地测试链。
 
 ## 查看日志
 
@@ -130,7 +137,7 @@ forge架构的不同成分生成了几个日志文件，运行`forge logs`以查
 
 ## 高级使用
 
-Forge CLI提供许多命令以管理forge支持的链接节点和forge版本，请关注我们，我们即将发布“成为Forge CLI的超级用户”。 
+Forge CLI提供许多命令以管理forge支持的链节点和forge发布。请关注我们，我们即将发布“成为Forge CLI的超级用户”。
 
 ## 报告问题或漏洞
 

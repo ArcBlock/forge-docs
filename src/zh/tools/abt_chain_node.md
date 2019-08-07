@@ -14,44 +14,43 @@ ABT链节点是一个用户友好型应用程序，可以开始/管理forge节�
 * OSX：[ABT链节点v0.7.2 OSX构建](http://releases.arcblock.io/node/ABTChainNode-0.7.2.dmg)
 * Ubuntu：[ABT链节点v0.7.2 Ubuntu构建](http://releases.arcblock.io/node/ABTChainNode_0.7.2_amd64.deb)
 
-
 如果您是OSX用户，在下载dmg文件并将其拖入应用程序文件夹后，当您尝试第一次运行它时，会出现以下警告：
 
-![Chain Node Warning](../assets/images/chain_node_warning.png)
+![Chain Node Warning](../../assets/images/chain_node_warning.png)
 
 这是因为ABT链节点的当前娱乐版本尚未在Apple注册。如需获取更多信息，您可以查看此KB：[https://support.apple.com/kb/ph25088?locale=en_US](https://support.apple.com/kb/ph25088?locale=en_US)。
 
 所以，目前请不要担心。您可以通过查找找到应用程序，右键点击并选择菜单中的“打开”：
 
-![Open Chain Node](../assets/images/open_chain_node.png)
+![Open Chain Node](../../assets/images/open_chain_node.png)
 
 然后在弹出窗口再次点击“打开”，以允许运行：
 
-![Allow Open Chain Node](../assets/images/allow_open.png)
+![Allow Open Chain Node](../../assets/images/allow_open.png)
 
 然后，ABT链节点就会如下成功打开：
 
-![Node Open](../assets/images/node_start_up.jpg)
+![Node Open](../../assets/images/node_start_up.jpg)
 
 然后等待片刻，您将看到运行节点如下：
 
-![Node Normal](../assets/images/node_normal.jpg)
+![Node Normal](../../assets/images/node_normal.jpg)
 
 如果您看到节点显示特定GraphQL错误，如下所示：
 
-![Node Error](../assets/images/node_error.jpg)
+![Node Error](../../assets/images/node_error.jpg)
 
 请别慌，只需点击`Command + R`刷新页面，然后它即可正常工作。
 
 新开始的节点只会有几笔交易，如果您想生成一些交易，可以通过集成API操场开始模拟器：
 
-![Node Simulator](../assets/images/node_simulator.jpg)
+![Node Simulator](../../assets/images/node_simulator.jpg)
 
-## 如果遇到问题......
+## 如果遇到问题
 
 如果遇到问题并受到如下错误：
 
-![Node error](../assets/images/chain_node_error.jpg)
+![Node error](../../assets/images/chain_node_error.jpg)
 
 很可能是因为您的osx缺少必要的工具链。如果您的系统中有homebrew，可打开终端并运行以下命令：
 
@@ -69,11 +68,11 @@ brew install automake libtool pkg-config libffi gmp openssl
 
 从应用程序菜单（左上角苹果图标旁的“ABT链节点”），选择“加入另一个网络”，然后按以下说明完成操作：
 
-![Join another network](../assets/images/join_network.jpg)
+![Join another network](../../assets/images/join_network.jpg)
 
 然后点击“继续”并输入网络URL：
 
-![Input network url](../assets/images/input_network_url.jpg)
+![Input network url](../../assets/images/input_network_url.jpg)
 
 目前选择为：
 
@@ -88,7 +87,7 @@ brew install automake libtool pkg-config libffi gmp openssl
 
 从应用程序菜单，选择“重置链状态”，然后安装说明完成操作。
 
-![Reset chain state](../assets/images/reset_chain_state.jpg)
+![Reset chain state](../../assets/images/reset_chain_state.jpg)
 
 点击“继续”后，您将丢失所有现有数据。然后，您可以点击“退出”并重启ABT链节点，以获得完全刷新的节点。如果您没有退出，链会按照当前配置运行。
 

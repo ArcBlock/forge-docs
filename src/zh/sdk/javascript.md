@@ -9,7 +9,7 @@ Forge Javascript SDK方便开发者在forge上构建应用程序，它提供精�
 - 导出/验证在不同forge成分中广泛使用的DID：[@arcblock/did](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did.html)，[@arcblock/did-util](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did-util.html)
 - 组装/编码/签署可发送至任何forge支持的区块链的交易
 
-现在，我们来看看详细指南，告诉您如何写简单的javascript程序，开发者在其他区块链平台上可能需要数天或数周才能完成：
+现在，我们来看看详细指南，告诉您如何写简单的javascript程序，而且这些程序在其他区块链平台上可能需要数天或数周才能完成：
 
 1. 在forge支持的区块链上创建两个用户账户（`Alice`和`Bob`），您可通过[forge-cli](../tools/forge_cli.md)轻松设置并运行；
 2. 为新创建的账户获取25个免费账户
@@ -169,7 +169,7 @@ register bob tx: F61C51A9FE31B5E782276F78CAE35945844D7F848E7E008BC75A396AD552C0C
 
 打开探索器：`http://localhost:8210/node/explorer/txs`，我们可以看到，这两个账户已在链上注册：
 
-![](../assets/images/sdk/js/declare.png)
+![ ](../../assets/images/sdk/js/declare.png)
 
 > 上述截图来自[forge-web](../tools/forge_web.md)，保护链的内置网页控制面板和区块探索器。
 
@@ -204,7 +204,6 @@ diff --git a/index.js b/index.js
 ```
 
 > 在此，我们使用`getAccountState`从区块链读取数据，我们也可以使用GraphQLClient读取交易/区块/资产/链信息，请参考[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)获取完整的API列表。
-
 > 您可能也会注意到，我们等了5秒才查看爱丽丝的账户，这是因为，5秒是forge的区块生产暂停时间，即交易由链执行并包含在区块上最多需要5秒，这个暂停时间可在您的[forge config](../core/configuration.md)中配置。
 
 #### 5.2 获取免费代币
@@ -514,7 +513,7 @@ async function checkBalance(userName, userWallet) {
 })();
 ```
 
-## 想了解更多吗？
+## 想了解更多吗
 
 以下是帮助您获取更多信息的资源：
 
@@ -524,7 +523,7 @@ async function checkBalance(userName, userWallet) {
 
 此外，我们正在设计更多可帮助您掌握在forge构建应用程序的文件，请不要错过！
 
-## 要报告问题吗？
+## 要报告问题吗
 
 如果您在任何步骤遇到问题，请在我们的[GitHub Repo](https://github.com/ArcBlock/forge-js/issues)报告问题
 <!--stackedit_data:

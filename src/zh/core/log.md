@@ -1,4 +1,4 @@
-# Forge Logs日志
+# Forge 日志
 
 在出现问题时，Forge会生成日志，供故障排除。`tendermint`和`ipfs`也会提供日志。以下为默认日志位置总结：
 

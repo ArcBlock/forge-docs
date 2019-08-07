@@ -99,7 +99,7 @@ sudo yarn global add @arcblock/forge-cli
 ```bash
 sudo adduser forge
 
-echo &#39;export PATH=/usr/local/bin:/usr/local/ssl/bin:/usr/local/sbin:$PATH&#39; | sudo tee --append ~forge/.bashrc
+echo 'export PATH=/usr/local/bin:/usr/local/ssl/bin:/usr/local/sbin:$PATH' | sudo tee --append ~forge/.bashrc
 ```
 
 sudo 用户`arcblock`仅应被用于 ssh 以安装软件，而普通用户`forge`仅应被用于运行 forge。
@@ -151,61 +151,61 @@ forge@forge-cli:~$ forge status
 
 {
 
-id: &#39;99cd4f098ed96c5d3ae1391a2858ab4fbf3db799&#39;,
+id: '99cd4f098ed96c5d3ae1391a2858ab4fbf3db799',
 
-network: &#39;forge&#39;,
+network: 'forge',
 
-moniker: &#39;forge&#39;,
+moniker: 'forge',
 
-consensusVersion: &#39;0.30.2&#39;,
+consensusVersion: '0.30.2',
 
 synced: true,
 
-appHash: &#39;bc40d2b84429b70564bf1aa51aefa956b636674b78d6511851d5a2721e151cb3&#39;,
+appHash: 'bc40d2b84429b70564bf1aa51aefa956b636674b78d6511851d5a2721e151cb3',
 
-blockHash: &#39;d9ddd9d5873a155be66aa553574a7b53a7f9154713875ebf7e4dfca4cd526798&#39;,
+blockHash: 'd9ddd9d5873a155be66aa553574a7b53a7f9154713875ebf7e4dfca4cd526798',
 
 blockHeight: 2,
 
-blockTime: &#39;2019-03-16T17:52:32.000Z&#39;,
+blockTime: '2019-03-16T17:52:32.000Z',
 
-address: &#39;zystc5rNpeE462e3DokUC4nR7PUsrL5zM38J&#39;,
+address: 'zystc5rNpeE462e3DokUC4nR7PUsrL5zM38J',
 
 votingPower: 10,
 
 totalTxs: 0,
 
-version: &#39;0.18.6&#39;,
+version: '0.18.6',
 
-dataVersion: &#39;1.4&#39;,
+dataVersion: '1.4',
 
 forgeAppsVersion: {},
 
 supportedTxs: [
 
-&#39;fg:t:update\_asset&#39;,
+'fg:t:update\_asset',
 
-&#39;fg:t:transfer&#39;,
+'fg:t:transfer',
 
-&#39;fg:t:sys\_upgrade&#39;,
+'fg:t:sys\_upgrade',
 
-&#39;fg:t:stake&#39;,
+'fg:t:stake',
 
-&#39;fg:t:exchange&#39;,
+'fg:t:exchange',
 
-&#39;fg:t:declare\_file&#39;,
+'fg:t:declare\_file',
 
-&#39;fg:t:declare&#39;,
+'fg:t:declare',
 
-&#39;fg:t:consensus\_upgrade&#39;,
+'fg:t:consensus\_upgrade',
 
-&#39;fg:t:create\_asset&#39;,
+'fg:t:create\_asset',
 
-&#39;fg:t:consume\_asset&#39;,
+'fg:t:consume\_asset',
 
-&#39;fg:t:poke&#39;,
+'fg:t:poke',
 
-&#39;fg:t:account\_migrate&#39;
+'fg:t:account\_migrate'
 
 ]
 
@@ -221,7 +221,7 @@ supportedTxs: [
 
 {
 
-address: &#39;forge\_state&#39;,
+address: 'forge\_state',
 
 consensus: {
 
@@ -235,7 +235,7 @@ maxCandidates: 256,
 
 pubKeyTypes: [
 
-&#39;ed25519&#39;
+'ed25519'
 
 ],
 
@@ -243,7 +243,7 @@ validators: [
 
 {
 
-address: &#39;zystc5rNpeE462e3DokUC4nR7PUsrL5zM38J&#39;,
+address: 'zystc5rNpeE462e3DokUC4nR7PUsrL5zM38J',
 
 power: 10
 
@@ -261,21 +261,21 @@ tasks: {},
 
 stakeSummary: {},
 
-version: &#39;0.18.6&#39;,
+version: '0.18.6',
 
-dataVersion: &#39;1.4&#39;,
+dataVersion: '1.4',
 
-forgeAppHash: &#39;&#39;,
+forgeAppHash: '',
 
 token: {
 
-name: &#39;ArcBlock&#39;,
+name: 'ArcBlock',
 
-symbol: &#39;ABT&#39;,
+symbol: 'ABT',
 
-unit: &#39;arc&#39;,
+unit: 'arc',
 
-description: &#39;Forge token ABT&#39;,
+description: 'Forge token ABT',
 
 decimal: 16,
 
@@ -302,7 +302,7 @@ listening: true,
 
 listeners: [
 
-&#39;Listener(@)&#39;
+'Listener(@)'
 
 ],
 
@@ -326,13 +326,13 @@ validators: [
 
 {
 
-address: &#39;766D728A8CD7204FF7631912B963B8AE860D6DF6&#39;,
+address: '766D728A8CD7204FF7631912B963B8AE860D6DF6',
 
 votingPower: 10,
 
-proposerPriority: &#39;0&#39;,
+proposerPriority: '0',
 
-name: &#39;&#39;
+name: ''
 
 }
 

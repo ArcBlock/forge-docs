@@ -1,6 +1,6 @@
 # 一般概念
 
-Forge中引入了好几个新概念，在阅读前，拥有对这些基本概念的基础知识可以在帮助您了解forge上起到很大的帮助。
+Forge中引入了好几个新概念，在阅读前，了解这些基本概念可以让您更轻松地了解forge。
 
 ## 介绍
 
@@ -10,7 +10,7 @@ Forge中引入了好几个新概念，在阅读前，拥有对这些基本概念
 
 ## 交易
 
-用户应该理解的第一个概念是**交易**。交易所是ABT Nodes里可能发生的最小单位的活动。ABT Node上的一切均是不同**交易**的结合。典型交易如下所示：
+**交易**是用户应该理解的第一个概念。交易是ABT Nodes里最小的活动单位。ABT Node上的一切活动均是各种**交易**的结合。典型交易如下所示：
 
 ```protobuf
 message Transaction {
@@ -34,18 +34,17 @@ message Transaction {
 * `signatures`：本交易需要接收者或第三方账户背书情况下的其他多重签名。查看：[什么是多重签名？](../arch/multisig.md)
 * `itx`：此交易的类型和内容。查看：[交易](../txs)
 
-
-所有交易受**交易协议**支持。交易协议是执行交易并操控状态的代码。它可在一个链的所有运行节点上动态安装、升级、激活和停用。如需了解交易协议的更多信息，请查看[../txs]。
+所有交易受**交易协议**支持。交易协议是执行交易并操控状态的代码。在一个链中的所有运行节点上，交易协议可以被动态地安装、升级、激活和停用。如需了解交易协议的更多信息，请查看[../txs]。
 
 ## 账户和钱包
 
 ### 账户
 
-如需在ABT Node上发起**交易**，用户需拥有账户。每个账户有独特的地址，Forge将其用于识别不同用户。每位用户均可拥有地址不同的无限个账户。
+如需在ABT Node上发起**交易**，用户需拥有账户。每个账户有独特的地址，Forge通过地址识别用户。每位用户均可拥有无限个拥有不同地址的账户。
 
 ### 钱包
 
-钱包中包含账户凭证，包括独特地址、密钥(SK)和公共密钥(PK)。用户使用其钱包发出及接收**交易**。
+钱包中包含账户凭证，其包括独特地址、密钥(SK)和公共密钥(PK)。用户通过钱包发出及接收**交易**。
 
 ```protobuf
 message WalletInfo {
@@ -55,6 +54,7 @@ message WalletInfo {
   string address = 4;
 }
 ```
+
 * `type`：用于生成此钱包的加密算法
 * `sk`：密钥
 * `pk`：公共密钥
@@ -66,7 +66,7 @@ message WalletInfo {
 
 ### 签名
 
-每笔**交易**都包含通过发送者SK生成的签名。通过验证发布在ABT Node上带用户PK的签名，任何人均可验证交易内容是否与发送者的预期一致。
+每笔**交易**都包含由发送者的密钥生成的签名。通过验证发布在ABT Node上带用户公钥的签名，任何人均可验证交易内容是否与发送者的预期一致。
 
 ## 内在交易(ITX)
 
@@ -82,13 +82,13 @@ message WalletInfo {
 
 #### Type_Urls
 
-Type_urls是帮助Forge SDK正确解码序列化itx的字符串。每个`type_url`应在forge上注册，且保护相应itx定义。所以，当Forge看到`type_url`时，可以抓住正确的`itx`类型，以解码`value`字段，以获取完整的内在交易。
+Type_urls是帮助Forge SDK正确解码序列化itx的字符串。每个`type_url`定义相应itx的类型，并且注册在forge上。所以，当Forge看到`type_url`时，可以知道正确的`itx`类型，以解码`value`字段，及获取完整的内在交易。
 
-因为`type_urls`被Forge用于解释`itx`的类型，所有的`type_urls`遵守相同的命名惯例非常重要。例如，`TransferTx`的`type_url`是
+因为`type_urls`被Forge用于解释`itx`的类型，所以要求所有`type_urls`遵守相同的命名惯例。例如，`TransferTx`的`type_url`是
     ```fg:t:transfer```
 在这里：`fg`代表Forge，`t`代表`transaction`，意为此编码`value`的类型是内在交易，而`transfer`代表此内在交易的类型。
 
-每个`protobuf.Any`都应包含一个`type_url`，说明登记的格式，以解码编码的`value`字段。在之后，我们会看到更多关于type_urls而非内在交易的用例。
+为了解码编码的`value`字段，每个`protobuf.Any`都应包含一个`type_url`来说明登记的格式。之后，我们会看到更多除内在交易之外的type_urls的用例。
 
 #### 值
 
@@ -101,9 +101,15 @@ TransferTx{
     value=BigUint(value=b'\x01')
 }
 ```
+
 在序列化后，itx如下所示：
-```'\n\x08address1\x12\x03\n\x010'```
-And the entire `itx` should look like:
+
+```
+'\n\x08address1\x12\x03\n\x010'
+```
+
+然后，完整的 `itx` 如下所示:
+
 ```protobuf
 Any{
     type_url='fg:t:transfer',
@@ -115,7 +121,7 @@ Any{
 
 ### 内在交易类型
 
-在上面，我们看到了`TransferTx`，其代表了ABT Node上的转移活动。每个活动都有其自己的内在交易，定义为不同类型。
+在上面，我们看到了`TransferTx`，其代表了ABT Node上的转移活动。每个活动都有自己的内在交易，且定义为不同类型。
 
 如需获取完整的itx列表和解释，请查看[Forge ITX](/txs)。
 

@@ -101,7 +101,7 @@ $ tree .forge_cli -L 4
 ℹ If you want to access interactive console, please run /Users/tchen/.forge_cli/release/forge/0.18.2/bin/forge remote_console
 ```
 
-默认情况下，forge作为精灵进程启动，且会引出共识引擎和存储引擎——目前，我们分别使用tendermint/ipfs。
+默认情况下，forge作为守护进程启动，且会引出共识引擎和存储引擎——目前，我们分别使用tendermint/ipfs。
 
 所有数据（共识db、forge状态db、存储）、配置和日志存储于在`forge_release.toml`定义的路径中。默认情况下，其位于`~/.forge_release`下。您可随意将路径修改为`/var/data/forge`或`/mnt/forge`等。在本文件中，为了简便，我们将用`$FORGE_HOME`代表本路径。
 
@@ -112,12 +112,12 @@ $ tree .forge_cli -L 4
 日志是forge和其用户之间的重要界面。forge启动后，您便可在以下位置追踪日志：
 
 * forge日志：在`$FORGE_HOME/core/logs`下。有三个日志文件：
-  - error.log：所有警告和错误。适合了解forge上出现的错误。
-  - transaction.log：与交易处理相关的日志。
-  - mempool.log：与mempool处理相关的日志。
-- 共识日志：在`$FORGE_HOME/tendermint/logs`下。
-- 存储日志：在`$FORGE_HOME/storage/logs`下。
-- forge应用程序日志：在`$FORGE_HOME/app/logs`下。
+  + error.log：所有警告和错误。适合了解forge上出现的错误。
+  + transaction.log：与交易处理相关的日志。
+  + mempool.log：与mempool处理相关的日志。
+* 共识日志：在`$FORGE_HOME/tendermint/logs`下。
+* 存储日志：在`$FORGE_HOME/storage/logs`下。
+* forge应用程序日志：在`$FORGE_HOME/app/logs`下。
 
 如需了解关于forge日志的详细信息，请查看：[Forge日志](../core/log.md)。
 
@@ -147,18 +147,17 @@ $ forge simulator start
 
 一段时间后，您的forge网页控制面板会如下所示：
 
-![Forge Web: updated](../assets/images/forge_web1.jpg)
+![Forge Web: updated](../../assets/images/forge_web1.jpg)
 
 forge区块探索器则拥有您可查看的数据：
 
-![Forge block explorer](../assets/images/forge_explorer.jpg)
+![Forge block explorer](../../assets/images/forge_explorer.jpg)
 
 如需了解关于forge模拟器的更多信息，请访问：[Forge模拟器](../tools/forge_simulator.md)。
 
 ## 创建钱包和发送您自己的tx
 
 现在，您可以创建自己的钱包并发送自己的tx了。我们前往[发送您的首个tx](./transaction.md)
-
 
 ## Forge SDK
 
@@ -168,7 +167,7 @@ forge区块探索器则拥有您可查看的数据：
 - [Forge Python SDK](../sdk/python.md)
 - [Forge Elixir SDK](../sdk/elixir.md)
 
-## 想了解更多信息吗？
+## 想了解更多信息吗
 
 请看看[Forge内有什么](./inside-forge.md)！
 <!--stackedit_data:
