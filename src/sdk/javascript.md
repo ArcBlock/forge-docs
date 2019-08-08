@@ -37,7 +37,7 @@ If you prefer to use existing chain(public sandbox database), please remember to
 ### 2. Init the javascript object
 
 ```bash
-mkdir -p /tmp/hell-forge
+mkdir -p /tmp/hello-forge
 cd /tmp/hello-forge
 npm init -y
 ```
