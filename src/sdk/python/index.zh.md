@@ -22,7 +22,7 @@ Python SDK 的源代码可在[Github](https://github.com/ArcBlock/forge-python-s
 pip install forge-python-sdk
 ```
 
-::: 警告
+::: warning
 此 sdk 支持`>=3.6`的 python 版本。
 :::
 
@@ -43,7 +43,7 @@ rpc = f.rpc
 config = f.config
 ```
 
-::: 建议笔记
+::: tip
 每一个教程都从这一步开始。
 :::
 
@@ -53,7 +53,7 @@ config = f.config
 
 **场景**：爱丽丝想给迈克转移 10TBA。
 
-::: 建议笔记
+::: tip
 **TBA**是 Forge 链上的默认货币。1 TBA 有 16 个数位，所以，显示为`10000000000000000`。
 :::
 
@@ -65,7 +65,7 @@ config = f.config
 >>> mike = rpc.create_wallet(moniker='mike', passphrase='abc123')
 ```
 
-::: 建议笔记
+::: tip
 `moniker`是 Forge 上该钱包的昵称。`passphrase`是通过 Forge 将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../../intro/concepts)。
 :::
 
@@ -109,7 +109,7 @@ True
 250000000000000000
 ```
 
-::: 建议笔记
+::: tip
 **签到**：每个账户可每天发出一次**签到交易**以获得 25 TBA。
 **哈希**：通过已签署交易计算的哈希。每笔交易应有其独特的**哈希**。
 :::

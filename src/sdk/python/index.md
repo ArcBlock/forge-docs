@@ -53,7 +53,7 @@ This step applies to every tutorial
 
 **Scenario**: Alice wants to transfer 10 TBA to Mike.
 
-::: tip Notes
+::: tip
 **TBA** is the default currency on Forge Chain. If 1 TBA has 16 digits, it shows as `10000000000000000`.
 :::
 
@@ -65,7 +65,7 @@ alice = rpc.create_wallet(moniker='alice', passphrase='abc123')
 mike = rpc.create_wallet(moniker='mike', passphrase='abc123')
 ```
 
-::: tip Notes
+::: tip
 `moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../intro/concepts).
 :::
 
@@ -109,7 +109,7 @@ Now let's check Alice's account balance. There should be 25 TBA.
 250000000000000000
 ```
 
-::: tip Notes
+::: tip
 **Poke**: Each account can send a **Poke Transaction** to get 25 TBA each day.
 **Hash**: The calculated hash of the signed transaction. Each transaction should have its own unique **hash**.
 :::

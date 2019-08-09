@@ -76,7 +76,7 @@ forge simulator start
 
 **场景**：爱丽丝想给鲍勃转移 10TBA。
 
-::: 建议笔记
+::: tip
 **TBA**是 Forge 链上的默认货币。1 TBA 有 16 个数位，所以，显示为`10000000000000000`。
 :::
 
@@ -89,7 +89,7 @@ w2 = ForgeSdk.create_wallet()
 ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "bob_wallet"), wallet: w2)
 ```
 
-::: 建议笔记
+::: tip
 `moniker`是 Forge 上该钱包的昵称。`passphrase`由 Forge 使用，以将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts)。
 :::
 
@@ -121,7 +121,7 @@ ForgeSdk.get_tx(hash: "89FA6DAF67C8F54870599313079DC6F8D7CD483864FE7A7BCDFB9DF4D
 ForgeSdk.get_account_state(address: w2.address)
 ```
 
-::: 建议笔记
+::: tip
 **报到**每个账户可每天发出一次**报到交易**以获得 25 TBA。
 **哈希**：已签署交易所计算的哈希。每笔交易应有其独特的**哈希**。
 :::

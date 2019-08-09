@@ -76,7 +76,7 @@ Set `FORGE_CONFIG` as your environment variable, pointing to the config your for
 
 **Scenario**: Alice wants to transfer 10 TBA to Bob.
 
-::: tip Notes
+::: tip
 **TBA** is the default currency on Forge Chain. 1 TBA has 16 digits, so it shows as `10000000000000000`.
 :::
 
@@ -89,7 +89,7 @@ w2 = ForgeSdk.create_wallet()
 ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "bob_wallet"), wallet: w2)
 ```
 
-::: tip Notes
+::: tip
 `moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../intro/concepts).
 :::
 
@@ -121,7 +121,7 @@ Now let's check Alice's account balance. There should be 25 TBA in `balance` in 
 ForgeSdk.get_account_state(address: w2.address)
 ```
 
-::: tip Notes
+::: tip
 **Checkin**: Each account can send a **Checkin Transaction** to get 25 TBA each day.
 **Hash**: The calculated hash of the signed transaction. Each transaction should have its own unique **hash**.
 :::

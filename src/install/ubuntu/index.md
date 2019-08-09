@@ -51,7 +51,6 @@ If you previously ssh to the host with root account, and you want to ssh with ne
 ```bash
 cat ~/.ssh/id_rsa.pub | ssh root@host "mkdir -p ~arcblock/.ssh && touch ~arcblock/.ssh/authorized_keys && chown -R arcblock ~arcblock/.ssh && chmod -R go= ~arcblock/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
-
 :::
 
 ## Install nodejs
@@ -129,7 +128,7 @@ sudo apt-get install -y erlang-crypto
 If you missed this step, the Forge release will crash with the error message:
 
 > libcrypto.so.1.1: cannot open shared object file: No such file or directory
-> :::
+:::
 
 ## Install Forge CLI
 

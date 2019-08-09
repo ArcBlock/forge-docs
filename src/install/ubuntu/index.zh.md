@@ -12,7 +12,7 @@ tags:
 
 全新 ubuntu 机器缺少几个 Forge 所需的依赖。如果您在 Ubuntu 上运行 Forge 时遇到问题，请往下读。本指南通过了在每月 5 美元的 Digital Ocean 机器上对 ubuntu 16.04 和 18.04 的测试。
 
-::: 警告
+::: warning
 
 我们不建议您在 Ubuntu 14.04 或更低版本上运行 Forge。本指南可能不适用于 Ubuntu 14.04（至少您无法在该版本上安装 nodejs >10）。
 
@@ -42,7 +42,7 @@ sudo passwd -d arcblock
 %sudo ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
-::: 建议
+::: tip
 
 如果您更熟悉 vim，`update-alternatives --config editor`可以修改默认编辑器。
 
@@ -50,7 +50,7 @@ sudo passwd -d arcblock
 
 从现在起，我们可以将用户交换为此 sudo 用户。
 
-::: 建议
+::: tip
 
 如果您之前通过 root 账户 ssh 至主机，又想在最新创建的`arcblock`账户进行 ssh，您可运行以下命令：
 
@@ -144,7 +144,7 @@ OpenSSL 1.1.1 11 Sep 2018
 sudo apt-get install -y erlang-crypto
 ```
 
-::: 警告
+::: warning
 
 如果错过这一步，Forge 版本会崩溃，且会出现以下错误信息：
 

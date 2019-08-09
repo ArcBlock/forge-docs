@@ -74,7 +74,7 @@ val Alice = forge.createWallet(Rpc.RequestCreateWallet.newBuilder()
 // sk: xxxxx,pk: xxxx, address:xxxx, token:xxxxx
 ```
 
-::: tip Notes
+::: tip
 `moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../intro/concepts).
 :::
 
@@ -115,7 +115,7 @@ val response = forge.sendTx(Rpc.RequestSendTx.newBuilder()
 
 if it works, response will return a hash string. you can query this hash use forgeSDK,or query it in forgeWeb. After this tx confirmed, check Alice and Bob 's accounts to confirm if this transaction successfully.
 
-::: tip Notes
+::: tip
 **TBA** is the default currency on Forge Chain. 1 TBA has 16 digits, so it shows as `10000000000000000`.
 and decimal is 16.
 :::

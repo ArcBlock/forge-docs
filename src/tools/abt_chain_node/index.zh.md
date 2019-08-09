@@ -101,10 +101,8 @@ brew install automake libtool pkg-config libffi gmp openssl
 
 点击“继续”后，您将丢失所有现有数据。然后，您可以点击“退出”并重启 ABT 链节点，以获得完全刷新的节点。如果您没有退出，链会按照当前配置运行。
 
-::: 警告
-
+::: warning
 请注意，加入新网络/重置链状态意味着，您的本地数据将被擦除。如果您想保存自己的数据，请将其备份并随后恢复。ABT 链节点生成的所有数据都存储在`~/.forge_desktop`。
-
 :::
 
 <!--stackedit_data:

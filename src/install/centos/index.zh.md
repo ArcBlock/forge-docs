@@ -12,7 +12,7 @@ tags:
 
 全新 centos 机器缺少几个 Forge 所需的依赖。如果您在 CentOS 上运行 Forge 时遇到问题，请往下读。本指南通过了在每月 5 美元的 Digital Ocean 机器上对 CentOS 7 的测试。
 
-::: 警告
+::: warning
 
 我们不建议您在 CentOS 6 或更低版本上运行 Forge。本指南可能不适用于该版本。
 
@@ -46,14 +46,12 @@ usermod -aG wheel arcblock
 
 从现在起，我们可以将用户交换为此 sudo 用户。
 
-::: 建议
-
+::: tip
 如果您之前通过 root 账户 ssh 至主机，又想在最新创建的`arcblock`账户进行 ssh，您可运行以下命令：
 
 ```bash
 cat ~/.ssh/id_rsa.pub | ssh root@host "mkdir -p ~arcblock/.ssh && touch ~arcblock/.ssh/authorized_keys && chown -R arcblock ~arcblock/.ssh && chmod -R go= ~arcblock/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
-
 :::
 
 ## 安装常见依赖
@@ -128,239 +126,125 @@ forge init
 
 ```bash
 $ forge start
-
 ✔ Forge daemon successfully started
-
 ┌───────────────┬──────────┬───────────────┬───────────────┬────────────────────┐
-
-│ Name │ PID │ Uptime │ Memory │ CPU │
-
+│ Name          │ PID      │ Uptime        │ Memory        │ CPU                │
 ├───────────────┼──────────┼───────────────┼───────────────┼────────────────────┤
-
-│ starter │ 4104 │ 16.1s │ 61.6 MB │ 0.00 % │
-
-│ forge │ 4357 │ 12.7s │ 433 MB │ 0.00 % │
-
-│ ipfs │ 4670 │ 6.7s │ 27.1 MB │ 0.00 % │
-
-│ tendermint │ 4677 │ 6.6s │ 22.6 MB │ 0.00 % │
-
+│ starter       │ 4104     │ 16.1s         │ 61.6 MB       │ 0.00 %             │
+│ forge         │ 4357     │ 12.7s         │ 433 MB        │ 0.00 %             │
+│ ipfs          │ 4670     │ 6.7s          │ 27.1 MB       │ 0.00 %             │
+│ tendermint    │ 4677     │ 6.6s          │ 22.6 MB       │ 0.00 %             │
 └───────────────┴──────────┴───────────────┴───────────────┴────────────────────┘
 
-
-
 ℹ If you want to access interactive console, please run /home/forge/.forge_cli/release/forge/0.18.6/bin/forge remote_console
-
 forge@forge-cli:~$ forge status
-
 ──────────────
-
 ✔ Chain Info
-
 ──────────────
-
 {
-
-id: '99cd4f098ed96c5d3ae1391a2858ab4fbf3db799',
-
-network: 'forge',
-
-moniker: 'forge',
-
-consensusVersion: '0.30.2',
-
-synced: true,
-
-appHash: 'bc40d2b84429b70564bf1aa51aefa956b636674b78d6511851d5a2721e151cb3',
-
-blockHash: 'd9ddd9d5873a155be66aa553574a7b53a7f9154713875ebf7e4dfca4cd526798',
-
-blockHeight: 2,
-
-blockTime: '2019-03-16T17:52:32.000Z',
-
-address: 'zystc5rNpeE462e3DokUC4nR7PUsrL5zM38J',
-
-votingPower: 10,
-
-totalTxs: 0,
-
-version: '0.18.6',
-
-dataVersion: '1.4',
-
-forgeAppsVersion: {},
-
-supportedTxs: [
-
-'fg:t:update_asset',
-
-'fg:t:transfer',
-
-'fg:t:sys_upgrade',
-
-'fg:t:stake',
-
-'fg:t:exchange',
-
-'fg:t:declare_file',
-
-'fg:t:declare',
-
-'fg:t:consensus_upgrade',
-
-'fg:t:create_asset',
-
-'fg:t:consume_asset',
-
-'fg:t:poke',
-
-'fg:t:account_migrate'
-
-]
-
+  id: '99cd4f098ed96c5d3ae1391a2858ab4fbf3db799',
+  network: 'forge',
+  moniker: 'forge',
+  consensusVersion: '0.30.2',
+  synced: true,
+  appHash: 'bc40d2b84429b70564bf1aa51aefa956b636674b78d6511851d5a2721e151cb3',
+  blockHash: 'd9ddd9d5873a155be66aa553574a7b53a7f9154713875ebf7e4dfca4cd526798',
+  blockHeight: 2,
+  blockTime: '2019-03-16T17:52:32.000Z',
+  address: 'zystc5rNpeE462e3DokUC4nR7PUsrL5zM38J',
+  votingPower: 10,
+  totalTxs: 0,
+  version: '0.18.6',
+  dataVersion: '1.4',
+  forgeAppsVersion: {},
+  supportedTxs: [
+    'fg:t:update_asset',
+    'fg:t:transfer',
+    'fg:t:sys_upgrade',
+    'fg:t:stake',
+    'fg:t:exchange',
+    'fg:t:declare_file',
+    'fg:t:declare',
+    'fg:t:consensus_upgrade',
+    'fg:t:create_asset',
+    'fg:t:consume_asset',
+    'fg:t:poke',
+    'fg:t:account_migrate'
+  ]
 }
 
-
-
 ──────────────
-
 ✔ Forge State
+──────────────
+{
+  address: 'forge_state',
+  consensus: {
+    maxBytes: 150000,
+    maxGas: -1,
+    maxValidators: 64,
+    maxCandidates: 256,
+    pubKeyTypes: [
+      'ed25519'
+    ],
+    validators: [
+      {
+        address: 'zystc5rNpeE462e3DokUC4nR7PUsrL5zM38J',
+        power: 10
+      }
+    ],
+    validatorChanged: false,
+    paramChanged: false
+  },
+  tasks: {},
+  stakeSummary: {},
+  version: '0.18.6',
+  dataVersion: '1.4',
+  forgeAppHash: '',
+  token: {
+    name: 'ArcBlock',
+    symbol: 'ABT',
+    unit: 'arc',
+    description: 'Forge token ABT',
+    decimal: 16,
+    initialSupply: 93000000,
+    totalSupply: 186000000,
+    inflationRate: 0
+  }
+}
 
 ──────────────
-
-{
-
-address: 'forge_state',
-
-consensus: {
-
-maxBytes: 150000,
-
-maxGas: -1,
-
-maxValidators: 64,
-
-maxCandidates: 256,
-
-pubKeyTypes: [
-
-'ed25519'
-
-],
-
-validators: [
-
-{
-
-address: 'zystc5rNpeE462e3DokUC4nR7PUsrL5zM38J',
-
-power: 10
-
-}
-
-],
-
-validatorChanged: false,
-
-paramChanged: false
-
-},
-
-tasks: {},
-
-stakeSummary: {},
-
-version: '0.18.6',
-
-dataVersion: '1.4',
-
-forgeAppHash: '',
-
-token: {
-
-name: 'ArcBlock',
-
-symbol: 'ABT',
-
-unit: 'arc',
-
-description: 'Forge token ABT',
-
-decimal: 16,
-
-initialSupply: 93000000,
-
-totalSupply: 186000000,
-
-inflationRate: 0
-
-}
-
-}
-
-
-──────────────
-
 ✔ Net Info
-
 ──────────────
-
 {
-
-listening: true,
-
-listeners: [
-
-'Listener(@)'
-
-],
-
-nPeers: 0,
-
-peers: []
-
+  listening: true,
+  listeners: [
+    'Listener(@)'
+  ],
+  nPeers: 0,
+  peers: []
 }
 
 ──────────────
-
 ✔ Validators Info
-
 ──────────────
-
 {
-
-blockHeight: 3,
-
-validators: [
-
-{
-
-address: '766D728A8CD7204FF7631912B963B8AE860D6DF6',
-
-votingPower: 10,
-
-proposerPriority: '0',
-
-name: ''
-
-}
-
-]
-
+  blockHeight: 3,
+  validators: [
+    {
+      address: '766D728A8CD7204FF7631912B963B8AE860D6DF6',
+      votingPower: 10,
+      proposerPriority: '0',
+      name: ''
+    }
+  ]
 }
 
 ──────────────
-
 ✔ Forge Web
-
 ──────────────
-
-ℹ forge web started at: http://localhost:8210
-
-ℹ graphql endpoint at: http://localhost:8210/api
-
-ℹ graphql playground at: http://localhost:8210/api/playground
+ℹ forge web started at:     http://localhost:8210
+ℹ graphql endpoint at:      http://localhost:8210/api
+ℹ graphql playground at:    http://localhost:8210/api/playground
 ```
 
 享受成果吧！

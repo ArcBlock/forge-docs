@@ -73,7 +73,7 @@ val Alice = forge.createWallet(Rpc.RequestCreateWallet.newBuilder()
 // sk: xxxxx,pk: xxxx, address:xxxx, token:xxxxx
 ```
 
-::: 建议笔记
+::: tip
 `moniker`是 Forge 上该钱包的昵称。`passphrase`由 Forge 使用，以将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts)。
 :::
 
@@ -114,7 +114,7 @@ val response = forge.sendTx(Rpc.RequestSendTx.newBuilder()
 
 如果有用，响应将返回一个哈希字符串。您可以使用 forgeSDK，或在 forgeWeb 内询问这个哈希。tx 确认后，检查爱丽丝和鲍勃的账户以确认交易成功。
 
-::: 建议笔记
+::: tip
 **TBA**是 Forge 链上的默认货币。1 TBA 有 16 个数位，所以，显示为`10000000000000000`。
 小数是 16。
 :::

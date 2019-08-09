@@ -12,7 +12,7 @@ tags:
 
 ## 快速入门
 
-::: 建议
+::: tip
 
 如果您是 MAC OSX 或 ubuntu 用户，我们为您准备了一个桌面版本（预览版），可以准备好节点并使其尽快开始运行。请访问[ABT Chain Node](../tools/abt_chain_node)获取更多信息。
 
