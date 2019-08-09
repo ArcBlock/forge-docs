@@ -1,20 +1,20 @@
 # 发送您的首笔交易
 
-forge的一个重要设计方面是使新手尽可能容易地熟悉Forge。如果您按照[概览](./README.md)的“快速入门”部分操作，应该已经使用了其中很多：forge cli、forge网页和forge模拟器。现在，您应该可以发送第一笔交易了，但在此之前，您需要一个钱包。
+forge 的一个重要设计方面是使新手尽可能容易地熟悉 Forge。如果您按照[概览](./README.md)的“快速入门”部分操作，应该已经使用了其中很多：forge cli、forge 网页和 forge 模拟器。现在，您应该可以发送第一笔交易了，但在此之前，您需要一个钱包。
 
 ## 关于钱包
 
 如果您熟悉区块链技术，可跳过下个部分。
 
-在区块链世界，钱包其实是一个地址，而地址是被通过公共密钥加密算法生成的密钥对支持。如果您用过比特币或以太坊，可能已经知道[ECDSA（椭圆曲线数字签名算法）](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm)了——ECDSA是DSA（数字签名算法）的一个变体，它使用椭圆曲线密码学。基本来说，如果您拥有一个钱包，您便会拥有密钥，密钥可生成其公共密钥，而公共密钥可被用于生成钱包地址。如果您想从钱包发送交易，需要生成交易数据并用自己的密钥签名。因为您的公共密钥包含在交易内，其他任何人都可以用它验证交易是否真正由您签署。这是区块链技术“信任”的基础。因为每个人都可以验证交易的真实性，它也被称为“公共可验证”。
+在区块链世界，钱包其实是一个地址，而地址是被通过公共密钥加密算法生成的密钥对支持。如果您用过比特币或以太坊，可能已经知道[ECDSA（椭圆曲线数字签名算法）](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm)了——ECDSA 是 DSA（数字签名算法）的一个变体，它使用椭圆曲线密码学。基本来说，如果您拥有一个钱包，您便会拥有密钥，密钥可生成其公共密钥，而公共密钥可被用于生成钱包地址。如果您想从钱包发送交易，需要生成交易数据并用自己的密钥签名。因为您的公共密钥包含在交易内，其他任何人都可以用它验证交易是否真正由您签署。这是区块链技术“信任”的基础。因为每个人都可以验证交易的真实性，它也被称为“公共可验证”。
 
-比特币和以太坊使用secp256k1对其钱包进行公共密钥加密，为了生成钱包地址，他们使用固定的哈希算法。在forge，我们在这方面灵活并可扩展——开发者或用户可选择其最喜欢的算法组合。例如，默认情况下，forge的公共密钥加密使用ED25519，公共密钥哈希使用Sha3，地址使用base58（实际上是带[multibase](https://github.com/multiformats/multibase)前缀的base58）。
+比特币和以太坊使用 secp256k1 对其钱包进行公共密钥加密，为了生成钱包地址，他们使用固定的哈希算法。在 forge，我们在这方面灵活并可扩展——开发者或用户可选择其最喜欢的算法组合。例如，默认情况下，forge 的公共密钥加密使用 ED25519，公共密钥哈希使用 Sha3，地址使用 base58（实际上是带[multibase](https://github.com/multiformats/multibase)前缀的 base58）。
 
 ## 创建一个钱包
 
 ### 通过 Forge CLI 创建钱包
 
-您可以通过使用forge CLI轻松创建钱包。请注意，在通常情况下，您不应用它创建一个存储贵重资产的钱包，除非您拥有当前的节点且节点位于安全环境。在这个例子中，因为我们在本地运行，便如下所示：
+您可以通过使用 forge CLI 轻松创建钱包。请注意，在通常情况下，您不应用它创建一个存储贵重资产的钱包，除非您拥有当前的节点且节点位于安全环境。在这个例子中，因为我们在本地运行，便如下所示：
 
 ```bash
 $ forge account:create
@@ -42,13 +42,13 @@ $ forge account:create
 ℹ run forge account z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB to inspect account state
 ```
 
-通过您的密码加密（AES256），这个CLI会创建一个钱包并将其保存为密钥库（钱包位于：`$FORGE_HOME/core/keystore/z1f/rPQRqZbW8wELhAPh1nBMV18c7j1FocbB.key`[^1]）。在forge CLI中创建钱包后，该钱包会被解锁，即您可以在一段时间内用其发出交易。
+通过您的密码加密（AES256），这个 CLI 会创建一个钱包并将其保存为密钥库（钱包位于：`$FORGE_HOME/core/keystore/z1f/rPQRqZbW8wELhAPh1nBMV18c7j1FocbB.key`[^1]）。在 forge CLI 中创建钱包后，该钱包会被解锁，即您可以在一段时间内用其发出交易。
 
-[^1]：请注意，在运行上述CLI后，您创建的钱包地址会与这个不同。所以，密钥库文件不同。
+[^1]：请注意，在运行上述 CLI 后，您创建的钱包地址会与这个不同。所以，密钥库文件不同。
 
-### 通过forge控制台创建钱包
+### 通过 forge 控制台创建钱包
 
-还记得在运行`forge start`时，它提出命令连接至forge远程控制台吗？
+还记得在运行`forge start`时，它提出命令连接至 forge 远程控制台吗？
 
 ```bash
 ℹ If you want to access interactive console, please run /Users/tchen/.forge_cli/release/forge/0.18.2/bin/forge remote_console
@@ -71,9 +71,9 @@ iex(forge@127.0.0.1)1> ForgeSdk.create_wallet(moniker: "cynthia", passphrase: "h
  }, "9981b5debd415bf85e94f8136a026d89"}
 ```
 
-因为Forge的构建包含erlang/elixir，这是erlang的默认控制台，即您可以在其中运行多种类型的erlang/elixir代码。 `ForgeSdk.create_wallet(moniker: "cynthia", passphrase: "helloworld")`是我们创建钱包时执行的函数。钱包创建后，返回的钱包里没有密钥(sk)，而是有一个凭证。之后您可以通过这个凭证来解锁钱包并签署交易。
+因为 Forge 的构建包含 erlang/elixir，这是 erlang 的默认控制台，即您可以在其中运行多种类型的 erlang/elixir 代码。 `ForgeSdk.create_wallet(moniker: "cynthia", passphrase: "helloworld")`是我们创建钱包时执行的函数。钱包创建后，返回的钱包里没有密钥(sk)，而是有一个凭证。之后您可以通过这个凭证来解锁钱包并签署交易。
 
-如需退出forge控制台，请按下"CTRL+c"两次。
+如需退出 forge 控制台，请按下"CTRL+c"两次。
 
 现在，如果您查看密钥库文件夹，会看到两个密钥库：
 
@@ -92,13 +92,13 @@ $ tree ~/.forge_release/core/keystore/
 
 You can also create wallet with forge SDK easily, please refer [Forge SDK](../sdk). -->
 
-### 通过Wallet应用程序创建钱包
+### 通过 Wallet 应用程序创建钱包
 
-对普通大众来说，创建钱包最安全的方法便是使用钱包应用程序——一个forge兼容的钱包应用程序。目前，您可以使用ArcBlock钱包应用程序进行操作。
+对普通大众来说，创建钱包最安全的方法便是使用钱包应用程序——一个 forge 兼容的钱包应用程序。目前，您可以使用 ArcBlock 钱包应用程序进行操作。
 
 ### 关于钱包的更多信息
 
-我们使用第一个钱包地址 `z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` 来看看我们在forge区块搜索器中可以找到什么。将地址粘贴（在这里请粘贴您通过Forge CLI创建的地址）到搜索器的搜索栏，然后点击回车键：
+我们使用第一个钱包地址 `z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` 来看看我们在 forge 区块搜索器中可以找到什么。将地址粘贴（在这里请粘贴您通过 Forge CLI 创建的地址）到搜索器的搜索栏，然后点击回车键：
 
 ![Search wallet](../../assets/images/search_wallet.jpg)
 
@@ -106,24 +106,24 @@ You can also create wallet with forge SDK easily, please refer [Forge SDK](../sd
 
 ![Search result](../../assets/images/search_wallet_result.jpg)
 
-我们只是通过Forge CLI创建了一个钱包，为什么已经有已发出的交易？
+我们只是通过 Forge CLI 创建了一个钱包，为什么已经有已发出的交易？
 
 您看到的交易是**声明账户**交易，如果您点击交易哈希，会看到：
 
 ![Declare Account transaction](../../assets/images/declare_tx.jpg)
 
-在forge，若不声明tx，则钱包不能被使用。TX的目的有几个：
+在 forge，若不声明 tx，则钱包不能被使用。TX 的目的有几个：
 
 - 为地址创建默认状态
 - 在链上登记地址/钱包类型/公共密钥
 
-在比特币/以太坊，其他人可在没有任何前提条件的情况下向您的钱包发送硬币/代币。您可以有一个只接收代币的钱包，尽管该钱包的状态不存在[^2]。在Forge，因为它的主要目的是允许用户创建丰富的应用程序，提前将钱包状态放入链可解锁并简化很多用例。
+在比特币/以太坊，其他人可在没有任何前提条件的情况下向您的钱包发送硬币/代币。您可以有一个只接收代币的钱包，尽管该钱包的状态不存在[^2]。在 Forge，因为它的主要目的是允许用户创建丰富的应用程序，提前将钱包状态放入链可解锁并简化很多用例。
 
-[^2]：事实上，比特币是一个UTXO系统，它没有钱包状态；对于以太坊，如果钱包曾经发出过交易，则有钱包状态。
+[^2]：事实上，比特币是一个 UTXO 系统，它没有钱包状态；对于以太坊，如果钱包曾经发出过交易，则有钱包状态。
 
 ## 发出交易
 
-现在，您有一个钱包，发出交易就很简单了。我们还是会使用钱包`z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` 发出转移tx。接收者是我们在forge控制台创建的那一个：`z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis`。在发出交易前，您可以需要看看声明tx创建的钱包账户的状态。您可以使用forge cli这样做：
+现在，您有一个钱包，发出交易就很简单了。我们还是会使用钱包`z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` 发出转移 tx。接收者是我们在 forge 控制台创建的那一个：`z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis`。在发出交易前，您可以需要看看声明 tx 创建的钱包账户的状态。您可以使用 forge cli 这样做：
 
 ```bash
 $ forge account z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB
@@ -172,11 +172,11 @@ $ forge account z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB
 }
 ```
 
-钱包创建的账户状态非常大。目前，请不要担心您不理解的数据。为了开发方便，所有新声明的钱包的状态中都会有10,000个代币。我们可以将其用户互相转移代币。
+ 钱包创建的账户状态非常大。目前，请不要担心您不理解的数据。为了开发方便，所有新声明的钱包的状态中都会有 10,000 个代币。我们可以将其用户互相转移代币。
 
-### 通过forge CLI转移
+### 通过 forge CLI 转移
 
-我们可以使用`forge tx:send` CLI发出交易。如果您选择发送tx的钱包未被解锁，Forge CLI会提醒您输入密码，以便其解锁钱包并使用密钥签署交易：
+我们可以使用`forge tx:send` CLI 发出交易。如果您选择发送 tx 的钱包未被解锁，Forge CLI 会提醒您输入密码，以便其解锁钱包并使用密钥签署交易：
 
 ```bash
 $ forge tx:send
@@ -195,7 +195,7 @@ $ forge tx:send
 ✔ tx send success! EAF6A091136A7D95AFA704993F43CA175844EFFAA8908A7A2F8F5BF1EE08F4A4
 ```
 
-请注意，当您在`Please enter the itx data object`后点击回车键时，会弹出一个含默认值的编辑器，您可以复制粘贴上面显示的json数据：
+请注意，当您在`Please enter the itx data object`后点击回车键时，会弹出一个含默认值的编辑器，您可以复制粘贴上面显示的 json 数据：
 
 ```json
 {
@@ -206,9 +206,9 @@ $ forge tx:send
 }
 ```
 
-这个`TransferTx`会将1000单位发送至`z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis`。请注意，默认情况下，$1个代币 = 10^{16}单位$，当我们转移时，最小转移单位是1单位。
+这个`TransferTx`会将 1000 单位发送至`z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis`。请注意，默认情况下，$1 个代币 = 10^{16}单位$，当我们转移时，最小转移单位是 1 单位。
 
-我们看看发送到链上的整个tx：
+我们看看发送到链上的整个 tx：
 
 ```bash
 $ forge tx EAF6A091136A7D95AFA704993F43CA175844EFFAA8908A7A2F8F5BF1EE08F4A4
@@ -229,14 +229,14 @@ $ forge tx EAF6A091136A7D95AFA704993F43CA175844EFFAA8908A7A2F8F5BF1EE08F4A4
 }
 ```
 
-Forge CLI会为交易为您填写几个值：
+Forge CLI 会为交易为您填写几个值：
 
 - **from**：发出者地址。
-- **nounce**：此tx的随机值。
-- **signature**：发出者此tx的签名。
-- **chain_id**：这个tx所属的链。如果您没有改变`forge_release.toml`，默认链id是**forge**。
+- **nounce**：此 tx 的随机值。
+- **signature**：发出者此 tx 的签名。
+- **chain_id**：这个 tx 所属的链。如果您没有改变`forge_release.toml`，默认链 id 是**forge**。
 
-在链上执行tx后（您可能需要等待5秒），您可以得到两个地址的更新账户地址`z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB`和`z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis`：
+在链上执行 tx 后（您可能需要等待 5 秒），您可以得到两个地址的更新账户地址`z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB`和`z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis`：
 
 ```bash
 $ forge account z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB
@@ -248,7 +248,7 @@ $ forge account z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB
 }
 ```
 
-发出者的余额减少100单位，接收者的余额则增加100单位。
+发出者的余额减少 100 单位，接收者的余额则增加 100 单位。
 
 ```bash
 $ forge account z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis
@@ -260,15 +260,15 @@ $ forge account z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis
 }
 ```
 
-祝贺您！您以发出自己的第一笔转移交易了！如果您想知道魔法是怎么发生的，请阅读[Forge核心的交易章节](../core/tx_protocol.md)。
+祝贺您！您以发出自己的第一笔转移交易了！如果您想知道魔法是怎么发生的，请阅读[Forge 核心的交易章节](../core/tx_protocol.md)。
 
-### 通过Forge控制台转移（可选）
+### 通过 Forge 控制台转移（可选）
 
-这个部分为勇敢或elixir/erlang用户提供。如果您知道elixir/erlang或不怕进行有点奇怪的操作，那就请继续读下去。
+这个部分为勇敢或 elixir/erlang 用户提供。如果您知道 elixir/erlang 或不怕进行有点奇怪的操作，那就请继续读下去。
 
-现在，再次输入forge控制台(`~/.forge_cli/release/forge/0.18.2/bin/forge remote_console`)。
+现在，再次输入 forge 控制台(`~/.forge_cli/release/forge/0.18.2/bin/forge remote_console`)。
 
-首先，让我们创建一个`TransferTx`，我们想给`z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis` 100个代币，所以我们将地址放在`to`，值放在`ForgeAbi.token_to_arc(100)`：
+首先，让我们创建一个`TransferTx`，我们想给`z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis` 100 个代币，所以我们将地址放在`to`，值放在`ForgeAbi.token_to_arc(100)`：
 
 ```elixir
 iex(forge@127.0.0.1)1> itx = ForgeAbi.TransferTx.new(to: "z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis", value: ForgeAbi.token_to_arc(100))
@@ -280,9 +280,9 @@ iex(forge@127.0.0.1)1> itx = ForgeAbi.TransferTx.new(to: "z115hJtnrYgyFTepXQbBEW
 }
 ```
 
-您可能在此看到`BigUint`，它的值很奇怪。我们之前提到，默认情况下，$1个代币 = 10^{16}单位$，我们转移时，最低的转移值为1单位。因此，如果我们想转移100个代币，即为$100*10^{16}$。这个数字很大。因此，我们需要一个方式，在所有语言间解码大整数（尽管elixir、python之类的语言支持任何数位的大数字，但很多语言只支持固定大小的整数）。如需有效编码大数据（字符串格式是最低效的方式），我们用其最小的二进制格式。如需了解`BigUint`的更多信息，请参考：[Forge中的大整数处理](../core/bigint.md)。
+您可能在此看到`BigUint`，它的值很奇怪。我们之前提到，默认情况下，$1 个代币 = 10^{16}单位$，我们转移时，最低的转移值为 1 单位。因此，如果我们想转移 100 个代币，即为$100\*10^{16}$。这个数字很大。因此，我们需要一个方式，在所有语言间解码大整数（尽管 elixir、python 之类的语言支持任何数位的大数字，但很多语言只支持固定大小的整数）。如需有效编码大数据（字符串格式是最低效的方式），我们用其最小的二进制格式。如需了解`BigUint`的更多信息，请参考：[Forge 中的大整数处理](../core/bigint.md)。
 
-在我们发出交易前，和在Forge CLI中的操作一样，需要解锁钱包：
+在我们发出交易前，和在 Forge CLI 中的操作一样，需要解锁钱包：
 
 ```
 iex(forge@127.0.0.1)2> {w, t} = ForgeSdk.load_wallet(address: "z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB", passphrase: "helloworld")
@@ -295,7 +295,7 @@ iex(forge@127.0.0.1)2> {w, t} = ForgeSdk.load_wallet(address: "z1frPQRqZbW8wELhA
  }, "bedd6df719d6e142eef856f88fd7c847"}
 ```
 
-在此，我们有钱包数据和凭证，可用其告诉Forge加载密钥，以签署tx并发出。`ForgeSdk.transfer`是一个辅助函数，会为您提供以下服务：
+在此，我们有钱包数据和凭证，可用其告诉 Forge 加载密钥，以签署 tx 并发出。`ForgeSdk.transfer`是一个辅助函数，会为您提供以下服务：
 
 - 将`TransferTx`包裹在`Transaction`。
 - 用钱包和凭证签署交易。
@@ -336,7 +336,7 @@ iex(forge@127.0.0.1)4> ForgeSdk.get_tx(hash: "9C2CD01B5EA739AEB430F300757DA74AB5
 }
 ```
 
-请注意，`code`在此为0，即tx成功执行。不是0的代码意味着tx执行失败。如需了解状态代码的更多信息，请查看：[Forge状态代码](../core/code.md)。
+请注意，`code`在此为 0，即 tx 成功执行。不是 0 的代码意味着 tx 执行失败。如需了解状态代码的更多信息，请查看：[Forge 状态代码](../core/code.md)。
 
 现在，我们看看余额的格式：
 
@@ -360,7 +360,7 @@ iex(forge@127.0.0.1)6> ForgeSdk.get_account_state(address: "z1frPQRqZbW8wELhAPh1
 }
 ```
 
-我们可以看到，余额进一步减少了100个代币($100*10^{16}$)。当然，接收者的余额增加了100个代币：
+我们可以看到，余额进一步减少了 100 个代币($100\*10^{16}$)。当然，接收者的余额增加了 100 个代币：
 
 ```elixir
 iex(forge@127.0.0.1)7> ForgeSdk.get_account_state(address: "z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis") |> ForgeSdk.display()
@@ -371,7 +371,8 @@ iex(forge@127.0.0.1)7> ForgeSdk.get_account_state(address: "z115hJtnrYgyFTepXQbB
 }
 ```
 
-希望您看得懂我在说什么。如果您没有完全理解一切，也不必担心。再次说明，您可以随意访问[Forge核心交易章节](../core/tx_protocol.md)获取详情。
+希望您看得懂我在说什么。如果您没有完全理解一切，也不必担心。再次说明，您可以随意访问[Forge 核心交易章节](../core/tx_protocol.md)获取详情。
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTUyNDY4NzQwMiwtNDM3NTQ0MzM0LDk4NT
 YxODc1NCwtMTY2MDQzMzQxLC0xMTQxNDEzODc2LC0xNjQ3NzA3

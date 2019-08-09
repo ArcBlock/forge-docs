@@ -1,8 +1,8 @@
 # Python SDK
 
-如需获取详细的forge-python-sdk参考手册，请访问[此处](../../sdks/python/latest)。
+如需获取详细的 forge-python-sdk 参考手册，请访问[此处](../../sdks/python/latest)。
 
-Python SDK的源代码可在[Github](https://github.com/ArcBlock/forge-python-sdk)获取。如果有任何疑问，请联系我们。
+Python SDK 的源代码可在[Github](https://github.com/ArcBlock/forge-python-sdk)获取。如果有任何疑问，请联系我们。
 
 ## 安装
 
@@ -13,18 +13,18 @@ pip install forge-python-sdk
 ```
 
 ::: 警告
-此sdk支持`>=3.6`的python版本。
+此 sdk 支持`>=3.6`的 python 版本。
 :::
 
 ## 使用
 
-### 第0步
+### 第 0 步
 
-首先，通过[Forge CLI](../tools/forge_cli)在本地运行Forge。
+首先，通过[Forge CLI](../tools/forge_cli)在本地运行 Forge。
 
-### 第1步
+### 第 1 步
 
-创建一个`Forge连接`（Forge Connection）来连接您的Forge端口（如果您是通过 `forge-cli`来运行您的Forge，初始端口为127.0.0.1:28210）。
+创建一个`Forge连接`（Forge Connection）来连接您的 Forge 端口（如果您是通过 `forge-cli`来运行您的 Forge，初始端口为 127.0.0.1:28210）。
 
 ```python
 from forge_sdk import ForgeConn
@@ -39,15 +39,15 @@ config = f.config
 
 ## 教程
 
-### 1级：转移金钱
+### 1 级：转移金钱
 
-**场景**：爱丽丝想给迈克转移10TBA。
+**场景**：爱丽丝想给迈克转移 10TBA。
 
 ::: 建议笔记
-**TBA**是Forge链上的默认货币。1 TBA有16个数位，所以，显示为`10000000000000000`。
+**TBA**是 Forge 链上的默认货币。1 TBA 有 16 个数位，所以，显示为`10000000000000000`。
 :::
 
-#### 第1步：为爱丽丝和迈克创建钱包
+#### 第 1 步：为爱丽丝和迈克创建钱包
 
 ```python
 >>> from forge_sdk import protos, utils
@@ -56,7 +56,7 @@ config = f.config
 ```
 
 ::: 建议笔记
-`moniker`是Forge上该钱包的昵称。`passphrase`是通过Forge将钱包加密为一个keystore文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts)。
+`moniker`是 Forge 上该钱包的昵称。`passphrase`是通过 Forge 将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts)。
 :::
 
 我们看看爱丽丝的钱包和账户详情
@@ -74,7 +74,7 @@ wallet {
 0
 ```
 
-#### 第2步：帮助爱丽丝发出签到交易以获得一些钱
+#### 第 2 步：帮助爱丽丝发出签到交易以获得一些钱
 
 现在，您已为爱丽丝和迈克创建了钱包，但是他们的账户里没有钱。让我们发出一次**签到**交易，帮助爱丽丝得到一些钱。
 
@@ -83,16 +83,16 @@ wallet {
 hash: "CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2"
 ```
 
-收到**哈希**意味着交易被转移到Forge，但不意味着交易成功。为了确认交易成功发出，让我们深入了解交易详情。
+收到**哈希**意味着交易被转移到 Forge，但不意味着交易成功。为了确认交易成功发出，让我们深入了解交易详情。
 
 ```python
 >>> rpc.is_tx_ok('CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2')
 True
 ```
 
-如果`is_tx_ok`返回`True`，则意味着交易成功执行。现在，爱丽丝的账户中应该有25 TBA。
+如果`is_tx_ok`返回`True`，则意味着交易成功执行。现在，爱丽丝的账户中应该有 25 TBA。
 
-现在，我们查看一下爱丽丝的账户余额。应该有25 TBA。
+现在，我们查看一下爱丽丝的账户余额。应该有 25 TBA。
 
 ```python
 >>> rpc.get_account_balance(alice.wallet.address)
@@ -100,16 +100,15 @@ True
 ```
 
 ::: 建议笔记
-**签到**：每个账户可每天发出一次**签到交易**以获得25 TBA。
+**签到**：每个账户可每天发出一次**签到交易**以获得 25 TBA。
 **哈希**：通过已签署交易计算的哈希。每笔交易应有其独特的**哈希**。
 :::
 
-#### 第3步：从爱丽丝向迈克转移钱
+#### 第 3 步：从爱丽丝向迈克转移钱
 
-现在爱丽丝的账户中有25个TBA，迈克的账户中什么也没有。我们可以发出**转移交易**，帮助爱丽丝将10 TBA转给迈克。
+现在爱丽丝的账户中有 25 个 TBA，迈克的账户中什么也没有。我们可以发出**转移交易**，帮助爱丽丝将 10 TBA 转给迈克。
 
 ```python
-
 >>> transfer_itx = protos.TransferTx(to=mike.wallet.address,value=utils.int_to_biguint(100000000000000000))
 
 >>> rpc.transfer(transfer_itx, alice.wallet)
@@ -122,15 +121,15 @@ True
 100000000000000000
 ```
 
-现在我们可以看到，爱丽丝刚刚成功地将10 TBA转到了迈克的账户！
+现在我们可以看到，爱丽丝刚刚成功地将 10 TBA 转到了迈克的账户！
 
- 🎉 祝贺您！您已完成1级教程！现在，您应该对Forge的工作原理有了基本的了解。如果您想迎接更多挑战，请查看2级教程。
+🎉 祝贺您！您已完成 1 级教程！现在，您应该对 Forge 的工作原理有了基本的了解。如果您想迎接更多挑战，请查看 2 级教程。
 
-### 2级：出售二手笔记本电脑
+### 2 级：出售二手笔记本电脑
 
- **场景**：迈克想向爱丽丝出售一台二手笔记本电脑。
+**场景**：迈克想向爱丽丝出售一台二手笔记本电脑。
 
-#### 第1步：为爱丽丝和迈克创建账户
+#### 第 1 步：为爱丽丝和迈克创建账户
 
 ```python
 >>> from forge_sdk import rpc, protos, utils
@@ -141,7 +140,6 @@ True
 在帮助爱丽丝和迈克创建账户后，我们帮助爱丽丝获得一些购买迈克笔记本所需的钱
 
 ```python
-
 >>> rpc.poke(alice.wallet, alice.token)
 hash: "CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2"
 
@@ -149,9 +147,9 @@ hash: "CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2"
 250000000000000000
 ```
 
-#### 第2步：为迈克创建笔记本资产
+#### 第 2 步：为迈克创建笔记本资产
 
-在现实世界，迈克可以简单地向爱丽丝出售他的笔记本。通过Forge SDK，任何物理项目都能以**资产**形式存在。
+在现实世界，迈克可以简单地向爱丽丝出售他的笔记本。通过 Forge SDK，任何物理项目都能以**资产**形式存在。
 
 我们试试帮迈克通过**CreateAssetTx**创建笔记本资产。用户可在`data`字段输入项目相关的信息，`type_url`代表如何解码序列化的`value`字段。在本教程中，为了简便，我们只填写笔记本的名称。
 
@@ -210,13 +208,13 @@ data {
 }
 ```
 
-最后一个字段是`data`字段，我们可以看到`Laptop from Mike`。您也可以在其中加入更为复杂的信息，如序列化的protobuf消息。
+最后一个字段是`data`字段，我们可以看到`Laptop from Mike`。您也可以在其中加入更为复杂的信息，如序列化的 protobuf 消息。
 
-#### 第3步：用钱交换资产
+#### 第 3 步：用钱交换资产
 
-现在，爱丽丝的账户里有25 TBA，迈克有一个笔记本资产。如果迈克想以10 TBA的价格出售笔记本，应该怎么做？他可以发起**ExchangeTx**。
+现在，爱丽丝的账户里有 25 TBA，迈克有一个笔记本资产。如果迈克想以 10 TBA 的价格出售笔记本，应该怎么做？他可以发起**ExchangeTx**。
 
-因为迈克将是发出者，我们将笔记本`asset_address`作为他将交换的对象。相似的，爱丽丝将交换10 TBA。
+因为迈克将是发出者，我们将笔记本`asset_address`作为他将交换的对象。相似的，爱丽丝将交换 10 TBA。
 
 ```python
 >>> mike_exchange_info = protos.ExchangeInfo(assets=[asset_address])
@@ -240,16 +238,17 @@ True
 True
 ```
 
-在购买笔记本后，Alice的账户中应只有15 TBA。
+在购买笔记本后，Alice 的账户中应只有 15 TBA。
 
 ```python
 >>> rpc.get_account_balance(alice.wallet.address)
 150000000000000000
 ```
 
- 🎉 🎉祝贺您！您已完成2级教程！现在，您应该对如何通过Forge SDK创建资产和交换资产Forge的工作原理有了一定的了解。不妨试试创建更多复杂资产！
+🎉 🎉 祝贺您！您已完成 2 级教程！现在，您应该对如何通过 Forge SDK 创建资产和交换资产 Forge 的工作原理有了一定的了解。不妨试试创建更多复杂资产！
 
 就是这样了。现在您已经准备就绪了。如果您有任何问题或建议，请在[Github](https://github.com/ArcBlock/forge-python-sdk)上与我们分享。
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTI0ODU3OTc4OSwxNzEyNDQ5OTMzXX0=
 -->

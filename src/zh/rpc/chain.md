@@ -1,8 +1,8 @@
-# 链RPC
+# 链 RPC
 
 <!-- General description - purpose of chain rpc, problem it could solve -->
 
-## RPC list列表
+## RPC list 列表
 
 <!-- list rpc -->
 
@@ -12,9 +12,9 @@
 
 #### 输入和输出
 
-#### GRPC示例
+#### GRPC 示例
 
-#### GraphQL示例
+#### GraphQL 示例
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMjUyMDAzOTI1LDY1ODAxOTU3Ml19

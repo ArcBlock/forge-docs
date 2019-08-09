@@ -41,7 +41,7 @@ usermod -aG wheel arcblock
 如果您之前通过 root 账户 ssh 至主机，又想在最新创建的`arcblock`账户进行 ssh，您可运行以下命令：
 
 ```bash
-cat ~/.ssh/id\_rsa.pub | ssh root@host &quot;mkdir -p ~arcblock/.ssh &amp;&amp; touch ~arcblock/.ssh/authorized\_keys &amp;&amp; chown -R arcblock ~arcblock/.ssh &amp;&amp; chmod -R go= ~arcblock/.ssh &amp;&amp; cat \&gt;\&gt; ~/.ssh/authorized\_keys&quot;
+cat ~/.ssh/id_rsa.pub | ssh root@host "mkdir -p ~arcblock/.ssh && touch ~arcblock/.ssh/authorized_keys && chown -R arcblock ~arcblock/.ssh && chmod -R go= ~arcblock/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
 
 :::
@@ -61,7 +61,7 @@ Forge CLI 需要 nodejs 运行时间，所以我们应该安装最新的 10.x �
 基本来说，您需要：
 
 ```bash
-curl -sL https://rpm.nodesource.com/setup\_11.x | sudo bash -
+curl -sL https://rpm.nodesource.com/setup_11.x | sudo bash -
 
 sudo yum install -y nodejs
 ```
@@ -139,7 +139,7 @@ $ forge start
 
 
 
-ℹ If you want to access interactive console, please run /home/forge/.forge\_cli/release/forge/0.18.6/bin/forge remote\_console
+ℹ If you want to access interactive console, please run /home/forge/.forge_cli/release/forge/0.18.6/bin/forge remote_console
 
 forge@forge-cli:~$ forge status
 
@@ -183,29 +183,29 @@ forgeAppsVersion: {},
 
 supportedTxs: [
 
-'fg:t:update\_asset',
+'fg:t:update_asset',
 
 'fg:t:transfer',
 
-'fg:t:sys\_upgrade',
+'fg:t:sys_upgrade',
 
 'fg:t:stake',
 
 'fg:t:exchange',
 
-'fg:t:declare\_file',
+'fg:t:declare_file',
 
 'fg:t:declare',
 
-'fg:t:consensus\_upgrade',
+'fg:t:consensus_upgrade',
 
-'fg:t:create\_asset',
+'fg:t:create_asset',
 
-'fg:t:consume\_asset',
+'fg:t:consume_asset',
 
 'fg:t:poke',
 
-'fg:t:account\_migrate'
+'fg:t:account_migrate'
 
 ]
 
@@ -221,7 +221,7 @@ supportedTxs: [
 
 {
 
-address: 'forge\_state',
+address: 'forge_state',
 
 consensus: {
 

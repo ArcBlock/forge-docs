@@ -1,10 +1,10 @@
 # Forge CLI
 
-Forge CLI是一个命令线工具，使您与forge的互动更为容易。
+Forge CLI 是一个命令线工具，使您与 forge 的互动更为容易。
 
-## 安装Forge CLI
+## 安装 Forge CLI
 
-如安装章节所述，安装Forge CLI非常简单：
+如安装章节所述，安装 Forge CLI 非常简单：
 
 ```bash
 $ npm install -g @arcblock/forge-cli
@@ -15,7 +15,6 @@ $ npm install -g @arcblock/forge-cli
 ```bash
 $ npm install -g @arcblock/forge-cli --registry=https://registry.npm.taobao.org
 ```
-
 
 然后，您可以运行`forge`，看看它支持什么：
 
@@ -73,7 +72,7 @@ Examples:
   > forge help block
 ```
 
-对于所有Forge CLI子命令，您可以通过`forge help command`访问在线文件，如下：
+对于所有 Forge CLI 子命令，您可以通过`forge help command`访问在线文件，如下：
 
 ```bash
 $ forge help init
@@ -93,13 +92,13 @@ Examples:
 
 因为在此列出的大部分命令都在安装和简介章节谈到了，所以我们只对最常用的命令进行简短介绍。
 
-## 初始化forge发布
+## 初始化 forge 发布
 
-`forge init`是您使用的第一个命令——它会下载最新的forge构建至您的`~/.forge_cli`，然后您便可以启动forge支持的单节点区块链。
+`forge init`是您使用的第一个命令——它会下载最新的 forge 构建至您的`~/.forge_cli`，然后您便可以启动 forge 支持的单节点区块链。
 
 ## 启动/停止链节点
 
-`forge start`启动节点，其配置在`~/.forge_cli/forge_release.toml`进行了说明。成功运行节点后，您可以在`http://localhost:8210`打开forge网页（如果您没有更改forge_release.toml中的端口）并在那里进行更多操作。
+`forge start`启动节点，其配置在`~/.forge_cli/forge_release.toml`进行了说明。成功运行节点后，您可以在`http://localhost:8210`打开 forge 网页（如果您没有更改 forge_release.toml 中的端口）并在那里进行更多操作。
 
 ```bash
 $ forge start
@@ -133,15 +132,16 @@ $ forge start
 
 ## 查看日志
 
-forge架构的不同成分生成了几个日志文件，运行`forge logs`以查看所有文件或运行`forge help logs`以查看单独的日志文件。
+forge 架构的不同成分生成了几个日志文件，运行`forge logs`以查看所有文件或运行`forge help logs`以查看单独的日志文件。
 
 ## 高级使用
 
-Forge CLI提供许多命令以管理forge支持的链节点和forge发布。请关注我们，我们即将发布“成为Forge CLI的超级用户”。
+Forge CLI 提供许多命令以管理 forge 支持的链节点和 forge 发布。请关注我们，我们即将发布“成为 Forge CLI 的超级用户”。
 
 ## 报告问题或漏洞
 
 如果有问题或请求，请随时通过[github repo](https://github.com/ArcBlock/forge-js/issues)联系我们
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMjM5NzUwODk2LDk3NTI1NTI5LDE3Nzg2Mz
 AzNDVdfQ==

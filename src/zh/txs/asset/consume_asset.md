@@ -1,10 +1,10 @@
 # 消费资产交易
 
-\*\*消费资产\*\*交易用于消费您拥有的资产。用例包括：
+**消费资产**交易用于消费您拥有的资产。用例包括：
 
-\* 您向公园、电影院、博物馆、健身房管理人士出示/使用您的门票
+- 您向公园、电影院、博物馆、健身房管理人士出示/使用您的门票
 
-\* 您将资产用作证书，获得特定的一次性益处
+- 您将资产用作证书，获得特定的一次性益处
 
 因此，如果需消费资产，发起方必须是属于资产发行者的钱包，如电影院。消费交易在检查点预签署（如电影院入场口），然后，用户可通过 multisig 消息数据字段的资产地址多次签署交易。请查看下方解释。
 
@@ -14,23 +14,17 @@
 
 ```proto
 message ConsumeAssetTx {
-
 string issuer = 1;
-
 string address = 2;
-
-
-
 google.protobuf.Any data = 15;
-
 }
 ```
 
 在此，根据情况，`issuer`可与`from`相同或各异。当 tx 由资产持有者多次签署时，钱包可检查发行者是否为资产发行者；若不是，钱包可拒绝签署。在链中执行时，在验证状态阶段，我们应检查此 tx 的`from`：
 
-\* 与发行者相同
+- 与发行者相同
 
-\* `from.issuer == issuer`
+- `from.issuer == issuer`
 
 例如，博物馆发行了一张门票，爱丽丝购买了该门票。在博物馆大门口，爱丽丝需消费资产，她可以
 
@@ -45,9 +39,9 @@ google.protobuf.Any data = 15;
 
 itx = ForgeAbi.ConsumeAssetTx.new(issuer: cinema.address)
 
-tx = ForgeSdk.prepare\_consume\_asset(itx, wallet: cinema)
+tx = ForgeSdk.prepare_consume_asset(itx, wallet: cinema)
 
 # then alice attach her signature to this tx
 
-tx = ForgeSdk.finalize\_consume\_asset(tx, ticket.address, wallet)
+tx = ForgeSdk.finalize_consume_asset(tx, ticket.address, wallet)
 ```

@@ -1,8 +1,8 @@
-# 事件RPC
+# 事件 RPC
 
-事件RPC帮助用户与其感兴趣的活动互动。所有活动均以交易形式存在。通过使用事件RPC，用户可收到其请求的交易类型更新的事实信息。
+事件 RPC 帮助用户与其感兴趣的活动互动。所有活动均以交易形式存在。通过使用事件 RPC，用户可收到其请求的交易类型更新的事实信息。
 
-## RPC列表
+## RPC 列表
 
 - [订阅](#subscribe)
 - [取消订阅](#unsubscribe)
@@ -15,13 +15,12 @@
 
 `subscribe(RequestSubscribe) returns (stream ResponseSubscribe)`
 
-
 #### RequestSubscribe
 
-| 名称   | 数据类型 | 默认  | 必须 |
-| :----- | :-------- | :------- | :------- |
-| 类型   | TopicType | 转移 |          |
-| 过滤 | 字符串    | ''       |          |
+| 名称 | 数据类型  | 默认 | 必须 |
+| :--- | :-------- | :--- | :--- |
+| 类型 | TopicType | 转移 |      |
+| 过滤 | 字符串    | ''   |      |
 
 ```protobuf
 message RequestSubscribe {
@@ -34,24 +33,24 @@ message RequestSubscribe {
 
 #### ResponseSubscribe
 
-| 名称              | 数据类型                                      |
-| :---------------- | :--------------------------------------------- |
-| 代码              | int                                            |
-| 以下一种      |                                                |
-| 转移          | [交易](../../types/type.md#transaction) |
+| 名称              | 数据类型                                |
+| :---------------- | :-------------------------------------- |
+| 代码              | int                                     |
+| 以下一种          |                                         |
+| 转移              | [交易](../../types/type.md#transaction) |
 | account_migrate   | [交易](../../types/type.md#transaction) |
-| 确认           | [交易](../../types/type.md#transaction) |
+| 确认              | [交易](../../types/type.md#transaction) |
 | create_asset      | [交易](../../types/type.md#transaction) |
-| 交换          | [交易](../../types/type.md#transaction) |
-| 撤销            | [交易](../../types/type.md#transaction) |
-| begin_block       | RequestBeginBlock                              |
-| end_block         | RequestEndBlock                                |
-| 声明           | [交易](../../types/type.md#transaction) |
+| 交换              | [交易](../../types/type.md#transaction) |
+| 撤销              | [交易](../../types/type.md#transaction) |
+| begin_block       | RequestBeginBlock                       |
+| end_block         | RequestEndBlock                         |
+| 声明              | [交易](../../types/type.md#transaction) |
 | update_asset      | [交易](../../types/type.md#transaction) |
 | consensus_upgrade | [交易](../../types/type.md#transaction) |
 | declare_file      | [交易](../../types/type.md#transaction) |
 | sys_upgrade       | [交易](../../types/type.md#transaction) |
-| 抵押             | [交易](../../types/type.md#transaction) |
+| 抵押              | [交易](../../types/type.md#transaction) |
 | account_state     | [交易](../../types/type.md#transaction) |
 | asset_state       | [交易](../../types/type.md#transaction) |
 | forge_state       | [交易](../../types/type.md#transaction) |
@@ -87,7 +86,7 @@ message ResponseSubscribe {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 Python
 
@@ -139,7 +138,7 @@ begin_block {
 begin_block {
 ```
 
-#### GraphQL示例
+#### GraphQL 示例
 
 ```graphql
 subscription {
@@ -181,9 +180,9 @@ subscription {
 
 #### RequestSubscribe
 
-| 名称  | 数据类型 | 默认 | 必须 |
-| :---- | :-------- | :------ | :------- |
-| 主题 | 字符串    |         | 是      |
+| 名称 | 数据类型 | 默认 | 必须 |
+| :--- | :------- | :--- | :--- |
+| 主题 | 字符串   |      | 是   |
 
 ---
 
@@ -203,7 +202,7 @@ message RequestUnsubscribe { string topic = 1; }
 message ResponseUnsubscribe { StatusCode code = 1; }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 python
 
@@ -212,7 +211,7 @@ python
 [2]EventStub.unsubsribe(request)
 ```
 
-#### GraphQL示例
+#### GraphQL 示例
 
 ```graphql
 mutation {
@@ -233,6 +232,7 @@ mutation {
   }
 }
 ```
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTExNzY3NzUxNl19
 -->

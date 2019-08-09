@@ -2,18 +2,18 @@
 
 如果您是来自传统网页开发的开发者，不熟悉区块链，请先查看[一般概念](../intro/concepts.md)。
 
-Forge Javascript SDK方便开发者在forge上构建应用程序，它提供精炼简单的api，帮助开发者完成以下任务：
+Forge Javascript SDK 方便开发者在 forge 上构建应用程序，它提供精炼简单的 api，帮助开发者完成以下任务：
 
-- 只使用javascript创建并操控钱包：[@arcblock/mcrypto](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_mcrypto.html)，[@arcblock/forge-wallet](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_forge-wallet.html)
+- 只使用 javascript 创建并操控钱包：[@arcblock/mcrypto](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_mcrypto.html)，[@arcblock/forge-wallet](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_forge-wallet.html)
 - 通过[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)或[GRpcClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GRpcClient.html)读/写链上数据
-- 导出/验证在不同forge成分中广泛使用的DID：[@arcblock/did](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did.html)，[@arcblock/did-util](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did-util.html)
-- 组装/编码/签署可发送至任何forge支持的区块链的交易
+- 导出/验证在不同 forge 成分中广泛使用的 DID：[@arcblock/did](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did.html)，[@arcblock/did-util](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did-util.html)
+- 组装/编码/签署可发送至任何 forge 支持的区块链的交易
 
-现在，我们来看看详细指南，告诉您如何写简单的javascript程序，而且这些程序在其他区块链平台上可能需要数天或数周才能完成：
+现在，我们来看看详细指南，告诉您如何写简单的 javascript 程序，而且这些程序在其他区块链平台上可能需要数天或数周才能完成：
 
-1. 在forge支持的区块链上创建两个用户账户（`Alice`和`Bob`），您可通过[forge-cli](../tools/forge_cli.md)轻松设置并运行；
-2. 为新创建的账户获取25个免费账户
-3. 从`Alice`向`Bob`转移5个代币，检查余额
+1. 在 forge 支持的区块链上创建两个用户账户（`Alice`和`Bob`），您可通过[forge-cli](../tools/forge_cli.md)轻松设置并运行；
+2. 为新创建的账户获取 25 个免费账户
+3. 从`Alice`向`Bob`转移 5 个代币，检查余额
 
 整个流程覆盖典型网络应用程序可进行的所有任务，例如：
 
@@ -26,15 +26,15 @@ Forge Javascript SDK方便开发者在forge上构建应用程序，它提供精�
 
 ### 1. 设置运行节点
 
-您无需设置即可继续到下一步，因为forge javascript sdk的设计使其可搭配任何forge支持的区块链使用。
+您无需设置即可继续到下一步，因为 forge javascript sdk 的设计使其可搭配任何 forge 支持的区块链使用。
 
-如果您对在本地机器上运行链节点感兴趣，请花10分钟看看我们非常棒的命令线工具：[forge-cli](../tools/forge_cli.md)并开始节点。
+如果您对在本地机器上运行链节点感兴趣，请花 10 分钟看看我们非常棒的命令线工具：[forge-cli](../tools/forge_cli.md)并开始节点。
 
-您的链节点开始后，运行`forge web open`以验证链的网页控制面板/探索器已启动并运行。如果链节点的网页控制面板无错误加载，则表明控制面板已设置完毕，我们可以使用`http://127.0.0.1:8210/api`作为graphql端点。
+您的链节点开始后，运行`forge web open`以验证链的网页控制面板/探索器已启动并运行。如果链节点的网页控制面板无错误加载，则表明控制面板已设置完毕，我们可以使用`http://127.0.0.1:8210/api`作为 graphql 端点。
 
 如果您更希望使用现有链（公共沙箱数据库），请记住在我们的公共测试链端点以下方代码替换端点：`https://test.abtnetwork.io/api`。
 
-### 2. 启动javascript项目
+### 2. 启动 javascript 项目
 
 ```bash
 mkdir -p /tmp/hell-forge
@@ -44,7 +44,7 @@ npm init -y
 
 ### 3. 创建用户账户（钱包）
 
-密码编码很难！所以我们创建了一个多语言的数据包，名为`mcrypto`和实用工具图书馆`forge-wallet`，帮助开发者操控与forge兼容的钱包。
+密码编码很难！所以我们创建了一个多语言的数据包，名为`mcrypto`和实用工具图书馆`forge-wallet`，帮助开发者操控与 forge 兼容的钱包。
 
 为了创建用户账户，我们首先需要配置账户的一些属性。
 
@@ -55,7 +55,7 @@ yarn add @arcblock/forge-wallet @arcblock/mcrypto -S
 touch index.js
 ```
 
-然后，创建2个名为`Alice`和`Bob`的钱包，包含随机密钥 (`edit index.js`)：
+然后，创建 2 个名为`Alice`和`Bob`的钱包，包含随机密钥 (`edit index.js`)：
 
 ```javascript
 const { types } = require('@arcblock/mcrypto');
@@ -64,7 +64,7 @@ const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
   pk: types.KeyType.ED25519,
-  hash: types.HashType.SHA3,
+  hash: types.HashType.SHA3
 });
 
 const alice = fromRandom(type);
@@ -100,11 +100,11 @@ console.log({ alice: alice.toJSON(), bob: bob.toJSON() });
      address: 'z1m8hfeWSD4fZcycrHDgpJCRTHi2sowPXBt' } }
 ```
 
-> 请注意，forge支持很多钱包类型，开发者可选择希望使用的任何类型，上述钱包类型是典型的组合型，即使在生产中，也可以继续选择这个。如需了解所有支持的钱包类型，请参考[enums](../types/enum.md)
+> 请注意，forge 支持很多钱包类型，开发者可选择希望使用的任何类型，上述钱包类型是典型的组合型，即使在生产中，也可以继续选择这个。如需了解所有支持的钱包类型，请参考[enums](../types/enum.md)
 
 ### 4. 在链上注册用户
 
-与传统网页应用程序上的用户注册相似，forge需要钱包（用户账户）在链上进行自我声明，然后方可接受任何活动，如抵押、投票和从该钱包发出交易。
+与传统网页应用程序上的用户注册相似，forge 需要钱包（用户账户）在链上进行自我声明，然后方可接受任何活动，如抵押、投票和从该钱包发出交易。
 
 如需在链上注册`Alice`和`Bob`，我们将使用[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)：
 
@@ -124,7 +124,7 @@ const GraphQLClient = require('@arcblock/graphql-client');
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
   pk: types.KeyType.ED25519,
-  hash: types.HashType.SHA3,
+  hash: types.HashType.SHA3
 });
 
 const alice = fromRandom(type);
@@ -137,10 +137,10 @@ function registerUser(userName, userWallet) {
   return client.sendDeclareTx({
     tx: {
       itx: {
-        moniker: userName,
-      },
+        moniker: userName
+      }
     },
-    wallet: userWallet,
+    wallet: userWallet
   });
 }
 
@@ -175,9 +175,9 @@ register bob tx: F61C51A9FE31B5E782276F78CAE35945844D7F848E7E008BC75A396AD552C0C
 
 > 在此使用`sendDeclareTx`向区块链写数据，支持很多其他[交易类型](../txs/README.md)。如需查看完整交易发出方式列表，请访问[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)。
 
-### 5. 为`Alice`和`Bob`获得25颗代币
+### 5. 为`Alice`和`Bob`获得 25 颗代币
 
-区块链最重要的用途是记录状态和转移价值，价值以代币形式展示，forge也支持这个功能。
+区块链最重要的用途是记录状态和转移价值，价值以代币形式展示，forge 也支持这个功能。
 
 #### 5.1 默认账户余额
 
@@ -203,12 +203,12 @@ diff --git a/index.js b/index.js
    } catch (err) {
 ```
 
-> 在此，我们使用`getAccountState`从区块链读取数据，我们也可以使用GraphQLClient读取交易/区块/资产/链信息，请参考[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)获取完整的API列表。
-> 您可能也会注意到，我们等了5秒才查看爱丽丝的账户，这是因为，5秒是forge的区块生产暂停时间，即交易由链执行并包含在区块上最多需要5秒，这个暂停时间可在您的[forge config](../core/configuration.md)中配置。
+> 在此，我们使用`getAccountState`从区块链读取数据，我们也可以使用 GraphQLClient 读取交易/区块/资产/链信息，请参考[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)获取完整的 API 列表。
+> 您可能也会注意到，我们等了 5 秒才查看爱丽丝的账户，这是因为，5 秒是 forge 的区块生产暂停时间，即交易由链执行并包含在区块上最多需要 5 秒，这个暂停时间可在您的[forge config](../core/configuration.md)中配置。
 
 #### 5.2 获取免费代币
 
-Forge为开发者提供特别交易类型，以免费检测代币：
+Forge 为开发者提供特别交易类型，以免费检测代币：
 
 ```diff
 diff --git a/index.js b/index.js
@@ -304,7 +304,7 @@ diff --git a/index.js b/index.js
    } catch (err) {
 ```
 
-再次运行`node index.js`，我们可以看到，`Alice`有25个代币：
+再次运行`node index.js`，我们可以看到，`Alice`有 25 个代币：
 
 ```bash
 alice.balanceNew 250000000000000000
@@ -313,9 +313,9 @@ alice.balanceNew.readable 25
 
 > Forge allows developers to customize the token name/symbol/decimal on each chain, refer to [configuration](../core/configuration.md) for details.
 
-### 6. 从`Alice`向`Bob`转移5颗代币
+### 6. 从`Alice`向`Bob`转移 5 颗代币
 
-现在，`Alice`和`Bob`都可以在链上花钱了，我们让`Alice向`Bob`转移5颗代币。
+现在，`Alice`和`Bob`都可以在链上花钱了，我们让`Alice向`Bob`转移 5 颗代币。
 
 在进行实际转移前，我们先做一下代码重构：提取账户余额，检查将被重新使用的帮助者函数：
 
@@ -409,7 +409,7 @@ alice.transfer.balance 20
 bob.transfer.balance 30
 ```
 
-现在，我们完成了Forge Javascript SDK的第一个程序，您已经很熟悉在forge支持的区块链上写程序的基础步骤了。
+现在，我们完成了 Forge Javascript SDK 的第一个程序，您已经很熟悉在 forge 支持的区块链上写程序的基础步骤了。
 
 目前，完整的源代码是：
 
@@ -423,7 +423,7 @@ const moment = require('moment');
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
   pk: types.KeyType.ED25519,
-  hash: types.HashType.SHA3,
+  hash: types.HashType.SHA3
 });
 
 const alice = fromRandom(type);
@@ -437,10 +437,10 @@ function registerUser(userName, userWallet) {
   return client.sendDeclareTx({
     tx: {
       itx: {
-        moniker: userName,
-      },
+        moniker: userName
+      }
     },
-    wallet: userWallet,
+    wallet: userWallet
   });
 }
 
@@ -452,10 +452,10 @@ function getFreeToken(userWallet) {
         date: moment(new Date().toISOString())
           .utc()
           .format('YYYY-MM-DD'),
-        address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
-      },
+        address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
+      }
     },
-    wallet: userWallet,
+    wallet: userWallet
   });
 }
 
@@ -494,10 +494,10 @@ async function checkBalance(userName, userWallet) {
       tx: {
         itx: {
           to: bob.toAddress(),
-          value: fromTokenToUnit(5),
-        },
+          value: fromTokenToUnit(5)
+        }
       },
-      wallet: alice,
+      wallet: alice
     });
     console.log('transfer hash', hash);
 
@@ -517,15 +517,16 @@ async function checkBalance(userName, userWallet) {
 
 以下是帮助您获取更多信息的资源：
 
-- [Forge Javascript SDK API参考](https://docs.arcblock.io/forge/sdks/javascript/latest/)
-- [GraphQLClient高级示例](https://github.com/ArcBlock/forge-js/tree/master/packages/graphql-client/examples)
-- [GRpcClient高级示例](https://github.com/ArcBlock/forge-js/tree/master/packages/grpc-client/examples)
+- [Forge Javascript SDK API 参考](https://docs.arcblock.io/forge/sdks/javascript/latest/)
+- [GraphQLClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/packages/graphql-client/examples)
+- [GRpcClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/packages/grpc-client/examples)
 
-此外，我们正在设计更多可帮助您掌握在forge构建应用程序的文件，请不要错过！
+此外，我们正在设计更多可帮助您掌握在 forge 构建应用程序的文件，请不要错过！
 
 ## 要报告问题吗
 
 如果您在任何步骤遇到问题，请在我们的[GitHub Repo](https://github.com/ArcBlock/forge-js/issues)报告问题
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTIwMzg5MDgwMjksMjAwMzQyNjMxLDE5OT
 A1MDE2NjcsLTEzOTc1ODQ5NjAsMTg4NTEzNTgyMywtOTkxNDgy

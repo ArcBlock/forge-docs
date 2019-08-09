@@ -1,10 +1,10 @@
-# 统计RPC
+# 统计 RPC
 
-统计RPC的目标是询问统计数据、收集给定时段内的实时或历史值。
+统计 RPC 的目标是询问统计数据、收集给定时段内的实时或历史值。
 
-## RPC列表
+## RPC 列表
 
-- [获取Forge统计数据](#get-forge-stats)
+- [获取 Forge 统计数据](#get-forge-stats)
 - [列出交易](#list-transactions)
 - [列出](#list-assets)
 - [列出抵押](#list-stakes)
@@ -16,7 +16,7 @@
 
 ---
 
-### 获取Forge统计
+### 获取 Forge 统计
 
 ---
 
@@ -24,12 +24,11 @@
 
 #### RequestGetForgeStats
 
-| 名称         | 数据类型 | 默认 | 必须 |
-| :----------- | :-------- | :------ | :------- |
-| 以下之一 |           |         |          |
-| day_info     | ByDay     |         |          |
-| 日期         | ByHour    |         |          |
-
+| 名称     | 数据类型 | 默认 | 必须 |
+| :------- | :------- | :--- | :--- |
+| 以下之一 |          |      |      |
+| day_info | ByDay    |      |      |
+| 日期     | ByHour   |      |      |
 
 ```protobuf
 message RequestGetForgeStats {
@@ -53,10 +52,10 @@ message ByHour {
 
 #### ResponseGetForgeStats
 
-| 名称        | 数据类型  | 默认 | 必须 |
-| :---------- | :--------- | :------ | :------- |
-| 代码        | StatusCode |         |          |
-| forge_stats | ForgeStats |         |          |
+| 名称        | 数据类型   | 默认 | 必须 |
+| :---------- | :--------- | :--- | :--- |
+| 代码        | StatusCode |      |      |
+| forge_stats | ForgeStats |      |      |
 
 ```protobuf
 message ResponseGetForgeStats {
@@ -88,12 +87,11 @@ message ForgeStats {
 }
 ```
 
-
-#### GRPC示例
+#### GRPC 示例
 
 [1] 实时统计
 
-``` elixir
+```elixir
 > realtime = ForgeAbi.RequestGetForgeStats.new
 %ForgeAbi.RequestGetForgeStats{value: nil}
 > ForgeSdk.get_forge_stats(realtime)
@@ -120,13 +118,13 @@ message ForgeStats {
 > ForgeSdk.get_forge_stats(by_day_stats)
 ```
 
-#### GraphQL示例
+#### GraphQL 示例
 
 [1] 实时统计
 
 ```graphql
 {
-  getForgeStas{
+  getForgeStas {
     forgeStats {
       avgTps
       maxTps
@@ -155,8 +153,8 @@ message ForgeStats {
 
 ```graphql
 {
-  getForgeStatsByHour(date: "2019-03-16"){
-    forgeStats{
+  getForgeStatsByHour(date: "2019-03-16") {
+    forgeStats {
       avgTps
       maxTps
       numAccountMigrateTxs
@@ -184,7 +182,7 @@ message ForgeStats {
 
 ```graphql
 {
-  getForgeStatsByDay(startDate: "2019-04-16", endDate:"2019-04-20"){
+  getForgeStatsByDay(startDate: "2019-04-16", endDate: "2019-04-20") {
     forgeStats {
       avgTps
       maxTps
@@ -209,7 +207,7 @@ message ForgeStats {
 }
 
 {
-  getForgeStatsByDay(endDate:"2019-03-20"){
+  getForgeStatsByDay(endDate: "2019-03-20") {
     forgeStats {
       avgTps
       maxTps
@@ -234,7 +232,7 @@ message ForgeStats {
 }
 
 {
-  getForgeStatsByDay(startDate: "2019-03-16"){
+  getForgeStatsByDay(startDate: "2019-03-16") {
     forgeStats {
       avgTps
       maxTps
@@ -269,12 +267,12 @@ message ForgeStats {
 
 #### RequestListTransactions
 
-| 名称            | 数据类型      | 默认 | 必须 |
-| :-------------- | :------------- | :------ | :------- |
-| paging          | PageInput      |         |          |
-| time_filter     | TimeFilter     |         |          |
-| address_filter  | AddressFilter  |         |          |
-| validity_filter | ValidityFilter |         |          |
+| 名称            | 数据类型       | 默认 | 必须 |
+| :-------------- | :------------- | :--- | :--- |
+| paging          | PageInput      |      |      |
+| time_filter     | TimeFilter     |      |      |
+| address_filter  | AddressFilter  |      |      |
+| validity_filter | ValidityFilter |      |      |
 
 ---
 
@@ -290,12 +288,11 @@ message RequestListTransactions {
 
 #### ResponseListTransactions
 
-| 名称         | 数据类型             | 默认 | 必须 |
-| :----------- | :-------------------- | :------ | :------- |
-| 代码         | StatusCode            |         |          |
-| 页面         | PageInfo              |         |          |
-| 交易 | [IndexedTransaction]] |         |          |
-
+| 名称 | 数据类型              | 默认 | 必须 |
+| :--- | :-------------------- | :--- | :--- |
+| 代码 | StatusCode            |      |      |
+| 页面 | PageInfo              |      |      |
+| 交易 | [IndexedTransaction]] |      |      |
 
 ```protobuf
 message ResponseListTransactions {
@@ -305,7 +302,7 @@ message ResponseListTransactions {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 ```elixir
 > ForgeSdk.list_transactions(ForgeAbi.RequestListTransactions.new())
@@ -323,11 +320,11 @@ message ResponseListTransactions {
        ....
 ```
 
-#### GraphQL示例
+#### GraphQL 示例
 
 ```graphql
 {
-  listTransactions (typeFilter:{types: ["declare", "poke"]}){
+  listTransactions(typeFilter: { types: ["declare", "poke"] }) {
     code
     transactions {
       code
@@ -352,11 +349,10 @@ message ResponseListTransactions {
 
 #### RequestListAssets
 
-| 名称          | 数据类型 | 默认 | 必须 |
-| :------------ | :-------- | :------ | :------- |
-| 分页        | PageInput |         |          |
-| owner_address | 字符串    |         |          |
-
+| 名称          | 数据类型  | 默认 | 必须 |
+| :------------ | :-------- | :--- | :--- |
+| 分页          | PageInput |      |      |
+| owner_address | 字符串    |      |      |
 
 ```protobuf
 message RequestListAssets {
@@ -369,12 +365,11 @@ message RequestListAssets {
 
 #### ResponseListAssets
 
-| 名称   | 数据类型           | 默认 | 必须 |
-| :----- | :------------------ | :------ | :------- |
-| 代码   | StatusCode          |         |          |
-| 页面   | PageInfo            |         |          |
-| 资产 | [IndexedAssetState] |         |          |
-
+| 名称 | 数据类型            | 默认 | 必须 |
+| :--- | :------------------ | :--- | :--- |
+| 代码 | StatusCode          |      |      |
+| 页面 | PageInfo            |      |      |
+| 资产 | [IndexedAssetState] |      |      |
 
 ```protobuf
 message ResponseListAssets {
@@ -384,7 +379,7 @@ message ResponseListAssets {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 ```elixir
 > ForgeSdk.list_assets(ForgeAbi.RequestListAssets.new(owner_address: "z1SQYaJKUYksuev7ys465jPPyY5NX7sm3gX"))
@@ -404,11 +399,12 @@ message ResponseListAssets {
    total: 1
  }}
 ```
-#### GraphQL示例
+
+#### GraphQL 示例
 
 ```graphql
 {
-  listAssets(ownerAddress:"z1SQYaJKUYksuev7ys465jPPyY5NX7sm3gX"){
+  listAssets(ownerAddress: "z1SQYaJKUYksuev7ys465jPPyY5NX7sm3gX") {
     assets {
       address
       genesisTime
@@ -452,11 +448,10 @@ message ResponseListAssets {
 
 #### RequestListStakes
 
-| 名称           | 数据类型     | 默认 | 必须 |
-| :------------- | :------------ | :------ | :------- |
-| 分页         | PageInput     |         |          |
-| address_filter | AddressFilter |         |          |
-
+| 名称           | 数据类型      | 默认 | 必须 |
+| :------------- | :------------ | :--- | :--- |
+| 分页           | PageInput     |      |      |
+| address_filter | AddressFilter |      |      |
 
 ```protobuf
 message RequestListStakes {
@@ -469,12 +464,11 @@ message RequestListStakes {
 
 #### ResponseListStakes
 
-| 名称   | 数据类型           | 默认 | 必须 |
-| :----- | :------------------ | :------ | :------- |
-| 代码   | StatusCode          |         |          |
-| 页面   | PageInfo            |         |          |
-| stakes | [IndexedStakeState] |         |          |
-
+| 名称   | 数据类型            | 默认 | 必须 |
+| :----- | :------------------ | :--- | :--- |
+| 代码   | StatusCode          |      |      |
+| 页面   | PageInfo            |      |      |
+| stakes | [IndexedStakeState] |      |      |
 
 ```protobuf
 message ResponseListStakes {
@@ -484,10 +478,9 @@ message ResponseListStakes {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
-#### GraphQL示例
-
+#### GraphQL 示例
 
 ---
 
@@ -499,10 +492,9 @@ message ResponseListStakes {
 
 #### RequestListAccount
 
-| 名称          | 数据类型     | 默认 | 必须 |
-| :------------ | :------------ | :------ | :------- |
-| owner_address | owner_address |         |          |
-
+| 名称          | 数据类型      | 默认 | 必须 |
+| :------------ | :------------ | :--- | :--- |
+| owner_address | owner_address |      |      |
 
 ```protobuf
 message RequestListAccount {
@@ -514,11 +506,10 @@ message RequestListAccount {
 
 #### ResponseListAccount
 
-| 名称    | 数据类型           | 默认 | 必须 |
-| :------ | :------------------ | :------ | :------- |
-| 代码    | StatusCode          |         |          |
-| 账户 | IndexedAccountState |         |          |
-
+| 名称 | 数据类型            | 默认 | 必须 |
+| :--- | :------------------ | :--- | :--- |
+| 代码 | StatusCode          |      |      |
+| 账户 | IndexedAccountState |      |      |
 
 ```protobuf
 message ResponseListAccount {
@@ -527,9 +518,9 @@ message ResponseListAccount {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
-``` elixir
+```elixir
 > ForgeSdk.list_account(ForgeAbi.RequestListAccount.new(owner_address: "z1QMx2X81CnESS6ZjFiCiL8skdGkjW3GqxS"))
 %ForgeAbi.IndexedAccountState{
   address: "z1QMx2X81CnESS6ZjFiCiL8skdGkjW3GqxS",
@@ -549,8 +540,7 @@ message ResponseListAccount {
 }
 ```
 
-#### GraphQL示例
-
+#### GraphQL 示例
 
 ---
 
@@ -562,10 +552,9 @@ message ResponseListAccount {
 
 #### RequestListTopAccounts
 
-| 名称   | 数据类型 | 默认 | 必须 |
-| :----- | :-------- | :------ | :------- |
-| 分页 | PageInput |         |          |
-
+| 名称 | 数据类型  | 默认 | 必须 |
+| :--- | :-------- | :--- | :--- |
+| 分页 | PageInput |      |      |
 
 ```protobuf
 message RequestListTopAccounts {
@@ -577,12 +566,11 @@ message RequestListTopAccounts {
 
 #### ResponseListTopAccounts
 
-| 名称     | 数据类型             | 默认 | 必须 |
-| :------- | :-------------------- | :------ | :------- |
-| 代码     | StatusCode            |         |          |
-| 页面     | PageInfo              |         |          |
-| 账户 | [IndexedAccountState] |         |          |
-
+| 名称 | 数据类型              | 默认 | 必须 |
+| :--- | :-------------------- | :--- | :--- |
+| 代码 | StatusCode            |      |      |
+| 页面 | PageInfo              |      |      |
+| 账户 | [IndexedAccountState] |      |      |
 
 ```protobuf
 message ResponseListTopAccounts {
@@ -591,7 +579,8 @@ message ResponseListTopAccounts {
   repeated IndexedAccountState accounts = 3;
 }
 ```
-#### GRPC示例
+
+#### GRPC 示例
 
 ```elixir
 > ForgeSdk.list_top_accounts(ForgeAbi.RequestListTopAccounts.new(paging: ForgeAbi.PageInput.new(size: 1)))
@@ -619,7 +608,8 @@ message ResponseListTopAccounts {
    total: 13716
  }}
 ```
-#### GraphQL示例
+
+#### GraphQL 示例
 
 ```graphql
 {
@@ -648,6 +638,7 @@ message ResponseListTopAccounts {
   }
 }
 ```
+
 ---
 
 ### 列出资产交易
@@ -658,11 +649,10 @@ message ResponseListTopAccounts {
 
 #### RequestListAssetTransactions
 
-| 名称    | 数据类型 | 默认 | 必须 |
-| :------ | :-------- | :------ | :------- |
-| 分页  | PageInput |         |          |
-| 地址 | 字符串    |         |          |
-
+| 名称 | 数据类型  | 默认 | 必须 |
+| :--- | :-------- | :--- | :--- |
+| 分页 | PageInput |      |      |
+| 地址 | 字符串    |      |      |
 
 ```protobuf
 message RequestListAssetTransactions {
@@ -675,12 +665,11 @@ message RequestListAssetTransactions {
 
 #### ResponseListAssetTransactions
 
-| 名称         | 数据类型            | 默认 | 必须 |
-| :----------- | :------------------- | :------ | :------- |
-| 代码         | StatusCode           |         |          |
-| 页面         | PageInfo             |         |          |
-| 交易 | [IndexedTransaction] |         |          |
-
+| 名称 | 数据类型             | 默认 | 必须 |
+| :--- | :------------------- | :--- | :--- |
+| 代码 | StatusCode           |      |      |
+| 页面 | PageInfo             |      |      |
+| 交易 | [IndexedTransaction] |      |      |
 
 ```protobuf
 message ResponseListAssetTransactions {
@@ -690,7 +679,7 @@ message ResponseListAssetTransactions {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 ```elixir
 > ForgeSdk.list_asset_transactions(ForgeAbi.RequestListAssetTransactions.new(address: "zjdpQe1af1uzXZYHUNy3AxjYPGrTdMtFRVmp"))
@@ -728,13 +717,13 @@ message ResponseListAssetTransactions {
    next: false,
    total: 1
  }}
- ```
+```
 
-#### GraphQL示例
+#### GraphQL 示例
 
 ```graphql
 {
-  listAssetTransactions(address:"zjdpQe1af1uzXZYHUNy3AxjYPGrTdMtFRVmp"){
+  listAssetTransactions(address: "zjdpQe1af1uzXZYHUNy3AxjYPGrTdMtFRVmp") {
     transactions {
       code
       hash
@@ -748,17 +737,19 @@ message ResponseListAssetTransactions {
         signature
         chainId
         from
-        itx{
-          __typename ... on UpdateAssetTx{
+        itx {
+          __typename
+          ... on UpdateAssetTx {
             address
-            data{
+            data {
               value
               typeUrl
             }
           }
-             __typename ... on CreateAssetTx{
+          __typename
+          ... on CreateAssetTx {
             address
-            data{
+            data {
               value
               typeUrl
             }
@@ -776,7 +767,6 @@ message ResponseListAssetTransactions {
 }
 ```
 
-
 ---
 
 ### 列出区块
@@ -787,14 +777,14 @@ message ResponseListAssetTransactions {
 
 #### RequestListBlocks
 
-| 名称                   | 数据类型   | 默认 | 必须 |
-| :--------------------- | :---------- | :------ | :------- |
-| 分页                 | PageInput   |         |          |
-| 提议者               | 字符串      |         |          |
-| time_filter            | RangeFilter |         |          |
-| height_filter          | RangeFilter |         |          |
-| num_txs_filter         | RangeFilter |         |          |
-| num_invalid_txs_filter | RangeFilter |         |          |
+| 名称                   | 数据类型    | 默认 | 必须 |
+| :--------------------- | :---------- | :--- | :--- |
+| 分页                   | PageInput   |      |      |
+| 提议者                 | 字符串      |      |      |
+| time_filter            | RangeFilter |      |      |
+| height_filter          | RangeFilter |      |      |
+| num_txs_filter         | RangeFilter |      |      |
+| num_invalid_txs_filter | RangeFilter |      |      |
 
 ```protobuf
 message RequestListBlocks {
@@ -811,12 +801,11 @@ message RequestListBlocks {
 
 #### RequestListBlocks
 
-| 名称   | 数据类型      | 默认 | 必须 |
-| :----- | :------------- | :------ | :------- |
-| 代码   | StatusCode     |         |          |
-| 页面   | PageInfo       |         |          |
-| 区块 | [IndexedBlock] |         |          |
-
+| 名称 | 数据类型       | 默认 | 必须 |
+| :--- | :------------- | :--- | :--- |
+| 代码 | StatusCode     |      |      |
+| 页面 | PageInfo       |      |      |
+| 区块 | [IndexedBlock] |      |      |
 
 ```protobuf
 message ResponseListBlocks {
@@ -826,7 +815,7 @@ message ResponseListBlocks {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 ```elixir
 > ForgeSdk.list_blocks(ForgeAbi.RequestListBlocks.new(height_filter: ForgeAbi.RangeFilter.new(from: 3000, to: 3200)))
@@ -846,11 +835,12 @@ message ResponseListBlocks {
    total: 125
  }}
 ```
-#### GraphQL示例
+
+#### GraphQL 示例
 
 ```graphql
 {
-  listBlocks(heightFilter:{from: "3000", to: "3200"}){
+  listBlocks(heightFilter: { from: "3000", to: "3200" }) {
     code
     page {
       cursor
@@ -879,10 +869,8 @@ message ResponseListBlocks {
 #### RequestGetHealthStatus
 
 | 名称 | 数据类型 | 默认 | 必须 |
-| :--- | :-------- | :------ | :------- |
-|      |           |         |          |
-
-
+| :--- | :------- | :--- | :--- |
+|      |          |      |      |
 
 ```protobuf
 message RequestGetHealthStatus {}
@@ -892,11 +880,10 @@ message RequestGetHealthStatus {}
 
 #### ResponseGetHealthStatus
 
-| 名称          | 数据类型    | 默认 | 必须 |
-| :------------ | :----------- | :------ | :------- |
-| 代码          | StatusCode   |         |          |
-| health_status | HealthStatus |         |          |
-
+| 名称          | 数据类型     | 默认 | 必须 |
+| :------------ | :----------- | :--- | :--- |
+| 代码          | StatusCode   |      |      |
+| health_status | HealthStatus |      |      |
 
 ```protobuf
 message ResponseGetHealthStatus {
@@ -905,7 +892,7 @@ message ResponseGetHealthStatus {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 ```elixir
 > ForgeSdk.get_health_status(ForgeAbi.RequestGetHealthStatus.new())
@@ -933,13 +920,14 @@ message ResponseGetHealthStatus {
   }
 }
 ```
-#### GraphQL示例
+
+#### GraphQL 示例
 
 ```graphql
 {
-  getHealthStatus{
+  getHealthStatus {
     code
-    healthStatus{
+    healthStatus {
       consensus {
         blockHeight
         health
@@ -963,6 +951,7 @@ message ResponseGetHealthStatus {
   }
 }
 ```
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbNzEwNjIzMjEzLDI4MDYzNTMwLC0yMTA4NT
 M5MTY3LC0xMTMxNTkxNzI2XX0=

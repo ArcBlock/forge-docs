@@ -1,17 +1,17 @@
-# Forge模拟器
+# Forge 模拟器
 
 模拟器用于向链中生成多种流量。因此，您可将其用于测试链的行为。目前，模拟器支持以下交易：
 
-* 声明
-* 转移
-* 交换
-* 创建资产
-* 消耗资产
-* 升级资产
-* 账户迁移
-* 签到
+- 声明
+- 转移
+- 交换
+- 创建资产
+- 消耗资产
+- 升级资产
+- 账户迁移
+- 签到
 
-在启动模拟器时，它会生成10, 000个钱包并在链上声明这些钱包。然后，它会随机在注册钱包间发送包含以下配置的tx：
+在启动模拟器时，它会生成 10, 000 个钱包并在链上声明这些钱包。然后，它会随机在注册钱包间发送包含以下配置的 tx：
 
 ```yaml
 pools:
@@ -46,14 +46,14 @@ simulations:
     num: 2
     type: exchange
     settings:
-      value: "1000..20000"
+      value: '1000..20000'
 
   - name: transfer token
     interval: 2
     num: 2
     type: transfer
     settings:
-      value: "50..200"
+      value: '50..200'
       asset: false
 
   - name: transfer token and assets
@@ -61,7 +61,7 @@ simulations:
     num: 2
     type: transfer
     settings:
-      value: "1000..5000"
+      value: '1000..5000'
       asset: true
       after: []
 
@@ -79,8 +79,8 @@ simulations:
     interval: 100
     num: 1
     type: poke
-
 ```
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTQxMjM1NTk3NV19
 -->

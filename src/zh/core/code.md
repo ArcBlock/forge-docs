@@ -1,8 +1,6 @@
 # Forge 状态代码
 
-
 ```proto
-
 enum StatusCode {
   ok = 0;
 
@@ -54,6 +52,7 @@ enum StatusCode {
   // user defined status code shall start from 600
 }
 ```
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTk5MjkzMTg2NF19
 -->

@@ -1,8 +1,8 @@
-# 钱包RPC
+# 钱包 RPC
 
-钱包RPC帮助用户管理其钱包，如创建、加载、恢复等。
+钱包 RPC 帮助用户管理其钱包，如创建、加载、恢复等。
 
-## RPC列表
+## RPC 列表
 
 - [创建钱包](#create-wallet)
 - [加载钱包](#load-wallet)
@@ -21,11 +21,11 @@
 
 #### RequestCreateWallet
 
-| 名称       | 数据类型  | 默认 | 必须 |
-| :--------- | :--------- | :------ | :------- |
-| 密码 | 字符串     |         |          |
-| 类型       | WalletType |         |          |
-| 姓名    | 字符串     |         |          |
+| 名称 | 数据类型   | 默认 | 必须 |
+| :--- | :--------- | :--- | :--- |
+| 密码 | 字符串     |      |      |
+| 类型 | WalletType |      |      |
+| 姓名 | 字符串     |      |      |
 
 ```protobuf
 message RequestCreateWallet {
@@ -39,11 +39,11 @@ message RequestCreateWallet {
 
 ### ResponseCreateWallet
 
-| 名称   | 数据类型  | 默认 | 必须 |
-| :----- | :--------- | :------ | :------- |
-| 代码   | StatusCode |         |          |
-| 凭证  | 字符串     |         |          |
-| 钱包 | WalletInfo |         |          |
+| 名称 | 数据类型   | 默认 | 必须 |
+| :--- | :--------- | :--- | :--- |
+| 代码 | StatusCode |      |      |
+| 凭证 | 字符串     |      |      |
+| 钱包 | WalletInfo |      |      |
 
 ```protobuf
 message ResponseCreateWallet {
@@ -53,7 +53,7 @@ message ResponseCreateWallet {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 ```elixir
 > {w, t} = ForgeSdk.create_wallet(moniker: "arcblock", passphrase: "abcd1234")
@@ -69,7 +69,7 @@ message ResponseCreateWallet {
  }, "c8b11353a2b9917d4f32042255b6eb49"}
 ```
 
-#### GraphQL示例
+#### GraphQL 示例
 
 ### 加载钱包
 
@@ -79,10 +79,10 @@ message ResponseCreateWallet {
 
 #### RequestLoadWallet
 
-| 名称       | 数据类型 | 默认 | 必须 |
-| :--------- | :-------- | :------ | :------- |
-| 地址    | 字符串    |         |          |
-| 密码 | 字符串    |         |          |
+| 名称 | 数据类型 | 默认 | 必须 |
+| :--- | :------- | :--- | :--- |
+| 地址 | 字符串   |      |      |
+| 密码 | 字符串   |      |      |
 
 ```protobuf
 message RequestLoadWallet {
@@ -95,14 +95,13 @@ message RequestLoadWallet {
 
 ### ResponseLoadWallet
 
-| 名称   | 数据类型  | 默认 | 必须 |
-| :----- | :--------- | :------ | :------- |
-| 代码   | StatusCode |         |          |
-| 凭证  | 字符串     |         |          |
-| 钱包 | WalletInfo |         |          |
+| 名称 | 数据类型   | 默认 | 必须 |
+| :--- | :--------- | :--- | :--- |
+| 代码 | StatusCode |      |      |
+| 凭证 | 字符串     |      |      |
+| 钱包 | WalletInfo |      |      |
 
 ```protobuf
-
 message ResponseLoadWallet {
   StatusCode code = 1;
   string token = 2;
@@ -110,7 +109,7 @@ message ResponseLoadWallet {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 ```elixir
 > {w, t} = ForgeSdk.load_wallet(address: "z11G65tRo2eGFVCjCBj7fdRhVSbzYSUCG6zb", passphrase: "abcd1234")
@@ -124,7 +123,7 @@ message ResponseLoadWallet {
  }, "a804e2c6c4f96fde25c475237f7fbb73"}
 ```
 
-#### GraphQL示例
+#### GraphQL 示例
 
 ### 恢复钱包
 
@@ -134,12 +133,12 @@ message ResponseLoadWallet {
 
 #### RequestRecoverWallet
 
-| 名称       | 数据类型  | 默认 | 必须 |
-| :--------- | :--------- | :------ | :------- |
-| 数据       | 字节      |         |          |
-| 类型       | WalletType |         |          |
-| 密码 | 字符串     |         |          |
-| 姓名    | 字符串     |         |          |
+| 名称 | 数据类型   | 默认 | 必须 |
+| :--- | :--------- | :--- | :--- |
+| 数据 | 字节       |      |      |
+| 类型 | WalletType |      |      |
+| 密码 | 字符串     |      |      |
+| 姓名 | 字符串     |      |      |
 
 ```protobuf
 message RequestRecoverWallet {
@@ -154,11 +153,11 @@ message RequestRecoverWallet {
 
 ### ResponseRecoverWallet
 
-| 名称   | 数据类型  | 默认 | 必须 |
-| :----- | :--------- | :------ | :------- |
-| 代码   | StatusCode |         |          |
-| 凭证  | 字符串     |         |          |
-| 钱包 | WalletInfo |         |          |
+| 名称 | 数据类型   | 默认 | 必须 |
+| :--- | :--------- | :--- | :--- |
+| 代码 | StatusCode |      |      |
+| 凭证 | 字符串     |      |      |
+| 钱包 | WalletInfo |      |      |
 
 ```protobuf
 message ResponseRecoverWallet {
@@ -168,13 +167,13 @@ message ResponseRecoverWallet {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 ```
 > ForgeSdk.recover_wallet
 ```
 
-#### GraphQL示例
+#### GraphQL 示例
 
 ### 列出钱包
 
@@ -193,9 +192,9 @@ message RequestListWallet {}
 ### ResponseListWallet
 
 | 名称       | 数据类型 | 默认 | 必须 |
-| :--------- | :-------- | :------ | :------- |
-| StatusCode | 代码      |         |          |
-| 地址    | 字符串    |         |          |
+| :--------- | :------- | :--- | :--- |
+| StatusCode | 代码     |      |      |
+| 地址       | 字符串   |      |      |
 
 ```protobuf
 message ResponseListWallet {
@@ -204,7 +203,7 @@ message ResponseListWallet {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 ```elixir
 > ForgeSdk.list_wallet()
@@ -213,18 +212,19 @@ message ResponseListWallet {
  "z11G65tRo2eGFVCjCBj7fdRhVSbzYSUCG6zb", "z11PYpcvZ6JnPnJ9KddmyJ82U1S15LenvWAh"]
 ```
 
-#### GraphQL示例
+#### GraphQL 示例
 
 ### 移除钱包
+
 ---
 
 `rpc remove_wallet(RequestRemoveWallet) returns (ResponseRemoveWallet);`
 
 #### RequestRemoveWallet
 
-| 名称    | 数据类型 | 默认 | 必须 |
-| :------ | :-------- | :------ | :------- |
-| 地址 | 字符串    |         |          |
+| 名称 | 数据类型 | 默认 | 必须 |
+| :--- | :------- | :--- | :--- |
+| 地址 | 字符串   |      |      |
 
 ```protobuf
 message RequestRemoveWallet { string address = 1; }
@@ -238,14 +238,14 @@ message RequestRemoveWallet { string address = 1; }
 message ResponseRemoveWallet { StatusCode code = 1; }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 ```elixir
 > ForgeSdk.remove_wallet(ForgeAbi.RequestRemoveWallet.new(address: "z11316Do74hbGsppsVwB4dtguPkaLjuwW7f8"))
 :ok
 ```
 
-#### GraphQL示例
+#### GraphQL 示例
 
 ### 声明节点
 
@@ -255,9 +255,9 @@ message ResponseRemoveWallet { StatusCode code = 1; }
 
 #### RequestDeclareNode
 
-| 名称      | 数据类型 | 默认 | 必须 |
-| :-------- | :-------- | :------ | :------- |
-| 验证器 | bool      |         |          |
+| 名称   | 数据类型 | 默认 | 必须 |
+| :----- | :------- | :--- | :--- |
+| 验证器 | bool     |      |      |
 
 ```protobuf
 message RequestDeclareNode { bool validator = 1; }
@@ -267,10 +267,10 @@ message RequestDeclareNode { bool validator = 1; }
 
 ### ResponseDeclareNode
 
-| 名称   | 数据类型  | 默认 | 必须 |
-| :----- | :--------- | :------ | :------- |
-| 代码   | StatusCode |         |          |
-| 钱包 | WalletInfo |         |          |
+| 名称 | 数据类型   | 默认 | 必须 |
+| :--- | :--------- | :--- | :--- |
+| 代码 | StatusCode |      |      |
+| 钱包 | WalletInfo |      |      |
 
 ```protobuf
 message ResponseDeclareNode {
@@ -279,12 +279,14 @@ message ResponseDeclareNode {
 }
 ```
 
-#### GRPC示例
+#### GRPC 示例
 
 ```elixir
+
 ```
 
-#### GraphQL示例
+#### GraphQL 示例
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTA2Mjk3NzY5OSwxMTc0OTk1Mjc1XX0=
 -->

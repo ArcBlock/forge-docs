@@ -1,13 +1,13 @@
-# 状态RPC
+# 状态 RPC
 
-状态RPC帮助用户获取账户状态、资产、抵押和forge。
+状态 RPC 帮助用户获取账户状态、资产、抵押和 forge。
 
-## RPC列表
+## RPC 列表
 
 - [获取账户状态](#get-account-state)
 - [获取资产状态](#get-asset-state)
 - [获取抵押状态](#get-stake-state)
-- [获取Forge状态](#get-forge-state)
+- [获取 Forge 状态](#get-forge-state)
 
 ---
 
@@ -19,12 +19,11 @@
 
 #### RequestGetAccountState
 
-| 名称    | 数据类型 | 默认 | 必须 |
-| :------ | :-------- | :------ | :------- |
-| 地址 | 这非常    |         |          |
-| 没有    | [字符串]  |         |          |
-| 高度  | uint64    |         |          |
-
+| 名称 | 数据类型 | 默认 | 必须 |
+| :--- | :------- | :--- | :--- |
+| 地址 | 这非常   |      |      |
+| 没有 | [字符串] |      |      |
+| 高度 | uint64   |      |      |
 
 ```protobuf
 message RequestGetAccountState {
@@ -38,10 +37,10 @@ message RequestGetAccountState {
 
 #### ResponseGetAccountState
 
-| 名称  | 数据类型    | 默认 | 必须 |
-| :---- | :----------- | :------ | :------- |
-| 代码  | StatusCode   |         |          |
-| 状态 | AccountState |         |          |
+| 名称 | 数据类型     | 默认 | 必须 |
+| :--- | :----------- | :--- | :--- |
+| 代码 | StatusCode   |      |      |
+| 状态 | AccountState |      |      |
 
 ```protobuf
 message ResponseGetAccountState {
@@ -49,7 +48,8 @@ message ResponseGetAccountState {
   AccountState state = 2;
 }
 ```
-#### GRPC示例
+
+#### GRPC 示例
 
 ```elixir
 > ForgeSdk.get_account_state(ForgeAbi.RequestGetAccountState.new(address: "z1QNTPxDUCbh68q6ci6zUmtnT2Cj8nbLw75", height: 5000))
@@ -104,13 +104,11 @@ message ResponseGetAccountState {
 }
 ```
 
-
-#### GraphQL示例
+#### GraphQL 示例
 
 ```graphql
-
 {
-  getAccountState(address:"z1QNTPxDUCbh68q6ci6zUmtnT2Cj8nbLw75", height: "5000"){
+  getAccountState(address: "z1QNTPxDUCbh68q6ci6zUmtnT2Cj8nbLw75", height: "5000") {
     code
     state {
       address
@@ -119,7 +117,7 @@ message ResponseGetAccountState {
         genesisTime
         renaissanceTime
       }
-      data{
+      data {
         value
         typeUrl
       }
@@ -152,7 +150,6 @@ message ResponseGetAccountState {
 }
 ```
 
-
 ---
 
 ### 获取资产状态
@@ -163,11 +160,11 @@ message ResponseGetAccountState {
 
 #### RequestGetAssetState
 
-| 名称    | 数据类型 | 默认 | 必须 |
-| :------ | :-------- | :------ | :------- |
-| 地址 | 字符串    |         |          |
-| 密钥    | [字符串]  |         |          |
-| 高度  | uint64    |         |          |
+| 名称 | 数据类型 | 默认 | 必须 |
+| :--- | :------- | :--- | :--- |
+| 地址 | 字符串   |      |      |
+| 密钥 | [字符串] |      |      |
+| 高度 | uint64   |      |      |
 
 ```protobuf
 message RequestGetAssetState {
@@ -175,18 +172,16 @@ message RequestGetAssetState {
   repeated string keys = 2;
   uint64 height = 3;
 }
-
 ```
 
 ---
 
 #### ResponseGetAssetState
 
-| 名称  | 数据类型  | 默认 | 必须 |
-| :---- | :--------- | :------ | :------- |
-| 代码  | StatusCode |         |          |
-| 状态 | AssetState |         |          |
-
+| 名称 | 数据类型   | 默认 | 必须 |
+| :--- | :--------- | :--- | :--- |
+| 代码 | StatusCode |      |      |
+| 状态 | AssetState |      |      |
 
 ```protobuf
 message ResponseGetAssetState {
@@ -194,7 +189,8 @@ message ResponseGetAssetState {
   AssetState state = 2;
 }
 ```
-#### GRPC示例
+
+#### GRPC 示例
 
 ```elixir
 > ForgeSdk.get_asset_state(ForgeAbi.RequestGetAssetState.new(address: "zjdjh65vHxvvWfj3xPrDoUDYp1aY6xUCV21b"))
@@ -245,17 +241,16 @@ message ResponseGetAssetState {
 }
 ```
 
-
-#### GraphQL示例
+#### GraphQL 示例
 
 ```graphql
 {
-  getAssetState(address:"zjdjh65vHxvvWfj3xPrDoUDYp1aY6xUCV21b"){
+  getAssetState(address: "zjdjh65vHxvvWfj3xPrDoUDYp1aY6xUCV21b") {
     state {
       address
       consumedTime
       issuer
-      data{
+      data {
         typeUrl
         value
       }
@@ -270,12 +265,9 @@ message ResponseGetAssetState {
 }
 ```
 
-
 ---
 
-
 ### 获取抵押状态
-
 
 ---
 
@@ -283,15 +275,13 @@ message ResponseGetAssetState {
 
 #### RequestGetStakeState
 
-| 名称    | 数据类型 | 默认 | 必须 |
-| :------ | :-------- | :------ | :------- |
-| 地址 | 字符串    |         |          |
-| 密钥    | [字符串]  |         |          |
-| 高度  | uint64    |         |          |
-
+| 名称 | 数据类型 | 默认 | 必须 |
+| :--- | :------- | :--- | :--- |
+| 地址 | 字符串   |      |      |
+| 密钥 | [字符串] |      |      |
+| 高度 | uint64   |      |      |
 
 ```protobuf
-
 message RequestGetStakeState {
   string address = 1;
   repeated string keys = 2;
@@ -303,11 +293,10 @@ message RequestGetStakeState {
 
 #### ResponseGetAccountState
 
-| 名称  | 数据类型  | 默认 | 必须 |
-| :---- | :--------- | :------ | :------- |
-| 代码  | StatusCode |         |          |
-| 状态 | StakeState |         |          |
-
+| 名称 | 数据类型   | 默认 | 必须 |
+| :--- | :--------- | :--- | :--- |
+| 代码 | StatusCode |      |      |
+| 状态 | StakeState |      |      |
 
 ```protobuf
 message ResponseGetStakeState {
@@ -315,20 +304,22 @@ message ResponseGetStakeState {
   StakeState state = 2;
 }
 ```
-#### GRPC示例
+
+#### GRPC 示例
 
 ```elixir
+
 ```
 
-
-#### GraphQL示例
+#### GraphQL 示例
 
 ```graphql
+
 ```
 
-
 ---
-### 获取Forge状态
+
+### 获取 Forge 状态
 
 ---
 
@@ -336,10 +327,10 @@ message ResponseGetStakeState {
 
 #### RequestGetForgeState
 
-| 名称   | 数据类型 | 默认 | 必须 |
-| :----- | :-------- | :------ | :------- |
-| 密钥   | [字符串]  |         |          |
-| 高度 | uint64    |         |          |
+| 名称 | 数据类型 | 默认 | 必须 |
+| :--- | :------- | :--- | :--- |
+| 密钥 | [字符串] |      |      |
+| 高度 | uint64   |      |      |
 
 ```protobuf
 message RequestGetForgeState {
@@ -352,10 +343,10 @@ message RequestGetForgeState {
 
 #### ResponseGetForgeState
 
-| 名称  | 数据类型  | 默认 | 必须 |
-| :---- | :--------- | :------ | :------- |
-| 代码  | StatusCode |         |          |
-| 状态 | ForgeState |         |          |
+| 名称 | 数据类型   | 默认 | 必须 |
+| :--- | :--------- | :--- | :--- |
+| 代码 | StatusCode |      |      |
+| 状态 | ForgeState |      |      |
 
 ```protobuf
 message ResponseGetForgeState {
@@ -363,7 +354,8 @@ message ResponseGetForgeState {
   ForgeState state = 2;
 }
 ```
-#### GRPC示例
+
+#### GRPC 示例
 
 ```elixir
 iex(20)> ForgeSdk.get_forge_state()
@@ -389,12 +381,11 @@ iex(20)> ForgeSdk.get_forge_state()
   .....
 ```
 
-
-#### GraphQL示例
+#### GraphQL 示例
 
 ```graphql
 {
-  getForgeState{
+  getForgeState {
     code
     state {
       address
@@ -445,8 +436,8 @@ iex(20)> ForgeSdk.get_forge_state()
 }
 ```
 
-
 ---
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTAyNDc0NjQ2NSwtMTEyMjk3NTMxOCwtMT
 gyMTMwNDIyLC02NDY5OTAwNDgsMTI5MjMzNTYwMl19

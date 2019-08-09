@@ -1,10 +1,10 @@
-# Forge配置指南
+# Forge 配置指南
 
-Forge启动时，也会启动一些其他的应用程序，例如`tendermint`和`ipfs`。每个应用程序有自己的配置文件，Forge也是如此。
+Forge 启动时，也会启动一些其他的应用程序，例如`tendermint`和`ipfs`。每个应用程序有自己的配置文件，Forge 也是如此。
 
-我们使用toml文件进行Forge的配置。如果您不知道toml是什么，请参看[toml-lang/toml](https://github.com/toml-lang/toml)。
+我们使用 toml 文件进行 Forge 的配置。如果您不知道 toml 是什么，请参看[toml-lang/toml](https://github.com/toml-lang/toml)。
 
-我们喜欢toml文件的一点是，我们可以按区分隔配置。Forge只使用一个配置文件，不同的区用于系统的不同部分。目前，我们有以下区：
+我们喜欢 toml 文件的一点是，我们可以按区分隔配置。Forge 只使用一个配置文件，不同的区用于系统的不同部分。目前，我们有以下区：
 
 ```toml
 [app]
@@ -15,15 +15,15 @@ Forge启动时，也会启动一些其他的应用程序，例如`tendermint`和
 [geolix]
 ```
 
-通常情况下，开发者不需要为一切提供配置，其只需提供需修改的内容。然后，Forge会将提供的配置与默认配置合并，以生成最终配置，供Forge使用。
+通常情况下，开发者不需要为一切提供配置，其只需提供需修改的内容。然后，Forge 会将提供的配置与默认配置合并，以生成最终配置，供 Forge 使用。
 
 ```
 FORGE_CONFIG + forge_default.toml = forge.toml
 ```
 
-开发者通过系统环境`FORGE_CONFIG`向Forge提供自定义配置。
+开发者通过系统环境`FORGE_CONFIG`向 Forge 提供自定义配置。
 
-如果您安装带`forge-cli`的Forge，会为您生成默认配置，位于`~/.forge_cli/forge_release.toml`。
+如果您安装带`forge-cli`的 Forge，会为您生成默认配置，位于`~/.forge_cli/forge_release.toml`。
 
 生成的配置类似于以下：
 
@@ -107,7 +107,7 @@ logpath = "logs"
 path = "~/.forge_release/cache/mnesia_data_dir"
 ```
 
-它只包含完整配置的一部分，forge启动后，它会与forge默认配置合并，以生成完整配置。如果您想了解forge配置的所有参数，可以从我们的github资源库或发布（如`cat ~/.forge_cli/release/forge/0.18.2/lib/forge_sdk-0.18.2/priv/forge_default.toml`）获取`forge_default.toml`：
+它只包含完整配置的一部分，forge 启动后，它会与 forge 默认配置合并，以生成完整配置。如果您想了解 forge 配置的所有参数，可以从我们的 github 资源库或发布（如`cat ~/.forge_cli/release/forge/0.18.2/lib/forge_sdk-0.18.2/priv/forge_default.toml`）获取`forge_default.toml`：
 
 ```toml
 # ------------------------------------------------------------------
@@ -419,8 +419,8 @@ mmdb_url = "https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.ta
 
 # path for mmdb
 mmdb_path = "~/.mmdb/GeoLite2-City.tar.gz"
-
 ```
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTgyMTI0NTIxMSwtODI4ODg0NzE1LC0xND
 gwMTA0NzE2LC0xMTQwODMxNDE2XX0=
