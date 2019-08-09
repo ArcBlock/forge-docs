@@ -22,7 +22,7 @@ tags:
 
 Forge SDK 的目的是，使与 Forge 构建的链的互动尽可能简单。所有 SDK API 都分为以下类别：
 
-- 链 AP：提供客户封装，供链相关 gRPC 使用
+- 链 API：提供客户封装，供链相关 gRPC 使用
 - 钱包 API：提供客户封装，供钱包相关 gRPC 使用
 - 状态 APIs：提供客户封装，供状态相关 gRPC 使用
 - 订阅 API：提供客户封装，供订阅相关 gRPC 使用
