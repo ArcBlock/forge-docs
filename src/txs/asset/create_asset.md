@@ -61,7 +61,7 @@ Here's an example of creating an asset:
 > wallet = ForgeSdk.create_wallet()
 > ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "sisyphus"), wallet: wallet)
 > ticket = ForgeAbi.Ticket.new(row: "K", seat: "22", room: "3A", time: "03/04/2019 11:00am PST", name: "Avengers: Endgame")
-> itx = ForgeAbi.CreateAsset.new(data: ForgeSdk.encode_any!(ticket), readonly: true, transferrable: true, ttl: 7200)
+> itx = ForgeAbi.CreateAssetTx.new(data: ForgeSdk.encode_any!(ticket), readonly: true, transferrable: true, ttl: 7200)
 > ForgeSdk.create_asset(itx, wallet: wallet)
 ```
 

@@ -61,6 +61,6 @@ itx = ForgeAbi.ExchangeTx.new(to: alice.address, sender: sender, receiver: recei
 # bob generate the tx
 tx = ForgeSdk.prepare_exchange(itx, wallet: bob)
 # bob gave the tx to alice to multi-sign
-tx = ForgeSdk.finalize_exchange(tx, alice)
+tx = ForgeSdk.finalize_exchange(tx, wallet: alice)
 ForgeSdk.send_tx(tx: tx)
 ```
