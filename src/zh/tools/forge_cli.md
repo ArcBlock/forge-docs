@@ -1,4 +1,14 @@
-# Forge CLI
+---
+title: "Forge CLI"
+description: "Forge CLI"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "tools"
+  - "forge_cli"
+---
 
 Forge CLI 是一个命令线工具，使您与 forge 的互动更为容易。
 

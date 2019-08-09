@@ -1,4 +1,14 @@
-# Javascript SDK
+---
+title: "Javascript SDK"
+description: "Javascript SDK"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "sdk"
+  - "javascript"
+---
 
 如果您是来自传统网页开发的开发者，不熟悉区块链，请先查看[一般概念](../intro/concepts.md)。
 
@@ -58,8 +68,8 @@ touch index.js
 然后，创建 2 个名为`Alice`和`Bob`的钱包，包含随机密钥 (`edit index.js`)：
 
 ```javascript
-const { types } = require('@arcblock/mcrypto');
-const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
+const { types } = require("@arcblock/mcrypto");
+const { fromRandom, WalletType } = require("@arcblock/forge-wallet");
 
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
@@ -117,9 +127,9 @@ yarn add @arcblock/graphql-client moment
 然后，创建`GraphQLClient`实例，然后在该实例调用`sendDeclareTx`：
 
 ```javascript
-const { types } = require('@arcblock/mcrypto');
-const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
-const GraphQLClient = require('@arcblock/graphql-client');
+const { types } = require("@arcblock/mcrypto");
+const { fromRandom, WalletType } = require("@arcblock/forge-wallet");
+const GraphQLClient = require("@arcblock/graphql-client");
 
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
@@ -130,7 +140,7 @@ const type = WalletType({
 const alice = fromRandom(type);
 const bob = fromRandom(type);
 
-const host = 'http://127.0.0.1:8210';
+const host = "http://127.0.0.1:8210";
 const client = new GraphQLClient({ endpoint: `${host}/api` });
 
 function registerUser(userName, userWallet) {
@@ -146,11 +156,11 @@ function registerUser(userName, userWallet) {
 
 (async () => {
   try {
-    let hash = await registerUser('alice_test', alice);
-    console.log('register alice tx:', hash);
+    let hash = await registerUser("alice_test", alice);
+    console.log("register alice tx:", hash);
 
-    hash = await registerUser('bob_test', bob);
-    console.log('register bob tx:', hash);
+    hash = await registerUser("bob_test", bob);
+    console.log("register bob tx:", hash);
   } catch (err) {
     if (Array.isArray(err.errors)) {
       console.log(err.errors);
@@ -414,11 +424,11 @@ bob.transfer.balance 30
 目前，完整的源代码是：
 
 ```javascript
-const { types } = require('@arcblock/mcrypto');
-const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
-const { fromUnitToToken, fromTokenToUnit } = require('@arcblock/forge-util');
-const GraphQLClient = require('@arcblock/graphql-client');
-const moment = require('moment');
+const { types } = require("@arcblock/mcrypto");
+const { fromRandom, WalletType } = require("@arcblock/forge-wallet");
+const { fromUnitToToken, fromTokenToUnit } = require("@arcblock/forge-util");
+const GraphQLClient = require("@arcblock/graphql-client");
+const moment = require("moment");
 
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
@@ -429,7 +439,7 @@ const type = WalletType({
 const alice = fromRandom(type);
 const bob = fromRandom(type);
 
-const host = 'http://127.0.0.1:8210';
+const host = "http://127.0.0.1:8210";
 const client = new GraphQLClient({ endpoint: `${host}/api` });
 const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
@@ -451,8 +461,8 @@ function getFreeToken(userWallet) {
       itx: {
         date: moment(new Date().toISOString())
           .utc()
-          .format('YYYY-MM-DD'),
-        address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
+          .format("YYYY-MM-DD"),
+        address: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
       }
     },
     wallet: userWallet
@@ -460,34 +470,38 @@ function getFreeToken(userWallet) {
 }
 
 async function checkBalance(userName, userWallet) {
-  const { state } = await client.getAccountState({ address: userWallet.toAddress() });
+  const { state } = await client.getAccountState({
+    address: userWallet.toAddress()
+  });
   console.log(`${userName}.balance`, fromUnitToToken(state.balance));
 }
 
 (async () => {
-  console.log('alice.address(userId)', alice.toAddress());
-  console.log('bob.address(userId)', bob.toAddress());
+  console.log("alice.address(userId)", alice.toAddress());
+  console.log("bob.address(userId)", bob.toAddress());
   try {
     // Register
-    let hash = await registerUser('alice_test', alice);
-    console.log('register alice', hash);
-    hash = await registerUser('bob_test', bob);
-    console.log('register bob', hash);
+    let hash = await registerUser("alice_test", alice);
+    console.log("register alice", hash);
+    hash = await registerUser("bob_test", bob);
+    console.log("register bob", hash);
 
     await sleep(5000);
-    await checkBalance('alice.initial', alice);
-    await checkBalance('bob.initial', bob);
+    await checkBalance("alice.initial", alice);
+    await checkBalance("bob.initial", bob);
 
     // Get token
     hash = await getFreeToken(alice);
-    console.log('get token for alice: ', hash);
+    console.log("get token for alice: ", hash);
     hash = await getFreeToken(bob);
-    console.log('get token for bob: ', hash);
+    console.log("get token for bob: ", hash);
 
     await sleep(5000);
-    const { state: aliceStateNew } = await client.getAccountState({ address: alice.toAddress() });
-    await checkBalance('alice.getToken', alice);
-    await checkBalance('bob.getToken', bob);
+    const { state: aliceStateNew } = await client.getAccountState({
+      address: alice.toAddress()
+    });
+    await checkBalance("alice.getToken", alice);
+    await checkBalance("bob.getToken", bob);
 
     // Transfer
     hash = await client.sendTransferTx({
@@ -499,11 +513,11 @@ async function checkBalance(userName, userWallet) {
       },
       wallet: alice
     });
-    console.log('transfer hash', hash);
+    console.log("transfer hash", hash);
 
     await sleep(5000);
-    await checkBalance('alice.transfer', alice);
-    await checkBalance('bob.transfer', bob);
+    await checkBalance("alice.transfer", alice);
+    await checkBalance("bob.transfer", bob);
   } catch (err) {
     if (Array.isArray(err.errors)) {
       console.log(err.errors);

@@ -1,4 +1,14 @@
-# 交换交易
+---
+title: "交换交易"
+description: "交换交易"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "trade"
+  - "exchange"
+---
 
 **交换**交易是一种需要[多重签名](../arch/multisig)的交易。它试图解决这个常见场景：爱丽丝希望购买鲍勃拥有的资产。他们就价格达成一致，然后完成了交易。这个场景常用于电子商务业务中，通过交换 tx，我们使其在区块链可用。以下是它可支持的一些场景：
 

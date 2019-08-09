@@ -1,4 +1,14 @@
-# 链 RPC
+---
+title: "链 RPC"
+description: "链 RPC"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "rpc"
+  - "chain"
+---
 
 <!-- General description - purpose of chain rpc, problem it could solve -->
 

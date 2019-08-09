@@ -1,4 +1,14 @@
-# Forge 日志
+---
+title: "Forge 日志"
+description: "Forge 日志"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "core"
+  - "log"
+---
 
 在出现问题时，Forge 会生成日志，供故障排除。`tendermint`和`ipfs`也会提供日志。以下为默认日志位置总结：
 

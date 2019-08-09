@@ -54,13 +54,13 @@ const processFile = (folder, file) => {
 
     const frontMatter = [
       '---',
-      `title: "${title}"`,
-      `description: "${description}"`,
-      `keywords: ""`,
-      `robots: "index,follow"`,
-      `category: "docs"`,
-      `layout: "documentation"`,
-      `tags: \n  - "${tag1}"\n  - "${tag2}"`,
+      `title: '${title}'`,
+      `description: '${description}'`,
+      `keywords: ''`,
+      `robots: 'index,follow'`,
+      `category: 'docs'`,
+      `layout: 'documentation'`,
+      `tags: \n  - '${tag1}'\n  - '${tag2}'`,
       '---',
       '\n',
     ];

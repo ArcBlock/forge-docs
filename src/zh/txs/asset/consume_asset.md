@@ -1,4 +1,14 @@
-# 消费资产交易
+---
+title: "消费资产交易"
+description: "消费资产交易"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "asset"
+  - "consume_asset"
+---
 
 **消费资产**交易用于消费您拥有的资产。用例包括：
 

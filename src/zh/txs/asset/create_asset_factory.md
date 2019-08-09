@@ -1,4 +1,14 @@
-# 创建资产工厂交易
+---
+title: "创建资产工厂交易"
+description: "创建资产工厂交易"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "asset"
+  - "create_asset_factory"
+---
 
 **创建资产工厂**用于解决一般问题，以下为初始提议：
 
@@ -94,15 +104,15 @@ string address = 7;
 
 ```js
 template = {
-  row: '{{ row }}',
+  row: "{{ row }}",
 
-  seat: '{{ seat }}',
+  seat: "{{ seat }}",
 
-  room: '5C',
+  room: "5C",
 
-  time: '11:00am 04/30/2019',
+  time: "11:00am 04/30/2019",
 
-  name: 'Avengers: Endgame'
+  name: "Avengers: Endgame"
 };
 ```
 
@@ -110,7 +120,7 @@ template = {
 
 ```js
 factory = {
-  description: 'Movie ticket factory',
+  description: "Movie ticket factory",
 
   limit: 200,
 
@@ -118,9 +128,9 @@ factory = {
 
   template: template,
 
-  allowed_spec_args: ['row', 'seat'],
+  allowed_spec_args: ["row", "seat"],
 
-  asset_name: 'Ticket',
+  asset_name: "Ticket",
 
   attributes: {
     transferrable: true,

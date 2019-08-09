@@ -1,4 +1,14 @@
-# 发送您的首笔交易
+---
+title: "发送您的首笔交易"
+description: "发送您的首笔交易"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "intro"
+  - "transaction"
+---
 
 forge 的一个重要设计方面是使新手尽可能容易地熟悉 Forge。如果您按照[概览](./README.md)的“快速入门”部分操作，应该已经使用了其中很多：forge cli、forge 网页和 forge 模拟器。现在，您应该可以发送第一笔交易了，但在此之前，您需要一个钱包。
 

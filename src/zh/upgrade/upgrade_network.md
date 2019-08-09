@@ -1,4 +1,14 @@
-# 升级 Forge 网络
+---
+title: "升级 Forge 网络"
+description: "升级 Forge 网络"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "upgrade"
+  - "upgrade_network"
+---
 
 如果现有网络在特定版本运行，请按照以下升级路径操作：
 

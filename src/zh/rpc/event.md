@@ -1,4 +1,14 @@
-# 事件 RPC
+---
+title: "事件 RPC"
+description: "事件 RPC"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "rpc"
+  - "event"
+---
 
 事件 RPC 帮助用户与其感兴趣的活动互动。所有活动均以交易形式存在。通过使用事件 RPC，用户可收到其请求的交易类型更新的事实信息。
 

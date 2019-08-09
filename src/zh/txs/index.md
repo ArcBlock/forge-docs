@@ -1,4 +1,14 @@
-# Forge 交易
+---
+title: "Forge 交易"
+description: "Forge 交易"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "txs"
+  - "index"
+---
 
 如我们之前讨论的，交易是 Forge 支持的链上发生的最小活动，支持交易的代码名为交易协议。Forge 交易的交易协议相当于以太坊交易的智能合约。
 
@@ -87,7 +97,7 @@ namespace: CoreTx
 
 description: Consume an asset that is owned by self
 
-? type_urls
+type_urls:
 
 fg:t:consume_asset: ForgeAbi.ConsumeAssetTx
 

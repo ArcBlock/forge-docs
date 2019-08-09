@@ -1,4 +1,14 @@
-# Forge 配置指南
+---
+title: "Forge 配置指南"
+description: "Forge 配置指南"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "core"
+  - "configuration"
+---
 
 Forge 启动时，也会启动一些其他的应用程序，例如`tendermint`和`ipfs`。每个应用程序有自己的配置文件，Forge 也是如此。
 

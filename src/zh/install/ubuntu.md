@@ -1,4 +1,14 @@
-# 在 Ubuntu 安装 Forge
+---
+title: "在 Ubuntu 安装 Forge"
+description: "在 Ubuntu 安装 Forge"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "install"
+  - "ubuntu"
+---
 
 全新 ubuntu 机器缺少几个 Forge 所需的依赖。如果您在 Ubuntu 上运行 Forge 时遇到问题，请往下读。本指南通过了在每月 5 美元的 Digital Ocean 机器上对 ubuntu 16.04 和 18.04 的测试。
 

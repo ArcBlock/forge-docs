@@ -1,4 +1,14 @@
-# 一般概念
+---
+title: "一般概念"
+description: "一般概念"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "intro"
+  - "concepts"
+---
 
 Forge 中引入了好几个新概念，在阅读前，了解这些基本概念可以让您更轻松地了解 forge。
 

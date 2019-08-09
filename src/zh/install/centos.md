@@ -1,4 +1,14 @@
-# 在 CentOS 上安装 Forge
+---
+title: "在 CentOS 上安装 Forge"
+description: "在 CentOS 上安装 Forge"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "install"
+  - "centos"
+---
 
 全新 centos 机器缺少几个 Forge 所需的依赖。如果您在 CentOS 上运行 Forge 时遇到问题，请往下读。本指南通过了在每月 5 美元的 Digital Ocean 机器上对 CentOS 7 的测试。
 

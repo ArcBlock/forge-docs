@@ -1,4 +1,14 @@
-# 在 MacOS 上安装 Forge
+---
+title: "在 MacOS 上安装 Forge"
+description: "在 MacOS 上安装 Forge"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "install"
+  - "macos"
+---
 
 全新 centos 机器缺少几个 Forge 所需的依赖。如果您在 MacOS 下运行 Forge 时遇到问题，请往下读。
 

@@ -1,4 +1,14 @@
-# ABT 链节点
+---
+title: "ABT 链节点"
+description: "ABT 链节点"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "tools"
+  - "abt_chain_node"
+---
 
 ABT 链节点是一个用户友好型应用程序，可以开始/管理 forge 节点。它目前为预览版本。对于 MAC OSX 和 Ubuntu 用户，我们创建了桌面版以自动管理节点开始/停止。
 

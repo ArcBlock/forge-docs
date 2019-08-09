@@ -1,4 +1,14 @@
-# 账户迁移交易
+---
+title: "账户迁移交易"
+description: "账户迁移交易"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "account"
+  - "account_migrate"
+---
 
 **账户迁移**交易可将现有账户从旧钱包迁移至新钱包。当您钱包的密钥可能遭遇泄露（例如，打印密钥的纸张丢失）时，这个功能非常有用。为了安全目的，您可以发出账户迁移交易，从旧钱包转至新生成的钱包。本次迁移后，您所有的现有代币余额都将移至新账户，您之前拥有的资产可被转移或使用。
 

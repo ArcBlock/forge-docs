@@ -1,4 +1,14 @@
-# 统计 RPC
+---
+title: "统计 RPC"
+description: "统计 RPC"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "rpc"
+  - "stats"
+---
 
 统计 RPC 的目标是询问统计数据、收集给定时段内的实时或历史值。
 

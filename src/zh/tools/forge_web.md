@@ -1,4 +1,14 @@
-# Forge 网页
+---
+title: "Forge 网页"
+description: "Forge 网页"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "tools"
+  - "forge_web"
+---
 
 与大部分区块链产品不同，Forge 随附丰富的网页界面。
 

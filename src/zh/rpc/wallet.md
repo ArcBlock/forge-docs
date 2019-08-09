@@ -1,4 +1,14 @@
-# 钱包 RPC
+---
+title: "钱包 RPC"
+description: "钱包 RPC"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "rpc"
+  - "wallet"
+---
 
 钱包 RPC 帮助用户管理其钱包，如创建、加载、恢复等。
 

@@ -1,4 +1,14 @@
-# Forge RPC
+---
+title: "Forge RPC"
+description: "Forge RPC"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "core"
+  - "rpc"
+---
 
 与大部分区块链平台不同，Forge 不使用 JSON RPC 作为其公共接口。JSON RPC 速度很慢、容易出错（类型不安全）且效率低下（ 有效负载和连接性均是如此）。
 

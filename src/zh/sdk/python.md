@@ -1,4 +1,14 @@
-# Python SDK
+---
+title: "Python SDK"
+description: "Python SDK"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "sdk"
+  - "python"
+---
 
 如需获取详细的 forge-python-sdk 参考手册，请访问[此处](../../sdks/python/latest)。
 

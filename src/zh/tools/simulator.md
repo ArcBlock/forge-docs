@@ -1,4 +1,14 @@
-# Forge 模拟器
+---
+title: "Forge 模拟器"
+description: "Forge 模拟器"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "tools"
+  - "simulator"
+---
 
 模拟器用于向链中生成多种流量。因此，您可将其用于测试链的行为。目前，模拟器支持以下交易：
 
@@ -46,14 +56,14 @@ simulations:
     num: 2
     type: exchange
     settings:
-      value: '1000..20000'
+      value: "1000..20000"
 
   - name: transfer token
     interval: 2
     num: 2
     type: transfer
     settings:
-      value: '50..200'
+      value: "50..200"
       asset: false
 
   - name: transfer token and assets
@@ -61,7 +71,7 @@ simulations:
     num: 2
     type: transfer
     settings:
-      value: '1000..5000'
+      value: "1000..5000"
       asset: true
       after: []
 

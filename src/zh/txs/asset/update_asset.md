@@ -1,4 +1,14 @@
-# 更新资产 Update Asset Transaction
+---
+title: "更新资产 Update Asset Transaction"
+description: "更新资产 Update Asset Transaction"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "asset"
+  - "update_asset"
+---
 
 **更新资产**交易被用于更新您拥有的现有资产。请注意，资产必须带`readonly = false`创建。如果只读为真，您便不能更新它。
 

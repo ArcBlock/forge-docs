@@ -1,4 +1,14 @@
-# 关于 Forge 的更多信息
+---
+title: "关于 Forge 的更多信息"
+description: "关于 Forge 的更多信息"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "intro"
+  - "inside_forge"
+---
 
 现在您应该对 Forge 有了一定的了解。我们来深入看一下。
 

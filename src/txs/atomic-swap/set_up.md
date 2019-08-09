@@ -1,4 +1,16 @@
-# Set Up Swap Transaction
+---
+title: 'Set Up Swap Transaction'
+description: 'Set Up Swap Transaction'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags: 
+  - 'atomic-swap'
+  - 'set_up'
+---
+
+
 
 **Set Up Swap** Transaction is the first step in an atomic swap process. The purpose of this transaction is to create a swap state on the chain to temporarily hold the token and assets. These assets and token is guarded by a hash lock which is a sha3-256 output of a random number. In order to get the assets and token, a receiver must know this random number. Once the transaction is passed, the assets and token are transferred to the swap state and are locked till a block number specified by the `locktime`.
 

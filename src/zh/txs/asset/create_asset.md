@@ -1,4 +1,14 @@
-# 创建资产交易
+---
+title: "创建资产交易"
+description: "创建资产交易"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "asset"
+  - "create_asset"
+---
 
 **创建资产**交易用于为您的账户创建新资产。资产可向/和他人转移/交换。资产的用例很多，包括：
 

@@ -1,4 +1,14 @@
-# 声明交易
+---
+title: "声明交易"
+description: "声明交易"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "account"
+  - "declare"
+---
 
 **声明**交易会声明钱包进入链中的账户。在 Forge，只有钱包有对应账户，它可以发出或接收交易，或进行链允许的各种活动。
 

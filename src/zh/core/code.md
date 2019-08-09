@@ -1,4 +1,14 @@
-# Forge 状态代码
+---
+title: "Forge 状态代码"
+description: "Forge 状态代码"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "core"
+  - "code"
+---
 
 ```proto
 enum StatusCode {

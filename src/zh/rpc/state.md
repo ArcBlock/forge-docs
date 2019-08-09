@@ -1,4 +1,14 @@
-# 状态 RPC
+---
+title: "状态 RPC"
+description: "状态 RPC"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "rpc"
+  - "state"
+---
 
 状态 RPC 帮助用户获取账户状态、资产、抵押和 forge。
 
@@ -108,7 +118,10 @@ message ResponseGetAccountState {
 
 ```graphql
 {
-  getAccountState(address: "z1QNTPxDUCbh68q6ci6zUmtnT2Cj8nbLw75", height: "5000") {
+  getAccountState(
+    address: "z1QNTPxDUCbh68q6ci6zUmtnT2Cj8nbLw75"
+    height: "5000"
+  ) {
     code
     state {
       address

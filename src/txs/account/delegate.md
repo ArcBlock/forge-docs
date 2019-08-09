@@ -1,4 +1,16 @@
-# Delegate Transaction
+---
+title: 'Delegate Transaction'
+description: 'Delegate Transaction'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags: 
+  - 'account'
+  - 'delegate'
+---
+
+
 
 **Declare** transaction declares a wallet into an account of the chain. In Forge, only a wallet has a corresponding account, it can send or receive transactions, or carry out whatever activities permitted by the chain.
 

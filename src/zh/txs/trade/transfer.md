@@ -1,4 +1,14 @@
-# 转移交易
+---
+title: "转移交易"
+description: "转移交易"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "trade"
+  - "transfer"
+---
 
 **转移**交易是区块链中最常见的交易，一个账户可以转移代币和/或一系列资产至另一个账户。转移完成后，发送者的余额会被扣除，转移 tx 中的资产所有者会被变更为接收者。
 

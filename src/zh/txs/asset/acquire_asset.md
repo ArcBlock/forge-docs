@@ -1,4 +1,14 @@
-# 获取资产交易
+---
+title: "获取资产交易"
+description: "获取资产交易"
+keywords: ""
+robots: "index,follow"
+category: "docs"
+layout: "documentation"
+tags:
+  - "asset"
+  - "acquire_asset"
+---
 
 **获取资产**用于从[资产工厂](../create_asset_factory)中购买/取得资产。
 
