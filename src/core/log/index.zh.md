@@ -82,7 +82,7 @@ tags:
 - 开始 tx：出高度/tx_index/哈希外，它也包含 type_url 和发送者地址。
 - 完成的 tx：除开始 tx 的数据外，它也提供重要信息：
   - 状态：如果状态不`ok`，则是无效 tx。状态代码会表明此 tx 上发生了何种错误。
-  - 花费总时间：因为每个 tx 都会经过一系列管道，它在`us`里给出每个管道的性能指标。如需了解更多信息，请查看[Forge TX 协议](./core/tx_protocol.md)。
+  - 花费总时间：因为每个 tx 都会经过一系列管道，它在`us`里给出每个管道的性能指标。如需了解更多信息，请查看[Forge TX 协议](../tx_protocol)。
 
 ```
 16:25:37.317 application=forge pid=<0.2690.0> [info] [consensus deliver tx]: height=245 tx_index=173 hash=857FE499FCE6583FB4CF0AEDA650E8610C15B87BF2ADCA734699DA18A6F931EA

@@ -21,7 +21,7 @@ tags:
 - 交易 API：交易 gRPC 是 send_tx，这一组 API 提供帮助者功能，使 tx 的构建和发送变得简单。
 - 杂项 API：解析配置、初始化 sdk 等。
 
-Guthub 链接，请查看：
+GitHub 链接，请查看：
 
 - [Forge SDK](https://github.com/ArcBlock/forge-elixir-sdk)
 - [Abt Did](https://github.com/ArcBlock/abt-did-elixir)
@@ -36,31 +36,31 @@ Guthub 链接，请查看：
 
 ## 安装
 
-对于每个新发布，我们都搭配 osx 和 ubuntuor 二进制。如果您使用这两个平台，您可以按照最新的 forge-cli：
+对于每个新发布，我们都搭配 OSX 和 Ubuntu 二进制。如果您使用这两个平台，您可以按照最新的 forge-cli：
 
 ```bash
-$ npm install -g @arcblock/forge-cli
+npm install -g @arcblock/forge-cli
 ```
 
 然后运行：
 
 ```bash
-$ forge init
-$ forge start
-$ forge web start
+forge init
+forge start
+forge web start
 ```
 
 Forge 启动后，您可以在浏览器开启`http://localhost:8210`。因为您的链上没有任何数据（如果是您第一次运行），您可以运行我们的模拟器以注入一些随机数据：
 
 ```bash
-$ forge simulator start
+forge simulator start
 ```
 
 ## 使用
 
 ### 第 0 步
 
-首先，在本地搭配[Forge CLI](../tools/forge_cli.md)运行 Forge。
+首先，在本地搭配[Forge CLI](../../tools/forge_cli)运行 Forge。
 
 ### 第 1 步
 
@@ -90,7 +90,7 @@ ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "bob_wallet"), wallet: w2)
 ```
 
 ::: 建议笔记
-`moniker`是 Forge 上该钱包的昵称。`passphrase`由 Forge 使用，以将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts.md)。
+`moniker`是 Forge 上该钱包的昵称。`passphrase`由 Forge 使用，以将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts)。
 :::
 
 我们看看爱丽丝的钱包和账户详情

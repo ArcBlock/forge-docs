@@ -21,7 +21,7 @@ tags:
 
 假如有一个名为 called sisyphus.abtnetwork.io 的链。它的运行版本是 0.23.1。高度 150，操作员将其升级至 0.23.4。如果您想为 sisyphus.abtnetwork.io 设置新节点，可以在您的节点进行以下操作：
 
-- 安装最新的 forge cli——`npm install -g @arcblock/forge-cli`（查看[安装章节](../install)了解更多信息）。
+- 安装最新的 forge cli——`npm install -g @arcblock/forge-cli`（查看[安装章节](../../install)了解更多信息）。
 - 运行`forge init 0.23.1`，在您的本地节点安装 forge 0.23.1。
 - 运行`forge join https://sisyphus.abtnetwork.io/api`，找回此网络的配置。这会将您的本地节点加入 sisyphus 网络。
 - 运行`forge start`开始同步网络。

@@ -60,7 +60,7 @@ forge simulator start
 
 ### Step 0
 
-First get your Forge running on local with [Forge CLI](../tools/forge_cli).
+First get your Forge running on local with [Forge CLI](../../tools/forge_cli).
 
 ### Step 1
 
@@ -179,7 +179,7 @@ Then we can see how the asset acutally look like.
 ForgeSdk.get_asset_state(address: asset_address)
 ```
 
-The laset field is the `data` field, where we can see `type_url: "laotop", value: "brand new"`. You can also put more complicated information inside, like serialized protobuf message.
+The laset field is the `data` field, where we can see `type_url: "laptop", value: "brand new"`. You can also put more complicated information inside, like serialized protobuf message.
 
 #### Step 3 : Exchange the asset with money
 

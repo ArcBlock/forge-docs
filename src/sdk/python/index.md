@@ -30,7 +30,7 @@ This sdk supports python verison `>=3.6`.
 
 ### Step 0
 
-First get your Forge running on local with [Forge CLI](../tools/forge_cli).
+First get your Forge running on local with [Forge CLI](../../tools/forge_cli).
 
 ### Step 1
 
@@ -66,7 +66,7 @@ mike = rpc.create_wallet(moniker='mike', passphrase='abc123')
 ```
 
 ::: tip Notes
-`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../intro/concepts).
+`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../intro/concepts).
 :::
 
 Let's take a look at Alice's wallet and here account details

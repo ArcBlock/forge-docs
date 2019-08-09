@@ -38,7 +38,7 @@ and java version must >= 8.
 
 ### Step 0
 
-First get your Forge running on local with [Forge CLI](../tools/forge_cli).
+First get your Forge running on local with [Forge CLI](../../tools/forge_cli).
 Or you know another's node config info.
 
 ### Step 1
@@ -75,7 +75,7 @@ val Alice = forge.createWallet(Rpc.RequestCreateWallet.newBuilder()
 ```
 
 ::: tip Notes
-`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../intro/concepts).
+`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../intro/concepts).
 :::
 
 ### Step 3: Query your account information.

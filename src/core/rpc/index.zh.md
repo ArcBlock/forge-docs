@@ -67,7 +67,7 @@ Forge 的 RPC 支持[gRPC](https://grpc.io/)和[GraphQL](https://graphql.org/)�
 }
 ```
 
-如需了解关于 Forge RPC 的更多信息，请访问[Forge RPC](../rpc/)。
+如需了解关于 Forge RPC 的更多信息，请访问[Forge RPC](../../rpc)。
 
 ## 为什么选择 gRPC
 

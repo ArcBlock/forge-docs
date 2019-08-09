@@ -7,5 +7,5 @@ category: "docs"
 layout: "documentation"
 tags:
   - "arch"
-  - "index"
+  - "overview"
 ---

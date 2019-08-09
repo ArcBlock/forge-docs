@@ -1,18 +1,16 @@
 ---
-title: "What is Multisig?"
-description: "What is Multisig?"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
+title: 'What is Multisig?'
+description: 'What is Multisig?'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
 tags:
-  - "arch"
-  - "multisig"
+  - 'arch'
+  - 'multisig'
 ---
 
-
-
-In most of the blockchain implementation, only sender is required to sign the transaction. With the sender's signature, we would trust that the operation is authorized by the sender. Transactions like [Transfer](../txs/transfer) is typical example that sender would send some tokens / assets to the receiver (without receiver's permission). In real world, a vast use cases require authorization among all parties in the transaction. For example, Alice would give Bob 20 ABT to get a conference ticket Bob owned. In this transaction, Alice is actually requesting an exchange between her 20 ABTs and Bob's ticket. Bob must authorize this operation to make the transaction valid. So this is the basic use case for Multisig.
+In most of the blockchain implementation, only sender is required to sign the transaction. With the sender's signature, we would trust that the operation is authorized by the sender. Transactions like [Transfer](../../txs/trade/transfer) is typical example that sender would send some tokens / assets to the receiver (without receiver's permission). In real world, a vast use cases require authorization among all parties in the transaction. For example, Alice would give Bob 20 ABT to get a conference ticket Bob owned. In this transaction, Alice is actually requesting an exchange between her 20 ABTs and Bob's ticket. Bob must authorize this operation to make the transaction valid. So this is the basic use case for Multisig.
 
 In Forge, transaction protocols can decide if they'd enable multisig or not. If multisig is enabled, then the involved parties must sign the tx in order, with the multisig structure:
 

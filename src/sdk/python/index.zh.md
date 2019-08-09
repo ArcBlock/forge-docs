@@ -30,7 +30,7 @@ pip install forge-python-sdk
 
 ### 第 0 步
 
-首先，通过[Forge CLI](../tools/forge_cli)在本地运行 Forge。
+首先，通过[Forge CLI](../../tools/forge_cli)在本地运行 Forge。
 
 ### 第 1 步
 
@@ -66,7 +66,7 @@ config = f.config
 ```
 
 ::: 建议笔记
-`moniker`是 Forge 上该钱包的昵称。`passphrase`是通过 Forge 将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts)。
+`moniker`是 Forge 上该钱包的昵称。`passphrase`是通过 Forge 将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../../intro/concepts)。
 :::
 
 我们看看爱丽丝的钱包和账户详情
@@ -257,7 +257,7 @@ True
 
 🎉 🎉 祝贺您！您已完成 2 级教程！现在，您应该对如何通过 Forge SDK 创建资产和交换资产 Forge 的工作原理有了一定的了解。不妨试试创建更多复杂资产！
 
-就是这样了。现在您已经准备就绪了。如果您有任何问题或建议，请在[Github](https://github.com/ArcBlock/forge-python-sdk)上与我们分享。
+就是这样了。现在您已经准备就绪了。如果您有任何问题或建议，请在[GitHub](https://github.com/ArcBlock/forge-python-sdk)上与我们分享。
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTI0ODU3OTc4OSwxNzEyNDQ5OTMzXX0=

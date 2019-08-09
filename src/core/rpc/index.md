@@ -67,7 +67,7 @@ After you execute the query, you'll see the result:
 }
 ```
 
-For more information about Forge RPC, please visit [Forge RPC](../rpc/).
+For more information about Forge RPC, please visit [Forge RPC](../../rpc).
 
 ## Why gRPC?
 

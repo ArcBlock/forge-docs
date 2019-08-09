@@ -7,7 +7,7 @@ category: "docs"
 layout: "documentation"
 tags:
   - "arch"
-  - "index"
+  - "overview"
 ---
 
 <!--stackedit_data:

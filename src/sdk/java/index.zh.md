@@ -38,7 +38,7 @@ dependencies {
 
 ### 第 0 步
 
-首先，在本地搭配[Forge CLI](../tools/forge_cli.md)运行 Forge。
+首先，在本地搭配[Forge CLI](../../tools/forge_cli)运行 Forge。
 
 ### 第 1 步
 
@@ -46,11 +46,11 @@ dependencies {
 
 ## 教程
 
-### 第 0 步：创建一个项目。
+### 第 0 步：创建一个项目
 
 创建一个 SpringBoot gradle 项目。然后将 forge-java-sdk 添加至其依赖。
 
-### 第 1 步：连接至 Forge Node。
+### 第 1 步：连接至 Forge Node
 
 将 forge.host 和 forge.port 添加至您的 application.properties。
 
@@ -74,7 +74,7 @@ val Alice = forge.createWallet(Rpc.RequestCreateWallet.newBuilder()
 ```
 
 ::: 建议笔记
-`moniker`是 Forge 上该钱包的昵称。`passphrase`由 Forge 使用，以将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts.md)。
+`moniker`是 Forge 上该钱包的昵称。`passphrase`由 Forge 使用，以将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts)。
 :::
 
 ### 第 3 步：询问您的账户信息。

@@ -28,6 +28,7 @@ categories:
       - "/sdk/java"
       - "/sdk/others"
       Forge Tools:
+      - "/tools"
       - "/tools/forge_cli"
       - "/tools/forge_web"
       - "/tools/abt_chain_node"
@@ -35,7 +36,8 @@ categories:
       - "/tools/forge_indexer"
       - "/tools/dapps_workshop"
       Architecture:
-      - "/arch/overview"
+      - "/arch"
+      - "/arch/multisig"
       Forge Core:
       - "/core/rpc"
       - "/core/configuration"
