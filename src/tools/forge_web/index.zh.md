@@ -1,0 +1,75 @@
+---
+title: 'Forge 网页'
+description: 'Forge 网页'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'tools'
+  - 'forge_web'
+---
+
+与大部分区块链产品不同，Forge 随附丰富的网页界面。
+
+## Forge 网页的主要成分
+
+在通过`forge web open`启动您的节点后，您会看到，应用程序侧栏包含了几个主要成分：
+
+- 控制面板
+- 节点管理
+- 开发者工具。
+
+![](../../assets/images/tools/forge-web/sidebar.png)
+
+- 控制面板：是存储在此节点上数据的信息总结，以及节点的健康状态，包括节点、存储、共识等的当前状态。
+- 节点管理：
+  - 区块探索器：便捷的工具，可查看链上发生的所有交易，以及生成的新区块。您始终可查看 ABT 网络状态以及从https://explorer.abtnetwork.io了解整个网络的信息。
+  - 已连接同级：连接至您的链节点的其他节点。因为 ABT 区块链节点只是 ABT 链的一员，它需要从其他链节点同步数据。这个已连接同级地图展示了当前同步的节点的位置。
+- 开发者工具：这个区域使开发者可轻松为您的应用程序排错，同时模拟交易，测试并运行不同的去中心化身份(DID)场景，也是进行 GraphQL 请求询问数据的地方。关于 Graphql 的详细信息在此。
+
+## 如何使用控制面板？
+
+在您登录 ABT 区块链节点的任何时候，“控制面板视图”都是默认视图，向您展示节点的当前状态。它向您展示几个重要细节，您应重点关注：
+
+- 节点健康状态：互动图表，您可从中查看 ABT 节点不同层的实时健康状态
+  节点信息总结：节点中所有数据的总结
+- 交易：节点上所有交易的时间序列图表
+- 顶尖账户：此节点上顶尖账户的信息，按账户余额排序
+- 顶尖验证器：此链上顶尖验证器的信息。
+
+![](../../assets/images/tools/forge-web/dashboard.png)
+
+## 如何探索您的链数据？
+
+每个节点都存储整个链的数据，包括所有交易和账户。对这些信息的访问使您可以总览链上发生的活动。如需回答以下问题：谁将钱转移到我的账户、此链上最活跃的账户是哪一个等，您只需要 ABT 区块链节点。
+
+探索链数据有两个主要方式——情况探索器和开发者工具——可支持不同用例并为您提供如何访问和使用呈现给您的数据的不同选择。
+
+**情况探索器：**
+
+- 利：
+  - 便捷，简单易用
+  - 容易理解，无需额外知识
+  - 与传统搜索引擎类似
+- 弊：
+  - 不太灵活
+  - 只可搜索账户/tx 等
+
+![](../../assets/images/tools/forge-web/explorer.png)
+
+**开发者工具：**
+
+- 利：
+  - 在询问您想的任何东西，以及定义您想获得的回复时非常灵活
+  - 对请求和恢复拥有更多控制
+- 弊：
+  - 如需使用和理解，需要额外[GraphQL](https://www.arcblock.io/en/open-chain-access-protocol/)知识
+
+![](../../assets/images/tools/forge-web/graphql.png)
+
+如果您想了解关于如何创建区块链应用程序的更多信息，请访问我们在此：[https://docs.arcblock.io/forge/latest/](https://docs.arcblock.io/forge/latest/)的“开始”文件。
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTk0NzA5NDM5NCwtOTYxNjk0MTE5XX0=
+-->
