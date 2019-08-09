@@ -77,7 +77,7 @@ string name = 5;
 
 \&gt; ticket = ForgeAbi.Ticket.new(row: &quot;K&quot;, seat: &quot;22&quot;, room: &quot;3A&quot;, time: &quot;03/04/2019 11:00am PST&quot;, name: &quot;Avengers: Endgame&quot;)
 
-\&gt; itx = ForgeAbi.CreateAsset.new(data: ForgeSdk.encode\_any!(ticket), readonly: true, transferrable: true, ttl: 7200)
+\&gt; itx = ForgeAbi.CreateAssetTx.new(data: ForgeSdk.encode\_any!(ticket), readonly: true, transferrable: true, ttl: 7200)
 
 \&gt; ForgeSdk.create\_asset(itx, wallet: wallet)
 ```

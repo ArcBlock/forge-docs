@@ -24,7 +24,7 @@ Here's an example of creating an asset:
 > ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "sisyphus"), wallet: wallet)
 # say we have a message Post which have a title and a content filed
 > post = ForgeAbi.Post.new(title: "a new post", content: "hello world!")
-> itx = ForgeAbi.CreateAsset.new(itx: ForgeSdk.encode_any!(post))
+> itx = ForgeAbi.CreateAssetTx.new(itx: ForgeSdk.encode_any!(post))
 > hash = ForgeSdk.create_asset(itx, wallet: wallet)
 # wait for a while to let the tx be executed on the chain
 > address = ForgeSdk.get_address(hash)

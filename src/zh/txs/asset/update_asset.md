@@ -33,7 +33,7 @@ google.protobuf.Any data = 15;
 
 \&gt; post = ForgeAbi.Post.new(title: &quot;a new post&quot;, content: &quot;hello world!&quot;)
 
-\&gt; itx = ForgeAbi.CreateAsset.new(itx: ForgeSdk.encode\_any!(post))
+\&gt; itx = ForgeAbi.CreateAssetTx.new(itx: ForgeSdk.encode\_any!(post))
 
 \&gt; hash = ForgeSdk.create\_asset(itx, wallet: wallet)
 

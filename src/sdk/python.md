@@ -17,18 +17,7 @@ This sdk supports python verison `>=3.6`.
 :::
 
 ## Usage
-
-### Step 0
-
 First get your Forge running on local with [Forge CLI](../tools/forge_cli).
-
-### Step 1
-
-Find the config your forge is using by `forge config`
-
-### Step 2
-
-Set `FORGE_CONFIG` as your environment variable, pointing to the config your forge is running on.
 
 ## Tutorials
 
