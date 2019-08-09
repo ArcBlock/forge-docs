@@ -81,5 +81,4 @@ Included in forge-release, and available from `forge init`:
 
 ## Contribute
 
-To contribute to the documentation, see [this file](./DOCS_README.md) for details of the build process and
-considerations when making changes.
+To contribute to the documentation, please refer to [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)

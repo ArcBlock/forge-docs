@@ -47,24 +47,24 @@ message RequestSubscribe {
 | :---------------- | :-------------------------------------- |
 | 代码              | int                                     |
 | 以下一种          |                                         |
-| 转移              | [交易](../../types/type.md#transaction) |
-| account_migrate   | [交易](../../types/type.md#transaction) |
-| 确认              | [交易](../../types/type.md#transaction) |
-| create_asset      | [交易](../../types/type.md#transaction) |
-| 交换              | [交易](../../types/type.md#transaction) |
-| 撤销              | [交易](../../types/type.md#transaction) |
+| 转移              | [交易](../../types/type#transaction) |
+| account_migrate   | [交易](../../types/type#transaction) |
+| 确认              | [交易](../../types/type#transaction) |
+| create_asset      | [交易](../../types/type#transaction) |
+| 交换              | [交易](../../types/type#transaction) |
+| 撤销              | [交易](../../types/type#transaction) |
 | begin_block       | RequestBeginBlock                       |
 | end_block         | RequestEndBlock                         |
-| 声明              | [交易](../../types/type.md#transaction) |
-| update_asset      | [交易](../../types/type.md#transaction) |
-| consensus_upgrade | [交易](../../types/type.md#transaction) |
-| declare_file      | [交易](../../types/type.md#transaction) |
-| sys_upgrade       | [交易](../../types/type.md#transaction) |
-| 抵押              | [交易](../../types/type.md#transaction) |
-| account_state     | [交易](../../types/type.md#transaction) |
-| asset_state       | [交易](../../types/type.md#transaction) |
-| forge_state       | [交易](../../types/type.md#transaction) |
-| stake_state       | [交易](../../types/type.md#transaction) |
+| 声明              | [交易](../../types/type#transaction) |
+| update_asset      | [交易](../../types/type#transaction) |
+| consensus_upgrade | [交易](../../types/type#transaction) |
+| declare_file      | [交易](../../types/type#transaction) |
+| sys_upgrade       | [交易](../../types/type#transaction) |
+| 抵押              | [交易](../../types/type#transaction) |
+| account_state     | [交易](../../types/type#transaction) |
+| asset_state       | [交易](../../types/type#transaction) |
+| forge_state       | [交易](../../types/type#transaction) |
+| stake_state       | [交易](../../types/type#transaction) |
 
 ```protobuf
 message ResponseSubscribe {

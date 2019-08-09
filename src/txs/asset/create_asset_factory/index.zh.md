@@ -78,7 +78,7 @@ string address = 7;
 }
 ```
 
-如果您回顾[创建资产 tx](create_asset.md)的协议定义，您会发现，`AssetFactory`中字段的设计使其可在内部生成`CreateAssetTx`。那是模板 allowed_spec_args, asset_name 的目的和属性：
+如果您回顾[创建资产 tx](../create_asset)的协议定义，您会发现，`AssetFactory`中字段的设计使其可在内部生成`CreateAssetTx`。那是模板 allowed_spec_args, asset_name 的目的和属性：
 
 - 模板：资产工厂将用于生成资产的模板，模板是字符串，可由带特定 args 的 EEx 处理，其输出为 json。然后，json 会被解析并根据 asset_name 转换。例如，如果您的资产名称为`Ticket`，则生成的 json 数据则会被转换为`ForgeAbi.Ticket.new(json)`。
 
@@ -216,6 +216,6 @@ ttl: 3600 * 3
 ForgeSdk.create_asset_factory("Avenerages: Endgame", factory, wallet: w)
 ```
 
-如需从资产工厂获取资产，请查看[获取资产](./acquire_asset.md).
+如需从资产工厂获取资产，请查看[获取资产](../acquire_asset).
 
 [1] 链接可能不可访问，因为我们尚未开放 forge。

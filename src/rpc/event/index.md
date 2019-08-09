@@ -47,24 +47,24 @@ message RequestSubscribe {
 | :---------------- | :--------------------------------------------- |
 | code              | int                                            |
 | One Of Below      |                                                |
-| transfer          | [Transaction](../../types/type.md#transaction) |
-| account_migrate   | [Transaction](../../types/type.md#transaction) |
-| confirm           | [Transaction](../../types/type.md#transaction) |
-| create_asset      | [Transaction](../../types/type.md#transaction) |
-| exchange          | [Transaction](../../types/type.md#transaction) |
-| revoke            | [Transaction](../../types/type.md#transaction) |
+| transfer          | [Transaction](../../types/type#transaction) |
+| account_migrate   | [Transaction](../../types/type#transaction) |
+| confirm           | [Transaction](../../types/type#transaction) |
+| create_asset      | [Transaction](../../types/type#transaction) |
+| exchange          | [Transaction](../../types/type#transaction) |
+| revoke            | [Transaction](../../types/type#transaction) |
 | begin_block       | RequestBeginBlock                              |
 | end_block         | RequestEndBlock                                |
-| declare           | [Transaction](../../types/type.md#transaction) |
-| update_asset      | [Transaction](../../types/type.md#transaction) |
-| consensus_upgrade | [Transaction](../../types/type.md#transaction) |
-| declare_file      | [Transaction](../../types/type.md#transaction) |
-| sys_upgrade       | [Transaction](../../types/type.md#transaction) |
-| stake             | [Transaction](../../types/type.md#transaction) |
-| account_state     | [Transaction](../../types/type.md#transaction) |
-| asset_state       | [Transaction](../../types/type.md#transaction) |
-| forge_state       | [Transaction](../../types/type.md#transaction) |
-| stake_state       | [Transaction](../../types/type.md#transaction) |
+| declare           | [Transaction](../../types/type#transaction) |
+| update_asset      | [Transaction](../../types/type#transaction) |
+| consensus_upgrade | [Transaction](../../types/type#transaction) |
+| declare_file      | [Transaction](../../types/type#transaction) |
+| sys_upgrade       | [Transaction](../../types/type#transaction) |
+| stake             | [Transaction](../../types/type#transaction) |
+| account_state     | [Transaction](../../types/type#transaction) |
+| asset_state       | [Transaction](../../types/type#transaction) |
+| forge_state       | [Transaction](../../types/type#transaction) |
+| stake_state       | [Transaction](../../types/type#transaction) |
 
 ```protobuf
 message ResponseSubscribe {
