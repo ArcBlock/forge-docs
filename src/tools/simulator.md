@@ -1,27 +1,25 @@
 ---
-title: "Forge Simulator"
-description: "Forge Simulator"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "tools"
-  - "simulator"
+title: 'Forge Simulator'
+description: 'Forge Simulator'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'tools'
+  - 'simulator'
 ---
-
-
 
 Simulator is used to generate various traffic into the chain. Thus you can use it to test the behavior of the chain. Currently these transactions are supported by simulator:
 
-* declare
-* transfer
-* exchange
-* create asset
-* consume asset
-* update asset
-* account migration
-* poke
+- declare
+- transfer
+- exchange
+- create asset
+- consume asset
+- update asset
+- account migration
+- poke
 
 When you first start simulator, it will generate 10, 000 wallets and declare those wallets into the chain. Then it will randomly send txs between registered wallets with the following configuration:
 
@@ -58,14 +56,14 @@ simulations:
     num: 2
     type: exchange
     settings:
-      value: "1000..20000"
+      value: '1000..20000'
 
   - name: transfer token
     interval: 2
     num: 2
     type: transfer
     settings:
-      value: "50..200"
+      value: '50..200'
       asset: false
 
   - name: transfer token and assets
@@ -73,7 +71,7 @@ simulations:
     num: 2
     type: transfer
     settings:
-      value: "1000..5000"
+      value: '1000..5000'
       asset: true
       after: []
 
@@ -91,5 +89,4 @@ simulations:
     interval: 100
     num: 1
     type: poke
-
 ```

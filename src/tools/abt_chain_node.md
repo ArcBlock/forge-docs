@@ -1,16 +1,14 @@
 ---
-title: "ABT Chain Node"
-description: "ABT Chain Node"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "tools"
-  - "abt_chain_node"
+title: 'ABT Chain Node'
+description: 'ABT Chain Node'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'tools'
+  - 'abt_chain_node'
 ---
-
-
 
 ABT Chain Node is a user-friendly application that can start/manage a forge node. It is currently a preview version. For MAC OSX and Ubuntu user, we build desktop edition to manage node start/stop automatically.
 
@@ -18,17 +16,17 @@ The most up to date build is ![](https://img.shields.io/badge/dynamic/json.svg?c
 
 For Chinese users:
 
-* OSX: [ABTChainNode.dmg](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/latest/ABTChainNode.dmg)
-* Ubuntu: [ABTChainNode_amd64.deb](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/latest/ABTChainNode.deb)
+- OSX: [ABTChainNode.dmg](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/latest/ABTChainNode.dmg)
+- Ubuntu: [ABTChainNode_amd64.deb](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/latest/ABTChainNode.deb)
 
 For global users:
 
-* OSX: [ABTChainNode.dmg](http://releases.arcblock.io/forge/latest/ABTChainNode.dmg)
-* Ubuntu: [ABTChainNode_amd64.deb](http://releases.arcblock.io/forge/latest/ABTChainNode.deb)
+- OSX: [ABTChainNode.dmg](http://releases.arcblock.io/forge/latest/ABTChainNode.dmg)
+- Ubuntu: [ABTChainNode_amd64.deb](http://releases.arcblock.io/forge/latest/ABTChainNode.deb)
 
 ::: warning
 
-Because both [forge-cli](./forge_cli.md) and ABT Chain Node starts a node on your local machine, if you are already running a node with forge-cli, things may not go as expected when you start ABT Chain Node. For developers, we recommend using [forge-cli](./forge_cli.md) to manage your local node.
+Because both [forge-cli](./forge_cli) and ABT Chain Node starts a node on your local machine, if you are already running a node with forge-cli, things may not go as expected when you start ABT Chain Node. For developers, we recommend using [forge-cli](./forge_cli) to manage your local node.
 
 :::
 
@@ -50,7 +48,7 @@ Then ABT Chain Node shall be successfully opened like this:
 
 ![Node Open](../assets/images/node_start_up.jpg)
 
- and wait a moment you will see the running node like this:
+and wait a moment you will see the running node like this:
 
 ![Node Normal](../assets/images/node_normal.jpg)
 
@@ -80,7 +78,6 @@ This is to install openssl and other tools for cryptographic related functions. 
 
 Then rerun the ABTChainNode app. It should work. If not, please let us know. Note that OSX El Captain and lower version is not supported.
 
-
 ## Features
 
 ### Join a network
@@ -95,8 +92,8 @@ Then click "Proceed" and input a network URL:
 
 Currently the choices are:
 
-* https://bromine.abtnetwork.io/api
-* https://titanium.abtnetwork.io/api
+- https://bromine.abtnetwork.io/api
+- https://titanium.abtnetwork.io/api
 
 Note bromine runs with a nightly build so we can't guarantee it is always online.
 

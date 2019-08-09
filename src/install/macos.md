@@ -1,54 +1,54 @@
 ---
-title: "Install Forge on MacOS"
-description: "Install Forge on MacOS"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "install"
-  - "macos"
+title: 'Install Forge on MacOS'
+description: 'Install Forge on MacOS'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'install'
+  - 'macos'
 ---
 
-
-
 A brand new centos machine lacks several dependencies that Forge requires. If you met issues on running Forge under MacOS, please read on.
-
 
 ## Basic Setup
 
 1. Setup compiler infrastructure
 
-    ```bash
-    $ xcode-select --install
-    ```
+```bash
+$ xcode-select --install
+```
 
 2. Install [Homebrew](https://brew.sh/)
 
-    ```bash
-    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    ```
+```bash
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 If you already have `Homebrew` installed on your Mac, you can run `brew update` to upgrade your Homebrew.
 
 3. Install necessary system packages
-    ```bash
-    brew install automake libtool pkg-config libffi gmp openssl
-    ```
 
-## Install Node.js 
+```bash
+brew install automake libtool pkg-config libffi gmp openssl
+```
+
+## Install Node.js
 
 ```bash
 brew install node
 ```
 
 To make sure you have installed Node properly, type `node -v` in your termianl. You should see:
+
 ```bash
 $ node -v
 v10.5.0
 ```
 
 To make sure you have installed NPM properly, type `npm -v` in your terminal. You should see:
+
 ```bash
 $ npm -v
 6.1.0
@@ -61,6 +61,7 @@ You can also run `brew upgrade node` to upgrade your `Node` and `npm`
 ```bash
 $ npm install -g @arcblock/forge-cli
 ```
+
 This might take a while to install forge on your computer
 
 ## Run Forge
@@ -70,6 +71,7 @@ After forge is installed, you can try running it.
 ### Init Forge
 
 First, run `forge init` to initialize a `.forge_cli` folder and a `.forge_release` folder under your home directory. All your forge data is stored under `.forge_release`, which can be configured later.
+
 ```bash
 $ cd ~
 $ forge init

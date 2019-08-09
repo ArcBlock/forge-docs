@@ -1,18 +1,16 @@
 ---
-title: "Javascript SDK"
-description: "Javascript SDK"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "sdk"
-  - "javascript"
+title: 'Javascript SDK'
+description: 'Javascript SDK'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'sdk'
+  - 'javascript'
 ---
 
-
-
-If you are a developer from traditional web development and not familiar with blockchain, please checkout [general concepts](../intro/concepts.md) first.
+If you are a developer from traditional web development and not familiar with blockchain, please checkout [general concepts](../intro/concepts) first.
 
 Forge Javascript SDK makes it very easy for developers to building applications on forge, it provides concise and simple api to helper developers accomplish following tasks:
 
@@ -23,7 +21,7 @@ Forge Javascript SDK makes it very easy for developers to building applications 
 
 Now, let's walk through the step-by-step guide to write a simple javascript program that may take a developer days or weeks to accomplish on other blockchain platforms:
 
-1. Create 2 user accounts (`Alice` and `Bob`) on forge powered blockchain, which you can get up and running easily with [forge-cli](../tools/forge_cli.md);
+1. Create 2 user accounts (`Alice` and `Bob`) on forge powered blockchain, which you can get up and running easily with [forge-cli](../tools/forge_cli);
 2. Get 25 free tokens for the newly created account
 3. Transfer 5 token from `Alice` to `Bob`, inspect the balance
 
@@ -40,7 +38,7 @@ The whole process covers most of the tasks that a typical web application will d
 
 This step is not required to proceed to next steps, because forge javascript sdk is designed to work with any forge powered blockchain.
 
-If you are interested in running a chain node on your local machine, take 10 minutes to checkout our awesome command line tool: [forge-cli](../tools/forge_cli.md) and start a node.
+If you are interested in running a chain node on your local machine, take 10 minutes to checkout our awesome command line tool: [forge-cli](../tools/forge_cli) and start a node.
 
 Once your chain node has started, run `forge web open` to verify that the web dashboard/explorer of your chain is up and running. If the web dashboard of your chain node loads without any errors, means our database is set, we can use `http://127.0.0.1:8210/api` as graphql endpoint.
 
@@ -112,7 +110,7 @@ Run `node index.js`, we will get:
      address: 'z1m8hfeWSD4fZcycrHDgpJCRTHi2sowPXBt' } }
 ```
 
-> Please note that, forge supports many wallet types, and developers can whatever types they want to use, the above wallet type is a typical combination, and it's ok to stick with this even in production. For all supported wallet types please refer to [enums](../types/enum.md)
+> Please note that, forge supports many wallet types, and developers can whatever types they want to use, the above wallet type is a typical combination, and it's ok to stick with this even in production. For all supported wallet types please refer to [enums](../types/enum)
 
 ### 4. Register user on the chain
 
@@ -183,9 +181,9 @@ Open explorer: `http://localhost:8210/node/explorer/txs`, we can see that, the 2
 
 ![](../assets/images/sdk/js/declare.png)
 
-> The screenshot above is from [forge-web](../tools/forge_web.md), which contains a build in web dashboard and block explorer for your chain.
+> The screenshot above is from [forge-web](../tools/forge_web), which contains a build in web dashboard and block explorer for your chain.
 
-> Here are are using `sendDeclareTx` to write data to the blockchain, many other [transaction types](../txs/README.md) are supported. Full list of transaction send method list can be found at [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html).
+> Here are are using `sendDeclareTx` to write data to the blockchain, many other [transaction types](../txs/README) are supported. Full list of transaction send method list can be found at [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html).
 
 ### 5. Get 25 token for `Alice` and `Bob`
 
@@ -217,7 +215,7 @@ diff --git a/index.js b/index.js
 
 > Here we are using `getAccountState` to read data from the blockchain, we can also use GraphQLClient to read transaction/block/asset/chain info, please refer to [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html) for full list of API.
 
-> You may also noticed that, we waited for 5 seconds before inspecting Alice's account balance, that's because 5 seconds is the block produce timeout for forge, which means that it takes at most 5 seconds before the transaction was executed by the chain and included in a block, this timeout can be configured in your [forge config](../core/configuration.md).
+> You may also noticed that, we waited for 5 seconds before inspecting Alice's account balance, that's because 5 seconds is the block produce timeout for forge, which means that it takes at most 5 seconds before the transaction was executed by the chain and included in a block, this timeout can be configured in your [forge config](../core/configuration).
 
 #### 5.2 Get free token
 
@@ -324,7 +322,7 @@ alice.balanceNew 250000000000000000
 alice.balanceNew.readable 25
 ```
 
-> Forge allows developers to customize the token name/symbol/decimal on each chain, refer to [configuration](../core/configuration.md) for details.
+> Forge allows developers to customize the token name/symbol/decimal on each chain, refer to [configuration](../core/configuration) for details.
 
 ### 6. Transfer 5 token from `Alice` to `Bob`
 

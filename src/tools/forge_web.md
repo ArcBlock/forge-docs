@@ -1,16 +1,14 @@
 ---
-title: "Forge Web"
-description: "Forge Web"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "tools"
-  - "forge_web"
+title: 'Forge Web'
+description: 'Forge Web'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'tools'
+  - 'forge_web'
 ---
-
-
 
 Unlike most of the blockchain products, Forge ships with a web interface that contains rich functionalities.
 

@@ -1,16 +1,14 @@
 ---
-title: "Wallet RPC"
-description: "Wallet RPC"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "rpc"
-  - "wallet"
+title: 'Wallet RPC'
+description: 'Wallet RPC'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'rpc'
+  - 'wallet'
 ---
-
-
 
 Wallet RPC helps user manage their wallet, like create, load, recover etc.
 
@@ -65,7 +63,6 @@ message ResponseCreateWallet {
 }
 ```
 
-
 #### GRPC example
 
 ```elixir
@@ -83,7 +80,6 @@ message ResponseCreateWallet {
 ```
 
 #### GraphQL example
-
 
 ### Load Wallet
 
@@ -116,14 +112,12 @@ message RequestLoadWallet {
 | wallet | WalletInfo |         |          |
 
 ```protobuf
-
 message ResponseLoadWallet {
   StatusCode code = 1;
   string token = 2;
   WalletInfo wallet = 3;
 }
 ```
-
 
 #### GRPC example
 
@@ -140,7 +134,6 @@ message ResponseLoadWallet {
 ```
 
 #### GraphQL example
-
 
 ### Recover Wallet
 
@@ -192,7 +185,6 @@ message ResponseRecoverWallet {
 
 #### GraphQL example
 
-
 ### List Wallet
 
 ---
@@ -214,14 +206,12 @@ message RequestListWallet {}
 | StatusCode | code      |         |          |
 | address    | string    |         |          |
 
-
 ```protobuf
 message ResponseListWallet {
   StatusCode code = 1;
   string address = 2;
 }
 ```
-
 
 #### GRPC example
 
@@ -233,8 +223,6 @@ message ResponseListWallet {
 ```
 
 #### GraphQL example
-
-
 
 ### Remove Wallet
 
@@ -248,7 +236,6 @@ message ResponseListWallet {
 | :------ | :-------- | :------ | :------- |
 | address | string    |         |          |
 
-
 ```protobuf
 message RequestRemoveWallet { string address = 1; }
 ```
@@ -261,7 +248,6 @@ message RequestRemoveWallet { string address = 1; }
 message ResponseRemoveWallet { StatusCode code = 1; }
 ```
 
-
 #### GRPC example
 
 ```elixir
@@ -270,7 +256,6 @@ message ResponseRemoveWallet { StatusCode code = 1; }
 ```
 
 #### GraphQL example
-
 
 ### Declare Node
 
@@ -283,7 +268,6 @@ message ResponseRemoveWallet { StatusCode code = 1; }
 | Name      | Data Type | Default | Required |
 | :-------- | :-------- | :------ | :------- |
 | validator | bool      |         |          |
-
 
 ```protobuf
 message RequestDeclareNode { bool validator = 1; }
@@ -305,10 +289,10 @@ message ResponseDeclareNode {
 }
 ```
 
-
 #### GRPC example
 
 ```elixir
+
 ```
 
 #### GraphQL example

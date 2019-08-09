@@ -41,7 +41,7 @@ Client must fill in necessary values into these fields to get the transaction ex
 - `chain_id`: a string that tracks on which chain this transaction happens
 - `pk`: bytes of public key of sender
 - `signature`: bytes of sender's signature over this transaction. Used by receiver to verify that the content of this transaction has not been changed by other parties.
-- `signatures`: extra multisig if this transaction requires extra endorsement from receiver or a 3rd party account. See: [What is Multisig?](../arch/multisig.md)
+- `signatures`: extra multisig if this transaction requires extra endorsement from receiver or a 3rd party account. See: [What is Multisig?](../arch/multisig)
 - `itx`: type and content of this transaction. See: [transactions](../txs)
 
 All transactions are backed by **transaction protocol**. Transaction protocol is the code that executes the transactions and manipulates the states. It can be dynamically installed, upgraded, activated and deactivated on all running nodes of a chain. For more information on transaction protocols, please see [../txs].

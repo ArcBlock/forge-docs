@@ -1,16 +1,14 @@
 ---
-title: "Java-SDK"
-description: "Java-SDK"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "sdk"
-  - "java"
+title: 'Java-SDK'
+description: 'Java-SDK'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'sdk'
+  - 'java'
 ---
-
-
 
 ## Forge-java-sdk
 
@@ -23,7 +21,7 @@ A detailed reference manual for forge-java-sdk can be found [here](https://docs.
 
 if you are using gradle ,you have to add url to your repositories
 
-``` gradle
+```gradle
  repositories {
       maven { url "http://android-docs.arcblock.io/release" }
  }
@@ -40,7 +38,7 @@ and java version must >= 8.
 
 ### Step 0
 
-First get your Forge running on local with [Forge CLI](../tools/forge_cli.md).
+First get your Forge running on local with [Forge CLI](../tools/forge_cli).
 Or you know another's node config info.
 
 ### Step 1
@@ -82,13 +80,13 @@ val Alice = forge.createWallet(Rpc.RequestCreateWallet.newBuilder()
 
 ### Step 3: Query your account information.
 
-``` kotlin
+```kotlin
 forge.getForgeSDK().getAccountState()
 ```
 
 ### Step 4: Poke your wallet to get some token.
 
-``` kotlin
+```kotlin
 forge.
 val tx = WalletKit.poke(WalletInfo(Alice), forge)
 val response = forge.sendTx(Rpc.RequestSendTx.newBuilder()
@@ -102,7 +100,7 @@ wait some seconds, check your account balance .
 
 create another wallet (suppose: Bob) as step 2.
 
-``` kotlin
+```kotlin
 //create TransferTx
 val sendToken = BigInteger.valueOf(1L).plus(BigDecimal("1e$decimal").toBigInteger())
 val itx = Transfer.TransferTx.newBuilder()

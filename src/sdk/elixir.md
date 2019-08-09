@@ -1,16 +1,14 @@
 ---
-title: "Forge Elixir/Erlang SDK"
-description: "Forge Elixir/Erlang SDK"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "sdk"
-  - "elixir"
+title: 'Forge Elixir/Erlang SDK'
+description: 'Forge Elixir/Erlang SDK'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'sdk'
+  - 'elixir'
 ---
-
-
 
 ## Forge SDK
 
@@ -24,11 +22,13 @@ To develop applications on top of the forge, you shall pick up a SDK. Forge SDK 
 - misc APIs: parsing configuration, initialize sdk and more.
 
 Github link, please see:
+
 - [Forge SDK](https://github.com/ArcBlock/forge-elixir-sdk)
 - [Abt Did](https://github.com/ArcBlock/abt-did-elixir)
 - [Forge Abi](https://github.com/ArcBlock/forge-abi)
 
 For more document, please see:
+
 - [Forge SDK overview](https://docs.arcblock.io/forge/latest/sdk/)
 - [Forge SDK](https://hexdocs.pm/forge_sdk/ForgeSdk.html)
 - [Abt Did](https://hexdocs.pm/abt_did_elixir/AbtDid.html)
@@ -39,28 +39,28 @@ For more document, please see:
 For every new release we ship osx and ubuntu binaries. If you're using these two platforms, you can install latest forge-cli:
 
 ```bash
-$ npm install -g @arcblock/forge-cli
+npm install -g @arcblock/forge-cli
 ```
 
 And then run:
 
 ```bash
-$ forge init
-$ forge start
-$ forge web start
+forge init
+forge start
+forge web start
 ```
 
 Once forge is started, you can open `http://localhost:8210` in your browser. Since there's no any data in your chain (if it is your first run), you can run our simulator to inject some random data:
 
 ```bash
-$ forge simulator start
+forge simulator start
 ```
 
 ## Usage
 
 ### Step 0
 
-First get your Forge running on local with [Forge CLI](../tools/forge_cli.md).
+First get your Forge running on local with [Forge CLI](../tools/forge_cli).
 
 ### Step 1
 
@@ -69,7 +69,6 @@ Find the config your forge is using by `forge config`
 ### Step 2
 
 Set `FORGE_CONFIG` as your environment variable, pointing to the config your forge is running on.
-
 
 ## Tutorials
 
@@ -91,7 +90,7 @@ ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "bob_wallet"), wallet: w2)
 ```
 
 ::: tip Notes
-`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../intro/concepts.md).
+`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../intro/concepts).
 :::
 
 Let's take a look at Alice's wallet and here account details
@@ -107,6 +106,7 @@ Now you have created wallets for Alice and Bob, but there's no money in their ac
 ```elixir
 ForgeSdk.checkin(wallet: w1)
 ```
+
 Receiving the **hash** means the transaction has been passed to Forge, but doens't mean the transaction is successful. To confirm that the transaction is sent successfully, let's dive deeper into the tranaction details.
 
 ```elixir
@@ -140,11 +140,11 @@ ForgeSdk.get_account_state(address: w1.address)
 
 Now we can see tht Alice just successfully transferred 10 TBA to Bob's Account!
 
- 🎉 Congratulations! You have finished the Level 1 tutorial! Now you should have a general sense about how Forge works. If you want more challenges, go checkout Level 2 and Level 3 tutorials.
+🎉 Congratulations! You have finished the Level 1 tutorial! Now you should have a general sense about how Forge works. If you want more challenges, go checkout Level 2 and Level 3 tutorials.
 
- ### Level 2: Sell a Used Laptop
+### Level 2: Sell a Used Laptop
 
- **Scenario**: Bob wants to sell a used laptop to Alice.
+**Scenario**: Bob wants to sell a used laptop to Alice.
 
 #### Step 1: Create accounts for Alice and Bob
 
@@ -188,7 +188,6 @@ Now Alice has 25 TBA in her account, and Bob has a laptop asset. What should Bob
 Since Bob is going to be the sender, we put the laptop `asset_address` as what he will exchange. Similarly, Alice will exchange 10 TBA.
 
 ```elixir
-
 sender_info = ForgeAbi.ExchangeInfo.new(assets: [asset_address])
 receiver_info = ForgeAbi.ExchangeInfo.new(value: ForgeSdk.token_to_unit(10))
 itx = ForgeAbi.ExchangeTx.new(to: w1.address, sender: sender_info, receiver: receiver_info)
@@ -211,4 +210,4 @@ Alice's account should have only 15 TBA after she pays for the laptop.
 ForgeSdk.get_account_state(address: w1.address)
 ```
 
- 🎉 🎉Congratulations! You have finished the Level 2 tutorial! Now you should have a general sense about how to create an asset and exchange assets with Forge SDK. Try and create more complicated assets!
+🎉 🎉Congratulations! You have finished the Level 2 tutorial! Now you should have a general sense about how to create an asset and exchange assets with Forge SDK. Try and create more complicated assets!

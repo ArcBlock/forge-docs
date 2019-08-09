@@ -1,16 +1,14 @@
 ---
-title: "Stats RPC"
-description: "Stats RPC"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "rpc"
-  - "stats"
+title: 'Stats RPC'
+description: 'Stats RPC'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'rpc'
+  - 'stats'
 ---
-
-
 
 Stats RPC is aiming for querying the statistics data, collecting the real-time or past values for a given period.
 
@@ -41,7 +39,6 @@ Stats RPC is aiming for querying the statistics data, collecting the real-time o
 | One Of Below |           |         |          |
 | day_info     | ByDay     |         |          |
 | date         | ByHour    |         |          |
-
 
 ```protobuf
 message RequestGetForgeStats {
@@ -100,12 +97,11 @@ message ForgeStats {
 }
 ```
 
-
 #### GRPC example
 
 [1] Realtime Stats
 
-``` elixir
+```elixir
 > realtime = ForgeAbi.RequestGetForgeStats.new
 %ForgeAbi.RequestGetForgeStats{value: nil}
 > ForgeSdk.get_forge_stats(realtime)
@@ -138,7 +134,7 @@ message ForgeStats {
 
 ```graphql
 {
-  getForgeStats{
+  getForgeStats {
     forgeStats {
       avgTps
       maxTps
@@ -167,8 +163,8 @@ message ForgeStats {
 
 ```graphql
 {
-  getForgeStatsByHour(date: "2019-03-16"){
-    forgeStats{
+  getForgeStatsByHour(date: "2019-03-16") {
+    forgeStats {
       avgTps
       maxTps
       numAccountMigrateTxs
@@ -196,7 +192,7 @@ message ForgeStats {
 
 ```graphql
 {
-  getForgeStatsByDay(startDate: "2019-04-16", endDate:"2019-04-20"){
+  getForgeStatsByDay(startDate: "2019-04-16", endDate: "2019-04-20") {
     forgeStats {
       avgTps
       maxTps
@@ -221,7 +217,7 @@ message ForgeStats {
 }
 
 {
-  getForgeStatsByDay(endDate:"2019-03-20"){
+  getForgeStatsByDay(endDate: "2019-03-20") {
     forgeStats {
       avgTps
       maxTps
@@ -246,7 +242,7 @@ message ForgeStats {
 }
 
 {
-  getForgeStatsByDay(startDate: "2019-03-16"){
+  getForgeStatsByDay(startDate: "2019-03-16") {
     forgeStats {
       avgTps
       maxTps
@@ -308,7 +304,6 @@ message RequestListTransactions {
 | page         | PageInfo              |         |          |
 | transactions | [IndexedTransaction]] |         |          |
 
-
 ```protobuf
 message ResponseListTransactions {
   StatusCode code = 1;
@@ -339,7 +334,7 @@ message ResponseListTransactions {
 
 ```graphql
 {
-  listTransactions (typeFilter:{types: ["declare", "poke"]}){
+  listTransactions(typeFilter: { types: ["declare", "poke"] }) {
     code
     transactions {
       code
@@ -369,7 +364,6 @@ message ResponseListTransactions {
 | paging        | PageInput |         |          |
 | owner_address | string    |         |          |
 
-
 ```protobuf
 message RequestListAssets {
   PageInput paging = 1;
@@ -386,7 +380,6 @@ message RequestListAssets {
 | code   | StatusCode          |         |          |
 | page   | PageInfo            |         |          |
 | assets | [IndexedAssetState] |         |          |
-
 
 ```protobuf
 message ResponseListAssets {
@@ -416,11 +409,12 @@ message ResponseListAssets {
    total: 1
  }}
 ```
+
 #### GraphQL example
 
 ```graphql
 {
-  listAssets(ownerAddress:"z1SQYaJKUYksuev7ys465jPPyY5NX7sm3gX"){
+  listAssets(ownerAddress: "z1SQYaJKUYksuev7ys465jPPyY5NX7sm3gX") {
     assets {
       address
       genesisTime
@@ -469,7 +463,6 @@ message ResponseListAssets {
 | paging         | PageInput     |         |          |
 | address_filter | AddressFilter |         |          |
 
-
 ```protobuf
 message RequestListStakes {
   PageInput paging = 1;
@@ -487,7 +480,6 @@ message RequestListStakes {
 | page   | PageInfo            |         |          |
 | stakes | [IndexedStakeState] |         |          |
 
-
 ```protobuf
 message ResponseListStakes {
   StatusCode code = 1;
@@ -499,7 +491,6 @@ message ResponseListStakes {
 #### GRPC example
 
 #### GraphQL example
-
 
 ---
 
@@ -514,7 +505,6 @@ message ResponseListStakes {
 | Name          | Data Type     | Default | Required |
 | :------------ | :------------ | :------ | :------- |
 | owner_address | owner_address |         |          |
-
 
 ```protobuf
 message RequestListAccount {
@@ -531,7 +521,6 @@ message RequestListAccount {
 | code    | StatusCode          |         |          |
 | account | IndexedAccountState |         |          |
 
-
 ```protobuf
 message ResponseListAccount {
   StatusCode code = 1;
@@ -541,7 +530,7 @@ message ResponseListAccount {
 
 #### GRPC example
 
-``` elixir
+```elixir
 > ForgeSdk.list_account(ForgeAbi.RequestListAccount.new(owner_address: "z1QMx2X81CnESS6ZjFiCiL8skdGkjW3GqxS"))
 %ForgeAbi.IndexedAccountState{
   address: "z1QMx2X81CnESS6ZjFiCiL8skdGkjW3GqxS",
@@ -563,7 +552,6 @@ message ResponseListAccount {
 
 #### GraphQL example
 
-
 ---
 
 ### List Top Accounts
@@ -577,7 +565,6 @@ message ResponseListAccount {
 | Name   | Data Type | Default | Required |
 | :----- | :-------- | :------ | :------- |
 | paging | PageInput |         |          |
-
 
 ```protobuf
 message RequestListTopAccounts {
@@ -595,7 +582,6 @@ message RequestListTopAccounts {
 | page     | PageInfo              |         |          |
 | accounts | [IndexedAccountState] |         |          |
 
-
 ```protobuf
 message ResponseListTopAccounts {
   StatusCode code = 1;
@@ -603,6 +589,7 @@ message ResponseListTopAccounts {
   repeated IndexedAccountState accounts = 3;
 }
 ```
+
 #### GRPC example
 
 ```elixir
@@ -631,6 +618,7 @@ message ResponseListTopAccounts {
    total: 13716
  }}
 ```
+
 #### GraphQL example
 
 ```graphql
@@ -660,6 +648,7 @@ message ResponseListTopAccounts {
   }
 }
 ```
+
 ---
 
 ### List Assets Transactions
@@ -674,7 +663,6 @@ message ResponseListTopAccounts {
 | :------ | :-------- | :------ | :------- |
 | paging  | PageInput |         |          |
 | address | string    |         |          |
-
 
 ```protobuf
 message RequestListAssetTransactions {
@@ -692,7 +680,6 @@ message RequestListAssetTransactions {
 | code         | StatusCode           |         |          |
 | page         | PageInfo             |         |          |
 | transactions | [IndexedTransaction] |         |          |
-
 
 ```protobuf
 message ResponseListAssetTransactions {
@@ -740,13 +727,13 @@ message ResponseListAssetTransactions {
    next: false,
    total: 1
  }}
- ```
+```
 
 #### GraphQL example
 
 ```graphql
 {
-  listAssetTransactions(address:"zjdpQe1af1uzXZYHUNy3AxjYPGrTdMtFRVmp"){
+  listAssetTransactions(address: "zjdpQe1af1uzXZYHUNy3AxjYPGrTdMtFRVmp") {
     transactions {
       code
       hash
@@ -760,17 +747,19 @@ message ResponseListAssetTransactions {
         signature
         chainId
         from
-        itx{
-          __typename ... on UpdateAssetTx{
+        itx {
+          __typename
+          ... on UpdateAssetTx {
             address
-            data{
+            data {
               value
               typeUrl
             }
           }
-             __typename ... on CreateAssetTx{
+          __typename
+          ... on CreateAssetTx {
             address
-            data{
+            data {
               value
               typeUrl
             }
@@ -787,7 +776,6 @@ message ResponseListAssetTransactions {
   }
 }
 ```
-
 
 ---
 
@@ -829,7 +817,6 @@ message RequestListBlocks {
 | page   | PageInfo       |         |          |
 | blocks | [IndexedBlock] |         |          |
 
-
 ```protobuf
 message ResponseListBlocks {
   StatusCode code = 1;
@@ -858,11 +845,12 @@ message ResponseListBlocks {
    total: 125
  }}
 ```
+
 #### GraphQL example
 
 ```graphql
 {
-  listBlocks(heightFilter:{from: "3000", to: "3200"}){
+  listBlocks(heightFilter: { from: "3000", to: "3200" }) {
     code
     page {
       cursor
@@ -894,8 +882,6 @@ message ResponseListBlocks {
 | :--- | :-------- | :------ | :------- |
 |      |           |         |          |
 
-
-
 ```protobuf
 message RequestGetHealthStatus {}
 ```
@@ -908,7 +894,6 @@ message RequestGetHealthStatus {}
 | :------------ | :----------- | :------ | :------- |
 | code          | StatusCode   |         |          |
 | health_status | HealthStatus |         |          |
-
 
 ```protobuf
 message ResponseGetHealthStatus {
@@ -945,13 +930,14 @@ message ResponseGetHealthStatus {
   }
 }
 ```
+
 #### GraphQL example
 
 ```graphql
 {
-  getHealthStatus{
+  getHealthStatus {
     code
-    healthStatus{
+    healthStatus {
       consensus {
         blockHeight
         health

@@ -1,23 +1,20 @@
 ---
-title: "Install Forge on CentOS"
-description: "Install Forge on CentOS"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "install"
-  - "centos"
+title: 'Install Forge on CentOS'
+description: 'Install Forge on CentOS'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'install'
+  - 'centos'
 ---
-
-
 
 A brand new centos machine lacks several dependencies that Forge requires. If you met issues on running Forge under CentOS, please read on. This guide is tested on CentOS 7 on a $5/month Digital Ocean machine.
 
 ::: warning
 We do not suggest you to run Forge on CentOS 6 or lower. This guide may even not work for that version.
 :::
-
 
 ## Setting up users
 
@@ -48,6 +45,7 @@ If you previously ssh to the host with root account, and you want to ssh with ne
 ```bash
 cat ~/.ssh/id_rsa.pub | ssh root@host "mkdir -p ~arcblock/.ssh && touch ~arcblock/.ssh/authorized_keys && chown -R arcblock ~arcblock/.ssh && chmod -R go= ~arcblock/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
+
 :::
 
 ## Install common dependencies
@@ -100,7 +98,6 @@ We don't recommend running forge on a sudo user. So let's create a new user, and
 sudo adduser forge
 echo 'export PATH=/usr/local/bin:/usr/local/ssl/bin:/usr/local/sbin:$PATH' | sudo tee --append ~forge/.bashrc
 ```
-
 
 The sudo user `arcblock` shall only be used for ssh to install software, and the normal user `forge` shall only be used to run forge.
 

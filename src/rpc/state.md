@@ -1,16 +1,14 @@
 ---
-title: "State RPC"
-description: "State RPC"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "rpc"
-  - "state"
+title: 'State RPC'
+description: 'State RPC'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'rpc'
+  - 'state'
 ---
-
-
 
 State RPC helps users to getting the state of account, asset, stake and forge.
 
@@ -22,6 +20,7 @@ State RPC helps users to getting the state of account, asset, stake and forge.
 - [Get Forge State](#get-forge-state)
 
 ---
+
 ### Get Account State
 
 ---
@@ -35,7 +34,6 @@ State RPC helps users to getting the state of account, asset, stake and forge.
 | address | string    |         |          |
 | keys    | [string]  |         |          |
 | height  | uint64    |         |          |
-
 
 ```protobuf
 message RequestGetAccountState {
@@ -60,6 +58,7 @@ message ResponseGetAccountState {
   AccountState state = 2;
 }
 ```
+
 #### GRPC example
 
 ```elixir
@@ -115,13 +114,11 @@ message ResponseGetAccountState {
 }
 ```
 
-
 #### GraphQL example
 
 ```graphql
-
 {
-  getAccountState(address:"z1QNTPxDUCbh68q6ci6zUmtnT2Cj8nbLw75", height: "5000"){
+  getAccountState(address: "z1QNTPxDUCbh68q6ci6zUmtnT2Cj8nbLw75", height: "5000") {
     code
     state {
       address
@@ -130,7 +127,7 @@ message ResponseGetAccountState {
         genesisTime
         renaissanceTime
       }
-      data{
+      data {
         value
         typeUrl
       }
@@ -163,7 +160,6 @@ message ResponseGetAccountState {
 }
 ```
 
-
 ---
 
 ### Get Asset State
@@ -186,7 +182,6 @@ message RequestGetAssetState {
   repeated string keys = 2;
   uint64 height = 3;
 }
-
 ```
 
 ---
@@ -198,13 +193,13 @@ message RequestGetAssetState {
 | code  | StatusCode |         |          |
 | state | AssetState |         |          |
 
-
 ```protobuf
 message ResponseGetAssetState {
   StatusCode code = 1;
   AssetState state = 2;
 }
 ```
+
 #### GRPC example
 
 ```elixir
@@ -256,17 +251,16 @@ message ResponseGetAssetState {
 }
 ```
 
-
 #### GraphQL example
 
 ```graphql
 {
-  getAssetState(address:"zjdjh65vHxvvWfj3xPrDoUDYp1aY6xUCV21b"){
+  getAssetState(address: "zjdjh65vHxvvWfj3xPrDoUDYp1aY6xUCV21b") {
     state {
       address
       consumedTime
       issuer
-      data{
+      data {
         typeUrl
         value
       }
@@ -281,12 +275,9 @@ message ResponseGetAssetState {
 }
 ```
 
-
 ---
 
-
 ### Get Stake State
-
 
 ---
 
@@ -300,9 +291,7 @@ message ResponseGetAssetState {
 | keys    | [string]  |         |          |
 | height  | uint64    |         |          |
 
-
 ```protobuf
-
 message RequestGetStakeState {
   string address = 1;
   repeated string keys = 2;
@@ -319,26 +308,27 @@ message RequestGetStakeState {
 | code  | StatusCode |         |          |
 | state | StakeState |         |          |
 
-
 ```protobuf
 message ResponseGetStakeState {
   StatusCode code = 1;
   StakeState state = 2;
 }
 ```
+
 #### GRPC example
 
 ```elixir
-```
 
+```
 
 #### GraphQL example
 
 ```graphql
+
 ```
 
-
 ---
+
 ### Get Forge State
 
 ---
@@ -374,6 +364,7 @@ message ResponseGetForgeState {
   ForgeState state = 2;
 }
 ```
+
 #### GRPC example
 
 ```elixir
@@ -400,12 +391,11 @@ iex(20)> ForgeSdk.get_forge_state()
   .....
 ```
 
-
 #### GraphQL example
 
 ```graphql
 {
-  getForgeState{
+  getForgeState {
     code
     state {
       address
@@ -455,6 +445,5 @@ iex(20)> ForgeSdk.get_forge_state()
   }
 }
 ```
-
 
 ---

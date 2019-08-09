@@ -1,21 +1,19 @@
 ---
-title: "Consume Asset Transaction"
-description: "Consume Asset Transaction"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "asset"
-  - "consume_asset"
+title: 'Consume Asset Transaction'
+description: 'Consume Asset Transaction'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'asset'
+  - 'consume_asset'
 ---
-
-
 
 **Consume Asset** transaction is used to consume an asset owned by you. The use cases like:
 
-* you show/use your ticket to the officer of a park, a cinema, a museum, a fitness center
-* you use your asset as a certificate to get certain one time benefits
+- you show/use your ticket to the officer of a park, a cinema, a museum, a fitness center
+- you use your asset as a certificate to get certain one time benefits
 
 Thus to consume an asset, the initiator must be the wallets belong to the issuer of the asset, e.g. a cinema. The consume transaction is pre-signed at the check point (e.g. the door of the cinema), and the user could then multi-sign the transaction with the asset address included in the data field of the multisig message. See below explanation.
 
@@ -34,8 +32,8 @@ message ConsumeAssetTx {
 
 Here the `issuer` could be the same as `from`, or different, depending on use case. when this tx is being mutisigned by the asset holder, the wallet could check if the issuer is the issuer of the asset, otherwise wallet shall refuse signing it. when it is being executed in the chain, at verify state stage, we shall check `from` of this tx:
 
-* the same as the issuer
-* `from.issuer == issuer`
+- the same as the issuer
+- `from.issuer == issuer`
 
 For example, a museum issued a ticket and Alice bought it. At the door of the meseum, Alice need to consume the asset, which she
 scan a QR code with a pre-populated ConsumeAssetTx. Most of the time, this pre-populated tx shall be signed by the account of the door so that one can trace where and how Alice consumed this asset, however we don't want anyone to be able to create this tx to allure Alice to consume the asset, thus the door shall be an account that issued by the museum. The chain will make sure only accounts that has this issuer would be able to successfully sign this tx.

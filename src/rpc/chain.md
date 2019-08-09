@@ -1,16 +1,14 @@
 ---
-title: "Chain RPC"
-description: "Chain RPC"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "rpc"
-  - "chain"
+title: 'Chain RPC'
+description: 'Chain RPC'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'rpc'
+  - 'chain'
 ---
-
-
 
 <!-- General description - purpose of chain rpc, problem it could solve -->
 

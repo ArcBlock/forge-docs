@@ -39,7 +39,7 @@ If you want to access the chain / node / validator info, below APIs could be use
 - get_block/1: get a block by its height. All txs included in this block will be returned.
 - get_blocks/1: get a list of blocks between a range.
 - send_tx/1: send the given tx to a node. It will return a tx hash immediately once the tx is accepted, or an error.
-- multisig/1: in Forge we support multisig for a tx, you can use this to endorse an already signed tx. `ExchangeTx`, `ConsumeAssetTx` and some other txs are using multisig technology. If you want to learn more about multisig, see: [multisig](../arch/multisig.md).
+- multisig/1: in Forge we support multisig for a tx, you can use this to endorse an already signed tx. `ExchangeTx`, `ConsumeAssetTx` and some other txs are using multisig technology. If you want to learn more about multisig, see: [multisig](../arch/multisig).
 
 ### Wallet APIs
 

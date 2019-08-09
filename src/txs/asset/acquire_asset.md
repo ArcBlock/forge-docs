@@ -1,16 +1,14 @@
 ---
-title: "Acquire Asset Transaction"
-description: "Acquire Asset Transaction"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "asset"
-  - "acquire_asset"
+title: 'Acquire Asset Transaction'
+description: 'Acquire Asset Transaction'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'asset'
+  - 'acquire_asset'
 ---
-
-
 
 **Acquire Asset** is used to buy/get an asset from the given [asset factory](../create_asset_factory).
 
@@ -32,16 +30,14 @@ message AcquireAssetTx {
 
   google.protobuf.Any data = 15;
 }
-
 ```
 
 We call the args provided to asset factory template **asset spec**. An asset spec contains an address and data:
 
-* address: address is the address of the generated asset. The sender shall apply the spec to the template to generate a structure of the asset, and then generate the CreateAssetTx, and then calculate the address. SDK could help to alleviate the process. By introducing the address here we ensure that one spec could only be applied once to the asset factory. For example, if ticket with row 10 and seat 2 has been generated, you cannot acquire it again.
-* data: data is a json string that contains args for the asset factory template.
+- address: address is the address of the generated asset. The sender shall apply the spec to the template to generate a structure of the asset, and then generate the CreateAssetTx, and then calculate the address. SDK could help to alleviate the process. By introducing the address here we ensure that one spec could only be applied once to the asset factory. For example, if ticket with row 10 and seat 2 has been generated, you cannot acquire it again.
+- data: data is a json string that contains args for the asset factory template.
 
 In many cases, the buyer may buy multiple assets in one transaction. For example, you'd buy two movie tickets once - if this request cannot be fulfilled, you would rather not buying it or switch to another show of the movie. Thus in the `AcquireAssetTx` we allow repeated specs, so that multiple assets could be acquired either all fulfilled or all failed.
-
 
 Here's an example of acquiring an asset:
 

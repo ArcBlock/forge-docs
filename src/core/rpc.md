@@ -1,16 +1,14 @@
 ---
-title: "Forge RPC"
-description: "Forge RPC"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "core"
-  - "rpc"
+title: 'Forge RPC'
+description: 'Forge RPC'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'core'
+  - 'rpc'
 ---
-
-
 
 Unlike most of the blockchain platforms, Forge doesn't use JSON RPC as its public interface. JSON RPC is slow, error prone (type insecure), and inefficient (both payload and connection).
 
@@ -18,8 +16,8 @@ Forge support both [gRPC](https://grpc.io/) and [GraphQL](https://graphql.org/) 
 
 Internally, GraphQL APIs are a wrap to the gRPC interfaces. To make things easy, we integrated a GraphQL playground for you to interact with the APIs Forge provided. You can choose one of the following methods to access the playground:
 
-* Any public Forge Node. For example: [ArcBlock Test Chain](http://abt-test.arcblock.co:8210/node/query).
-* The local node you started with `forge start`. Make sure your local node is started, then open this link: [http://localhost:8210/node/query](http://localhost:8210/node/query).
+- Any public Forge Node. For example: [ArcBlock Test Chain](http://abt-test.arcblock.co:8210/node/query).
+- The local node you started with `forge start`. Make sure your local node is started, then open this link: [http://localhost:8210/node/query](http://localhost:8210/node/query).
 
 You should see a page like below. Write a GraphQL query and execute it. Here we query the account state with address `z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB`.
 
@@ -77,10 +75,10 @@ gRPC (Google Remote Procedure Calls) is an open source remote procedure call (RP
 
 [^1]: See [Wikipedia: gRPC](https://en.wikipedia.org/wiki/GRPC)
 
-
-
 ## Why GraphQL?
 
 GraphQL is an open-source data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data. It provides an efficient, powerful and flexible approach to developing web APIs by allowing clients to define the structure of the data required, and exactly the same structure of the data is returned from the server. Therefore no excessively large amounts of data from being returned. If you get familiar with GraphQL, from a client's point of view, the API is more powerful, secure (strong type system made server either fulfill the query, or fail, but server would never return a data that client didn't recognize)[^2].
 
-[^2]: See [Wikipedia: GraphQL]([https://en.wikipedia.org/wiki/GRPC](https://en.wikipedia.org/wiki/GraphQL))
+[^2]:
+
+  See [Wikipedia: GraphQL](<[https://en.wikipedia.org/wiki/GRPC](https://en.wikipedia.org/wiki/GraphQL)>)

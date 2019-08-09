@@ -1,16 +1,14 @@
 ---
-title: "Forge Logs"
-description: "Forge Logs"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "core"
-  - "log"
+title: 'Forge Logs'
+description: 'Forge Logs'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'core'
+  - 'log'
 ---
-
-
 
 Forge produces logs for troubleshooting whenever there's an issue. For `tendermint` or `ipfs` they will also provide logs. Here's a summary for default log location:
 
@@ -80,11 +78,11 @@ For non empty block, there's deliver tx info between begin block and end block.
 
 By default, for each transaction we provide 3 log items:
 
-* consensus deliver tx: the height of the block, tx index and hash.
-* start tx: besides height / tx_index / hash, it also include type_url and sender address.
-* finished tx: besides the data in start tx, it also provided important info:
+- consensus deliver tx: the height of the block, tx index and hash.
+- start tx: besides height / tx_index / hash, it also include type_url and sender address.
+- finished tx: besides the data in start tx, it also provided important info:
   - status: if status is not `ok`. Then this is an invalid tx. The status code would indicate what error happened on this tx.
-  - total time spent: as each tx will go through a list of pipelines, it gaves the performance metrics for each pipeline in `us`. For more information, see [Forge TX Protocol](./core/tx_protocol.md).
+  - total time spent: as each tx will go through a list of pipelines, it gaves the performance metrics for each pipeline in `us`. For more information, see [Forge TX Protocol](./core/tx_protocol).
 
 ```
 16:25:37.317 application=forge pid=<0.2690.0> [info] [consensus deliver tx]: height=245 tx_index=173 hash=857FE499FCE6583FB4CF0AEDA650E8610C15B87BF2ADCA734699DA18A6F931EA

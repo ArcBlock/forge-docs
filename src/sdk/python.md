@@ -1,16 +1,14 @@
 ---
-title: "Python SDK"
-description: "Python SDK"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "sdk"
-  - "python"
+title: 'Python SDK'
+description: 'Python SDK'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'sdk'
+  - 'python'
 ---
-
-
 
 A detailed reference manual for forge-python-sdk can be found [here](../../sdks/python/latest).
 
@@ -87,6 +85,7 @@ Now you have created wallets for Alice and Mike, but there's no money in their a
 >>> rpc.poke(alice.wallet)
 hash: "CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2"
 ```
+
 Receiving the **hash** means the transaction has been passed to Forge, but doens't mean the transaction is successful. To confirm that the transaction is sent successfully, let's dive deeper into the tranaction details.
 
 ```python
@@ -113,7 +112,6 @@ Now let's check Alice's account balance. There should be 25 TBA.
 Now Alice has 25 TBA in her account and Mike has nothing. We can help Alice transfer 10 TBA to Mike by sending out a **transfer transaction**.
 
 ```python
-
 >>> transfer_itx = protos.TransferTx(to=mike.wallet.address,value=utils.int_to_biguint(100000000000000000))
 
 >>> rpc.transfer(transfer_itx, alice.wallet)
@@ -128,11 +126,11 @@ True
 
 Now we can see tht Alice just successfully transferred 10 TBA to Mike's Account!
 
- 🎉 Congratulations! You have finished the Level 1 tutorial! Now you should have a general sense about how Forge works. If you want more challenges, go checkout Level 2 tutorial.
+🎉 Congratulations! You have finished the Level 1 tutorial! Now you should have a general sense about how Forge works. If you want more challenges, go checkout Level 2 tutorial.
 
- ### Level 2: Sell a Used Laptop
+### Level 2: Sell a Used Laptop
 
- **Scenario**: Mike wants to sell a used laptop to Alice.
+**Scenario**: Mike wants to sell a used laptop to Alice.
 
 #### Step 1: Create accounts for Alice and Mike
 
@@ -145,7 +143,6 @@ Now we can see tht Alice just successfully transferred 10 TBA to Mike's Account!
 After creating accounts for Alice and Mike, we help Alice to get some money to buy Mike's laptop
 
 ```python
-
 >>> rpc.poke(alice.wallet, alice.token)
 hash: "CF0513E473ED13712CDB65EFC196A77BD6193E7DF5124C6233C55732573C85A2"
 
@@ -234,6 +231,7 @@ Since Mike is going to be the sender, we put the laptop `asset_address` as what 
 >>> rpc.is_tx_ok(res.hash)
 True
 ```
+
 In the `prepare_exchange`, we ask Mike the seller to verify the transaction; and in the `finalize_exchange`, we ask Alice the buyer to verify the transaction. After both parties have verified, we can send the transaction directly.
 
 Now if we check the laptop's owner, it should be Alice's address.
@@ -250,6 +248,6 @@ Alice's account should have only 15 TBA after she pays for the laptop.
 150000000000000000
 ```
 
- 🎉 🎉Congratulations! You have finished the Level 2 tutorial! Now you should have a general sense about how to create an asset and exchange assets with Forge SDK. Try and create more complicated assets!
+🎉 🎉Congratulations! You have finished the Level 2 tutorial! Now you should have a general sense about how to create an asset and exchange assets with Forge SDK. Try and create more complicated assets!
 
- That's it. Now you are good to go on your own. Please let us know on [Github](https://github.com/ArcBlock/forge-python-sdk) if you have any questions or suggestions.
+That's it. Now you are good to go on your own. Please let us know on [Github](https://github.com/ArcBlock/forge-python-sdk) if you have any questions or suggestions.

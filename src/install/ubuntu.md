@@ -1,23 +1,20 @@
 ---
-title: "Install Forge on Ubuntu"
-description: "Install Forge on Ubuntu"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "install"
-  - "ubuntu"
+title: 'Install Forge on Ubuntu'
+description: 'Install Forge on Ubuntu'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'install'
+  - 'ubuntu'
 ---
-
-
 
 A brand new ubuntu machine lacks several dependencies that Forge requires. If you met issues on running Forge under Ubuntu, please read on. This guide is tested on ubuntu 16.04 and 18.04 on a $5/month Digital Ocean machine.
 
 ::: warning
 We do not suggest you to run Forge on Ubuntu 14.04 or lower. This guide may even not work for Ubuntu 14.04 (at least nodejs > 10 won't be installed in that version).
 :::
-
 
 ## Setting up users
 
@@ -54,9 +51,10 @@ If you previously ssh to the host with root account, and you want to ssh with ne
 ```bash
 cat ~/.ssh/id_rsa.pub | ssh root@host "mkdir -p ~arcblock/.ssh && touch ~arcblock/.ssh/authorized_keys && chown -R arcblock ~arcblock/.ssh && chmod -R go= ~arcblock/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
+
 :::
 
-## Install nodejs 10/11
+## Install nodejs
 
 Forge CLI requires nodejs runtime, so we shall install latest 10.x or 11.x node. For ubuntu, please follow this guide: [NodeSource Node.js Binary Distributions](https://github.com/nodesource/distributions/blob/master/README.md).
 
@@ -131,7 +129,7 @@ sudo apt-get install -y erlang-crypto
 If you missed this step, the Forge release will crash with the error message:
 
 > libcrypto.so.1.1: cannot open shared object file: No such file or directory
-:::
+> :::
 
 ## Install Forge CLI
 

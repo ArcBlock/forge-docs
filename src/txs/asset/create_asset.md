@@ -1,16 +1,14 @@
 ---
-title: "Create Asset Transaction"
-description: "Create Asset Transaction"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "asset"
-  - "create_asset"
+title: 'Create Asset Transaction'
+description: 'Create Asset Transaction'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'asset'
+  - 'create_asset'
 ---
-
-
 
 **Create Asset** transaction is used to create a new asset for your account. The asset could be transferred/exchanged to/with others. The use cases for asset are pretty rich, e.g.:
 

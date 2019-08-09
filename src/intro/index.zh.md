@@ -13,7 +13,7 @@ tags:
 ## Quick Start
 
 ::: tip
-If you're MAC OSX or ubuntu user, we prepared a desktop version (preview edition) for you to get a node up and running as soon as possible. Please visit [ABT Chain Node](../tools/abt_chain_node.md) to get more details.
+If you're MAC OSX or ubuntu user, we prepared a desktop version (preview edition) for you to get a node up and running as soon as possible. Please visit [ABT Chain Node](../tools/abt_chain_node) to get more details.
 :::
 If you want to quickly try Forge framework, feel free to install Forge CLI tools:
 
@@ -48,7 +48,7 @@ Now you can start a forge node with forge start
 ```
 
 Note that forge is in its very early stage so at the moment we only build osx and ubuntu 16.04 artifacts. We will provide the artifacts for more platforms in near future.
-If you're trying to install forge in a ubuntu 16.04 machine, please see [installation guide for Ubuntu](../install/ubuntu.md).
+If you're trying to install forge in a ubuntu 16.04 machine, please see [installation guide for Ubuntu](../install/ubuntu).
 Once you finished initialization, forge-cli will put the artifacts into `~/.forge_cli` folder:
 
 ```bash
@@ -84,7 +84,7 @@ There are 3 applications and two configuration files installed for you:
 - forge: an erlang release for forge core functionalities.
 - forge_starter: an erlang release that helps with starting / restarting / upgrading forge. You can treat it like a purposely built, simplified systemd. The `release.yml` under `forge` folder is used by forge starter to start the current version of forge, if this version cannot be started successfully, forge starter will fallback to old version defined in the `release.yml`.
 - simulator: an erlang release that helps with generating simulation data. Basically it will create 10, 000 wallets and then do all kinds of txs randomly between wallets.
-  The `forge_release.toml` is the main configuration of forge, you can edit this file to tune the behaviors of forge. For now, we just use the default configuration. For more about configuration, please see [Forge configuration guide](../core/configuration.md).
+  The `forge_release.toml` is the main configuration of forge, you can edit this file to tune the behaviors of forge. For now, we just use the default configuration. For more about configuration, please see [Forge configuration guide](../core/configuration).
   Then you can run `forge start` to start forge:
 
 ```bash
@@ -103,7 +103,7 @@ There are 3 applications and two configuration files installed for you:
 
 By default, forge is started as a daemon and it will bring up consensus engine and storage engine - at the moment, we're using tendermint / ipfs respectively.
 All data (consensus db, forge state db, storage), configuration and logs are stored at the path defined in the `forge_release.toml`. By default, it is under `~/.forge_release`. Feel free to change this path to something like `/var/data/forge` or `/mnt/forge`. In this documentation, we will use `$FORGE_HOME` to refer to this path for simplicity.
-Congratulations! Now your local forge node started successfully! For more information about commands supported by `forge-cli`, feel free to go to: [Forge CLI](../tools/forge_cli.md).
+Congratulations! Now your local forge node started successfully! For more information about commands supported by `forge-cli`, feel free to go to: [Forge CLI](../tools/forge_cli).
 
 ## Forge Logs
 
@@ -117,7 +117,7 @@ Logs are an important interface between forge and its user. Once forge is starte
 * consensus log: under `$FORGE_HOME/tendermint/logs`.
 * storage log: uder `$FORGE_HOME/storage/logs`.
 * forge app log: under `$FORGE_HOME/app/logs`.
-  For more information about forge logs, please refer to: [Forge Logs](../core/log.md).
+  For more information about forge logs, please refer to: [Forge Logs](../core/log).
 
 ## Forge Web
 
@@ -128,7 +128,7 @@ Currently the forge web has these functionalities:
 - dashboard: give you an overview about what happened on the chain.
 - Block Explorer: view and query the data / states in the chain.
 - RPC playground: give you a playground to interact with the RPCs provided by forge.
-  More information about forge web, please go to: [Forge Web](../tools/forge_web.md).
+  More information about forge web, please go to: [Forge Web](../tools/forge_web).
 
 ## Send transactions
 
@@ -143,20 +143,20 @@ After a while your forge web dashboard will look like this:
 ![Forge Web: updated](../assets/images/forge_web1.jpg)
 And the forge block explorer has data for you to dig in:
 ![Forge block explorer](../assets/images/forge_explorer.jpg)
-For more information about forge simulator, please visit: [Forge simulator](../tools/forge_simulator.md).
+For more information about forge simulator, please visit: [Forge simulator](../tools/forge_simulator).
 
 ## Create wallet and send your own txs
 
-Now it's time for you to create your own wallets and send your own txs. Let's go to [send your first tx](./transaction.md)
+Now it's time for you to create your own wallets and send your own txs. Let's go to [send your first tx](./transaction)
 
 ## Forge SDKs
 
 If you want to start coding immediately, we prepared several SDKs for you to use:
 
-- [Forge JavaScript/NodeJS SDK](../sdk/javascript.md)
-- [Forge Python SDK](../sdk/python.md)
-- [Forge Elixir SDK](../sdk/elixir.md)
+- [Forge JavaScript/NodeJS SDK](../sdk/javascript)
+- [Forge Python SDK](../sdk/python)
+- [Forge Elixir SDK](../sdk/elixir)
 
 ## Want to know more?
 
-Dive into [what's inside Forge?](./inside-forge.md)!
+Dive into [what's inside Forge?](./inside-forge)!

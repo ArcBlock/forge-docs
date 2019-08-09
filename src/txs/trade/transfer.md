@@ -1,16 +1,14 @@
 ---
-title: "Transafer Transaction"
-description: "Transafer Transaction"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "trade"
-  - "transfer"
+title: 'Transfer Transaction'
+description: 'Transfer Transaction'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'trade'
+  - 'transfer'
 ---
-
-
 
 **Transfer** transaction is the most common transaction in a blockchain, that one account could transfer tokens and/or a list of assets to another account. Once the transfer is finished successfully, the balance of the sender will be reduced and the owner of the assets in the transfer tx would be changed to the receiver.
 
@@ -26,12 +24,11 @@ message TransferTx {
 
   google.protobuf.Any data = 15;
 }
-
 ```
 
-* `to` is the address of the receiver. It must exist in the chain.
-* `value` is the tokens you'd transfer. Mininum 1 unit (1 token = 10^^16 units by default, you can tune this in forge config). If you don't want to transfer any tokens, just leave it unfilled.
-* `assets` are a list of asset addresses you'd transfer. Leave if unfilled if you don't want to transfer assets. Not that `value` and `assets` cannot be both empty.
+- `to` is the address of the receiver. It must exist in the chain.
+- `value` is the tokens you'd transfer. Mininum 1 unit (1 token = 10^^16 units by default, you can tune this in forge config). If you don't want to transfer any tokens, just leave it unfilled.
+- `assets` are a list of asset addresses you'd transfer. Leave if unfilled if you don't want to transfer assets. Not that `value` and `assets` cannot be both empty.
 
 Here's an example of sending a transfer tx:
 

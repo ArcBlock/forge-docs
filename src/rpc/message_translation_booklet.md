@@ -1,19 +1,16 @@
 ---
-title: "Message Translation Booklet"
-description: "Message Translation Booklet"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "rpc"
-  - "message_translation_booklet"
+title: 'Message Translation Booklet'
+description: 'Message Translation Booklet'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'rpc'
+  - 'message_translation_booklet'
 ---
 
-
-
 ## Transaction type
-
 
 | Type                 | ZH               | EN                           |
 | :------------------- | :--------------- | :--------------------------- |
@@ -32,11 +29,7 @@ tags:
 | exchange             | 交换             | exchange                     |
 | transfer             | 转让             | transfer                     |
 
-
-
 ## Status Code
-
-
 
 | Name                                          | Code | ZH                         | EN                                                 |
 | :-------------------------------------------- | :--- | :------------------------- | :------------------------------------------------- |
@@ -54,15 +47,15 @@ tags:
 | expired_tx                                    | 10   | 过期交易                   | transaction is expired                             |
 | too_many_txs                                  | 11   | 内存池交易过多             | too many transactions in mempool                   |
 | invalid_lock_status                           | 12   | 锁定状态不合法             | lock status is invalid                             |
-| invalid_request                               | 13   | gRPC请求不合法             | gPPC request is invalid                            |
+| invalid_request                               | 13   | gRPC 请求不合法            | gPPC request is invalid                            |
 | 16 - 2047 various errors                      |      |                            |
 | invalid_moniker                               | 16   | 钱包用户名不合法           | moniker of account is invalid                      |
 | invalid_passphrase                            | 17   | 钱包密码不合法             | passphrase of account is invalid                   |
 | invalid_multisig                              | 20   | 多重签名不合法             | multisig signatures are invalid                    |
 | invalid_wallet                                | 21   | 加载钱包的地址或者密码错误 | address or passphrase in loading wallet is invalid |
-| invalid_chain_id                              | 22   | 链ID不合法                 | chain ID is invalid                                |
-| consensus_rpc_error                           | 24   | 共识RPC错误                | consensus rpc error                                |
-| storage_rpc_error                             | 25   | 存储RPC错误                | storage rpc error                                  |
+| invalid_chain_id                              | 22   | 链 ID 不合法               | chain ID is invalid                                |
+| consensus_rpc_error                           | 24   | 共识 RPC 错误              | consensus rpc error                                |
+| storage_rpc_error                             | 25   | 存储 RPC 错误              | storage rpc error                                  |
 | enoent                                        | 26   | 条目不存在                 | no entity found                                    |
 | account_migrated                              | 27   | 已账户迁移状态             | account is in migrated status                      |
 | unsupported_stake                             | 30   | 不支持类型的抵押           | stake is unsupported                               |
@@ -73,7 +66,7 @@ tags:
 | invalid_asset                                 | 35   | 资产信息不合法             | asset is invalid                                   |
 | invalid_tx_size                               | 36   | 交易内容大小不合法         | transaction size is invalid                        |
 | invalid_signer_state                          | 37   | 签名者状态不合法           | singer state is invalid                            |
-| invalid_forge_state                           | 38   | forge状态不合法            | forge state is invalid                             |
+| invalid_forge_state                           | 38   | forge 状态不合法           | forge state is invalid                             |
 | expired_asset                                 | 39   | 过期资产                   | asset is expired                                   |
 | untransferrable_asset                         | 40   | 不可转让资产               | asset is untransferrable                           |
 | readonly_asset                                | 41   | 只读资产                   | asset is readonly                                  |

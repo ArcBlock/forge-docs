@@ -1,16 +1,14 @@
 ---
-title: "Event RPC"
-description: "Event RPC"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "rpc"
-  - "event"
+title: 'Event RPC'
+description: 'Event RPC'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'rpc'
+  - 'event'
 ---
-
-
 
 Event RPCs help users to interact with activities they are interested in. All activities exist in the form of transactions. By using event RPCs, users can receive real-time information on updates of the transactions type they requested.
 
@@ -26,7 +24,6 @@ Event RPCs help users to interact with activities they are interested in. All ac
 subscribe a certian topic of transactions. Server returns all transactions under that topic in a stream format.
 
 `subscribe(RequestSubscribe) returns (stream ResponseSubscribe)`
-
 
 #### RequestSubscribe
 

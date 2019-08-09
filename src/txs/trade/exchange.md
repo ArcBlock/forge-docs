@@ -1,21 +1,19 @@
 ---
-title: "Exchange Transaction"
-description: "Exchange Transaction"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "trade"
-  - "exchange"
+title: 'Exchange Transaction'
+description: 'Exchange Transaction'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'trade'
+  - 'exchange'
 ---
-
-
 
 **Exchange** transaction is a transaction that requires [multisig](../arch/multisig). It tries to solve this common scenario: Alice wants to buy assets owned by Bob. They agreed on a price and then finished the transaction. This scenario is widely used in the E-Commerce business, and with Exchange tx we make this available in blockchain. Below is a list of inherited scenarios it could support:
 
-* taobao mode: seller sells the goods with a fixed price. In our Exchange tx seller can prepopulate an exchange tx that anyone who wants to buy the goods just need to multi-sign the exchange tx.
-* ebay mode: seller owns an asset that is open for bid. Any potential buyer can prepopulate an exchange tx with her bid, and the seller could choose one of the bids and multi-sign it to finish the transaction.
+- taobao mode: seller sells the goods with a fixed price. In our Exchange tx seller can prepopulate an exchange tx that anyone who wants to buy the goods just need to multi-sign the exchange tx.
+- ebay mode: seller owns an asset that is open for bid. Any potential buyer can prepopulate an exchange tx with her bid, and the seller could choose one of the bids and multi-sign it to finish the transaction.
 
 Unlike transfer transaction, exchange transaction is a two-phase commit transaction. The 1st phase, sender creates the tx and sign for it. Then sender needs to find a way to deliver the tx to the receiver (e.g. through email, through website) - this is an offchain operation; the 2nd phase, receiver multi-sign the tx and deliver it to the chain. Only multi-signed exchange tx would be accepted and processed.
 
@@ -42,17 +40,16 @@ message ExchangeTx {
   // forge won't touch this field. Only forge app shall handle it.
   google.protobuf.Any data = 15;
 }
-
 ```
 
-* `to` is the address of the receiver. `to` could be empty, if it is empty, we will use the address in the 1st multisig as the receiver's address.
-* `sender` exchange info are the price (tokens and/or assets) that sender's willing to pay for.
-* `receiver` exchange info are the price (tokens and/or assets) that receiver's willing to pay for.
+- `to` is the address of the receiver. `to` could be empty, if it is empty, we will use the address in the 1st multisig as the receiver's address.
+- `sender` exchange info are the price (tokens and/or assets) that sender's willing to pay for.
+- `receiver` exchange info are the price (tokens and/or assets) that receiver's willing to pay for.
 
 In ExchangeInfo:
 
-* `value` is the tokens one would pay for. Mininum 1 unit (1 token = 10^^16 units by default, you can tune this in forge config). If you don't want to transfer any tokens, just leave it unfilled.
-* `assets` are a list of asset addresses one would pay for. Leave if unfilled if you don't want to transfer assets. Not that `value` and `assets` cannot be both empty.
+- `value` is the tokens one would pay for. Mininum 1 unit (1 token = 10^^16 units by default, you can tune this in forge config). If you don't want to transfer any tokens, just leave it unfilled.
+- `assets` are a list of asset addresses one would pay for. Leave if unfilled if you don't want to transfer assets. Not that `value` and `assets` cannot be both empty.
 
 Here's an example of sending an exchange tx:
 

@@ -1,16 +1,14 @@
 ---
-title: "Create Asset Factory Transaction"
-description: "Create Asset Factory Transaction"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "asset"
-  - "create_asset_factory"
+title: 'Create Asset Factory Transaction'
+description: 'Create Asset Factory Transaction'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'asset'
+  - 'create_asset_factory'
 ---
-
-
 
 **Create Asset Factory** is used to solve a general problem, here's the original proposal:
 
@@ -29,7 +27,6 @@ Note create asset factory tx is currently in **BETA**, its interface is subjecte
 To create an asset factory you shall use `CreateAssetTx` message with `AssetFactory` as its data (yeah we're reusing CreateAssetTx without reinvent the wheels):
 
 ```proto
-
 message AssetAttributes {
   bool transferrable = 1;
   uint32 ttl = 2;
@@ -59,47 +56,47 @@ message CreateAssetTx {
 
 If you look back on the protocol definition of the [create asset tx](create_asset.md), you would find out that fields in `AssetFactory` are designed to be able to generate a `CreateAssetTx` internally. That's the purpose of the template, allowed_spec_args, asset_name and attributes:
 
-* template: the template that asset factory will use to generate the asset, template is string that could be processed by EEx with the given args, and its output is json. Then the json will be parsed and converted against the asset_name. e.g. If your asset name is `Ticket`,e.g. the the generated json data will be converted with `ForgeAbi.Ticket.new(json)`.
-* allowed_spec_args: allowed args for the template. In transfer tx, user can transfer tokens to this AssetFactory address with a json string containing necessary args, once the json is parsed, it will be checked against this, if any field not in the list, the transfer tx will fail.
-* asset_name: the protobuf message name for the asset. Note that this message shall be registered to forge.
-* attributes: asset attributes will be copied to generated asset. Note assets generated from asset factory is read only.
+- template: the template that asset factory will use to generate the asset, template is string that could be processed by EEx with the given args, and its output is json. Then the json will be parsed and converted against the asset_name. e.g. If your asset name is `Ticket`,e.g. the the generated json data will be converted with `ForgeAbi.Ticket.new(json)`.
+- allowed_spec_args: allowed args for the template. In transfer tx, user can transfer tokens to this AssetFactory address with a json string containing necessary args, once the json is parsed, it will be checked against this, if any field not in the list, the transfer tx will fail.
+- asset_name: the protobuf message name for the asset. Note that this message shall be registered to forge.
+- attributes: asset attributes will be copied to generated asset. Note assets generated from asset factory is read only.
 
 Let's take a movie ticket as an example. Say you want to generate tickets with these information:
 
-* time: date & time of the movie.
-* name: name of the movie.
-* room: which room the ticket could be used in.
-* row: which row the ticket belongs to.
-* seat: which seat number the ticket belongs to.
+- time: date & time of the movie.
+- name: name of the movie.
+- room: which room the ticket could be used in.
+- row: which row the ticket belongs to.
+- seat: which seat number the ticket belongs to.
 
 You could create a factory with all these as variable, or fix name, time and room as constant per factory. Let's say you want to create one factory for one show in one room like this:
 
 ```js
 template = {
-  "row": "{{ row }}",
-  "seat": "{{ seat }}",
-  "room": "5C",
-  "time": "11:00am 04/30/2019",
-  "name": "Avengers: Endgame"
-}
+  row: '{{ row }}',
+  seat: '{{ seat }}',
+  room: '5C',
+  time: '11:00am 04/30/2019',
+  name: 'Avengers: Endgame',
+};
 ```
 
 Then you can create a factory like this (room 5C has 200 seats):
 
 ```js
 factory = {
-  "description": "Movie ticket factory",
-  "limit": 200,
-  "price": 10,
-  "template": template,
-  "allowed_spec_args": ["row", "seat"],
-  "asset_name": "Ticket",
-  "attributes": {
-    "transferrable": true,
+  description: 'Movie ticket factory',
+  limit: 200,
+  price: 10,
+  template: template,
+  allowed_spec_args: ['row', 'seat'],
+  asset_name: 'Ticket',
+  attributes: {
+    transferrable: true,
     // ticket is valid in 3 hours after consumption
-    "ttl": 3600 * 3
-  }
-}
+    ttl: 3600 * 3,
+  },
+};
 ```
 
 The asset_name `Ticket` represents this message:
@@ -147,7 +144,5 @@ ForgeSdk.create_asset_factory("Avenerages: Endgame", factory, wallet: w)
 ```
 
 To acquire an asset from the asset factory, please see [Acquire Asset](./acquire_asset.md).
-
-
 
 [1] the link might not be accessible because we haven't open sourced forge.

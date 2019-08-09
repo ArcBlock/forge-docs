@@ -1,16 +1,14 @@
 ---
-title: "Forge Configuration Guide"
-description: "Forge Configuration Guide"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
-tags: 
-  - "core"
-  - "configuration"
+title: 'Forge Configuration Guide'
+description: 'Forge Configuration Guide'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'core'
+  - 'configuration'
 ---
-
-
 
 When Forge starts, it also starts some other applications, such as `tendermint` and `ipfs`. Each appliation has its own configuration file, so does Forge.
 
