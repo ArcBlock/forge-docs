@@ -15,10 +15,11 @@ tags:
 ::: tip
 If you're MAC OSX or ubuntu user, we prepared a desktop version (preview edition) for you to get a node up and running as soon as possible. Please visit [ABT Chain Node](../tools/abt_chain_node) to get more details.
 :::
+
 If you want to quickly try Forge framework, feel free to install Forge CLI tools:
 
 ```bash
-$ npm install -g @arcblock/forge-cli
+npm install -g @arcblock/forge-cli
 ```
 
 The you can do `forge init` to download latest forge assets from our releases:
@@ -52,7 +53,7 @@ If you're trying to install forge in a ubuntu 16.04 machine, please see [install
 Once you finished initialization, forge-cli will put the artifacts into `~/.forge_cli` folder:
 
 ```bash
-$ tree .forge_cli -L 4
+tree .forge_cli -L 4
 .forge_cli
 ├── cache
 ├── forge_release.toml
@@ -88,7 +89,7 @@ There are 3 applications and two configuration files installed for you:
   Then you can run `forge start` to start forge:
 
 ```bash
-08:33 $ forge start
+forge start
 ✔ Forge daemon successfully started
 ┌───────────────┬──────────┬───────────────┬───────────────┬────────────────────┐
 │ Name          │ PID      │ Uptime        │ Memory        │ CPU                │
@@ -113,11 +114,11 @@ Logs are an important interface between forge and its user. Once forge is starte
   - error.log: all warnings and errors. Good for knowing something bad happened on forge.
   - transaction.log: logs related with transaction processing.
   - mempool.log: logs related with mempool processing.
+- consensus log: under `$FORGE_HOME/tendermint/logs`.
+- storage log: uder `$FORGE_HOME/storage/logs`.
+- forge app log: under `$FORGE_HOME/app/logs`.
 
-* consensus log: under `$FORGE_HOME/tendermint/logs`.
-* storage log: uder `$FORGE_HOME/storage/logs`.
-* forge app log: under `$FORGE_HOME/app/logs`.
-  For more information about forge logs, please refer to: [Forge Logs](../core/log).
+For more information about forge logs, please refer to: [Forge Logs](../core/log).
 
 ## Forge Web
 
@@ -128,14 +129,15 @@ Currently the forge web has these functionalities:
 - dashboard: give you an overview about what happened on the chain.
 - Block Explorer: view and query the data / states in the chain.
 - RPC playground: give you a playground to interact with the RPCs provided by forge.
-  More information about forge web, please go to: [Forge Web](../tools/forge_web).
+
+More information about forge web, please go to: [Forge Web](../tools/forge_web).
 
 ## Send transactions
 
 The forge web is great but you may be tired of seeing empty data. To populate some simulation transactions, we provide a tool called `forge-simulator` to generate wallets and transactions to make your life easy. Just run:
 
 ```bash
-$ forge simulator start
+forge simulator start
 ```
 
 A simulator will be started and after a while in your forge web you'll see transactions are being populated. The simulator will first create 10, 000 wallets, and then sending transactions between wallets.
@@ -143,7 +145,7 @@ After a while your forge web dashboard will look like this:
 ![Forge Web: updated](../assets/images/forge_web1.jpg)
 And the forge block explorer has data for you to dig in:
 ![Forge block explorer](../assets/images/forge_explorer.jpg)
-For more information about forge simulator, please visit: [Forge simulator](../tools/forge_simulator).
+For more information about forge simulator, please visit: [Forge simulator](../tools/simulator).
 
 ## Create wallet and send your own txs
 

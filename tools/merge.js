@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
-const matter = require('gray-matter');
 
 const processFolder = folder => {
   if (folder.indexOf('.error_code') > 0) {

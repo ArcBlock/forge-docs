@@ -11,17 +11,17 @@ categories:
       'null':
       - "/"
       Introduction:
-      - "/intro/"
+      - "/intro"
       - "/intro/concepts"
       - "/intro/transaction"
       - "/intro/inside_forge"
       Installation:
-      - "/install/"
+      - "/install"
       - "/install/ubuntu"
       - "/install/centos"
       - "/install/macos"
       Forge SDK:
-      - "/sdk/"
+      - "/sdk"
       - "/sdk/javascript"
       - "/sdk/python"
       - "/sdk/elixir"
@@ -44,7 +44,7 @@ categories:
       - "/core/code"
       - "/core/bigint"
       Forge TX:
-      - "/txs/"
+      - "/txs"
       - "/txs/account/declare"
       - "/txs/account/account_migrate"
       - "/txs/asset/create_asset"

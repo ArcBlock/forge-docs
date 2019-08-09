@@ -1,13 +1,13 @@
 ---
-title: "一般概念"
-description: "一般概念"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
+title: '一般概念'
+description: '一般概念'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
 tags:
-  - "intro"
-  - "concepts"
+  - 'intro'
+  - 'concepts'
 ---
 
 Forge 中引入了好几个新概念，在阅读前，了解这些基本概念可以让您更轻松地了解 forge。
@@ -41,8 +41,8 @@ message Transaction {
 - `chain_id`：追踪这个交易发生的链的字符串
 - `pk`：发送者公共密钥的字节
 - `signature`：发送者在此交易下签名的字节。由接收者用于验证此交易的内容未被其他当事人改变。
-- `signatures`：本交易需要接收者或第三方账户背书情况下的其他多重签名。查看：[什么是多重签名？](../arch/multisig.md)
-- `itx`：此交易的类型和内容。查看：[交易](../txs)
+- `signatures`：本交易需要接收者或第三方账户背书情况下的其他多重签名。查看：[什么是多重签名？](../../arch/multisig)
+- `itx`：此交易的类型和内容。查看：[交易](../../txs)
 
 所有交易受**交易协议**支持。交易协议是执行交易并操控状态的代码。在一个链中的所有运行节点上，交易协议可以被动态地安装、升级、激活和停用。如需了解交易协议的更多信息，请查看[../txs]。
 
@@ -56,7 +56,7 @@ message Transaction {
 
 钱包中包含账户凭证，其包括独特地址、密钥(SK)和公共密钥(PK)。用户通过钱包发出及接收**交易**。
 
-```protobuf
+```proto
 message WalletInfo {
   WalletType type = 1;
   bytes sk = 2;
@@ -135,13 +135,13 @@ Any{
 
 在上面，我们看到了`TransferTx`，其代表了 ABT Node 上的转移活动。每个活动都有自己的内在交易，且定义为不同类型。
 
-如需获取完整的 itx 列表和解释，请查看[Forge ITX](/txs)。
+如需获取完整的 itx 列表和解释，请查看[Forge ITX](../../txs)。
 
 ## gRPC 和 GraphQL
 
 Forge SDK 使用[gRPC](https://grpc.io/docs/)调用和[GraphQL](https://graphql.org/learn/)。
 
-Forge SDK 也部署了很多即用的 GRPC API 供用户使用。如需获取有关 Forge SDK 如何使用 gRPC 的详细说明，请点击[此处](../core/rpc)。
+Forge SDK 也部署了很多即用的 GRPC API 供用户使用。如需获取有关 Forge SDK 如何使用 gRPC 的详细说明，请点击[此处](../../core/rpc)。
 
 ### Protobuf
 

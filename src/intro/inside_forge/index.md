@@ -61,4 +61,4 @@ In Forge, user can transfer or exchange assets / tokens:
   - Bidding service. A group of people could send exchange tx to bid for an asset and the asset owner could choose the one she likes and sign it to finish the transaction.
   - E-commerce. Asset owner could put an exchange transaction for an asset with a price, anyone interested in this price could sign this tx to finish the transaction.
 
-For more information about transactions, please refer to [Forge Transactions](../txs).
+For more information about transactions, please refer to [Forge Transactions](../../txs).
