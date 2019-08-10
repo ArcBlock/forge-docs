@@ -1,3 +1,6 @@
+## 0.35.0 (August 10, 2019)
+
+
 ## 0.34.0 (August 10, 2019)
 
 - fix: alert markers
