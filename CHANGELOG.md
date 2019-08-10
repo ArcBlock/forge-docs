@@ -1,3 +1,50 @@
+## 0.34.0 (August 10, 2019)
+  - fix: alert markers
+  - fix: links in docs
+  - fix: links
+  - fix: links
+  - chore: reorganize doc files
+  - chore: reorganize doc files
+  - chore: format
+  - fix: typo
+  - chore: migrate chinese translations
+  - chore: rename README.md => index.md
+  - chore: merge with master
+  - add new txs supported in forge 0.35. (#81)
+  - Merge branch 'master' into release/0.35
+  - Merge pull request #84 from ArcBlock/chinese-translation
+  - chore: format markdown docs
+  - fix format issue
+  - Merge branch 'master' into chinese-translation
+  - Merge pull request #83 from ArcBlock/update
+  - update code in doc (mainly CreateAssetTx, ExchangeTx)
+  - Merge branch 'master' into chinese-translation
+  - Merge branch 'master' into update
+  - chore: add doc config yaml
+  - Update javascript.md
+  - review chinese docs
+  - correct format
+  - add chinese translations
+  - update python sdk documents
+  - chore: add chinese placeholder for intro docs
+  - chore: move recipes out of docs repo
+  - chore: fix migrate script
+  - chore: migrate error_code page
+  - chore: migrate post
+  - chore: update migrate script
+  - chore: migrate all files
+  - chore: add markdown migrate script
+  - chore: remove useless files
+  - Add docs for atomic swap.
+  - Add docs for atomic swap.
+  - add delegate tx doc
+  - Update abt_chain_node.md
+  - Update abt_chain_node.md
+  - add upgrade forge  doc (#71)
+  - add upgrade forge  doc
+  - Update forge_cli.md (#70)
+  - Update forge_cli.md
+
 ## 0.33.0 (July 17, 2019)
   - Merge pull request #67 from ArcBlock/feature/add-error-code
   - add default docs
