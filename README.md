@@ -7,6 +7,14 @@ The documentation for the Forge Blockchain Application framework can be accessed
 ## Getting Started
 
 ```bash
+git clone https://github.com/ArcBlock/forge-docs.git
+cd forge-docs
 make init
 make run
 ```
+
+Then, open http://localhost:8000/en/docs to preview.
+
+## Contribution
+
+For typos, new posts, please send pull requests.
