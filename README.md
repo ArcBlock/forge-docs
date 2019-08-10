@@ -4,4 +4,9 @@
 
 The documentation for the Forge Blockchain Application framework can be accessed at [docs.arcblock.io/forge](http://docs.arcblock.io/forge).
 
+## Getting Started
 
+```bash
+make init
+make run
+```

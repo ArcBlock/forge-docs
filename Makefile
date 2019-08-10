@@ -1,46 +1,36 @@
 TOP_DIR=.
-OUTPUT_FOLDER=./dist/forge
-VUEPRESS=../node_modules/vuepress/bin/vuepress.js
 
 VERSION=$(strip $(shell cat version))
 
-build: $(OUTPUT_FOLDER)
-	@rm -rf $(OUTPUT_FOLDER)/*
-	@cd src; DOC_VERSION=latest $(VUEPRESS) build; cp -r error_codes/.error_code ../$(OUTPUT_FOLDER)/latest/error_codes/error_code
-	# @cd src; DOC_VERSION=$(basename $(VERSION)) $(VUEPRESS) build
-	@echo "All docs are built."
+build: clean init
+	@echo "Building static pages..."
+	@DEBUG=@arcblock/* yarn build
+	@rm public/*.js.map
 
 all: build
-	@aws s3 sync $(OUTPUT_FOLDER) s3://docs.arcblock.io/forge --region us-west-2 --profile prod
 
 init:
-	@npm install
-
-travis-init: init
-	@echo "Initialize software required for travis (normally ubuntu software)"
+	@echo "Install npm dependencies required for this repo..."
+	@npm install -g gatsby-cli yarn
+	@yarn --force
 
 clean:
-	@rm -rf dist
-	@echo "All docs are cleaned."
+	@rm -rf public && rm -rf .cache
+	@echo "All pages are cleaned."
 
-$(OUTPUT_FOLDER):
-	@mkdir -p $@
-
-watch:
-	@make build
-	@echo "Watching templates and slides changes..."
-	@fswatch -o src/ | xargs -n1 -I{} make build
-
-dev:
-	@cd src; DOC_VERSION=latest $(VUEPRESS) dev
+deploy: build
+	@echo "Building and publishing the documenation..."
+	# @aws s3 sync ./public s3://docs.arcblock.io/ --region us-west-2 --profile prod
 
 run:
-	@http-server ./dist -p 8008 -c-1
+	@yarn start
 
-travis: build
+serve: build
+	@yarn serve
 
-travis-deploy: release
-	@echo "Deploy the software by travis"
+travis: init
+	@echo "Prepare travis build env"
+	@gem install travis -v 1.8.9
 
 include .makefiles/release.mk
 
