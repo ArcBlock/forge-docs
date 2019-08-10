@@ -1,1 +1,0 @@
-# Forge Core Functionalities

@@ -1,6 +1,0 @@
-@startuml
-
-A-->B: request
-B-->A: ack
-
-@enduml

@@ -1,0 +1,70 @@
+---
+gitRepo: "ArcBlock/forge-docs"
+srcPath: "src"
+categories:
+  docs:
+    basePath: "/docs"
+    title: "Docs"
+    link: "/"
+    priority: 9999
+    sidebar:
+      'null':
+      - "/"
+      Introduction:
+      - "/intro"
+      - "/intro/concepts"
+      - "/intro/transaction"
+      - "/intro/inside_forge"
+      Installation:
+      - "/install"
+      - "/install/ubuntu"
+      - "/install/centos"
+      - "/install/macos"
+      Forge SDK:
+      - "/sdk"
+      - "/sdk/javascript"
+      - "/sdk/python"
+      - "/sdk/elixir"
+      - "/sdk/java"
+      - "/sdk/others"
+      Forge Tools:
+      - "/tools"
+      - "/tools/forge_cli"
+      - "/tools/forge_web"
+      - "/tools/abt_chain_node"
+      - "/tools/simulator"
+      - "/tools/forge_indexer"
+      - "/tools/dapps_workshop"
+      Architecture:
+      - "/arch"
+      - "/arch/multisig"
+      Forge Core:
+      - "/core/rpc"
+      - "/core/configuration"
+      - "/core/log"
+      - "/core/tx_protocol"
+      - "/core/code"
+      - "/core/bigint"
+      Forge TX:
+      - "/txs"
+      - "/txs/account/declare"
+      - "/txs/account/account_migrate"
+      - "/txs/asset/create_asset"
+      - "/txs/asset/update_asset"
+      - "/txs/asset/consume_asset"
+      - "/txs/asset/create_asset_factory"
+      - "/txs/asset/acquire_asset"
+      - "/txs/trade/transfer"
+      - "/txs/trade/exchange"
+      Forge RPC:
+      - "/rpc/chain"
+      - "/rpc/event"
+      - "/rpc/state"
+      - "/rpc/stats"
+      - "/rpc/wallet"
+      - "/rpc/message_translation_booklet"
+      Forge Types:
+      - "/types/type"
+      - "/types/enum"
+      - "/types/state"
+      - "/types/trace_type"
