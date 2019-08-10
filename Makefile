@@ -2,7 +2,7 @@ TOP_DIR=.
 
 VERSION=$(strip $(shell cat version))
 
-build: clean init
+build: clean
 	@echo "Building static pages..."
 	@DEBUG=@arcblock/* yarn build
 	@rm public/*.js.map
