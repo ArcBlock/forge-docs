@@ -26,3 +26,5 @@ releases
 dist
 *.sample.json
 output
+.cache
+public

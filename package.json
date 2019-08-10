@@ -1,22 +1,22 @@
 {
   "dependencies": {
-    "gray-matter": "^4.0.2",
+    "@arcblock/gatsby-theme-docs": "^6.1.0",
+    "gatsby": "^2.13.57",
     "prettier": "^1.13.7",
     "remark-cli": "^5.0.0",
     "remark-lint-no-dead-urls": "^0.3.0",
     "remark-lint-write-good": "^1.0.3",
     "remark-preset-lint-recommended": "^3.0.2",
     "textlint": "^10.2.1",
-    "textlint-rule-stop-words": "^1.0.3",
-    "webpack-serve": "^3.1.0"
+    "textlint-rule-stop-words": "^1.0.3"
   },
   "scripts": {
     "lint:json": "prettier \"**/*.json\" --write",
     "lint:md": "prettier \"**/*.md\" --write && remark . && textlint \"md/**\"",
     "lint": "yarn lint:json && yarn lint:md",
-    "start": "npm run build && npm run serve",
-    "dev": "cd src; vuepress dev",
-    "build": "cd src; vuepress build",
+    "start": "gatsby develop",
+    "build": "GATSBY_APP_DOMAIN=docs.arcblock.io gatsby build",
+    "serve": "gatsby serve",
     "commit": "standard-commit",
     "release": "standard-version"
   },
@@ -25,22 +25,15 @@
       "@commitlint/config-conventional"
     ]
   },
-  "name": "forge-doc",
+  "name": "forge-docs",
   "description": "Forge framework Documentation",
   "version": "0.25.2",
   "main": "README.md",
   "devDependencies": {
     "@commitlint/cli": "^7.1.2",
     "@commitlint/config-conventional": "^7.1.2",
-    "@gerhobbelt/markdown-it-footnote": "^3.0.2-3",
-    "image-data-uri": "^1.1.1",
-    "katex": "^0.10.0-rc.1",
-    "markdown-it-texmath": "^0.5.1",
-    "serve": "^10.0.0",
     "standard-commit": "^0.6.0",
-    "standard-version": "^4.4.0",
-    "vuepress": "^0.14.11",
-    "yorkie": "^2.0.0"
+    "standard-version": "^4.4.0"
   },
   "repository": {
     "type": "git",

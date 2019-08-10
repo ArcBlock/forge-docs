@@ -1,28 +1,26 @@
 sudo: false
 before_install:
-- nvm install 10
+  - nvm install 10
 branches:
   only:
-  - master
-before_script: make travis-init
+    - master
 script: make travis
-before_deploy: make travis-deploy
+before_deploy: make build
 deploy:
-
   - provider: releases
     skip_cleanup: true
-    tag_name: "$(git describe --tags --exact-match)"
+    tag_name: '$(git describe --tags --exact-match)'
     api_key:
       secure: dZ+SRAYzsTFWm9980WMBZRGPMzzxYk7l12QAUqqP2Om9sqE1aH88Bx2v+HPzgswwXi5pvnXswAwD4emJG7gF97OBI9OTqTAYlRl3s72le9XanDCK6M1TBzgztapOqFCB1tmI5/x5wcy461RRow/bB9qa6vwwGn1sYtbr/4yJHxIlWthQVUq831u+agxNZDRNpI4XjsOCMIrdQPE/3gtmPm1/RDnAfH56LMw2qihXGxPN4ejxi0F0OUw4T6JdXejPcQZ8rsLs7x/x7N8ClJZifI0uvsoMR0Q6sifeXV9DCGlPU1/G1xG5sam3a+tLR8qL7ENRj1TuNxNBPzZezvcXEjKoxAaEmZ7tWwr5Wh7XQ/UuJsTF2hCQ895YoJLrotrOfugGDdUKEaXVxWTBfg+DzX10N+8ptJKQD+73caIXnUqq0Xt0xoHitUsoRAmu5DIA5upimb6rQnLWi3qPERmpXAeWKOlSDqyDE6KVmMdYIO5LUsuaJfn1zrHaZ3UX8TCVV01Gr0keYETDfb+4q7TN3X9TYk1ZtzZ6mFCkyf6CpSW3qwwUlly27pbyy5Qk2r+POCsXBCEIdLR6ucgJ7JYh9qN2hZ9sZjAnwiTl6bX1WA/g3hXMg86LRJxA4oAgTemdwQb2EPamzpHdDiIMRlDHG65Mz1yurL2raS+lqQ+IB6Y=
     on:
       repo: ArcBlock/forge-docs
       branch: master
-  - provider: s3
-    access_key_id: AKIAJYXT4M4SX54ER66Q
-    secret_access_key:
-      secure: O7noNpc97C7BGFb2uKRhST66BbC387qXyrz0bQpFq7ukoZ+P6icPjQ/R7jjMtzNiCh82PQ8zhN/O5Xmkv3uZ2fT5ePGt/Dz4skp26RR/gwMjNBrUCje9DbSIaSvXKqbJaZcuwwx8FuWnuLu37zMYSfOPJbquTFkO/nUPd5yToct9jN/WYJbmzCDnbCu99Lko2LHIcrQ0sbUy6TvWyX+VlUi3Ly7vobmn9IVKnXS2uQ6uei0g05IW9gRoNWTRWqxx7jmnDf9hsrThSFsNIqugkG05WuobEzihC0e2DYY3FD6IRnV2SLOAKxcsepMs3oiCeKqGtaY18c1Zkrbm4iTNIncK1YtQ+TbDOtxgz/iwtmJz+o2I9W6PgixkdcdihgKyvKXqCo1PGvjy9NFvuf7MyuZ6LIsNwRh40+VxVUGqhkK1HFlAxj+heCr/4Dse3/6h+cLyXz5rp4zUaNEK5cpKJzDDOe7cGj1Te6qewJ6AOfYYUeZ1SjlWRP6vnCpKqXvp3NMJ8ANf8PjIyGqKrfG2bEh4AxOCYtXfwT9hYnhLCOut3UZmJZ7GLqYjNW4gGRN5BFun5OVAOzfPjuwUHIEKKUd03yu6luzR5aabEBlqhfmbyZ2rasEGCpRzsd2GB9i98dQXqEQnT7ITfDfCWCw7BrgPoOWojq+1E/Cqb3X6nSA=
-    bucket: docs.arcblock.io
-    local-dir: dist/forge
-    upload-dir: forge
-    skip_cleanup: true
-    region: us-west-2
+  # - provider: s3
+  #   access_key_id: AKIAJYXT4M4SX54ER66Q
+  #   secret_access_key:
+  #     secure: O7noNpc97C7BGFb2uKRhST66BbC387qXyrz0bQpFq7ukoZ+P6icPjQ/R7jjMtzNiCh82PQ8zhN/O5Xmkv3uZ2fT5ePGt/Dz4skp26RR/gwMjNBrUCje9DbSIaSvXKqbJaZcuwwx8FuWnuLu37zMYSfOPJbquTFkO/nUPd5yToct9jN/WYJbmzCDnbCu99Lko2LHIcrQ0sbUy6TvWyX+VlUi3Ly7vobmn9IVKnXS2uQ6uei0g05IW9gRoNWTRWqxx7jmnDf9hsrThSFsNIqugkG05WuobEzihC0e2DYY3FD6IRnV2SLOAKxcsepMs3oiCeKqGtaY18c1Zkrbm4iTNIncK1YtQ+TbDOtxgz/iwtmJz+o2I9W6PgixkdcdihgKyvKXqCo1PGvjy9NFvuf7MyuZ6LIsNwRh40+VxVUGqhkK1HFlAxj+heCr/4Dse3/6h+cLyXz5rp4zUaNEK5cpKJzDDOe7cGj1Te6qewJ6AOfYYUeZ1SjlWRP6vnCpKqXvp3NMJ8ANf8PjIyGqKrfG2bEh4AxOCYtXfwT9hYnhLCOut3UZmJZ7GLqYjNW4gGRN5BFun5OVAOzfPjuwUHIEKKUd03yu6luzR5aabEBlqhfmbyZ2rasEGCpRzsd2GB9i98dQXqEQnT7ITfDfCWCw7BrgPoOWojq+1E/Cqb3X6nSA=
+  #   bucket: docs.arcblock.io
+  #   local-dir: dist/forge
+  #   upload-dir: forge
+  #   skip_cleanup: true
+  #   region: us-west-2
