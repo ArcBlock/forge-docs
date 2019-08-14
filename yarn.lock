@@ -19,17 +19,17 @@
     remark-containers "^1.1.0"
     remark-generic-extensions "^1.4.0"
 
-"@arcblock/gatsby-theme-docs@^6.5.0":
-  version "6.5.0"
-  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-docs/-/gatsby-theme-docs-6.5.0.tgz#dcb54c97184e4f732a93fd1d9e5df4c7b95ef5a2"
-  integrity sha512-HrCpxx7Y1pVbDZBCWjlrLCHwYCnb7dGBevUQQ8maIwdwZm9XlmyjM+NBT8/W5tjXV5jeV5n3tH82qAajlEqZ0g==
+"@arcblock/gatsby-theme-docs@^6.6.0":
+  version "6.6.0"
+  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-docs/-/gatsby-theme-docs-6.6.0.tgz#db51bc120039a87a0be08d78944fafc758e6efd7"
+  integrity sha512-U9hBEoIFM+2LPgSBhZ1uRcj5xn2LIihIiWkDaDUsvEk/BWVR6UT1udkYv78tvnpWPO73VFobKo1d/MQittTkrg==
   dependencies:
     "@arcblock/gatsby-awesome-pagination" "^0.3.4"
     "@arcblock/gatsby-remark-extensions" "^6.0.0"
     "@arcblock/gatsby-transformer-remark" "^6.0.0"
     "@arcblock/remark-include" "^6.0.0"
     "@arcblock/ux" "^0.18.0"
-    "@arcblock/www" "^6.5.0"
+    "@arcblock/www" "^6.6.0"
     "@material-ui/core" "^4.3.0"
     "@material-ui/icons" "^4.2.1"
     "@mdx-js/mdx" "^1.1.0"
@@ -140,10 +140,10 @@
     topojson-client "^3.0.0"
     versor "^0.0.4"
 
-"@arcblock/www@^6.5.0":
-  version "6.5.0"
-  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.5.0.tgz#c80446fd98403a71a0c89821d91ca9481be12803"
-  integrity sha512-+Qff0tb19TwG9pnvSPj6PGivzwpqFrf6KohErmKijtwdVs/YJ1hr+RYCQXdoIanNxs7VsUCMSOlbj0bWzH2FxA==
+"@arcblock/www@^6.6.0":
+  version "6.6.0"
+  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.6.0.tgz#749fc2858df67ca7068efdb603def9ea9db4b3fa"
+  integrity sha512-E1MhnVwxv5zEbqzMx53mOJw9ByJ5Gk3u+Bu8a7+QmauocQrS/wJpcIp3v90tiBm7Lt0jVOaS+vEWBLpilYmkEQ==
   dependencies:
     "@arcblock/ux" "^0.18.0"
     "@material-ui/core" "4.1.1"

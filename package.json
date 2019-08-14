@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@arcblock/gatsby-theme-docs": "^6.5.0",
+    "@arcblock/gatsby-theme-docs": "^6.6.0",
     "dotenv": "^8.0.0",
     "gatsby": "^2.13.57",
     "prettier": "^1.13.7",
@@ -16,7 +16,7 @@
     "lint:md": "prettier \"**/*.md\" --write && remark . && textlint \"md/**\"",
     "lint": "yarn lint:json && yarn lint:md",
     "start": "gatsby develop",
-    "build": "GATSBY_APP_DOMAIN=docs.arcblock.io gatsby build",
+    "build": "NODE_ENV=production GATSBY_APP_DOMAIN=docs.arcblock.io gatsby build",
     "serve": "gatsby serve",
     "commit": "standard-commit",
     "release": "standard-version"
