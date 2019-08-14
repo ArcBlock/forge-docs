@@ -19,17 +19,17 @@
     remark-containers "^1.1.0"
     remark-generic-extensions "^1.4.0"
 
-"@arcblock/gatsby-theme-docs@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-docs/-/gatsby-theme-docs-6.1.0.tgz#b9b6e0a8cade393c9d954cf4063f65f2869391a0"
-  integrity sha512-LvJCDBAKNmV0W4ZI2YhJjWtQ0VB7gnHel/ExuWRfaXsiQmN/k6YJTYuGrxFtTkha+YOgxCaAXLz7Z/1Me86BcA==
+"@arcblock/gatsby-theme-docs@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.npmjs.org/@arcblock/gatsby-theme-docs/-/gatsby-theme-docs-6.5.0.tgz#dcb54c97184e4f732a93fd1d9e5df4c7b95ef5a2"
+  integrity sha512-HrCpxx7Y1pVbDZBCWjlrLCHwYCnb7dGBevUQQ8maIwdwZm9XlmyjM+NBT8/W5tjXV5jeV5n3tH82qAajlEqZ0g==
   dependencies:
     "@arcblock/gatsby-awesome-pagination" "^0.3.4"
     "@arcblock/gatsby-remark-extensions" "^6.0.0"
     "@arcblock/gatsby-transformer-remark" "^6.0.0"
     "@arcblock/remark-include" "^6.0.0"
-    "@arcblock/ux" "^0.16.7"
-    "@arcblock/www" "^6.0.0"
+    "@arcblock/ux" "^0.18.0"
+    "@arcblock/www" "^6.5.0"
     "@material-ui/core" "^4.3.0"
     "@material-ui/icons" "^4.2.1"
     "@mdx-js/mdx" "^1.1.0"
@@ -37,7 +37,7 @@
     "@svgr/webpack" "^4.1.0"
     "@xmark/core" "^0.14.0"
     "@xmark/theme-section-template" "^0.14.0"
-    "@xmark/theme-shower-ribbon" "^0.14.1"
+    "@xmark/theme-shower-ribbon" "^0.14.2"
     "@xmark/transform-class-extension" "^0.14.0"
     "@xmark/transform-gatsby-remark" "^0.14.0"
     "@xmark/transform-section-template" "^0.14.0"
@@ -69,6 +69,7 @@
     github-markdown-css "^3.0.1"
     instantsearch.css "^7.3.1"
     js-yaml "^3.13.1"
+    md-attr-parser "^1.2.1"
     polished "^3.4.1"
     prop-types "^15.7.2"
     react "^16.8.6"
@@ -119,11 +120,12 @@
   dependencies:
     vfile "^2.0.0"
 
-"@arcblock/ux@^0.16.7":
-  version "0.16.7"
-  resolved "https://registry.npmjs.org/@arcblock/ux/-/ux-0.16.7.tgz#4d367dadbe5c92b7e8f48a838707726d77264087"
-  integrity sha512-Ta/bCSrr5wkcdLTEyVFrNXPc5ysL1XelxHVbsR+H2ToNntxxvV7dLR2xgj9nX4wUrrLipSoOJR6p5w8XwaeP/g==
+"@arcblock/ux@^0.18.0":
+  version "0.18.0"
+  resolved "https://registry.npmjs.org/@arcblock/ux/-/ux-0.18.0.tgz#b7970c2518334e23c9ab01e548d0ef4a64b7147f"
+  integrity sha512-hs+yFfKRzP9qHYGKCrYfLdoX5oCajRQQfMUTb6H8J7H3JD6GnmdTNvSGeUC+tvj0xiQvQeqlj5FR6k0b79l8dg==
   dependencies:
+    "@babel/plugin-syntax-dynamic-import" "^7.2.0"
     copy-to-clipboard "^3.2.0"
     d3-geo "^1.11.6"
     graphiql "^0.13.2"
@@ -138,12 +140,12 @@
     topojson-client "^3.0.0"
     versor "^0.0.4"
 
-"@arcblock/www@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.0.0.tgz#95d3df2b2d769c1c13977b050c7e2048a036bc6f"
-  integrity sha512-mqGqxQ/WbEuU1VshRIUehuqYV1z9TktTJrX6Pd73XPSyj9P9eRrbPi56fcjc0qwpMhibwN6YW+sqirmb8oKx1w==
+"@arcblock/www@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.npmjs.org/@arcblock/www/-/www-6.5.0.tgz#c80446fd98403a71a0c89821d91ca9481be12803"
+  integrity sha512-+Qff0tb19TwG9pnvSPj6PGivzwpqFrf6KohErmKijtwdVs/YJ1hr+RYCQXdoIanNxs7VsUCMSOlbj0bWzH2FxA==
   dependencies:
-    "@arcblock/ux" "^0.16.7"
+    "@arcblock/ux" "^0.18.0"
     "@material-ui/core" "4.1.1"
     "@material-ui/icons" "^3.0.2"
     axios "^0.19.0"
@@ -2297,10 +2299,10 @@
   resolved "https://registry.npmjs.org/@xmark/theme-section-template/-/theme-section-template-0.14.0.tgz#b338ff11513e00f0fa5c7ebcecab33042feb1da2"
   integrity sha512-O1KW+rMYHy7HNG/3+HyjAk8lmrwzvnzB+u/BgcQbk89T1uK9OlQn4iasPvzSI0q+eskJ0tKO4/jYonLPAmYQDA==
 
-"@xmark/theme-shower-ribbon@^0.14.1":
-  version "0.14.1"
-  resolved "https://registry.npmjs.org/@xmark/theme-shower-ribbon/-/theme-shower-ribbon-0.14.1.tgz#0ef3ed279c0bf4f03ab0a35dee4d74d3162169fe"
-  integrity sha512-Dgoe/NCLW55WxCJgH0nMw1xrS7RQPV71t6T8XI9hplUsy3PiXEMoQ3+9IKRl8BjT0GBoYHHH7qVei1idvVyHmA==
+"@xmark/theme-shower-ribbon@^0.14.2":
+  version "0.14.2"
+  resolved "https://registry.npmjs.org/@xmark/theme-shower-ribbon/-/theme-shower-ribbon-0.14.2.tgz#5ba62825de854fd8e3673e78581a473290e59b3a"
+  integrity sha512-vwho94J8c7m9NKXUkdJZnvSZKTF3sOrV/QkydEeEYeZQeWoY+oZECGzbLkXlA8djwrfFf/6W8E4cXBvpOh7M9A==
 
 "@xmark/transform-class-extension@^0.14.0":
   version "0.14.0"

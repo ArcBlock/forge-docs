@@ -31,27 +31,7 @@ module.exports = {
           adminKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
           searchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
         },
-        navItems: [
-          {
-            title: 'Versions',
-            link: '/versions',
-            subPages: {
-              'https://github.com/ArcBlock': 'v0.36.1',
-              'https://www.arcblock.io': 'v0.35.0',
-            },
-          },
-          {
-            title: 'Community',
-            link: '/community',
-            subPages: {
-              'https://github.com/ArcBlock': 'GitHub',
-              'https://www.arcblock.io': 'About',
-              'https://gitter.im/ArcBlock/community': 'Gitter',
-              'https://twitter.com/ArcBlock_io': 'Twitter',
-              'https://youtube.com/channel/UC0pEW_GOrMJ23l8QcrGdKSw': 'YouTube',
-            },
-          },
-        ],
+        navItems: [],
         extraPlugins: [],
       },
     },

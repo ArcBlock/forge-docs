@@ -30,7 +30,6 @@ serve: build
 
 travis: init
 	@echo "Prepare travis build env"
-	@gem install travis -v 1.8.9
 
 include .makefiles/release.mk
 
