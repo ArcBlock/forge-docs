@@ -12,7 +12,7 @@ deploy:
   on:
     branch: master
 - provider: script
-  script: curl -X POST -d {} https://api.netlify.com/build_hooks/5d53b7e5c624e4e570256c69
+  script: curl -X POST -d {} https://api.netlify.com/build_hooks/5d547ef03d5afa758a1402e8
   on:
     branch: master
 env:
