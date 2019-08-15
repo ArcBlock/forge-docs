@@ -33,9 +33,9 @@ tags:
 
 错误日志显示 Forge 核心生成的错误。这大部分为 Elixir/Erlang 流程详细的崩溃日志。该日志在排除故障方面很有用。
 
-## 内存池日志
+## Mempool日志
 
-内存池日志显示 tenderint 内存池的日志。在每笔交易被检查后，便会被发送至 tenderint 的内存池，等待纳入下一个区块。
+mempool日志显示 tenderint mempool的日志。在每笔交易被检查后，便会被发送至 tenderint 的mempool，等待纳入下一个区块。
 
 只有一个 tendermint 阶段：
 
@@ -78,9 +78,9 @@ tags:
 
 默认情况下，对于每比交易，我们提供三个日志项目：
 
-- 一致交付 tx：区块的高度，tx 索引和哈希。
-- 开始 tx：出高度/tx_index/哈希外，它也包含 type_url 和发送者地址。
-- 完成的 tx：除开始 tx 的数据外，它也提供重要信息：
+- consensus deliver tx：区块的高度，tx 索引和哈希。
+- start tx：出高度/tx_index/哈希外，它也包含 type_url 和发送者地址。
+- finished tx：除开始 tx 的数据外，它也提供重要信息：
   - 状态：如果状态不`ok`，则是无效 tx。状态代码会表明此 tx 上发生了何种错误。
   - 花费总时间：因为每个 tx 都会经过一系列管道，它在`us`里给出每个管道的性能指标。如需了解更多信息，请查看[Forge TX 协议](../tx_protocol)。
 

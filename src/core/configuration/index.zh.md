@@ -14,7 +14,7 @@ Forge 启动时，也会启动一些其他的应用程序，例如`tendermint`�
 
 我们使用 toml 文件进行 Forge 的配置。如果您不知道 toml 是什么，请参看[toml-lang/toml](https://github.com/toml-lang/toml)。
 
-我们喜欢 toml 文件的一点是，我们可以按区分隔配置。Forge 只使用一个配置文件，不同的区用于系统的不同部分。目前，我们有以下区：
+`toml`文件的一个好处是可以按区分隔配置。Forge 只使用一个配置文件，不同的区用于系统的不同部分。目前，我们有以下区：
 
 ```toml
 [app]

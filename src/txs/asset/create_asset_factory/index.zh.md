@@ -78,27 +78,27 @@ string address = 7;
 }
 ```
 
-如果您回顾[创建资产 tx](../create_asset)的协议定义，您会发现，`AssetFactory`中字段的设计使其可在内部生成`CreateAssetTx`。那是模板 allowed_spec_args, asset_name 的目的和属性：
+如果您回顾[CreateAssettx](../create_asset)的协议定义，您会发现，`AssetFactory`中字段的设计使其可在内部生成`CreateAssetTx`。那是模板 allowed_spec_args, asset_name 的目的和属性：
 
-- 模板：资产工厂将用于生成资产的模板，模板是字符串，可由带特定 args 的 EEx 处理，其输出为 json。然后，json 会被解析并根据 asset_name 转换。例如，如果您的资产名称为`Ticket`，则生成的 json 数据则会被转换为`ForgeAbi.Ticket.new(json)`。
+- template：资产工厂将用于生成资产的模板，模板是字符串，可由带特定 args 的 EEx 处理，其输出为 json。然后，json 会被解析并根据 asset_name 转换。例如，如果您的资产名称为`Ticket`，则生成的 json 数据则会被转换为`ForgeAbi.Ticket.new(json)`。
 
 - allowed_spec_args：模板允许的参数。在转移 tx，用户可通过包含所需参数的 json 字符串向这个 AssetFactory 地址转移代币，解析 json 后，会对照此表格进行检查，如果任何字段不在列表中，则转移 tx 会失败。
 
 - asset_name：资产的 protobuf 消息名。请注意，此消息应被注册在 forge。
 
-- 属性：资产属性将被复制到已生成资产。请注意，从资产工厂生成的资产为只读。
+- attributes：资产属性将被复制到已生成资产。请注意，从资产工厂生成的资产为只读。
 
 拿电影票举例。加入您希望生成包含以下信息的电影票：
 
-- 时间：电影播放的日期和时间。
+- time：电影播放的日期和时间。
 
-- 名称：电影名称。
+- name：电影名称。
 
-- 放映室：电影票可使用的放映室。
+- room：电影票可使用的放映室。
 
-- 排：电影票所属的座位排。
+- row：电影票所属的座位排。
 
-- 座：电影票所述的座位号。
+- seat：电影票所述的座位号。
 
 您可以创建一个上述所有信息均为变量的工厂，或固定名称、时间和放映室作为每个工厂的常数。假如您想为每个放映室的一部电影创建一个工厂，如下：
 
