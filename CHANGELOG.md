@@ -1,3 +1,7 @@
+## 0.38.0 (August 15, 2019)
+
+- chore: optimize images
+
 ## 0.37.0 (August 15, 2019)
 
 
