@@ -10,7 +10,7 @@ tags:
   - 'multisig'
 ---
 
-在大部分区块链的实现中，只有发送者需要签署交易。有了发送者的签名，我们可以相信，发送者批准了操作。[转移](../../txs/trade/transfer) 之类的交易是发送者向接收者（未经接收者许可）发送代币/资产的典型例子。在现实世界，大量用例需要交易中所有参与方的授权。例如，爱丽丝会给鲍勃 20 ABT，购买鲍勃拥有的一张会议入场券。在本次交易中，爱丽丝请求交易她的 20 ABT 和鲍勃的入场券。鲍勃必须授权使交易生效。这就是多重签名的基础用例。
+在大部分区块链的实现中，只有发送者需要签署交易。有了发送者的签名，我们可以相信，发送者批准了操作。[Transfer](../../txs/trade/transfer) 之类的交易是发送者向接收者（未经接收者许可）发送代币/资产的典型例子。在现实世界，大量用例需要交易中所有参与方的授权。例如，Alice会给Bob 20 ABT，购买Bob拥有的一张会议入场券。在本次交易中，Alice请求交易她的 20 ABT 和Bob的入场券。Bob必须授权使交易生效。这就是多重签名的其中一个使用场景。
 
 在 Forge 中，交易协议可决定是否要启用多重签名。如果启用了多重签名，则所涉及的参与方必须按顺序根据多重签名结构签署交易（tx）：
 
@@ -55,11 +55,11 @@ message Transaction {
 
 我们用[交换](../txs/exchange)交易解释一下上面的例子：
 
-爱丽丝发起交易后，她是发送者，鲍勃是接收者。发送者始终向`signature`字段添加签名，而接收者（或更多当事人）需要在之后进行多重签名。
+Alice发起交易后，她是发送者，Bob是接收者。发送者始终向`signature`字段添加签名，而接收者（或更多当事人）需要在之后进行多重签名。
 
-### 第一步：爱丽丝创建交换 ITX
+### 第一步：Alice创建交换 ITX
 
-爱丽丝要填写一个交换 itx：
+Alice要填写一个交换 itx：
 
 ```elixir
 %ForgeAbi.ExchangeTx{
@@ -75,7 +75,7 @@ message Transaction {
 }
 ```
 
-爱丽丝要将该 itx 和她的签名放入交易中（您需要将该 itx 编码为 Google.Protobuf.Any，且将 type_url 定义为 `fg:t:exchange`）：
+Alice要将该 itx 和她的签名放入交易中（您需要将该 itx 编码为 Google.Protobuf.Any，且将 type_url 定义为 `fg:t:exchange`）：
 
 ```elixir
 %ForgeAbi.Transaction{
@@ -98,7 +98,7 @@ message Transaction {
 }
 ```
 
-然后，通过链下方式将此 tx 交付给鲍勃。例如，用 ABT 钱包发送电子邮件或消息。鲍勃收到这个 tx 后，他可以按上方的描述生成多重签名，并将其附在 tx 上：
+然后，通过链下方式将此 tx 交付给Bob。例如，用 ABT 钱包发送电子邮件或消息。Bob收到这个 tx 后，他可以按上方的描述生成多重签名，并将其附在 tx 上：
 
 ```elixir
 %ForgeAbi.Transaction{
@@ -132,7 +132,7 @@ message Transaction {
 }
 ```
 
-然后，鲍勃可以将此 tx 交付到链。因为双方都签署了 tx，这个 tx 将得到执行。
+然后，Bob可以将此 tx 交付到链。因为双方都签署了 tx，这个 tx 将得到执行。
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTE3NTQyMjg5Niw3MDUwNTUwNzYsNzA0NT

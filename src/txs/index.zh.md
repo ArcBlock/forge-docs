@@ -68,9 +68,9 @@ tags:
 
 - config.yml 或 config.json：配置此交易协议。由`forge-compiler`使用，了解协议中需汇编哪些文件以及包含哪些元数据。
 
-- 一个原始文件（可选）：您交易协议的 protobuf 定义。必须在 config.yml 中引用。
+- 一个proto文件（可选）：您交易协议的 protobuf 定义。必须在 config.yml 中引用。
 
-- 一个管道文件（可选）：您交易协议的交易管道必须在 config.yml 中引用。
+- 一个pipeline文件（可选）：您交易协议的交易管道必须在 config.yml 中引用。
 
 - 一系列源代码：交易协议的逻辑。
 
@@ -82,7 +82,7 @@ $ forge-compiler config.yml
 
 或将其加入`Makefile`，则`make build-protocols`会为您处理。
 
-汇编的结果是 url based64 加密（填充：错误）部署协议 itx。对于您的本地节点，您可以使用管理员的钱包将其发送至链。
+汇编的结果是 based64 encoded (padding: false)部署协议 itx。对于您的本地节点，您可以使用管理员的钱包将其发送至链。
 
 ### config.yml
 

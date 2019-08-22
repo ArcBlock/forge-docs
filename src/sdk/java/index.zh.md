@@ -97,7 +97,7 @@ val response = forge.sendTx(Rpc.RequestSendTx.newBuilder()
 
 ### 第 5 步：将您的余额转移给他人。
 
-根据第 2 步操作创建另一个钱包（如：鲍勃）。
+根据第 2 步操作创建另一个钱包（如：Bob）。
 
 ```kotlin
 //create TransferTx
@@ -112,7 +112,7 @@ val response = forge.sendTx(Rpc.RequestSendTx.newBuilder()
                     .build());
 ```
 
-如果有用，响应将返回一个哈希字符串。您可以使用 forgeSDK，或在 forgeWeb 内询问这个哈希。tx 确认后，检查爱丽丝和鲍勃的账户以确认交易成功。
+如果有用，响应将返回一个哈希字符串。您可以使用 forgeSDK，或在 forgeWeb 内询问这个哈希。tx 确认后，检查Alice和Bob的账户以确认交易成功。
 
 ::: tip
 **TBA**是 Forge 链上的默认货币。1 TBA 有 16 个数位，所以，显示为`10000000000000000`。

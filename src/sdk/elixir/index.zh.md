@@ -74,13 +74,13 @@ forge simulator start
 
 ### 1 级：转移金钱
 
-**场景**：爱丽丝想给鲍勃转移 10TBA。
+**场景**：Alice想给Bob转移 10TBA。
 
 ::: tip
 **TBA**是 Forge 链上的默认货币。1 TBA 有 16 个数位，所以，显示为`10000000000000000`。
 :::
 
-#### 第 1 步：为爱丽丝和鲍勃创建钱包
+#### 第 1 步：为Alice和Bob创建钱包
 
 ```elixir
 w1 = ForgeSdk.create_wallet()
@@ -93,15 +93,15 @@ ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "bob_wallet"), wallet: w2)
 `moniker`是 Forge 上该钱包的昵称。`passphrase`由 Forge 使用，以将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../intro/concepts)。
 :::
 
-我们看看爱丽丝的钱包和账户详情
+我们看看Alice的钱包和账户详情
 
 ```elixir
 ForgeSdk.get_account_state(address: w1.address)
 ```
 
-#### 第 2 步：帮助爱丽丝发出报到交易以获得一些钱
+#### 第 2 步：帮助Alice发出报到交易以获得一些钱
 
-现在，您已为爱丽丝和鲍勃创建了钱包，但是他们的账户里没有钱。让我们发出一次**报到**交易，帮助爱丽丝得到一些钱。
+现在，您已为Alice和Bob创建了钱包，但是他们的账户里没有钱。让我们发出一次**报到**交易，帮助Alice得到一些钱。
 
 ```elixir
 ForgeSdk.checkin(wallet: w1)
@@ -113,9 +113,9 @@ ForgeSdk.checkin(wallet: w1)
 ForgeSdk.get_tx(hash: "89FA6DAF67C8F54870599313079DC6F8D7CD483864FE7A7BCDFB9DF4D8ECDAD1")
 ```
 
-如果`TransactionInfo`中的`code`返回`0`，则意味着交易成功执行。现在，爱丽丝的账户中应该有 25 TBA。
+如果`TransactionInfo`中的`code`返回`0`，则意味着交易成功执行。现在，Alice的账户中应该有 25 TBA。
 
-现在，我们查看一下爱丽丝的账户余额。`AccountState`的`balance`中应该有 25 TBA。
+现在，我们查看一下Alice的账户余额。`AccountState`的`balance`中应该有 25 TBA。
 
 ```elixir
 ForgeSdk.get_account_state(address: w2.address)
@@ -126,9 +126,9 @@ ForgeSdk.get_account_state(address: w2.address)
 **哈希**：已签署交易所计算的哈希。每笔交易应有其独特的**哈希**。
 :::
 
-#### 第 3 步：从爱丽丝向鲍勃转移钱
+#### 第 3 步：从Alice向Bob转移钱
 
-现在爱丽丝的账户中有 25 TBA，鲍勃的账户中什么也没有。我们可以发出**转移交易**，帮助爱丽丝将 10 TBA 转移给鲍勃。
+现在Alice的账户中有 25 TBA，Bob的账户中什么也没有。我们可以发出**转移交易**，帮助Alice将 10 TBA 转移给Bob。
 
 ```elixir
 itx = ForgeAbi.TransferTx.new(to: w2.address, value: ForgeSdk.token_to_unit(10))
@@ -138,15 +138,15 @@ ForgeSdk.get_tx(hash: tx1)
 ForgeSdk.get_account_state(address: w1.address)
 ```
 
-现在我们可以看到，爱丽丝刚刚成功地将 10 TBA 转移到了鲍勃的账户！
+现在我们可以看到，Alice刚刚成功地将 10 TBA 转移到了Bob的账户！
 
 🎉 祝贺您！您已完成 1 级教程！现在，您应该对 Forge 的工作原理有了基本的了解。如果您想迎接更多挑战，请查看 2 级和 3 级教程。
 
 ### 2 级：出售二手笔记本电脑
 
-**场景**：鲍勃想向爱丽丝出售一台二手笔记本电脑。
+**场景**：Bob想向Alice出售一台二手笔记本电脑。
 
-#### 第 1 步：为爱丽丝和鲍勃创建账户
+#### 第 1 步：为Alice和Bob创建账户
 
 ```elixir
 w1 = ForgeSdk.create_wallet()
@@ -155,17 +155,17 @@ w2 = ForgeSdk.create_wallet()
 ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "bob_wallet"), wallet: w2)
 ```
 
-在帮助爱丽丝和鲍勃创建账户后，我们帮助爱丽丝获得一些购买鲍勃笔记本所需的钱
+在帮助Alice和Bob创建账户后，我们帮助Alice获得一些购买Bob笔记本所需的钱
 
 ```elixir
 ForgeSdk.checkin(wallet: w1)
 ```
 
-#### 第 2 步：为鲍勃创建笔记本资产
+#### 第 2 步：为Bob创建笔记本资产
 
-在现实世界，鲍勃可以简单地向爱丽丝出售他的笔记本。通过 Forge SDK，任何物理项目都能以**资产**形式存在。
+在现实世界，Bob可以简单地向Alice出售他的笔记本。通过 Forge SDK，任何物理项目都能以**资产**形式存在。
 
-我们试试帮鲍勃通过**CreateAssetTx**创建笔记本资产。用户可在`data`字段输入项目相关的信息，`type_url`代表如何解码序列化的`value`字段。在本教程中，为了简便，我们只填写笔记本的名称。
+我们试试帮Bob通过**CreateAssetTx**创建笔记本资产。用户可在`data`字段输入项目相关的信息，`type_url`代表如何解码序列化的`value`字段。在本教程中，为了简便，我们只填写笔记本的名称。
 
 ```elixir
 asset_data = Google.Protobuf.Any.new(type_url: "laotop", value: "brand new")
@@ -183,9 +183,9 @@ ForgeSdk.get_asset_state(address: asset_address)
 
 #### 第 3 步：用钱交换资产
 
-现在，爱丽丝的账户里有 25 TBA，鲍勃有一个笔记本资产。如果鲍勃想以 10 TBA 的价格出售笔记本，应该怎么做？他可以发起**ExchangeTx**。
+现在，Alice的账户里有 25 TBA，Bob有一个笔记本资产。如果Bob想以 10 TBA 的价格出售笔记本，应该怎么做？他可以发起**ExchangeTx**。
 
-因为鲍勃将是发出者，我们将笔记本`asset_address`作为他将交换的对象。相似的，爱丽丝将交换 10 TBA。
+因为Bob将是发出者，我们将笔记本`asset_address`作为他将交换的对象。相似的，Alice将交换 10 TBA。
 
 ```elixir
 sender_info = ForgeAbi.ExchangeInfo.new(assets: [asset_address])
@@ -198,7 +198,7 @@ tx1 = ForgeSdk.finalize_exchange(tx, wallet: w1)
 hash = ForgeSdk.send_tx(tx: tx1)
 ```
 
-现在，如果我们查看笔记本的所有者，`AssetState` 中的`owner`应为爱丽丝的地址。
+现在，如果我们查看笔记本的所有者，`AssetState` 中的`owner`应为Alice的地址。
 
 ```elixir
 ForgeSdk.get_asset_state(address: asset_address)

@@ -45,7 +45,7 @@ tags:
 | invalid_tx                                    | 8    | 交易信息不合法             | transaction information is invalid                 |
 | unsupported_tx                                | 9    | 不支持的交易类型           | transaction type is unsupported                    |
 | expired_tx                                    | 10   | 过期交易                   | transaction is expired                             |
-| too_many_txs                                  | 11   | 内存池交易过多             | too many transactions in mempool                   |
+| too_many_txs                                  | 11   | mempool交易过多             | too many transactions in mempool                   |
 | invalid_lock_status                           | 12   | 锁定状态不合法             | lock status is invalid                             |
 | invalid_request                               | 13   | gRPC 请求不合法            | gPPC request is invalid                            |
 | 16 - 2047 various errors                      |      |                            |

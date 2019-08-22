@@ -22,7 +22,7 @@ Forge Javascript SDK 方便开发者在 forge 上构建应用程序，它提供�
 现在，我们来看看详细指南，告诉您如何写简单的 javascript 程序，而且这些程序在其他区块链平台上可能需要数天或数周才能完成：
 
 1. 在 forge 支持的区块链上创建两个用户账户（`Alice`和`Bob`），您可通过[forge-cli](../../tools/forge_cli)轻松设置并运行；
-2. 为新创建的账户获取 25 个免费账户
+2. 为新创建的账户获取 25 个 代币
 3. 从`Alice`向`Bob`转移 5 个代币，检查余额
 
 整个流程覆盖典型网络应用程序可进行的所有任务，例如：
@@ -214,7 +214,7 @@ diff --git a/index.js b/index.js
 ```
 
 > 在此，我们使用`getAccountState`从区块链读取数据，我们也可以使用 GraphQLClient 读取交易/区块/资产/链信息，请参考[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)获取完整的 API 列表。
-> 您可能也会注意到，我们等了 5 秒才查看爱丽丝的账户，这是因为，5 秒是 forge 的区块生产暂停时间，即交易由链执行并包含在区块上最多需要 5 秒，这个暂停时间可在您的[forge config](../../core/configuration)中配置。
+> 您可能也会注意到，我们等了 5 秒才查看Alice的账户，这是因为，5 秒是 forge 的区块生产暂停时间，即交易由链执行并包含在区块上最多需要 5 秒，这个暂停时间可在您的[forge config](../../core/configuration)中配置。
 
 #### 5.2 获取免费代币
 
