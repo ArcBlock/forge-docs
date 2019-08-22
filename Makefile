@@ -18,9 +18,10 @@ clean:
 	@rm -rf public && rm -rf .cache
 	@echo "All pages are cleaned."
 
-deploy: build
+deploy:
 	@echo "Building and publishing the documenation..."
-	# @aws s3 sync ./public s3://docs.arcblock.io/ --region us-west-2 --profile prod
+	@gem install travis -v 1.8.9
+	@.makefiles/trigger_main_build.sh
 
 run:
 	@yarn start
