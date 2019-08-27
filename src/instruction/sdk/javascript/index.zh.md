@@ -179,7 +179,7 @@ register bob tx: F61C51A9FE31B5E782276F78CAE35945844D7F848E7E008BC75A396AD552C0C
 
 打开探索器：`http://localhost:8210/node/explorer/txs`，我们可以看到，这两个账户已在链上注册：
 
-![ ](../../assets/images/sdk/js/declare.png)
+![ ](./assets/declare.png)
 
 > 上述截图来自[forge-web](../tools/forge_web)，保护链的内置网页控制面板和区块探索器。
 

@@ -179,7 +179,7 @@ register bob tx: F61C51A9FE31B5E782276F78CAE35945844D7F848E7E008BC75A396AD552C0C
 
 Open explorer: `http://localhost:8210/node/explorer/txs`, we can see that, the 2 accounts have already been registered on the chain:
 
-![](../../assets/images/sdk/js/declare.png)
+![](./assets/declare.png)
 
 > The screenshot above is from [forge-web](../../tools/forge_web), which contains a build in web dashboard and block explorer for your chain.
 

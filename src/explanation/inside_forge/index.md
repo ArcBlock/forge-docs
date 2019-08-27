@@ -14,7 +14,7 @@ Now you should have a good sense about Forge. Let's dive into it.
 
 In ArcBlock, we provide solutions that enable developers building dApps easily with both public chains (e.g. BTC, ETH) and application chains (BYOC - Bring Your Own Chain):
 
-![BYOC](../../assets/images/forge_byoc.jpg)
+![BYOC](./assets/forge_byoc.jpg)
 
 Forge is for the decentralized apps that wants to have their own, dedicated chains, rather than the squeeze everything into the already-heavy Ethereum.
 

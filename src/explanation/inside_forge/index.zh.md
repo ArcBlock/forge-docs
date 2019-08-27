@@ -14,7 +14,7 @@ tags:
 
 在 ArcBlock，我们提供的解决方案可使开发者轻松地通过公共链（如 BTC、ETH）和应用程序链（BYOC——带您自己的链）构建 dApps：
 
-![BYOC](../../assets/images/forge_byoc.jpg)
+![BYOC](./assets/forge_byoc.jpg)
 
 Forge 专为希望拥有自己的专属链，而非将一切挤在已经拥挤不堪的以太坊的去中心化应用程序提供服务。
 
