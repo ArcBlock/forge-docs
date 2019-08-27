@@ -112,17 +112,17 @@ The most secure way to create a wallet for general public is using a wallet app 
 
 Let's use the first wallet address `z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` to see what can we find in forge block explorer. Paste the address (here please paste the address you created with Forge CLI) into the search box in the explorer, and press enter:
 
-![Search wallet](../../assets/images/search_wallet.jpg)
+![Search wallet](./assets/search_wallet.jpg)
 
 Then you would see:
 
-![Search result](../../assets/images/search_wallet_result.jpg)
+![Search result](./assets/search_wallet_result.jpg)
 
 Here we just created a wallet with Forge CLI, why there's transaction sent already?
 
 The transaction you saw is the **Declare Account** transaction, if you click the transaction hash, you would see:
 
-![Declare Account transaction](../../assets/images/declare_tx.jpg)
+![Declare Account transaction](./assets/declare_tx.jpg)
 
 In forge, a wallet cannot be used without declare tx. This TX serves several purposes:
 

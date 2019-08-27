@@ -16,7 +16,7 @@ tags:
 
 对于 forge 支持的链、链节点、forge sdk 和应用程序的关系：
 
-![](../../assets/images/forge-platform.png)
+![](./assets/forge-platform.png)
 
 ## SDK 一般概览
 
