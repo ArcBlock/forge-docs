@@ -12,7 +12,7 @@ tags:
 
 For details about how to set up Forge, please checkout [Forge](https://github.com/ArcBlock/forge).
 
-A more detailed reference manual for forge-python-sdk can be found [Here](https://docs.arcblock.io/forge-sdk/python/latest/).
+A more detailed reference manual for forge-python-sdk can be found [Here](../../../sdks/python/latest/).
 
 ## Installation
 
@@ -66,7 +66,7 @@ mike = rpc.create_wallet(moniker='mike', passphrase='abc123')
 ```
 
 ::: tip
-`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../intro/concepts).
+`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../../explanation/concepts).
 :::
 
 Let's take a look at Alice's wallet and here account details

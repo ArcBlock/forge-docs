@@ -10,7 +10,7 @@ tags:
   - "javascript"
 ---
 
-如果您是来自传统网页开发的开发者，不熟悉区块链，请先查看[一般概念](../../intro/concepts)。
+如果您是来自传统网页开发的开发者，不熟悉区块链，请先查看[一般概念](../../../explanation/concepts)。
 
 Forge Javascript SDK 方便开发者在 forge 上构建应用程序，它提供精炼简单的 api，帮助开发者完成以下任务：
 
@@ -110,7 +110,7 @@ console.log({ alice: alice.toJSON(), bob: bob.toJSON() });
      address: 'z1m8hfeWSD4fZcycrHDgpJCRTHi2sowPXBt' } }
 ```
 
-> 请注意，forge 支持很多钱包类型，开发者可选择希望使用的任何类型，上述钱包类型是典型的组合型，即使在生产中，也可以继续选择这个。如需了解所有支持的钱包类型，请参考[enums](../../types/enum)
+> 请注意，forge 支持很多钱包类型，开发者可选择希望使用的任何类型，上述钱包类型是典型的组合型，即使在生产中，也可以继续选择这个。如需了解所有支持的钱包类型，请参考[enums](../../../reference/types/enum)
 
 ### 4. 在链上注册用户
 
@@ -183,7 +183,7 @@ register bob tx: F61C51A9FE31B5E782276F78CAE35945844D7F848E7E008BC75A396AD552C0C
 
 > 上述截图来自[forge-web](../tools/forge_web)，保护链的内置网页控制面板和区块探索器。
 
-> 在此使用`sendDeclareTx`向区块链写数据，支持很多其他[交易类型](../../txs)。如需查看完整交易发出方式列表，请访问[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)。
+> 在此使用`sendDeclareTx`向区块链写数据，支持很多其他[交易类型](../../../reference/txs)。如需查看完整交易发出方式列表，请访问[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)。
 
 ### 5. 为`Alice`和`Bob`获得 25 颗代币
 
@@ -214,7 +214,7 @@ diff --git a/index.js b/index.js
 ```
 
 > 在此，我们使用`getAccountState`从区块链读取数据，我们也可以使用 GraphQLClient 读取交易/区块/资产/链信息，请参考[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)获取完整的 API 列表。
-> 您可能也会注意到，我们等了 5 秒才查看Alice的账户，这是因为，5 秒是 forge 的区块生产暂停时间，即交易由链执行并包含在区块上最多需要 5 秒，这个暂停时间可在您的[forge config](../../core/configuration)中配置。
+> 您可能也会注意到，我们等了 5 秒才查看Alice的账户，这是因为，5 秒是 forge 的区块生产暂停时间，即交易由链执行并包含在区块上最多需要 5 秒，这个暂停时间可在您的[forge config](../../configuration)中配置。
 
 #### 5.2 获取免费代币
 
@@ -321,7 +321,7 @@ alice.balanceNew 250000000000000000
 alice.balanceNew.readable 25
 ```
 
-> Forge allows developers to customize the token name/symbol/decimal on each chain, refer to [configuration](../../core/configuration) for details.
+> Forge allows developers to customize the token name/symbol/decimal on each chain, refer to [configuration](../../configuration) for details.
 
 ### 6. 从`Alice`向`Bob`转移 5 颗代币
 

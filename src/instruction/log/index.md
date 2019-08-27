@@ -82,7 +82,7 @@ By default, for each transaction we provide 3 log items:
 - start tx: besides height / tx_index / hash, it also include type_url and sender address.
 - finished tx: besides the data in start tx, it also provided important info:
   - status: if status is not `ok`. Then this is an invalid tx. The status code would indicate what error happened on this tx.
-  - total time spent: as each tx will go through a list of pipelines, it gaves the performance metrics for each pipeline in `us`. For more information, see [Forge TX Protocol](../tx_protocol).
+  - total time spent: as each tx will go through a list of pipelines, it gaves the performance metrics for each pipeline in `us`. For more information, see [Forge TX Protocol](../../explanation/tx_protocol).
 
 ```
 16:25:37.317 application=forge pid=<0.2690.0> [info] [consensus deliver tx]: height=245 tx_index=173 hash=857FE499FCE6583FB4CF0AEDA650E8610C15B87BF2ADCA734699DA18A6F931EA
