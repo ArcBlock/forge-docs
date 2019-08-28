@@ -32,41 +32,41 @@ Because both [forge-cli](./forge_cli) and ABT Chain Node starts a node on your l
 
 If you are OSX user, once you downloaded the dmg file and dragged it to application folder, when you try to run it for the first time, it will give you a warning like this:
 
-![Chain Node Warning](../../assets/images/chain_node_warning.png)
+![Chain Node Warning](./assets/chain_node_warning.png)
 
 This is because the current preview version of the ABT Chain Node has not yet registered with Apple. You can find more information with this KB: [https://support.apple.com/kb/ph25088?locale=en_US](https://support.apple.com/kb/ph25088?locale=en_US).
 
 So don't worry about it for now. You can find the app in the finder, right click it and select "Open" from the menu:
 
-![Open Chain Node](../../assets/images/open_chain_node.png)
+![Open Chain Node](./assets/open_chain_node.png)
 
 Then click "Open" again in the popup window to allow it:
 
-![Allow Open Chain Node](../../assets/images/allow_open.png)
+![Allow Open Chain Node](./assets/allow_open.png)
 
 Then ABT Chain Node shall be successfully opened like this:
 
-![Node Open](../../assets/images/node_start_up.jpg)
+![Node Open](./assets/node_start_up.jpg)
 
 and wait a moment you will see the running node like this:
 
-![Node Normal](../../assets/images/node_normal.jpg)
+![Node Normal](./assets/node_normal.jpg)
 
 If you see node shows certain GraphQL error like this:
 
-![Node Error](../../assets/images/node_error.jpg)
+![Node Error](./assets/node_error.jpg)
 
 don't panic, just click `Command + R` to refresh the page, then it shall work.
 
 A newly started node will have just a few transactions, if you want to generate some transactions, you can start the simulator with integrated API playground:
 
-![Node Simulator](../../assets/images/node_simulator.jpg)
+![Node Simulator](./assets/node_simulator.jpg)
 
 ## If you stuck...
 
 If you stuck and got error like this:
 
-![Node error](../../assets/images/chain_node_error.jpg)
+![Node error](./assets/chain_node_error.jpg)
 
 It is highly likely that your osx lacks of the necessary tool chains. If you have homebrew in your system, open a terminal and run this command:
 
@@ -84,11 +84,11 @@ Then rerun the ABTChainNode app. It should work. If not, please let us know. Not
 
 From application menu ("ABT Chain Node" next to the apple icon on top left corner), select "Join Another Network", then follow instructions to complete:
 
-![Join another network](../../assets/images/join_network.jpg)
+![Join another network](./assets/join_network.jpg)
 
 Then click "Proceed" and input a network URL:
 
-![Input network url](../../assets/images/input_network_url.jpg)
+![Input network url](./assets/input_network_url.jpg)
 
 Currently the choices are:
 
@@ -109,7 +109,7 @@ Because both `Bromine` and `Titanium` network have simulation traffic on them si
 
 From application menu, select "Reset Chain State", then follow instructions to complete.
 
-![Reset chain state](../../assets/images/reset_chain_state.jpg)
+![Reset chain state](./assets/reset_chain_state.jpg)
 
 Once you click "Proceed", you will lose all existing data. You can then click "Quit" and start ABT Chain Node again to have a completely refresh node. If you didn't quit, the chain will follow the current configuration.
 

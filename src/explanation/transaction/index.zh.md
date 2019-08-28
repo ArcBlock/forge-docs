@@ -110,17 +110,17 @@ You can also create wallet with forge SDK easily, please refer [Forge SDK](../sd
 
 我们使用第一个钱包地址 `z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` 来看看我们在 forge 区块搜索器中可以找到什么。将地址粘贴（在这里请粘贴您通过 Forge CLI 创建的地址）到搜索器的搜索栏，然后点击回车键：
 
-![Search wallet](../../assets/images/search_wallet.jpg)
+![Search wallet](./assets/search_wallet.jpg)
 
 然后您会看到：
 
-![Search result](../../assets/images/search_wallet_result.jpg)
+![Search result](./assets/search_wallet_result.jpg)
 
 我们只是通过 Forge CLI 创建了一个钱包，为什么已经有已发出的交易？
 
 您看到的交易是**声明账户**交易，如果您点击交易哈希，会看到：
 
-![Declare Account transaction](../../assets/images/declare_tx.jpg)
+![Declare Account transaction](./assets/declare_tx.jpg)
 
 在 forge，若不声明 tx，则钱包不能被使用。TX 的目的有几个：
 

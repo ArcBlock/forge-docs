@@ -21,7 +21,7 @@ Internally, GraphQL APIs are a wrap to the gRPC interfaces. To make things easy,
 
 You should see a page like below. Write a GraphQL query and execute it. Here we query the account state with address `z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB`.
 
-![Forge GraphQL Playground](../../assets/images/forge_playground.jpg)
+![Forge GraphQL Playground](./assets/forge_playground.jpg)
 
 The query looks like this:
 
