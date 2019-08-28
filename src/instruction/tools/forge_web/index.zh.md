@@ -20,7 +20,7 @@ tags:
 - 节点管理
 - 开发者工具。
 
-![](../../assets/images/tools/forge-web/sidebar.png)
+![](./assets/sidebar.png)
 
 - 控制面板：是存储在此节点上数据的信息总结，以及节点的健康状态，包括节点、存储、共识等的当前状态。
 - 节点管理：
@@ -38,7 +38,7 @@ tags:
 - 顶尖账户：此节点上顶尖账户的信息，按账户余额排序
 - 顶尖验证器：此链上顶尖验证器的信息。
 
-![](../../assets/images/tools/forge-web/dashboard.png)
+![](./assets/dashboard.png)
 
 ## 如何探索您的链数据？
 
@@ -56,7 +56,7 @@ tags:
   - 不太灵活
   - 只可搜索账户/tx 等
 
-![](../../assets/images/tools/forge-web/explorer.png)
+![](./assets/explorer.png)
 
 **开发者工具：**
 
@@ -66,7 +66,7 @@ tags:
 - 弊：
   - 如需使用和理解，需要额外[GraphQL](https://www.arcblock.io/en/open-chain-access-protocol/)知识
 
-![](../../assets/images/tools/forge-web/graphql.png)
+![](./assets/graphql.png)
 
 如果您想了解关于如何创建区块链应用程序的更多信息，请访问我们在此：[https://docs.arcblock.io/forge/latest/](https://docs.arcblock.io/forge/latest/)的“开始”文件。
 

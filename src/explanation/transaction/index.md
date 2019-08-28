@@ -10,7 +10,7 @@ tags:
   - 'transaction'
 ---
 
-One important design aspect for forge is to make it as easy as possible for newbies to get familiar with Forge. If you followed the "Quick Start" section of the [Overview](./), you have already used many of them: forge cli, forge web and forge simulator. Now it's time to send your first transaction - but before that, you need a wallet.
+One important design aspect for forge is to make it as easy as possible for newbies to get familiar with Forge. If you followed the "Quick Start" section of the [Overview](../../intro), you have already used many of them: forge cli, forge web and forge simulator. Now it's time to send your first transaction - but before that, you need a wallet.
 
 ## Prerequisite knowledge for wallet
 
@@ -102,7 +102,7 @@ Although we use same moniker and passphrase, each time we create a wallet a new 
 
 <!-- ### Create a wallet with Forge SDK
 
-You can also create wallet with forge SDK easily, please refer [Forge SDK](../sdk). -->
+You can also create wallet with forge SDK easily, please refer [Forge SDK](../../instruction/sdk). -->
 
 ### Create a wallet with Wallet App
 
@@ -112,17 +112,17 @@ The most secure way to create a wallet for general public is using a wallet app 
 
 Let's use the first wallet address `z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` to see what can we find in forge block explorer. Paste the address (here please paste the address you created with Forge CLI) into the search box in the explorer, and press enter:
 
-![Search wallet](../../assets/images/search_wallet.jpg)
+![Search wallet](./assets/search_wallet.jpg)
 
 Then you would see:
 
-![Search result](../../assets/images/search_wallet_result.jpg)
+![Search result](./assets/search_wallet_result.jpg)
 
 Here we just created a wallet with Forge CLI, why there's transaction sent already?
 
 The transaction you saw is the **Declare Account** transaction, if you click the transaction hash, you would see:
 
-![Declare Account transaction](../../assets/images/declare_tx.jpg)
+![Declare Account transaction](./assets/declare_tx.jpg)
 
 In forge, a wallet cannot be used without declare tx. This TX serves several purposes:
 
@@ -274,7 +274,7 @@ $ forge account z115hJtnrYgyFTepXQbBEWHRPb1ZPydMvkis
 }
 ```
 
-Congratulations! Now you have sent your first transfer transaction! If you wonder how magic happened underlying, read the [transaction chapter of Forge Core](../../core/tx_protocol).
+Congratulations! Now you have sent your first transfer transaction! If you wonder how magic happened underlying, read the [transaction chapter of Forge Core](../tx_protocol).
 
 ### Transfer with Forge Console (optional)
 
@@ -294,7 +294,7 @@ iex(forge@127.0.0.1)1> itx = ForgeAbi.TransferTx.new(to: "z115hJtnrYgyFTepXQbBEW
 }
 ```
 
-You may see `BigUint` here and the value is pretty weird. We mentioned in previous section that by default $1 token = 10^{16} unit$, and when we do transfer the minimum allowed value is 1 unit. Thus if we want to transfer 100 tokens, it means $100x10^{16}$. This is a pretty big number. Thus we need a way to encode big integer across all languages (although languages like elixir, python support big number with any digits, many languages only support a fix-size integer). To encode a big number efficiently (the string format is least efficient approach), we use its smallest binary format. For more about `BigUint`, please refer to: [Big integer processing in Forge](../../core/bigint).
+You may see `BigUint` here and the value is pretty weird. We mentioned in previous section that by default $1 token = 10^{16} unit$, and when we do transfer the minimum allowed value is 1 unit. Thus if we want to transfer 100 tokens, it means $100x10^{16}$. This is a pretty big number. Thus we need a way to encode big integer across all languages (although languages like elixir, python support big number with any digits, many languages only support a fix-size integer). To encode a big number efficiently (the string format is least efficient approach), we use its smallest binary format. For more about `BigUint`, please refer to: [Big integer processing in Forge](../bigint).
 
 Before we can send the transaction out, we need to unlock the wallet, same as what we have done in Forge CLI:
 
@@ -350,7 +350,7 @@ iex(forge@127.0.0.1)4> ForgeSdk.get_tx(hash: "9C2CD01B5EA739AEB430F300757DA74AB5
 }
 ```
 
-Note the `code` is 0 here, meaning the executing of the tx is succeeded. Code that is not 0 means tx failed to execute. For more information about the status code, see: [Forge Status Code](../../core/code).
+Note the `code` is 0 here, meaning the executing of the tx is succeeded. Code that is not 0 means tx failed to execute. For more information about the status code, see: [Forge Status Code](../../reference/code).
 
 Now let's see what the balance looks like:
 
@@ -385,4 +385,4 @@ iex(forge@127.0.0.1)7> ForgeSdk.get_account_state(address: "z115hJtnrYgyFTepXQbB
 }
 ```
 
-Hope you still follow what I'm talking about. Don't worry if you can't fully understand how things working. Again, feel free to jump to [transaction chapter of Forge Core](../../core/tx_protocol) for all the details.
+Hope you still follow what I'm talking about. Don't worry if you can't fully understand how things working. Again, feel free to jump to [transaction chapter of Forge Core](../tx_protocol) for all the details.

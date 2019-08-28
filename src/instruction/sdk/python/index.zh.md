@@ -10,7 +10,7 @@ tags:
   - "python"
 ---
 
-如需获取详细的 forge-python-sdk 参考手册，请访问[此处](../../sdks/python/latest)。
+如需获取详细的 forge-python-sdk 参考手册，请访问[此处](../../../sdks/python/latest)。
 
 Python SDK 的源代码可在[Github](https://github.com/ArcBlock/forge-python-sdk)获取。如果有任何疑问，请联系我们。
 
@@ -66,7 +66,7 @@ config = f.config
 ```
 
 ::: tip
-`moniker`是 Forge 上该钱包的昵称。`passphrase`是通过 Forge 将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../../intro/concepts)。
+`moniker`是 Forge 上该钱包的昵称。`passphrase`是通过 Forge 将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../../../explanation/concepts)。
 :::
 
 我们看看Alice的钱包和账户详情

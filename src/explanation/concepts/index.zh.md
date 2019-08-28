@@ -42,7 +42,7 @@ message Transaction {
 - `pk`：发送者公共密钥的字节
 - `signature`：发送者在此交易下签名的字节。由接收者用于验证此交易的内容未被其他当事人改变。
 - `signatures`：本交易需要接收者或第三方账户背书情况下的其他多重签名。查看：[什么是多重签名？](../../arch/multisig)
-- `itx`：此交易的类型和内容。查看：[交易](../../txs)
+- `itx`：此交易的类型和内容。查看：[交易](../../reference/txs)
 
 所有交易受**交易协议**支持。交易协议是执行交易并操控状态的代码。在一个链中的所有运行节点上，交易协议可以被动态地安装、升级、激活和停用。如需了解交易协议的更多信息，请查看[../txs]。
 
@@ -135,13 +135,13 @@ Any{
 
 在上面，我们看到了`TransferTx`，其代表了 ABT Node 上的转移活动。每个活动都有自己的内在交易，且定义为不同类型。
 
-如需获取完整的 itx 列表和解释，请查看[Forge ITX](../../txs)。
+如需获取完整的 itx 列表和解释，请查看[Forge ITX](../../reference/txs)。
 
 ## gRPC 和 GraphQL
 
 Forge SDK 使用[gRPC](https://grpc.io/docs/)调用和[GraphQL](https://graphql.org/learn/)。
 
-Forge SDK 也部署了很多即用的 GRPC API 供用户使用。如需获取有关 Forge SDK 如何使用 gRPC 的详细说明，请点击[此处](../../core/rpc)。
+Forge SDK 也部署了很多即用的 GRPC API 供用户使用。如需获取有关 Forge SDK 如何使用 gRPC 的详细说明，请点击[此处](../../reference/rpc)。
 
 ### Protobuf
 

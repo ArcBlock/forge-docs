@@ -14,7 +14,7 @@ tags:
 
 在 ArcBlock，我们提供的解决方案可使开发者轻松地通过公共链（如 BTC、ETH）和应用程序链（BYOC——带您自己的链）构建 dApps：
 
-![BYOC](../../assets/images/forge_byoc.jpg)
+![BYOC](./assets/forge_byoc.jpg)
 
 Forge 专为希望拥有自己的专属链，而非将一切挤在已经拥挤不堪的以太坊的去中心化应用程序提供服务。
 
@@ -61,7 +61,7 @@ forge 支持的交易有很多。我们可以将其分为 4 组：
   - 投标服务。一群人可以发送交换 tx 以对资产投标，且资产所有者可选择自己喜欢的那一个并签署，以完成交易。
   - 电子商务。资产所有者可为资产的交换交易标价，任何对该价格感兴趣的人可以签署此 tx 以完成交易。
 
-如需了解交易的更多信息，请查看[Forge 交易](../../txs)。
+如需了解交易的更多信息，请查看[Forge 交易](../../reference/txs)。
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTE2MzYwOTk1MDgsLTYwNTMwMzczNywxOT

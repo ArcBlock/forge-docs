@@ -20,7 +20,7 @@ After launching your node with `forge web open`, you will see that the applicati
 - Node Management
 - Developer tools.
 
-![](../../assets/images/tools/forge-web/sidebar.png)
+![](./assets/sidebar.png)
 
 - The Dashboard: is the summary of information about the chain data stored on this node, as well as the health status of this node including the current state of the node, storage, consensus and more.
 - Node Management:
@@ -38,7 +38,7 @@ Anytime you log in to your ABT Blockchain Node, the “dashboard view” is the 
 - Top accounts: information about top accounts on this node, sorted by their account balance
 - Top validators: information about top validators on this chain.
 
-![](../../assets/images/tools/forge-web/dashboard.png)
+![](./assets/dashboard.png)
 
 ## How to explore your chain data?
 
@@ -56,7 +56,7 @@ There are two primary ways to explore your chain data - block explorer and devel
   - Less flexibility
   - Only search for account/tx etc
 
-![](../../assets/images/tools/forge-web/explorer.png)
+![](./assets/explorer.png)
 
 **Developer tools:**
 
@@ -66,6 +66,6 @@ There are two primary ways to explore your chain data - block explorer and devel
 - Cons:
   - Requires extra [GraphQL](https://www.arcblock.io/en/open-chain-access-protocol/) knowledge to use and understand
 
-![](../../assets/images/tools/forge-web/graphql.png)
+![](./assets/graphql.png)
 
 If you want to learn more about how to build a blockchain application, please visit our “Getting Started” documentation here: [https://docs.arcblock.io/forge/latest/](https://docs.arcblock.io/forge/latest/).

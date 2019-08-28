@@ -21,7 +21,7 @@ Forge 的 RPC 支持[gRPC](https://grpc.io/)和[GraphQL](https://graphql.org/)�
 
 您应该会看到如下页面。写 GraphQL 查询，然后执行。在此，我们查询地址为`z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB`的账户状态。
 
-![Forge GraphQL Playground](../../assets/images/forge_playground.jpg)
+![Forge GraphQL Playground](./assets/forge_playground.jpg)
 
 查询如下所示：
 

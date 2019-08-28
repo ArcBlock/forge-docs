@@ -14,7 +14,7 @@ tags:
 
 ::: tip
 
-如果您是 MAC OSX 或 ubuntu 用户，我们为您准备了一个桌面版本（预览版），可以准备好节点并使其尽快开始运行。请访问[ABT Chain Node](../tools/abt_chain_node)获取更多信息。
+如果您是 MAC OSX 或 ubuntu 用户，我们为您准备了一个桌面版本（预览版），可以准备好节点并使其尽快开始运行。请访问[ABT Chain Node](../instruction/tools/abt_chain_node)获取更多信息。
 
 :::
 
@@ -53,7 +53,7 @@ Now you can start a forge node with forge start
 
 请注意，forge 目前尚处在非常早期的阶段，我们只构建了 osx 和 ubuntu 16.04 构件。我们会尽快为更多平台提供构件。
 
-如果您试图在 ubuntu 16.04 机器上安装 forge，请查看[Ubuntu 安装指南](../../install/ubuntu)。
+如果您试图在 ubuntu 16.04 机器上安装 forge，请查看[Ubuntu 安装指南](../instruction/install/ubuntu)。
 
 完成初始化后，forge-cli 会将构件放入`~/.forge_cli`文件夹：
 
@@ -91,7 +91,7 @@ tree .forge_cli -L 4
 - forge_starter：带开始/重启/升级 forge 的 erlang 版本。您可将其视为专门构件的简化系统。`forge`文件夹下的`release.yml`由 forge 启动器用于启动当前的 forge 版本，如果此版本不可成功启动，则 forge 启动器会退回至`release.yml`中定义的旧版本。
 - 模拟器：一个帮助生成模拟数据的 erlang 版本。基本来说，它会创建一万个钱包并在钱包间随机进行各种类型的 tx。
 
-`forge_release.toml`是 forge 的主要配置，您可以编辑此文件以调整 forge 的行为。目前，我们只使用默认配置。如需了解关于配置的更多信息，请查看[Forge 配置指南](../../core/configuration)。
+`forge_release.toml`是 forge 的主要配置，您可以编辑此文件以调整 forge 的行为。目前，我们只使用默认配置。如需了解关于配置的更多信息，请查看[Forge 配置指南](../instruction/configuration)。
 
 然后，您便可以运行`forge start`以启动 forge 了：
 
@@ -128,13 +128,13 @@ forge start
 - 存储日志：在`$FORGE_HOME/storage/logs`下。
 - forge 应用程序日志：在`$FORGE_HOME/app/logs`下。
 
-如需了解关于 forge 日志的详细信息，请查看：[Forge 日志](../../core/log)。
+如需了解关于 forge 日志的详细信息，请查看：[Forge 日志](../instruction/log)。
 
 ## Forge 网页
 
 现在，您对 forge 的启动有了基本的了解，您可能想看看如何在 forge 内获取交易和存储数据概览。在您的`forge_release.toml`配置中，forge 网页默认启动，因此，你可以直接前往浏览器并打开`http://localhost:8210`。您会看到如下页面：
 
-![Forge Web](../assets/images/forge_web.jpg)
+![Forge Web](./assets/forge_web.jpg)
 
 目前，forge 网页有以下功能：
 
@@ -142,7 +142,7 @@ forge start
 - 区块探索器：查看和搜索链上数据/状态。
 - RPC 操场：为你提供操场，与 forge 提供的 RPC 互动。
 
-如需了解关于 forge 网页的更多信息，请前往：[Forge 网页](../../tools/forge_web)。
+如需了解关于 forge 网页的更多信息，请前往：[Forge 网页](../instruction/tools/forge_web)。
 
 ## 发送交易
 
@@ -156,17 +156,17 @@ $ forge simulator start
 
 一段时间后，您的 forge 网页控制面板会如下所示：
 
-![Forge Web: updated](../assets/images/forge_web1.jpg)
+![Forge Web: updated](./assets/forge_web1.jpg)
 
 forge 区块探索器则拥有您可查看的数据：
 
-![Forge block explorer](../assets/images/forge_explorer.jpg)
+![Forge block explorer](./assets/forge_explorer.jpg)
 
-如需了解关于 forge 模拟器的更多信息，请访问：[Forge 模拟器](../../tools/simulator)。
+如需了解关于 forge 模拟器的更多信息，请访问：[Forge 模拟器](../instruction/tools/simulator)。
 
 ## 创建钱包和发送您自己的 tx
 
-现在，您可以创建自己的钱包并发送自己的 tx 了。我们前往[发送您的首个 tx](./transaction)
+现在，您可以创建自己的钱包并发送自己的 tx 了。我们前往[发送您的首个 tx](../instruction/transaction)
 
 ## Forge SDK
 
@@ -178,7 +178,7 @@ forge 区块探索器则拥有您可查看的数据：
 
 ## 想了解更多信息吗
 
-请看看[Forge 内有什么](./inside-forge)！
+请看看[Forge 内有什么](../explanation/inside-forge)！
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTI5NzA1NzkxOSwzNDkwMjQ5NjMsMjA3MT

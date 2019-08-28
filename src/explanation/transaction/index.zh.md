@@ -10,7 +10,7 @@ tags:
   - "transaction"
 ---
 
-forge 的一个重要设计方面是使新手尽可能容易地熟悉 Forge。如果您按照[概览](./README)的“快速入门”部分操作，应该已经使用了其中很多：forge cli、forge 网页和 forge 模拟器。现在，您应该可以发送第一笔交易了，但在此之前，您需要一个钱包。
+forge 的一个重要设计方面是使新手尽可能容易地熟悉 Forge。如果您按照[概览](../../intro)的“快速入门”部分操作，应该已经使用了其中很多：forge cli、forge 网页和 forge 模拟器。现在，您应该可以发送第一笔交易了，但在此之前，您需要一个钱包。
 
 ## 关于钱包
 
@@ -100,7 +100,7 @@ $ tree ~/.forge_release/core/keystore/
 
 <!-- ### Create a wallet with Forge SDK
 
-You can also create wallet with forge SDK easily, please refer [Forge SDK](../sdk). -->
+You can also create wallet with forge SDK easily, please refer [Forge SDK](../../instruction/sdk). -->
 
 ### 通过 Wallet 应用程序创建钱包
 
@@ -110,17 +110,17 @@ You can also create wallet with forge SDK easily, please refer [Forge SDK](../sd
 
 我们使用第一个钱包地址 `z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB` 来看看我们在 forge 区块搜索器中可以找到什么。将地址粘贴（在这里请粘贴您通过 Forge CLI 创建的地址）到搜索器的搜索栏，然后点击回车键：
 
-![Search wallet](../../assets/images/search_wallet.jpg)
+![Search wallet](./assets/search_wallet.jpg)
 
 然后您会看到：
 
-![Search result](../../assets/images/search_wallet_result.jpg)
+![Search result](./assets/search_wallet_result.jpg)
 
 我们只是通过 Forge CLI 创建了一个钱包，为什么已经有已发出的交易？
 
 您看到的交易是**声明账户**交易，如果您点击交易哈希，会看到：
 
-![Declare Account transaction](../../assets/images/declare_tx.jpg)
+![Declare Account transaction](./assets/declare_tx.jpg)
 
 在 forge，若不声明 tx，则钱包不能被使用。TX 的目的有几个：
 
@@ -346,7 +346,7 @@ iex(forge@127.0.0.1)4> ForgeSdk.get_tx(hash: "9C2CD01B5EA739AEB430F300757DA74AB5
 }
 ```
 
-请注意，`code`在此为 0，即 tx 成功执行。不是 0 的代码意味着 tx 执行失败。如需了解状态代码的更多信息，请查看：[Forge 状态代码](../../core/code)。
+请注意，`code`在此为 0，即 tx 成功执行。不是 0 的代码意味着 tx 执行失败。如需了解状态代码的更多信息，请查看：[Forge 状态代码](../../reference/code)。
 
 现在，我们看看余额的格式：
 
@@ -381,7 +381,7 @@ iex(forge@127.0.0.1)7> ForgeSdk.get_account_state(address: "z115hJtnrYgyFTepXQbB
 }
 ```
 
-希望您看得懂我在说什么。如果您没有完全理解一切，也不必担心。再次说明，您可以随意访问[Forge 核心交易章节](../../core/tx_protocol)获取详情。
+希望您看得懂我在说什么。如果您没有完全理解一切，也不必担心。再次说明，您可以随意访问[Forge 核心交易章节](../tx_protocol)获取详情。
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTUyNDY4NzQwMiwtNDM3NTQ0MzM0LDk4NT
