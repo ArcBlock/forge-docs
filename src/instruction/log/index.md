@@ -1,5 +1,5 @@
 ---
-title: 'Forge Logs'
+title: 'Logging'
 description: 'Forge Logs'
 keywords: ''
 robots: 'index,follow'

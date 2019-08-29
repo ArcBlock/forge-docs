@@ -1,6 +1,6 @@
 ---
-title: 'Forge SDK'
-description: 'Forge SDK'
+title: 'Forge Documentation'
+description: ''
 keywords: ''
 robots: 'index,follow'
 category: 'docs'
@@ -11,8 +11,6 @@ tags:
 ---
 
 Welcome to the ArcBlock Forge SDK documentation!
-
-## Why do we build Forge SDK?
 
 ## Getting Started
 

@@ -1,5 +1,5 @@
 ---
-title: 'Intro to Blockets'
+title: 'Blockets By Community'
 description: 'Forge Blocklets'
 keywords: ''
 robots: 'index,follow'

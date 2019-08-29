@@ -1,5 +1,5 @@
 ---
-title: 'Forge Configuration Guide'
+title: 'Configuration'
 description: 'Forge Configuration Guide'
 keywords: ''
 robots: 'index,follow'

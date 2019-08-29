@@ -1,13 +1,11 @@
 ---
-title: 'Forge RPC'
-description: 'Forge RPC Overview'
+title: 'Forge Types'
+description: 'Forge Types'
 keywords: ''
 robots: 'index,follow'
 category: 'docs'
 layout: 'documentation'
 tags:
-  - 'rpc'
+  - 'txs'
   - 'index'
 ---
-
-## Forge RPC Overview

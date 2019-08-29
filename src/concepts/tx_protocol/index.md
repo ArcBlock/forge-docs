@@ -1,5 +1,5 @@
 ---
-title: "Forge Transaction Protocol"
+title: "3. Smart Contracts"
 description: "Forge Transaction Protocol"
 keywords: ""
 robots: "index,follow"
