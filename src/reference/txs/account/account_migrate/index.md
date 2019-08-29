@@ -10,16 +10,19 @@ tags:
   - 'account_migrate'
 ---
 
+## What is AccountMigrateTx
 
-Migrage an existing account from an old wallet to a new wallet.
+Migrage an existing account to a new account.
 
-## Overview
+## Why AccountMigrateTx
 
-** AccountMigrageTx** helps you switch your old wallet to a newly generated wallet, when your old wallet's secret key is potentially exposed (e.g. you lost the paper that has printed secret key).
+**AccountMigrateTx** helps you switch your old wallet to a newly generated wallet, when your old wallet's secret key is potentially exposed (e.g. you lost the paper that has printed secret key).
+
+## Result of AccountMigrateTx
 
 After this transaction is executed, all your previous assets and token balance in the old wallet will be carried over to the new wallet. Meanwhile, your old account will be sealed and all reference to the old address will be redirected to the new address.
 
-## Transaction Protocols
+## Code Sample: AccountMigrateTx
 
 ```protobuf
 message AccountMigrateTx {

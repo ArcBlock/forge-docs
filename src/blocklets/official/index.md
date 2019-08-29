@@ -1,5 +1,5 @@
 ---
-title: 'Blockets By ArcBlock'
+title: 'Blocklets By ArcBlock'
 description: 'Forge Blocklets'
 keywords: ''
 robots: 'index,follow'
