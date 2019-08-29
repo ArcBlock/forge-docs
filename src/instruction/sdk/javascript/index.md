@@ -10,7 +10,7 @@ tags:
   - 'javascript'
 ---
 
-If you are a developer from traditional web development and not familiar with blockchain, please checkout [general concepts](../intro/concepts) first.
+If you are a developer from traditional web development and not familiar with blockchain, please checkout [general concepts](../../../explanation/concepts) first.
 
 Forge Javascript SDK makes it very easy for developers to building applications on forge, it provides concise and simple api to helper developers accomplish following tasks:
 
@@ -110,7 +110,7 @@ Run `node index.js`, we will get:
      address: 'z1m8hfeWSD4fZcycrHDgpJCRTHi2sowPXBt' } }
 ```
 
-> Please note that, forge supports many wallet types, and developers can whatever types they want to use, the above wallet type is a typical combination, and it's ok to stick with this even in production. For all supported wallet types please refer to [enums](../types/enum)
+> Please note that, forge supports many wallet types, and developers can whatever types they want to use, the above wallet type is a typical combination, and it's ok to stick with this even in production. For all supported wallet types please refer to [enums](../../../reference/types/enum)
 
 ### 4. Register user on the chain
 
@@ -183,7 +183,7 @@ Open explorer: `http://localhost:8210/node/explorer/txs`, we can see that, the 2
 
 > The screenshot above is from [forge-web](../../tools/forge_web), which contains a build in web dashboard and block explorer for your chain.
 
-> Here are are using `sendDeclareTx` to write data to the blockchain, many other [transaction types](../../txs) are supported. Full list of transaction send method list can be found at [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html).
+> Here are are using `sendDeclareTx` to write data to the blockchain, many other [transaction types](../../../reference/txs) are supported. Full list of transaction send method list can be found at [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html).
 
 ### 5. Get 25 token for `Alice` and `Bob`
 
@@ -215,7 +215,7 @@ diff --git a/index.js b/index.js
 
 > Here we are using `getAccountState` to read data from the blockchain, we can also use GraphQLClient to read transaction/block/asset/chain info, please refer to [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html) for full list of API.
 
-> You may also noticed that, we waited for 5 seconds before inspecting Alice's account balance, that's because 5 seconds is the block produce timeout for forge, which means that it takes at most 5 seconds before the transaction was executed by the chain and included in a block, this timeout can be configured in your [forge config](../../core/configuration).
+> You may also noticed that, we waited for 5 seconds before inspecting Alice's account balance, that's because 5 seconds is the block produce timeout for forge, which means that it takes at most 5 seconds before the transaction was executed by the chain and included in a block, this timeout can be configured in your [forge config](../../configuration).
 
 #### 5.2 Get free token
 
@@ -322,7 +322,7 @@ alice.balanceNew 250000000000000000
 alice.balanceNew.readable 25
 ```
 
-> Forge allows developers to customize the token name/symbol/decimal on each chain, refer to [configuration](../../core/configuration) for details.
+> Forge allows developers to customize the token name/symbol/decimal on each chain, refer to [configuration](../../configuration) for details.
 
 ### 6. Transfer 5 token from `Alice` to `Bob`
 

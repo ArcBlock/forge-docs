@@ -44,7 +44,7 @@ Forge SDK 的目的是，使与 Forge 构建的链的互动尽可能简单。所
 - get_block/1：按高度获取区块。此区块中包含的所有 tx 均会被返回。
 - get_blocks/1：在一个范围内获得区块列表。
 - send_tx/1：将给出 tx 发给一个节点。tx 被接受后，它会立刻返回一个 tx 哈希，否则会返回错误。
-- multisig/1：在 Forge，我们支持 tx 的多重签名，您可以使用它为一个已经签署的 tx 背书。`ExchangeTx`、`ConsumeAssetTx`和一些其他 tx 使用多重签名技术。如果您想了解关于多重签名的更多信息，请查看：[多重签名](../../arch/multisig)。
+- multisig/1：在 Forge，我们支持 tx 的多重签名，您可以使用它为一个已经签署的 tx 背书。`ExchangeTx`、`ConsumeAssetTx`和一些其他 tx 使用多重签名技术。如果您想了解关于多重签名的更多信息，请查看：[多重签名](../../../explanation/multisig)。
 
 ### 钱包 API
 

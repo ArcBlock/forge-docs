@@ -41,8 +41,8 @@ Client must fill in necessary values into these fields to get the transaction ex
 - `chain_id`: a string that tracks on which chain this transaction happens
 - `pk`: bytes of public key of sender
 - `signature`: bytes of sender's signature over this transaction. Used by receiver to verify that the content of this transaction has not been changed by other parties.
-- `signatures`: extra multisig if this transaction requires extra endorsement from receiver or a 3rd party account. See: [What is Multisig?](../../arch/multisig)
-- `itx`: type and content of this transaction. See: [transactions](../../txs)
+- `signatures`: extra multisig if this transaction requires extra endorsement from receiver or a 3rd party account. See: [What is Multisig?](../multisig)
+- `itx`: type and content of this transaction. See: [transactions](../../reference/txs)
 
 All transactions are backed by **transaction protocol**. Transaction protocol is the code that executes the transactions and manipulates the states. It can be dynamically installed, upgraded, activated and deactivated on all running nodes of a chain. For more information on transaction protocols, please see [../txs].
 
@@ -131,13 +131,13 @@ And when ABT Node sees `fg:t:transfer`, it will know how to decode the `value`.
 
 Above we have seen `TransferTx`, which represents the transfer activity on an ABT Node. Each activity has its own inner transactions, defined as different types.
 
-For the complete list of itx types and explanations, please see [Forge ITX](../../txs).
+For the complete list of itx types and explanations, please see [Forge ITX](../../reference/txs).
 
 ## gRPC and GraphQL
 
 Forge SDK uses [gRPC](https://grpc.io/docs/) calls and [GraphQL](https://graphql.org/learn/).
 
-Forge SDK has also implemented many ready-to-use GRPC APIs for users to use. Detailed explanation about how Forge SDK uses gRPC can be found [here](../../core/rpc).
+Forge SDK has also implemented many ready-to-use GRPC APIs for users to use. Detailed explanation about how Forge SDK uses gRPC can be found [here](../../reference/rpc).
 
 ### Protobuf
 
