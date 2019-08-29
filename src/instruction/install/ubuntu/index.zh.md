@@ -184,7 +184,7 @@ cd ~
 forge init
 ```
 
-正如我们在[简介](../intro)中讨论的那样，这将创建`.forge_cli`文件夹，并将 forge assets 放入其中。在默认设置中，它会将 forge 数据存储在`.forge_release`下，您可按需修改此设置
+这将创建`.forge_cli`文件夹，并将 forge assets 放入其中。在默认设置中，它会将 forge 数据存储在`.forge_release`下，您可按需修改此设置
 
 然后，您便可以运行`forge start`了。您可以通过`forge status`查看 forge 状态：
 

@@ -75,7 +75,7 @@ val Alice = forge.createWallet(Rpc.RequestCreateWallet.newBuilder()
 ```
 
 ::: tip
-`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../intro/concepts).
+`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../../concepts/concepts).
 :::
 
 ### Step 3: Query your account information.

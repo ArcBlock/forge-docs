@@ -10,7 +10,7 @@ tags:
   - "javascript"
 ---
 
-如果您是来自传统网页开发的开发者，不熟悉区块链，请先查看[一般概念](../../../explanation/concepts)。
+如果您是来自传统网页开发的开发者，不熟悉区块链，请先查看[一般概念](../../../concepts/concepts)。
 
 Forge Javascript SDK 方便开发者在 forge 上构建应用程序，它提供精炼简单的 api，帮助开发者完成以下任务：
 

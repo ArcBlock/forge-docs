@@ -10,7 +10,7 @@ tags:
   - 'javascript'
 ---
 
-If you are a developer from traditional web development and not familiar with blockchain, please checkout [general concepts](../../../explanation/concepts) first.
+If you are a developer from traditional web development and not familiar with blockchain, please checkout [general concepts](../../../concepts/concepts) first.
 
 Forge Javascript SDK makes it very easy for developers to building applications on forge, it provides concise and simple api to helper developers accomplish following tasks:
 

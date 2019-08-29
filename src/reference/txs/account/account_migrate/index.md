@@ -15,11 +15,11 @@ Migrage an existing account from an old wallet to a new wallet.
 
 ## Overview
 
-If your wallet's secret key is potentially exposed (e.g. you lost the paper that has printed secret key), for security purpose you issue an account migrate transaction and switch your old wallet to a newly generated wallet.
+** AccountMigrageTx** helps you switch your old wallet to a newly generated wallet, when your old wallet's secret key is potentially exposed (e.g. you lost the paper that has printed secret key).
 
- After this migration, all your existing token balance are carried over in the new account, and the asset your previously owned are eligible to be transferred or be used. Once it is executed in the chain, your old account will be sealed and all reference to the old address will point to a new address.
+After this transaction is executed, all your previous assets and token balance in the old wallet will be carried over to the new wallet. Meanwhile, your old account will be sealed and all reference to the old address will be redirected to the new address.
 
-## Transaction Structure
+## Transaction Protocols
 
 ```protobuf
 message AccountMigrateTx {

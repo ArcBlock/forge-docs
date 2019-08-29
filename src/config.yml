@@ -10,17 +10,22 @@ categories:
     sidebar:
       'null':
       - "/"
-      Introduction:
+      Overview:
       - "/intro"
-      - "/explanation/concepts"
-      - "/explanation/transaction"
-      - "/explanation/inside_forge"
+      Start With Blockets:
+      - "/blockets"
+      Step-By-Step Guides:
+      - "/concpets"
+      - "/concepts/inside_forge"
+      - "/concepts/transaction"
       Installation:
       - "/instruction/install"
       - "/instruction/install/ubuntu"
       - "/instruction/install/centos"
       - "/instruction/install/macos"
-      Forge SDK:
+      Configuration:
+      - "/instruction/configuration"
+      Library:
       - "/instruction/sdk"
       - "/instruction/sdk/javascript"
       - "/instruction/sdk/python"
@@ -65,3 +70,26 @@ categories:
       - "/reference/types/enum"
       - "/reference/types/state"
       - "/reference/types/trace_type"
+  tutorials:
+    basepath: "/docs"
+    title: "Tutorials"
+    link: "/tutorials"
+    priority: 8888
+    sidebar:
+      'null':
+      - "/"
+  blogs:
+    basepath: "/"
+    title: "Blogs"
+    link: "/blogs"
+    priority: 7777
+  showcase:
+    basepath: "/showcase"
+    title: "Showcase"
+    link: "/"
+    priority: 6666
+  community:
+    basepath: "/community"
+    title: "Community"
+    link: "/"
+    priority: 5555
