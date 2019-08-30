@@ -6,7 +6,7 @@ robots: 'index,follow'
 category: 'docs'
 layout: 'documentation'
 tags:
-  - 'blocket'
+  - 'blocklet'
   - 'index'
 ---
 

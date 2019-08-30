@@ -10,14 +10,6 @@ tags:
   - 'enum'
 ---
 
-## Enum List
-
-- [Enum List](#enum-list)
-  - [StatusCode](#statuscode)
-  - [KeyType](#keytype)
-  - [HashType](#hashtype)
-
-
 ### StatusCode
 
 ```protobuf

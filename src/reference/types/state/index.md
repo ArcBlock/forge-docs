@@ -9,24 +9,6 @@ tags:
   - 'types'
   - 'state'
 ---
-## State List
-
-- [State List](#state-list)
-  - [AccountState](#accountstate)
-  - [AssetState](#assetstate)
-  - [BlacklistState](#blackliststate)
-  - [CoreProtocol](#coreprotocol)
-  - [forge_state](#forge_state)
-  - [DelegateOpState](#delegateopstate)
-  - [DelegateOpState](#delegateopstate-1)
-  - [ProtocolState](#protocolstate)
-  - [RootState](#rootstate)
-  - [StakeState](#stakestate)
-  - [StatisticsState](#statisticsstate)
-  - [SwapState](#swapstate)
-  - [TetherInfo](#tetherinfo)
-  - [TetherState](#tetherstate)
-  -
 
 ### AccountState
 
