@@ -66,7 +66,7 @@ mike = rpc.create_wallet(moniker='mike', passphrase='abc123')
 ```
 
 ::: tip
-`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../../explanation/concepts).
+`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../../concepts/concepts).
 :::
 
 Let's take a look at Alice's wallet and here account details

@@ -74,7 +74,7 @@ val Alice = forge.createWallet(Rpc.RequestCreateWallet.newBuilder()
 ```
 
 ::: tip
-`moniker`是 Forge 上该钱包的昵称。`passphrase`由 Forge 使用，以将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../../../explanation/intro/concepts)。
+`moniker`是 Forge 上该钱包的昵称。`passphrase`由 Forge 使用，以将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../../../concepts/intro/concepts)。
 :::
 
 ### 第 3 步：询问您的账户信息。

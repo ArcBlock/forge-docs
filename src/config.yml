@@ -10,58 +10,54 @@ categories:
     sidebar:
       'null':
       - "/"
-      Introduction:
-      - "/intro"
-      - "/explanation/concepts"
-      - "/explanation/transaction"
-      - "/explanation/inside_forge"
-      Installation:
+      Quick Start:
+      - "/blocklets/intro"
+      - "/blocklets/official"
+      - "/blocklets/community"
+      Step-By-Step Guides:
+      - "/concepts/inside_forge"
+      - "/concepts/transaction"
+      - "/concepts/account"
+      - "/concepts/tx_protocol"
+      Usage:
       - "/instruction/install"
-      - "/instruction/install/ubuntu"
-      - "/instruction/install/centos"
-      - "/instruction/install/macos"
-      Forge SDK:
+      - "/instruction/configuration"
+      - "/instruction/log"
+      Reference:
       - "/instruction/sdk"
-      - "/instruction/sdk/javascript"
-      - "/instruction/sdk/python"
-      - "/instruction/sdk/elixir"
-      - "/instruction/sdk/java"
-      - "/instruction/sdk/others"
-      Forge Tools:
-      - "/instruction/tools"
-      - "/instruction/tools/forge_cli"
-      - "/instruction/tools/forge_web"
-      - "/instruction/tools/abt_chain_node"
-      - "/instruction/tools/simulator"
-      - "/instruction/tools/forge_indexer"
-      - "/instruction/tools/dapps_workshop"
-      Forge Core:
-      - "/reference/rpc"
-      - "/reference/configuration"
-      - "/reference/log"
-      - "/reference/tx_protocol"
       - "/reference/code"
-      - "/reference/bigint"
-      Forge TX:
+      - "/reference/protocols"
       - "/reference/txs"
-      - "/reference/txs/account/declare"
-      - "/reference/txs/account/account_migrate"
-      - "/reference/txs/asset/create_asset"
-      - "/reference/txs/asset/update_asset"
-      - "/reference/txs/asset/consume_asset"
-      - "/reference/txs/asset/create_asset_factory"
-      - "/reference/txs/asset/acquire_asset"
-      - "/reference/txs/trade/transfer"
-      - "/reference/txs/trade/exchange"
-      Forge RPC:
-      - "/reference/rpc/chain"
-      - "/reference/rpc/event"
-      - "/reference/rpc/state"
-      - "/reference/rpc/stats"
-      - "/reference/rpc/wallet"
-      - "/reference/rpc/message_translation_booklet"
-      Forge Types:
-      - "/reference/types/type"
-      - "/reference/types/enum"
-      - "/reference/types/state"
-      - "/reference/types/trace_type"
+      - "/reference/rpc"
+      - "/reference/types"
+      Forge Tools:
+      - "/tools"
+      - "/tools/forge_cli"
+      - "/tools/forge_web"
+      - "/tools/abt_chain_node"
+      - "/tools/simulator"
+      - "/tools/forge_indexer"
+      - "/tools/dapps_workshop"
+  tutorials:
+    basepath: "/docs"
+    title: "Tutorials"
+    link: "/tutorials"
+    priority: 8888
+    sidebar:
+      'null':
+      - "/"
+  blogs:
+    basepath: "/dummy"
+    title: "Blogs"
+    link: "/blogs"
+    priority: 7777
+  showcase:
+    basepath: "/showcase"
+    title: "Showcase"
+    link: "/"
+    priority: 6666
+  community:
+    basepath: "/community"
+    title: "Community"
+    link: "/"
+    priority: 5555

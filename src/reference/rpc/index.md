@@ -1,5 +1,5 @@
 ---
-title: 'Forge RPC Overview'
+title: 'Forge RPC'
 description: 'Forge RPC Overview'
 keywords: ''
 robots: 'index,follow'

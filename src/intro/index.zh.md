@@ -178,7 +178,7 @@ forge 区块探索器则拥有您可查看的数据：
 
 ## 想了解更多信息吗
 
-请看看[Forge 内有什么](../explanation/inside-forge)！
+请看看[Forge 内有什么](../concepts/inside-forge)！
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTI5NzA1NzkxOSwzNDkwMjQ5NjMsMjA3MT

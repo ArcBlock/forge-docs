@@ -10,39 +10,6 @@ tags:
   - 'type'
 ---
 
-## Type List
-
-- [Type List](#type-list)
-  - [AbciContext](#abcicontext)
-  - [BigSint](#bigsint)
-  - [BigUint](#biguint)
-  - [BlockInfo](#blockinfo)
-  - [ChainInfo](#chaininfo)
-  - [CircularQueue](#circularqueue)
-  - [ConsensusParams](#consensusparams)
-  - [ForgeStatistics](#forgestatistics)
-  - [GenesisInfo](#genesisinfo)
-  - [GeoInfo](#geoinfo)
-  - [Multisig](#multisig)
-  - [NetInfo](#netinfo)
-  - [NodeInfo](#nodeinfo)
-  - [PeerInfo](#peerinfo)
-  - [StakeContext](#stakecontext)
-  - [StakeSummary](#stakesummary)
-  - [StateContext](#statecontext)
-  - [Transaction](#transaction)
-  - [TransactionInfo](#transactioninfo)
-  - [TxStatistics](#txstatistics)
-  - [TxStatus](#txstatus)
-  - [UnconfirmedTxs](#unconfirmedtxs)
-  - [UpgradeTask](#upgradetask)
-  - [UpgradeTasks](#upgradetasks)
-  - [Validator](#validator)
-  - [ValidatorInfo](#validatorinfo)
-  - [ValidatorsInfo](#validatorsinfo)
-  - [WalletType](#wallettype)
-  - [WalletInfo](#walletinfo)
-
 ### AbciContext
 
 ```protobuf

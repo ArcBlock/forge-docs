@@ -66,7 +66,7 @@ config = f.config
 ```
 
 ::: tip
-`moniker`是 Forge 上该钱包的昵称。`passphrase`是通过 Forge 将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../../../explanation/concepts)。
+`moniker`是 Forge 上该钱包的昵称。`passphrase`是通过 Forge 将钱包加密为一个 keystore 文件。如需了解钱包声明规则的更多信息，请点击[此处](../../../concepts/concepts)。
 :::
 
 我们看看Alice的钱包和账户详情

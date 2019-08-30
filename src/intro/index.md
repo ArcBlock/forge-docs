@@ -104,7 +104,7 @@ forge start
 
 By default, forge is started as a daemon and it will bring up consensus engine and storage engine - at the moment, we're using tendermint / ipfs respectively.
 All data (consensus db, forge state db, storage), configuration and logs are stored at the path defined in the `forge_release.toml`. By default, it is under `~/.forge_release`. Feel free to change this path to something like `/var/data/forge` or `/mnt/forge`. In this documentation, we will use `$FORGE_HOME` to refer to this path for simplicity.
-Congratulations! Now your local forge node started successfully! For more information about commands supported by `forge-cli`, feel free to go to: [Forge CLI](../tools/forge_cli).
+Congratulations! Now your local forge node started successfully! For more information about commands supported by `forge-cli`, feel free to go to: [Forge CLI](../instruction/tools/forge_cli).
 
 ## Forge Logs
 
@@ -123,7 +123,7 @@ For more information about forge logs, please refer to: [Forge Logs](../instruct
 ## Forge Web
 
 Now you have a basic idea on how forge started - you may want to see how to get an overview for transactions and data stored in forge. In your `forge_release.toml` configuration, forge web is started by default, thus you can directly go to your browser and open `http://localhost:8210`. You will see page like this:
-![Forge Web](../assets/images/forge_web.jpg)
+![Forge Web](./assets/forge_web.jpg)
 Currently the forge web has these functionalities:
 
 - dashboard: give you an overview about what happened on the chain.
@@ -142,10 +142,10 @@ forge simulator start
 
 A simulator will be started and after a while in your forge web you'll see transactions are being populated. The simulator will first create 10, 000 wallets, and then sending transactions between wallets.
 After a while your forge web dashboard will look like this:
-![Forge Web: updated](../assets/images/forge_web1.jpg)
+![Forge Web: updated](./assets/forge_web1.jpg)
 And the forge block explorer has data for you to dig in:
-![Forge block explorer](../assets/images/forge_explorer.jpg)
-For more information about forge simulator, please visit: [Forge simulator](../instructiob/tools/simulator).
+![Forge block explorer](./assets/forge_explorer.jpg)
+For more information about forge simulator, please visit: [Forge simulator](../instructio/tools/simulator).
 
 ## Create wallet and send your own txs
 
@@ -161,4 +161,4 @@ If you want to start coding immediately, we prepared several SDKs for you to use
 
 ## Want to know more?
 
-Dive into [what's inside Forge?](../explanation/inside-forge)!
+Dive into [what's inside Forge?](../concepts/inside-forge)!

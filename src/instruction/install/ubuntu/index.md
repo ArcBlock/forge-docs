@@ -161,7 +161,7 @@ cd ~
 forge init
 ```
 
-As we discussed in [intro](../intro), this will create `.forge_cli` folder and put forge assets into it. By default, it will put forge data under `.forge_release`, if you don't like this, you can change it
+This will create `.forge_cli` folder and put forge assets into it. By default, it will put forge data under `.forge_release`, if you don't like this, you can change it
 
 Then you shall be able to run `forge start`. You may want to check forge status by `forge status`:
 
