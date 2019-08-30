@@ -23,7 +23,7 @@ categories:
       - "/instruction/install"
       - "/instruction/configuration"
       - "/instruction/log"
-      Library:
+      Reference:
       - "/instruction/sdk"
       - "/reference/code"
       - "/reference/protocols"
