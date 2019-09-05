@@ -10,8 +10,11 @@ tags:
   - 'index'
 ---
 
-As we discussed earlier, transactions are the smallest activities happened on the Forge backed chains and the code backing the transactions is called transaction protocol. Transaction protocol to Forge transaction is just like smart contract to Ethereum transaction.
-By default, Forge ships with a set of core transaction protocols - each protocol covers a set of typical use cases. Application developers could decide to install all these protocols or just pick protocols that they want to support. For example, an application may decide no normal asset creation is allowed in its chain, so it installs core protocols without create_asset / update_asset protocols. Application can build and install their own protocols as well if they feel that existing protocols cannot fit for their needs.
+In Forge, `Transaction` defines the basic unit for all kinds of activities. The definition of `Transaction` includes two parts:
+
+- **Structure**: Defines the transaction's data structure
+
+- **Pipeline**: Defines how the transaction will be verified and change the database
 
 ## Categories
 
