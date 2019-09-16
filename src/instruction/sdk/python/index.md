@@ -1,6 +1,6 @@
 ---
-title: 'Python SDK'
-description: 'Python SDK'
+title: 'Python SDK Documentation'
+description: ''
 keywords: ''
 robots: 'index,follow'
 category: 'docs'
@@ -10,48 +10,101 @@ tags:
   - 'python'
 ---
 
-For details about how to set up Forge, please checkout [Forge](https://github.com/ArcBlock/forge).
+## Introduction
 
-A more detailed reference manual for forge-python-sdk can be found [Here](../../../sdks/python/latest/).
+Welcome to the Forge Python SDK Documentation! This documentation provides python developers with a brief introduction and some short tutorials to make the best out of Forge.
 
-## Installation
+## What's Availiable in Python SDK
 
-We recommend installing through `pip`
+### [Forge SDK Overview](../)
+
+All Forge SDKs implements several categories of pre-built functions, so that developers can use Forge with their favourite languages.
+
+If you want to see an overview of what's availiable, checkout  [Forge SDK Overview](../).
+
+### [Forge Python Manual](../../../sdks/python/latest/)
+
+Python SDK also has its own reference manual, including detailed function documents and examples.
+
+If you want to see the detailed manual, checkout [Forge Python Manual](../../../sdks/python/latest/).
+
+## How to Install Python SDK
+
+The best way to install python SDK is through `pip`, which comes with python. If you don't have python in your device, you can checkout the official [Python website](https://www.python.org/downloads/) to download.
+
+::: warning
+Make sure you are using a Python verison `>=3.6`.
+:::
+
+Run this in your terminal:
 
 ```sh
 pip install forge-python-sdk
 ```
 
-::: warning
-This sdk supports python verison `>=3.6`.
-:::
+Now you should have `forge-python-sdk` installed. To check if the sdk is installed properly, try running:
 
-## Usage
+```python
+>>> import forge_sdk
+```
 
-### Step 0
+If there's no error, that means you have successfully installed python sdk.
 
-First get your Forge running on local with [Forge CLI](../../tools/forge_cli).
+## How to Use Python SDK
 
-### Step 1
+There are three steps using the SDK. Detailed explanation can be found below.
 
-Create a Forge Connection with your Forge port (Default is `127.0.0.1:28210` if your Forge runs with `forge-cli`)
+- Step 1: Start Forge
+- Step 2: Create a Forge Connection
+- Step 3: Make a Request
+
+### Step 1: Start Forge
+
+Python SDK needs to connect to a running node to work properly. You can use [Forge CLI](../../tools/forge_cli) to start a local node or connect to an exisiting node.
+
+### Step 2: Create a Forge Connection
+
+Python SDK supports connecting to multiple chains created Forge. Before making request to Forge, you need to create a `ForgeConn`, which specifies the chain your requests will go to.
+
+Create a Forge Connection with your Forge port (Default is `127.0.0.1:28210` if your Forge runs with `forge-cli`).
 
 ```python
 from forge_sdk import ForgeConn
-f = ForgeConn('127.0.0.1:28210')
-rpc = f.rpc
-config = f.config
+forge_conn = ForgeConn('127.0.0.1:28210')
 ```
 
-::: warning
-This step applies to every tutorial
-:::
+Now you have successfully established a connection with the node running on `127.0.0.1:28210`. From now on, all your requests should be make using this `forge_conn`.
 
-## Tutorials
+Accessing rpc:
 
-### Level 1: Transfer Money
+```python
+rpc = forge_conn.rpc
+```
 
-**Scenario**: Alice wants to transfer 10 TBA to Mike.
+Accessing config:
+
+```python
+config = forge_conn.config
+```
+
+### Step 3: Make a Request
+
+Wow! You have now started a running node and created a connection to it. Now let's make some request.
+
+Run this in your python console to get information about your chain:
+
+```python
+rpc.get_chain_state()
+```
+
+## Put It All Together
+
+Now you have finished the basic setup and some experience with forge SDK. Before you start the next journey, take a look at the two tutorials to get a better sense on how to use Forge in real world scenarios.
+
+
+### Level 1:  Transfer Money
+
+**Scenario**: Alice wants to transfer 10 token to Mike.
 
 ::: tip
 **TBA** is the default currency on Forge Chain. If 1 TBA has 16 digits, it shows as `10000000000000000`.
@@ -66,7 +119,8 @@ mike = rpc.create_wallet(moniker='mike', passphrase='abc123')
 ```
 
 ::: tip
-`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../../concepts/concepts).
+- `moniker` is a nickname for this wallet on Forge.
+- `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../../concepts/concepts).
 :::
 
 Let's take a look at Alice's wallet and here account details
@@ -110,8 +164,8 @@ Now let's check Alice's account balance. There should be 25 TBA.
 ```
 
 ::: tip
-**Poke**: Each account can send a **Poke Transaction** to get 25 TBA each day.
-**Hash**: The calculated hash of the signed transaction. Each transaction should have its own unique **hash**.
+- **Poke**: Each account can send a **Poke Transaction** to get 25 TBA each day.
+- **Hash**: The calculated hash of the signed transaction. Each transaction should have its own unique **hash**.
 :::
 
 #### Step 3: Transfer the money from Alice to Mike
@@ -248,7 +302,7 @@ True
 Alice's account should have only 15 TBA after she pays for the laptop.
 
 ```python
->rpc.get_account_balance(alice.wallet.address)
+rpc.get_account_balance(alice.wallet.address)
 150000000000000000
 ```
 
