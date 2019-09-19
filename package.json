@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "@arcblock/gatsby-theme-docs": "^6.11.0",
+    "@arcblock/gatsby-theme-docs": "^6.21.0",
     "dotenv": "^8.0.0",
-    "gatsby": "^2.13.57",
+    "gatsby": "^2.15.18",
     "prettier": "^1.13.7",
     "remark-cli": "^5.0.0",
     "remark-lint-no-dead-urls": "^0.3.0",
