@@ -11,25 +11,23 @@ categories:
       'null':
       - "/"
       Quick Start:
-      - "/blocklets/intro"
-      - "/blocklets/official"
-      - "/blocklets/community"
-      Step-By-Step Guides:
+      - "/concepts/transaction"
+      Concepts Explanations:
       - "/concepts/inside_forge"
       - "/concepts/transaction"
       - "/concepts/account"
       - "/concepts/tx_protocol"
+      Blockets:
+      - blocklets/intro
       Usage:
       - "/instruction/install"
       - "/instruction/configuration"
       - "/instruction/log"
-      Reference:
-      - "/instruction/sdk"
-      - "/reference/code"
-      - "/reference/protocols"
-      - "/reference/txs"
-      - "/reference/rpc"
-      - "/reference/types"
+      Forge SDK:
+      - "/instruction/sdk/javascript"
+      - "/instruction/sdk/python"
+      - "/instruction/sdk/elixir"
+      - "/instruction/sdk/java"
       Forge Tools:
       - "/tools"
       - "/tools/forge_cli"
@@ -38,3 +36,9 @@ categories:
       - "/tools/simulator"
       - "/tools/forge_indexer"
       - "/tools/dapps_workshop"
+      Reference:
+      - "/reference/code"
+      - "/reference/protocols"
+      - "/reference/txs"
+      - "/reference/rpc"
+      - "/reference/types"

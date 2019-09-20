@@ -28,10 +28,10 @@ This is the most basic transaction protocols that a chain must install. Right no
 
 Account related transaction protocols. Including:
 
-- declare: declare a wallet in the chain. See: [Declare Transaction](account/declare).
-- account_migrate: migrate a wallet from one address to another. See: [Account Migration Transaction](account/account_migrate).
-- delegate: delegate certain rights from one account to another. See: [Delegate Transaction](account/delegate).
-- revoke_delegate: revoke existing delegation for certain or whole rights from one account to another. See: [Revoke Delegate Transaction](account/revoke_delegate).
+- [`DelcareTx`](account/declare): Declare a wallet in the chain.
+- [`AccountMigrateTx`](account/account_migrate): Migrate a wallet from one address to another.
+- [`DelegateTx`](account/delegate): Delegate certain rights from one account to another..
+- [`RevokeDelegateTx`](account/revoke_delegate): Revoke existing delegation for certain or whole rights from one account to another.
 
 ### Asset
 

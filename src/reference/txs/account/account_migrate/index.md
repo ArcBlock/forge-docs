@@ -10,19 +10,13 @@ tags:
   - 'account_migrate'
 ---
 
-## What is AccountMigrateTx
+**`AccountMigrateTx`** is used to migrate the contents of an existing wallet to a new wallet. This can be done for many reasons, including security (e.g., your wallet's secret key has been exposed).
 
-Migrage an existing account to a new account.
+After this transaction executes, all of your assets and tokens in your former wallet will have been carried over to your new wallet. Your old wallet will be sealed, and all references to your old wallet's address will be redirected to the address of your new wallet.
 
-## Why AccountMigrateTx
+## Sample Code
 
-**AccountMigrateTx** helps you switch your old wallet to a newly generated wallet, when your old wallet's secret key is potentially exposed (e.g. you lost the paper that has printed secret key).
-
-## Result of AccountMigrateTx
-
-After this transaction is executed, all your previous assets and token balance in the old wallet will be carried over to the new wallet. Meanwhile, your old account will be sealed and all reference to the old address will be redirected to the new address.
-
-## Code Sample: AccountMigrateTx
+The following shows how to use AccountMigrateTx in Protocol Buffers.
 
 ```protobuf
 message AccountMigrateTx {
@@ -33,23 +27,26 @@ message AccountMigrateTx {
   google.protobuf.Any data = 15;
 }
 ```
-|  Name   |                                       Data Type                                       |              Explanation               |
-| :------ | :------------------------------------------------------------------------------------ | :------------------------------------- |
-| pk      | bytes                                                                                 | Public key of new wallet               |
-| type    | WalletType                                                                            | (Deprecated) Wallet type of new wallet |
-| address | string                                                                                | Address of new wallet                  |
-| data    | [google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any) | User customed data                     |
 
-## Example Usage
+| Name | Data Type | Description |
+| - | - | - |
+| `pk` | bytes | Public key of new wallet |
+| `type` | WalletType |  **Deprecated.** Wallet type of new wallet |
+| `address` | string | Address of new wallet |
+| `data` | [google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any) | Custom user data |
 
-### Step 1: Use your old wallet
+## Sample Usage
+
+There are two steps involved when using AccountMigrateTx to migrate the contents of your wallet.
+
+1. Declare your old wallet.
 
 ```elixir
 old_wallet = ForgeSdk.create_wallet()
 ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "sisyphus"), wallet: old_wallet)
 ```
 
-### Step 2: Migrage your old wallet to a new one
+1. Migrate the contents of your old wallet to your new wallet.
 
 ```elixir
 new_wallet = ForgeSdk.create_wallet()
