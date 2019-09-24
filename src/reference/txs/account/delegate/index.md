@@ -10,64 +10,68 @@ tags:
   - 'delegate'
 ---
 
+**`DelegateTx`** is used for an account to delegate its signature rights to other accounts. This is useful if user wants to reduce the times of using an important account to sign transactions by using other accounts to perfrom certain activities.
 
+After **`DelegateTx`** executes successfully, a delegation relationship is established between the two accounts. And the delegatee account and sign transactions on behalf of the delagator account based on the rule specified in the **`DelegateTx`**.
 
-**Declare** transaction declares a wallet into an account of the chain. In Forge, only a wallet has a corresponding account, it can send or receive transactions, or carry out whatever activities permitted by the chain.
+## Sample Code
 
-an account can delegate its signature rights to other accounts by sending a **Delegate** transaction. The delegate transaction can contain a list of type urls and the rules applied to those type urls. Once the delegation between two accounts are established, a delegation state will be stored in the MPT (inside account column family) for validation and statistics purpose.
+The following shows how to use `DelegateTx` in Protocol Buffers.
 
-## Configuration
-
-delegate tx has its own configuration, and this configuration will be kept in forge state as a consensus parameters.
-
-```toml
-[forge.transaction.delegate]
-
-# delta interval
-delta_interval = 18000
-# allowed type_urls for delegation
-type_urls = ["fg:t:transfer", "fg:t:exchange"]
-```
-
-The `delta_interval` is the number of blocks for a period, we use this to keep the number of transactions and number of tokens in this interval. The `type_url` is a whitelist that only the txs in this list could be delegated.
-
-## Protocol definition
-
-To delegate certain rights you shall use `DelegateTx` message:
-
-```proto
+```protobuf
 message DelegateTx {
-  string address = 1; // address of the delegation between sender and receiver
-  string to = 2;      // delegatee's address
-  repeated DelegateOp ops = 3; // a list of operations permitted
+  string address = 1;
+  string to = 2;
+  repeated DelegateOp ops = 3; // 
 
   google.protobuf.Any data = 15;
 }
 
-// if rules are empty, signature for this type_url is entirely delegated
-// otherwise rules are checked one by one, relationship between rules is AND.
-// a rule is an expression defined in rule_parser
-// (github.com/arcblock/rule-parser) one can setup
 message DelegateOp {
   string type_url = 1;
   repeated string rules = 2;
 }
 ```
 
-## Delegate Tx Usage
+| Name | Data Type | Description |
+| - | - | - |
+| `address` | string | Address of the delegation between sender and receiver, calculated by SDK|
+| `to`| string | delegatee's address|
+| `ops`| repeated(DelegatedOp) |A list of rules delegated to the delegatee. If rules are empty, signature for this type_url is entirely delegated.
+| `data` (optional)| [Google.Protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any) | Custom user data |
 
-## Normal Tx
+## Sample Usage
 
-Below is an example for a delegation - alice wants to delegate the transfer rights to betty with these limitations:
+### Configuration
 
-- total txs she can sign within predefined interval: 10
-- total balance within predefined interval she can consume: 155 ABT
-- total balance she can consume: 1550 ABT
-- for single tx:
-  - cannot transfer any assets
-  - maximum value is 15.5 ABT
+To `DelegateTx`, user needs to have following setup in configuration. See detailed instructions to [Set Up Forge Configuration](../../../instruction/configuration).
 
-The code (using elixir SDK) looks like this:
+```toml
+[forge.transaction.delegate]
+
+delta_interval = 18000
+type_urls = ["fg:t:transfer", "fg:t:exchange"]
+```
+
+| Name | Data Type | Description |
+| - | - | - |
+| `delta_interval` | int | The number of blocks for a single delegation interval, used by the rules to limit the frequency of certain behavior. |
+| `type_url`| list[string] | A list of transactions that can be delegated. Transactions whose type_urls are not listed here are not allowed to be delegated.|
+
+::: tip
+For example, if the `delta_interval` is set to `10`, then the interval for this delegation is 10 blocks. If the delegation rules are that the delegatee can only sign less than five transactions, the delegatee can only sign less than five transactions *every `10` blocks*.
+:::
+
+### `DelegateTx` with Single Signature
+
+Alice wants to delegate the transfer rights to Betty with these limitations:
+
+- Total txs Betty can sign within a deletagation interval: `10`
+- Total balance within a deletagation interval Betty can consume: `155 ABT`
+- Total balance Betty can consume: `1550 ABT`
+- For a single transaction:
+  - Betty cannot transfer any asset
+  - Betty can transfer maximum value of 15.5 ABT
 
 ```elixir
 type_url = "fg:t:transfer"
@@ -87,18 +91,20 @@ itx = ForgeAbi.DelegateTx.new(
 ForgeSdk.delegate(itx, wallet: alice)
 ```
 
-One the delegation is setup, betty can do transfer on behalf of alice - say she wants to send 10 tokens to charlie:
+Once the delegation is setup, Betty can sign `transferTx` on behalf of Alice. Blow shows how to Betty can send 10 tokens to Charlie on behalf of Alice:
 
 ```elixir
 itx = ForgeAbi.TransferTx.new(to: charlie.address, value: ForgeSdk.token_to_unit(10))
 ForgeSdk.transfer(itx, wallet: betty, delegatee: alice.address)
 ```
 
-Here the only difference for doing the delegated transfer is to pass `delegatee` address.
+::: tip
+When an delegatee is signing a transaction on behalf of the delegator, an extra field `delegatee` which contains the delegatee's address should be passed in.
+:::
 
-## Multisig Tx
+### `DelegateTx` with Multiple Signatures
 
-Delegation could also be applied to tx that requires multisig. Say alice delegated the rights for `exchange` to betty, and charlie wants to get alice's infinite stone with 100 tokens. Since betty have the signature rights for that, she can do the multisig:
+Below shows if Alice delegated the rights for `ExchangeTx` to Betty, how Charlie can get Alice's `infinite stone` with 100 tokens. Since Betty have the signature rights for `ExchangeTx`, she can now perform the multisig for Alice:
 
 ```elixir
 e1 = ForgeAbi.ExchangeInfo.new(value: ForgeSdk.token_to_unit(100))
@@ -111,11 +117,13 @@ tx = ForgeSdk.finalize_exchange(tx, wallet: betty, delegatee: alice.address)
 hash = ForgeSdk.send_tx(tx: tx)
 ```
 
-Same as previous example, here to do delegated multisig, one just need to pass the `delegatee` address.
+::: tip
+Similar to transaction with single signature, When an delegatee is signing a transaction on behalf of the delegator, an extra field `delegatee` which contains the delegatee's address should be passed in.
+:::
 
 ## Delegation state
 
-As said in previous doc, a delegation state is kept once a delegation is setup. The state contains a map with its key as `type_url` and the value as `DelegateOpState`, which contains statistics value that could be used in delegate rules.
+A delegation state is kept once a delegation is setup. The state contains a map with its key as `type_url` and the value as `DelegateOpState`, which contains statistics value that could be used in delegate rules.
 
 ```protobuf
 message DelegateOpState {

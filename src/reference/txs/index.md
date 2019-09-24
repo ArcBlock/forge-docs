@@ -10,15 +10,9 @@ tags:
   - 'index'
 ---
 
-In Forge, `Transaction` defines the basic unit for all kinds of activities. The definition of `Transaction` includes two parts:
-
-- **Structure**: Defines the transaction's data structure
-
-- **Pipeline**: Defines how the transaction will be verified and change the database
+In Forge, all activities happen in the form of a `Transaction`. For example, if Alice wants to transfer money to Bob, Alice creates and signs a `TransferTx` which specifies Bob's account address, and the amount of money Alice wants to send.
 
 ## Categories
-
-For core transaction protocols we grouped them into the follow categories.
 
 ### Base
 
@@ -26,17 +20,11 @@ This is the most basic transaction protocols that a chain must install. Right no
 
 ### Account
 
-Account related transaction protocols. Including:
-
 - [`DelcareTx`](account/declare): Declare a wallet in the chain.
 - [`AccountMigrateTx`](account/account_migrate): Migrate a wallet from one address to another.
-- [`DelegateTx`](account/delegate): Delegate certain rights from one account to another..
-- [`RevokeDelegateTx`](account/revoke_delegate): Revoke existing delegation for certain or whole rights from one account to another.
+- [`DelegateTx`](account/delegate): Delegate certain rights from one account to another.
 
 ### Asset
-
-Asset related transaction protocols. Including -
-Basic asset creation and manipulation:
 
 - create_asset: create a new asset. See: [Create Asset Transaction](asset/create_asset).
 - update_asset: update and existing asset. See: [Update Asset Transaction](asset/update_asset).
@@ -51,10 +39,6 @@ Basic asset creation and manipulation:
 - exchange: exchange tokens/assets with other's tokens/assets. See: [Exchange Transaction](trade/exchange).
 
 ### Governance
-
-Document will be exposed soon.
-
-### Stake
 
 Document will be exposed soon.
 

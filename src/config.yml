@@ -28,6 +28,12 @@ categories:
       - "/instruction/sdk/python"
       - "/instruction/sdk/elixir"
       - "/instruction/sdk/java"
+      Reference:
+      - "/reference/code"
+      - "/reference/protocols"
+      - "/reference/txs"
+      - "/reference/rpc"
+      - "/reference/types"
       Forge Tools:
       - "/tools"
       - "/tools/forge_cli"
@@ -36,9 +42,3 @@ categories:
       - "/tools/simulator"
       - "/tools/forge_indexer"
       - "/tools/dapps_workshop"
-      Reference:
-      - "/reference/code"
-      - "/reference/protocols"
-      - "/reference/txs"
-      - "/reference/rpc"
-      - "/reference/types"

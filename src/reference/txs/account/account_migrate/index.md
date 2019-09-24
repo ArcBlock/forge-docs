@@ -12,11 +12,11 @@ tags:
 
 **`AccountMigrateTx`** is used to migrate the contents of an existing wallet to a new wallet. This can be done for many reasons, including security (e.g., your wallet's secret key has been exposed).
 
-After this transaction executes, all of your assets and tokens in your former wallet will have been carried over to your new wallet. Your old wallet will be sealed, and all references to your old wallet's address will be redirected to the address of your new wallet.
+After **`AccountMigrateTx`** executes successfully, all of your assets and tokens in your former wallet will have been carried over to your new wallet. Your old wallet will be sealed, and all references to your old wallet's address will be redirected to the address of your new wallet.
 
 ## Sample Code
 
-The following shows how to use AccountMigrateTx in Protocol Buffers.
+The following shows how to use `AccountMigrateTx` in Protocol Buffers.
 
 ```protobuf
 message AccountMigrateTx {
@@ -33,7 +33,7 @@ message AccountMigrateTx {
 | `pk` | bytes | Public key of new wallet |
 | `type` | WalletType |  **Deprecated.** Wallet type of new wallet |
 | `address` | string | Address of new wallet |
-| `data` | [google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any) | Custom user data |
+| `data` | [Google.Protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any) | Custom user data |
 
 ## Sample Usage
 
