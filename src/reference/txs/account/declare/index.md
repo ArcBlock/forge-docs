@@ -10,13 +10,15 @@ tags:
   - 'declare'
 ---
 
-**Declare** transaction declares a wallet into an account of the chain. In Forge, only a wallet has a corresponding account, it can send or receive transactions, or carry out whatever activities permitted by the chain.
+**`DeclareTx`** is used to declare an account for a wallet on the chain. Before user declares an account on the chain, no one else is aware of this account's existence and this account cannot participate in any activities.
 
-## Protocol definition
+After **`DeclareTx`** executes successfully, the declared account is now known to the chan, and therefore can send/receive transactions and participate in other chain activities. 
 
-To declare a wallet you shall use `DeclareTx` message:
+## Sample Code
 
-```proto
+The following shows how to use `DeclareTx` in Protocol Buffers.
+
+```protobuf
 message DeclareTx {
   string moniker = 1;
   string issuer = 2;
@@ -25,9 +27,13 @@ message DeclareTx {
 }
 ```
 
-You just need to fill `moniker` for your wallet and then assemble and sign this transaction. Since in `Trasnaction` message, your address and pk are provided, the generated account state will use those information.
+| Name | Data Type | Description |
+| - | - | - |
+| `moniker` | string | Nickname for the account|
+| `issuer`(optional) | string | The account that issued this account |
+| `data` (optional)| [Google.Protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any) | Custom user data |
 
-Here's an example of sending a declare tx:
+## Sample Usage
 
 ```elixir
 wallet = ForgeSdk.create_wallet()
@@ -40,10 +46,8 @@ For certain applications, accounts are a controlled resources that not everyone 
 
 ```toml
 ...
-
 [forge.transaction.declare]
 restricted = true
-
 ...
 ```
 
