@@ -10,27 +10,20 @@ tags:
   - 'event'
 ---
 
-Event RPCs help users to interact with activities they are interested in. All activities exist in the form of transactions. By using event RPCs, users can receive real-time information on updates of the transactions type they requested.
+Event RPCs help users interact with activities (in the form of transactions) in which they are interested. With event RPCs, users can receive real-time information on their transactions.
 
-## RPC list
+## Available RPCs
 
 - [Subscribe](#subscribe)
 - [Unsubscribe](#unsubscribe)
 
-### Subscribe
+## Subscribe
 
----
+Subscribe to a specific type of transactions. Server returns all relevant transactions in a stream format.
 
-subscribe a certian topic of transactions. Server returns all transactions under that topic in a stream format.
+### Usage
 
-`subscribe(RequestSubscribe) returns (stream ResponseSubscribe)`
-
-#### RequestSubscribe
-
-| Name   | Data Type | Default  | Required |
-| :----- | :-------- | :------- | :------- |
-| type   | TopicType | transfer |          |
-| filter | string    | ''       |          |
+`subscribe(RequestSubscribe)`
 
 ```protobuf
 message RequestSubscribe {
@@ -39,32 +32,16 @@ message RequestSubscribe {
 }
 ```
 
----
+#### Parameters for `RequestSubscribe`
 
-#### ResponseSubscribe
+| Name | Data Type | Default | Required |
+| - | - | - | - |
+| type | TopicType | transfer | |
+| filter | string | '' | |
 
-| Name              | Data Type                                      |
-| :---------------- | :--------------------------------------------- |
-| code              | int                                            |
-| One Of Below      |                                                |
-| transfer          | [Transaction](../../types/type#transaction) |
-| account_migrate   | [Transaction](../../types/type#transaction) |
-| confirm           | [Transaction](../../types/type#transaction) |
-| create_asset      | [Transaction](../../types/type#transaction) |
-| exchange          | [Transaction](../../types/type#transaction) |
-| revoke            | [Transaction](../../types/type#transaction) |
-| begin_block       | RequestBeginBlock                              |
-| end_block         | RequestEndBlock                                |
-| declare           | [Transaction](../../types/type#transaction) |
-| update_asset      | [Transaction](../../types/type#transaction) |
-| consensus_upgrade | [Transaction](../../types/type#transaction) |
-| declare_file      | [Transaction](../../types/type#transaction) |
-| sys_upgrade       | [Transaction](../../types/type#transaction) |
-| stake             | [Transaction](../../types/type#transaction) |
-| account_state     | [Transaction](../../types/type#transaction) |
-| asset_state       | [Transaction](../../types/type#transaction) |
-| forge_state       | [Transaction](../../types/type#transaction) |
-| stake_state       | [Transaction](../../types/type#transaction) |
+### Response
+
+Use of `subscribe(RequestSubscribe)` returns `(stream ResponseSubscribe)`
 
 ```protobuf
 message ResponseSubscribe {
@@ -96,9 +73,35 @@ message ResponseSubscribe {
 }
 ```
 
-#### GRPC Example
+#### Parameters for `ResponseSubscribe`
 
-Python
+
+| Name | Data Type |
+| - | - |
+| code              | int |
+| One Of Below      | |
+| transfer          | [Transaction](../../types/type#transaction) |
+| account_migrate   | [Transaction](../../types/type#transaction) |
+| confirm           | [Transaction](../../types/type#transaction) |
+| create_asset      | [Transaction](../../types/type#transaction) |
+| exchange          | [Transaction](../../types/type#transaction) |
+| revoke            | [Transaction](../../types/type#transaction) |
+| begin_block       | RequestBeginBlock |
+| end_block         | RequestEndBlock |
+| declare           | [Transaction](../../types/type#transaction) |
+| update_asset      | [Transaction](../../types/type#transaction) |
+| consensus_upgrade | [Transaction](../../types/type#transaction) |
+| declare_file      | [Transaction](../../types/type#transaction) |
+| sys_upgrade       | [Transaction](../../types/type#transaction) |
+| stake             | [Transaction](../../types/type#transaction) |
+| account_state     | [Transaction](../../types/type#transaction) |
+| asset_state       | [Transaction](../../types/type#transaction) |
+| forge_state       | [Transaction](../../types/type#transaction) |
+| stake_state       | [Transaction](../../types/type#transaction) |
+
+### Sample: GRPC
+
+Using Python:
 
 ```python
 [1]request = RequestSubscribe(type=16)
@@ -148,7 +151,7 @@ begin_block {
 begin_block {
 ```
 
-#### GraphQL Example
+### Sample: GraphQL
 
 ```graphql
 subscription {
@@ -163,7 +166,7 @@ subscription {
 }
 ```
 
-response
+GraphQL response:
 
 ```
 {
@@ -180,48 +183,48 @@ response
 }
 ```
 
-### Unsubscribe
+## Unsubscribe
 
----
+Unsubscribe to a specific type of transactions. Server stops returning transactions under that topic.
 
-Unsubscribe a certian topic of transactions. Server stops return this topic of transactions.
+### Usage
 
-`rpc unsubscribe(RequestUnsubscribe) returns (ResponseUnsubscribe)`
-
-#### RequestSubscribe
-
-| Name  | Data Type | Default | Required |
-| :---- | :-------- | :------ | :------- |
-| topic | string    |         | Yes      |
-
----
+`rpc unsubscribe(RequestUnsubscribe)`
 
 ```protobuf
 message RequestUnsubscribe { string topic = 1; }
 ```
 
-<!-- output -->
+### Parameters for `RequestSubscribe`
 
-#### ResponseSubscribe
+| Name  | Data Type | Default | Required |
+| :---- | :-------- | :------ | :------- |
+| topic | string    |         | Yes      |
 
-| Name | Data Type  |
-| :--- | :--------- |
-| code | StatusCode |
+### Response
+
+Use of `rpc unsubscribe(RequestUnsubscribe)` returns `(ResponseUnsubscribe)`
 
 ```protobuf
 message ResponseUnsubscribe { StatusCode code = 1; }
 ```
 
-#### GRPC Example
+#### Parameters for `ResponseSubscribe`
 
-python
+| Name | Data Type  |
+| :--- | :--------- |
+| code | StatusCode |
+
+### Sample: GRPC
+
+Using Python:
 
 ```python
 [1]request = RequestUnsubscribe(topic="WwUhZY4y4mUBMsQOj64eDPJRssDrJr+CSXAiEqWVoF8=")
 [2]EventStub.unsubsribe(request)
 ```
 
-#### GraphQL Example
+### Sample: GraphQL
 
 ```graphql
 mutation {
@@ -231,7 +234,7 @@ mutation {
 }
 ```
 
-response
+GraphQL Response:
 
 ```
 {
