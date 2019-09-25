@@ -36,8 +36,8 @@ message RequestSubscribe {
 
 | Name | Data Type | Default | Required |
 | - | - | - | - |
-| type | TopicType | transfer | |
-| filter | string | '' | |
+| type | TopicType | transfer | Yes |
+| filter | string | None | No |
 
 ### Response
 
@@ -199,7 +199,7 @@ message RequestUnsubscribe { string topic = 1; }
 
 | Name  | Data Type | Default | Required |
 | :---- | :-------- | :------ | :------- |
-| topic | string    |         | Yes      |
+| topic | string | None | Yes |
 
 ### Response
 
