@@ -57,9 +57,23 @@ At this point, you've used several Forge tools, including the CLI, Forge Web, an
 
 Wallets are addresses generated using public key encryption algorithms. You need an account to send and receive transactions, since it is the method by which your identity (as well as the authenticity of the transaction) is verified. Forge allows you to choose the algorithm combinations to generate new accounts (e.g., **ED25519** for public key encryption, **SHA-3** for public key hash, and **Base58** for the address itself).
 
-#### Use the ArcBlock Wallet App
+#### Create an account using the Forge CLI
 
-The most secure way to create an account is to use the [ArcBlock Wallet App](https://www.arcblock.io/en/post/2019/05/15/abt-account-walkthrough).
+You can use the Forge CLI to create a new account. To do so, run in the Command Line:
+
+`forge account:create`
+
+You will be prompted for several pieces of information:
+
+| Parameter | Description |
+| - | - |
+| Passphrase | The passphrase used to encrypt the wallet |
+| Moniker | A friendly name for your wallet |
+| Role type | The type of role you want this account to serve |
+| Key pair algorithm | The public key algorithm you want to use  |
+| Hash algorithm | The algorithm you want to use for hashing |
+
+The CLI will create your wallet and save its information the keystore found in `$FORGE_HOME/core/keystore/z1f/rPQRqZbW8wELhAPh1nBMV18c7j1FocbB.key`. It will be encrypted using AES256 with your passphrase. Newly-created accounts in Forge are unlocked, which means that you can use it to send transactions  immediately.
 
 Make note of your account address, since you will need it in the following steps.
 
@@ -86,7 +100,7 @@ This differs from other account implementations. Forge's primary purpose is to a
 
 ### Send a Transaction
 
-Now that you have an account, you can send a transaction.
+Now that you have an account, you can send a transaction. Note that you may need to create a second account to receive a transaction (if you do not already have one).
 
 The following example will show you how to execute a transfer transaction using some of the 10,000 tokens automatically issued to newly-created accounts for development purposes. You will do this using the Forge CLI.
 
