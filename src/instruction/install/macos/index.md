@@ -40,7 +40,7 @@ brew install automake libtool pkg-config libffi gmp openssl
 brew install node
 ```
 
-To make sure you have installed Node properly, type `node -v` in your termianl. You should see:
+To make sure you have installed Node properly, type `node -v` in your terminal. You should see:
 
 ```bash
 $ node -v
