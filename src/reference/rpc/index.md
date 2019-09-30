@@ -1,5 +1,5 @@
 ---
-title: 'Forge RPC'
+title: 'Forge API'
 description: 'Forge RPC Overview'
 keywords: ''
 robots: 'index,follow'
@@ -10,7 +10,7 @@ tags:
   - 'index'
 ---
 
-## Forge RPC Overview
+## Forge APIs Overview
 
 ### Chain APIs
 

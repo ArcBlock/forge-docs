@@ -14,10 +14,6 @@ In Forge, all activities happen in the form of a `Transaction`. For example, if 
 
 ## Categories
 
-### Base
-
-This is the most basic transaction protocols that a chain must install. Right now it contains one transaction protocol: core, which provides all the basic functions for state creation / update. Note this transaction protocol is subject to change.
-
 ### Account
 
 - [`DelcareTx`](account/declare): Declare a wallet in the chain.
@@ -26,29 +22,24 @@ This is the most basic transaction protocols that a chain must install. Right no
 
 ### Asset
 
-- create_asset: create a new asset. See: [Create Asset Transaction](asset/create_asset).
-- update_asset: update and existing asset. See: [Update Asset Transaction](asset/update_asset).
-- consume_asset: consume an asset to get certain service. See: [Consume Asset Transaction](asset/consume_asset).
-  Advanced asset creation and exchange:
-- create_asset_factory: create a factory that could generate the similar assets, like a vending machine. See: [Create Asset Factory Transaction](asset/create_asset_factory).
-- acquire_asset: pay to an asset factory to get the asset. See: [Acquire Asset Transaction](asset/acquire_asset).
+- [`create_asset`](asset/create_asset): Create a new asset.
+- [`update_asset`](asset/update_asset): Update and existing asset.
+- [`consume_asset`](asset/consume_asset): Consume an asset.
+- [`create_asset_factory`](asset/create_asset_factory): Create a factory that could generate the similar assets, like a vending machine.
+- [`acquire_asset`](asset/acquire_asset): Pay to an asset factory to get the asset.
 
 ### Trade
 
-- transfer: send tokens or/and assets from one account to the other. See: [Transfer Transaction](trade/transfer).
-- exchange: exchange tokens/assets with other's tokens/assets. See: [Exchange Transaction](trade/exchange).
-
-### Governance
-
-Document will be exposed soon.
+- [`transfer`](trade/transfer): Send tokens or/and assets from one account to the other.
+- [`exchange`](trade/exchange): Exchange tokens/assets with other's tokens/assets.
 
 ### Atomic Swap
 
 Atomic swap is a technology to do trading across two chains. The main protocols include:
 
-- set_up_swap: creates a swap state that temporarily hold the assets and token to swap. See: [Set Up Swap Transaction](atomic-swap/set_up)
-- retrieve_swap: retrieves the token and assets for the receiver of the swap. See: [Retrieve Swap](atomic-swap/retrieve)
-- revoke_swap: revokes the swap for the sender of the swap. See: [Revoke Swap](atomic-swap/revoke)
+- [`set_up_swap`](atomic-swap/set_up): Creates a swap state that temporarily hold the assets and token to swap.
+- [`retrieve_swap`](atomic-swap/retrieve): Retrieves the token and assets for the receiver of the swap. 
+- [`revoke_swap`](atomic-swap/revoke): Revokes the swap for the sender of the swap.
 
 The overall steps to do an atomic swap is like:
 

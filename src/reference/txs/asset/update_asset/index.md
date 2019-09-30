@@ -10,11 +10,11 @@ tags:
   - 'update_asset'
 ---
 
-**Update Asset** transaction is used to update an existing asset owned by you. Note that the asset must be created with `readonly = false`. If readonly is true, you cannot update it.
+**`UpdateAssetTx`** is used to update an existing asset. This can be used when asset owner want to upate detailed information about the asset if the asset state has changed.
 
-## Protocol definition
+After **`UpdateAssetTx`** is executed, `data` contained in the existing asset would get replaced with the `data` of the **`UpdateAssetTx`**. Other fields should remain unchanged.
 
-To update an asset you shall use `UpdateAssetTx` message:
+## Sample Code
 
 ```proto
 message UpdateAssetTx {
@@ -25,9 +25,7 @@ message UpdateAssetTx {
 }
 ```
 
-You shall fill in the address and data for the update, moniker is optional.
-
-Here's an example of creating an asset:
+## Sample usage
 
 ```elixir
 > wallet = ForgeSdk.create_wallet()
@@ -44,3 +42,7 @@ Here's an example of creating an asset:
 # once executed, you can retrieve its state to verify
 > ForgeSdk.get_asset_state(address: address)
 ```
+
+::: tip
+Note that the asset must be created with `readonly = false`. If readonly is true, you cannot update it.
+:::
