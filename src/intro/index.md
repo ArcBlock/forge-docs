@@ -9,156 +9,181 @@ tags:
   - 'intro'
   - 'index'
 ---
+# Quickstart
 
-## Quick Start
+Forge is a framework that allows you to launch your decentralized applications (DApps) on your own blockchains.
 
-::: tip
-If you're MAC OSX or ubuntu user, we prepared a desktop version (preview edition) for you to get a node up and running as soon as possible. Please visit [ABT Chain Node](../instruction/tools/abt_chain_node) to get more details.
-:::
+## Installation
 
-If you want to quickly try Forge framework, feel free to install Forge CLI tools:
+Currently, Forge is supported on machines running one of the following operating systems:
 
-```bash
-npm install -g @arcblock/forge-cli
-```
+* [CentOS](/forge-centos.md)
+* [Ubuntu](/forge-ubuntu.md)
+* [macOS](/forge-macos.md)
 
-The you can do `forge init` to download latest forge assets from our releases:
+If you are using other operating systems, you can run Forge using Docker.
 
-```bash
-$ forge init
-✔ initialized cache dir for forge-cli: /Users/tchen/.forge_cli/cache
-✔ initialized release dir for forge-cli: /Users/tchen/.forge_cli/release
-ℹ Detected platform is: darwin
-✔ Latest forge release version: v0.18.2
-✔ Release asset info fetch success forge_darwin_amd64.tgz
-ℹ Downloading forge_darwin_amd64.tgz |████████████████████████████████████████ 100% || 88.17/88.17 MB
-✔ Downloaded forge_darwin_amd64.tgz to /tmp/forge_darwin_amd64.tgz
-✔ Expand release asset /tmp/forge_darwin_amd64.tgz to /Users/tchen/.forge_cli/release/forge/0.18.2
-✔ Extract forge config from /Users/tchen/.forge_cli/release/forge/0.18.2/lib/forge_sdk-0.17.0/priv/forge_release.toml
-✔ Forge config written to /Users/tchen/.forge_cli/forge_release.toml
-✔ Release asset info fetch success forge_starter_darwin_amd64.tgz
-ℹ Downloading forge_starter_darwin_amd64.tgz |████████████████████████████████████████ 100% || 12.19/12.19 MB
-✔ Downloaded forge_starter_darwin_amd64.tgz to /tmp/forge_starter_darwin_amd64.tgz
-✔ Expand release asset /tmp/forge_starter_darwin_amd64.tgz to /Users/tchen/.forge_cli/release/forge_starter/0.18.2
-✔ Release asset info fetch success simulator_darwin_amd64.tgz
-ℹ Downloading simulator_darwin_amd64.tgz |████████████████████████████████████████ 100% || 18.81/18.81 MB
-✔ Downloaded simulator_darwin_amd64.tgz to /tmp/simulator_darwin_amd64.tgz
-✔ Expand release asset /tmp/simulator_darwin_amd64.tgz to /Users/tchen/.forge_cli/release/simulator/0.18.2
-✔ Congratulations! forge initialized successfully!
-Now you can start a forge node with forge start
-```
+## Getting Started with Forge Web
 
-Note that forge is in its very early stage so at the moment we only build osx and ubuntu 16.04 artifacts. We will provide the artifacts for more platforms in near future.
-If you're trying to install forge in a ubuntu 16.04 machine, please see [installation guide for Ubuntu](../instruction/install/ubuntu).
-Once you finished initialization, forge-cli will put the artifacts into `~/.forge_cli` folder:
+Forge Web is a web interface that provides you with visual tools for working with Forge and its blockchain.
 
-```bash
-tree .forge_cli -L 4
-.forge_cli
-├── cache
-├── forge_release.toml
-└── release
-    ├── forge
-    │   ├── 0.18.2
-    │   │   ├── bin
-    │   │   ├── erts-10.2.3
-    │   │   ├── lib
-    │   │   └── releases
-    │   └── release.yml
-    ├── forge_starter
-    │   └── 0.18.2
-    │       ├── bin
-    │       ├── erts-10.2
-    │       ├── lib
-    │       └── releases
-    └── simulator
-        ├── 0.18.2
-        │   ├── bin
-        │   ├── erts-10.2
-        │   ├── lib
-        │   └── releases
-        └── release.yml
-```
+Once you've installed and started Forge, you can get a high-level view of how Forge stores transactions and data. Forge Web starts by default whenever your start Forge, so you can point your browser to `http://localhost:8210` to access the:
 
-There are 3 applications and two configuration files installed for you:
+* **Dashboard**: Provides an overview of what is occurring on the chain
+* **Block Explorer**: Allows you to view and query the data and states on the chain
+* **RPC Playground**: Provides you a playground/sandbox area to interact with the RPCs provided by Forge
 
-- forge: an erlang release for forge core functionalities.
-- forge_starter: an erlang release that helps with starting / restarting / upgrading forge. You can treat it like a purposely built, simplified systemd. The `release.yml` under `forge` folder is used by forge starter to start the current version of forge, if this version cannot be started successfully, forge starter will fallback to old version defined in the `release.yml`.
-- simulator: an erlang release that helps with generating simulation data. Basically it will create 10, 000 wallets and then do all kinds of txs randomly between wallets.
-  The `forge_release.toml` is the main configuration of forge, you can edit this file to tune the behaviors of forge. For now, we just use the default configuration. For more about configuration, please see [Forge configuration guide](../instruction/configuration).
-  Then you can run `forge start` to start forge:
+When you first get started with Forge Web, you will not have any data. You can get started with test data by running Forge Simulator (see the following section for additional details).
 
-```bash
-forge start
-✔ Forge daemon successfully started
-┌───────────────┬──────────┬───────────────┬───────────────┬────────────────────┐
-│ Name          │ PID      │ Uptime        │ Memory        │ CPU                │
-├───────────────┼──────────┼───────────────┼───────────────┼────────────────────┤
-│ starter       │ 37339    │ 5s            │ 82.1 MB       │ 25.00 %            │
-│ forge         │ 37520    │ 4s            │ 473 MB        │ 139.75 %           │
-│ ipfs          │ 37696    │ 2s            │ 18 MB         │ 4.50 %             │
-│ tendermint    │ 37701    │ 2s            │ 18.2 MB       │ 6.00 %             │
-└───────────────┴──────────┴───────────────┴───────────────┴────────────────────┘
-ℹ If you want to access interactive console, please run /Users/tchen/.forge_cli/release/forge/0.18.2/bin/forge remote_console
-```
+For additional information about Forge Web, please review its [documentation](https://docs.arcblock.io/forge/latest/tools/forge_web.html).
 
-By default, forge is started as a daemon and it will bring up consensus engine and storage engine - at the moment, we're using tendermint / ipfs respectively.
-All data (consensus db, forge state db, storage), configuration and logs are stored at the path defined in the `forge_release.toml`. By default, it is under `~/.forge_release`. Feel free to change this path to something like `/var/data/forge` or `/mnt/forge`. In this documentation, we will use `$FORGE_HOME` to refer to this path for simplicity.
-Congratulations! Now your local forge node started successfully! For more information about commands supported by `forge-cli`, feel free to go to: [Forge CLI](../instruction/tools/forge_cli).
+## Creating Test Accounts and Transactions Using Forge Simulator
 
-## Forge Logs
+Forge comes with `forge-simulator`, a tool designed to help you generate accounts and transactions for use with simulations.
 
-Logs are an important interface between forge and its user. Once forge is started, you can track the logs in these places:
+To start Forge Simulator, run in the Command Line:
 
-- forge log: under `$FORGE_HOME/core/logs`. There are three logs files:
-  - error.log: all warnings and errors. Good for knowing something bad happened on forge.
-  - transaction.log: logs related with transaction processing.
-  - mempool.log: logs related with mempool processing.
-- consensus log: under `$FORGE_HOME/tendermint/logs`.
-- storage log: uder `$FORGE_HOME/storage/logs`.
-- forge app log: under `$FORGE_HOME/app/logs`.
-
-For more information about forge logs, please refer to: [Forge Logs](../instruction/log).
-
-## Forge Web
-
-Now you have a basic idea on how forge started - you may want to see how to get an overview for transactions and data stored in forge. In your `forge_release.toml` configuration, forge web is started by default, thus you can directly go to your browser and open `http://localhost:8210`. You will see page like this:
-![Forge Web](./assets/forge_web.jpg)
-Currently the forge web has these functionalities:
-
-- dashboard: give you an overview about what happened on the chain.
-- Block Explorer: view and query the data / states in the chain.
-- RPC playground: give you a playground to interact with the RPCs provided by forge.
-
-More information about forge web, please go to: [Forge Web](../instruction/tools/forge_web).
-
-## Send transactions
-
-The forge web is great but you may be tired of seeing empty data. To populate some simulation transactions, we provide a tool called `forge-simulator` to generate wallets and transactions to make your life easy. Just run:
-
-```bash
+```shell
 forge simulator start
 ```
 
-A simulator will be started and after a while in your forge web you'll see transactions are being populated. The simulator will first create 10, 000 wallets, and then sending transactions between wallets.
-After a while your forge web dashboard will look like this:
-![Forge Web: updated](./assets/forge_web1.jpg)
-And the forge block explorer has data for you to dig in:
-![Forge block explorer](./assets/forge_explorer.jpg)
-For more information about forge simulator, please visit: [Forge simulator](../instructio/tools/simulator).
+Shortly after you've started the simulator, you'll see newly-created transactions and accounts when viewing Forge Web. The simulator will create 10,000 accounts and some transactions between those accounts. In addition to seeing this data on the Forge Web Dashboard, you'll see data available in the Block Explorer as well.
 
-## Create wallet and send your own txs
+## Create an Account and Send Transactions
 
-Now it's time for you to create your own wallets and send your own txs. Let's go to [send your first tx](../instruction/transaction)
+At this point, you've used several Forge tools, including the CLI, Forge Web, and Forge Simulator. In this step, we will use these tools to **create an account** and **send your first transaction**.
 
-## Forge SDKs
+### Create an Account
 
-If you want to start coding immediately, we prepared several SDKs for you to use:
+Wallets are addresses generated using public key encryption algorithms. You need an account to send and receive transactions, since it is the method by which your identity (as well as the authenticity of the transaction) is verified. Forge allows you to choose the algorithm combinations to generate new accounts (e.g., **ED25519** for public key encryption, **SHA-3** for public key hash, and **Base58** for the address itself).
 
-- [Forge JavaScript/NodeJS SDK](../sdk/javascript)
-- [Forge Python SDK](../sdk/python)
-- [Forge Elixir SDK](../sdk/elixir)
+#### Create an account using the Forge CLI
 
-## Want to know more?
+You can use the Forge CLI to create a new account. To do so, run in the Command Line:
 
-Dive into [what's inside Forge?](../concepts/inside-forge)!
+`forge account:create`
+
+You will be prompted for several pieces of information:
+
+| Parameter | Description |
+| - | - |
+| Passphrase | The passphrase used to encrypt the wallet |
+| Moniker | A friendly name for your wallet |
+| Role type | The type of role you want this account to serve |
+| Key pair algorithm | The public key algorithm you want to use  |
+| Hash algorithm | The algorithm you want to use for hashing |
+
+The CLI will create your wallet and save its information the keystore found in `$FORGE_HOME/core/keystore/z1f/rPQRqZbW8wELhAPh1nBMV18c7j1FocbB.key`. It will be encrypted using AES256 with your passphrase. Newly-created accounts in Forge are unlocked, which means that you can use it to send transactions  immediately.
+
+Make note of your account address, since you will need it in the following steps.
+
+#### Viewing Wallet Information
+
+Now that you've created an account, you will use Forge's Block Explorer to view information about the account.
+
+After you've launched the Block Explorer, provide the address of your account into the search bar and press Enter. You will see transaction-related information for the account in question.
+
+Notice that there will be one transaction, even if your account is newly-created.
+
+![](https://docs.arcblock.io/forge/latest/assets/img/search_account_result.1a4d9233.jpg)
+
+This is the **Declare Account** transaction, and if you click on the transaction's hash, you'd see further information.
+
+![](https://docs.arcblock.io/forge/latest/assets/img/declare_tx.c0364e3c.jpg)
+
+In Forge, accounts cannot be used with executing the **Declare Account** transaction, since the transaction:
+
+* Creates the default state for the account
+* Registers the account, its type, and its public key in the blockchain
+
+This differs from other account implementations. Forge's primary purpose is to assist developers in building rich applications, so putting the state of the account on the chain in advance simplifies a lot of use cases and its implementation.
+
+### Send a Transaction
+
+Now that you have an account, you can send a transaction. Note that you may need to create a second account to receive a transaction (if you do not already have one).
+
+The following example will show you how to execute a transfer transaction using some of the 10,000 tokens automatically issued to newly-created accounts for development purposes. You will do this using the Forge CLI.
+
+To begin, run the following in the Command Line:
+
+`forge tx:send`
+
+This launches a wizard that will prompt you to provide the information required to complete the transaction.
+
+You'll be asked to:
+
+* Confirm the account you want to use
+* Provide the passphrase for the account
+* Select the transaction type
+* Provide your itx data object
+
+Please note that when you're prompted `Please enter the itx data object` and you press Enter, an editor will open with default values; you can copy and paste the provided JSON to proceed.
+
+For example, the following JSON object indicates that you want to send 1000 units to the address indicated.
+
+```json
+{
+  "to": "z11...kis",
+  "value": "1000",
+  "assets": [],
+  "data": null
+}
+```
+
+Forge will auto-fill several values on your behalf, including:
+
+| Parameter | Description |
+| - | - |
+| from | the sender address |
+| nonce | nonce value for this transaction |
+| signature | the sender's signature for this transaction |
+| chain_id | the chain to which this transaction belongs |
+
+The full transaction Forge sends to the blockchain is similar to this:
+
+```shell
+$ forge tx EAF...A4
+{
+  from: 'z1...bB',
+  nonce: 3,
+  signature: 'Ojx...SCQ==',
+  chainId: 'forge',
+  signatures: [],
+  itx: {
+    type: 'TransferTx',
+    value: {
+      to: 'z1...is',
+      value: '1000',
+      assets: []
+    }
+  }
+}
+```
+
+Once the transaction executes on the chain, you can get the updated account state for both the sending and receiving accounts:
+
+```shell
+$ forge account z1...bB
+{
+  balance: '9999.9999999999999 TOKEN',
+  nonce: 3,
+  numTxs: 2,
+  ...
+}
+```
+
+## SDKs
+
+To help you build applications using Forge, SDKs are available to help developers with tasks like:
+
+* Build applications using Forge
+* Create and manipulate accounts
+* Read and write on-chain data
+* Derive and validate decentrialized IDs (DID)
+* Assemble, encode, and sign transactions that can be sent to Forge-powered blockchains
+
+Currently, Forge offers SDKs for the following languages:
+
+* JavaScript (Node.js)
+* Python
+* Elixir
