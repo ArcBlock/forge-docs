@@ -104,14 +104,28 @@ forge init
 
 ## Step 6: Start Forge
 
-At this point, you're ready to start and run Forge:
+At this point, you're ready to start and run Forge by creating a new chain:
 
 ```shell
-forge start
+forge chain:create [chain_name]
+```
+
+You'll need to provide responses to the provided prompts (you can simple press **Enter** to bypass the prompts).
+
+Once done, you can start the chain with:
+
+```shell
+forge chain:create [chain_name]
 ```
 
 You can check its status at any time:
 
 ```shell
 forge status
+```
+
+You can also use the following command to open Forge Web so that you can work with your chain using the interactive web interface:
+
+```shell
+forge start [chain_name]
 ```

@@ -1,6 +1,6 @@
 ---
-title: 'Explore Forge With Docker'
-description: 'Explore Forge With Docker'
+title: 'Use Forge in a Docker Container'
+description: 'Use Forge in a Docker Container'
 keywords: ''
 robots: 'index,follow'
 category: 'docs'
@@ -9,45 +9,42 @@ tags:
   - 'install'
   - 'docker'
 ---
+# Use Forge in a Docker Container
 
-## Fast Start
+This article will show you two ways you can use Forge in a Docker container.
 
-No matter which OS you are using, you have to install [Docker client]("https://www.docker.com/products/docker-desktop")
+## Quick Start
 
-And then get forge iamge.
+First, install the [Docker client]("https://www.docker.com/products/docker-desktop")
+
+Obtain the Forge image by running:
 
 ```shell
 docker pull arcblock/forge-release
 docker run -p 8210:8210 --rm forge-release
 ```
 
-wait some time. and you can visit [http://localhost:8210/dashboard](http://localhost:8210/dashboard) to explore your own chain.
+Once you've finished obtaining the assets, visit [http://localhost:8210/dashboard](http://localhost:8210/dashboard) to explore your new chain.
 
-## Advanced Usage
+## Advanced Start
 
-### choose forge version
+Begin by choosing the version of Forge you want from the [Docker Hub](https://hub.docker.com/r/arcblock/forge).
+
+You can obtain the appropriate images as follows (remember to update the version numbers):
 
 ```shell
 docker pull arcblock/forge-release:v0.22.1
 docker run -p 8210:8210 --rm forge-release:v0.22.1
 ```
 
-you can get forge versions at [Docker Hub](https://hub.docker.com/r/arcblock/forge)
-
-### save your data in your disk
+You'll want to configure your data to be saved to your local disk:
 
 ```shell
 docker run -p 8210:8210 -v {your local disk}:/home/arcblock/.forge_release/ --rm forge-release:latest
 ```
 
-and you can find your data in your local disk.
-
-### custom your config
+Finally, you can customize your Forge [configuration](../../configuration):
 
 ```shell
-docker run -p 8210:8210 -v {your custom forge_release.yaml}:/home/arcblock/forge_release.yaml --rm forge-release:latest
+docker run -p 8210:8210 -v {your_custom_forge_release.yaml}:/home/arcblock/forge_release.yaml --rm forge-release:latest
 ```
-
-Fore more detailed explanation of forge configuration, please check out [configuration](../../configuration)
-
-Enjoy!
