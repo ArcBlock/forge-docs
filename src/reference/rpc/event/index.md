@@ -12,11 +12,6 @@ tags:
 
 Event RPCs help users interact with activities (in the form of transactions) in which they are interested. With event RPCs, users can receive real-time information on their transactions.
 
-## Available RPCs
-
-- [Subscribe](#subscribe)
-- [Unsubscribe](#unsubscribe)
-
 ## Subscribe
 
 Subscribe to a specific type of transactions. Server returns all relevant transactions in a stream format.
@@ -31,8 +26,6 @@ message RequestSubscribe {
   string filter = 2;
 }
 ```
-
-#### Parameters for `RequestSubscribe`
 
 | Name | Data Type | Default | Required |
 | - | - | - | - |
@@ -72,9 +65,6 @@ message ResponseSubscribe {
   }
 }
 ```
-
-#### Parameters for `ResponseSubscribe`
-
 
 | Name | Data Type |
 | - | - |
@@ -195,8 +185,6 @@ Unsubscribe to a specific type of transactions. Server stops returning transacti
 message RequestUnsubscribe { string topic = 1; }
 ```
 
-### Parameters for `RequestSubscribe`
-
 | Name  | Data Type | Default | Required |
 | :---- | :-------- | :------ | :------- |
 | topic | string | None | Yes |
@@ -208,8 +196,6 @@ Use of `rpc unsubscribe(RequestUnsubscribe)` returns `(ResponseUnsubscribe)`
 ```protobuf
 message ResponseUnsubscribe { StatusCode code = 1; }
 ```
-
-#### Parameters for `ResponseSubscribe`
 
 | Name | Data Type  |
 | :--- | :--------- |

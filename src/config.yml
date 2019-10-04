@@ -11,14 +11,12 @@ categories:
       'null':
       - "/"
       Quick Start:
-      - "/concepts/transaction"
+      - "/intro"
       Concepts Explanations:
       - "/concepts/inside_forge"
       - "/concepts/transaction"
       - "/concepts/account"
       - "/concepts/tx_protocol"
-      Blockets:
-      - blocklets/intro
       Usage:
       - "/instruction/install"
       - "/instruction/configuration"
@@ -29,10 +27,10 @@ categories:
       - "/instruction/sdk/elixir"
       - "/instruction/sdk/java"
       Reference:
-      - "/reference/code"
-      - "/reference/protocols"
       - "/reference/txs"
       - "/reference/rpc"
+      - "/reference/code"
+      - "/reference/protocols"
       - "/reference/types"
       Forge Tools:
       - "/tools"

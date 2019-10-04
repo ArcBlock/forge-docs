@@ -1,5 +1,5 @@
 ---
-title: 'Python SDK Documentation'
+title: 'Python'
 description: ''
 keywords: ''
 robots: 'index,follow'
