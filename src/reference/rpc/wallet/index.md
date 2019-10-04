@@ -12,30 +12,12 @@ tags:
 
 Wallet RPC helps user manage their wallet, like create, load, recover etc.
 
-## RPC list
 
-- [Create Wallet](#create-wallet)
-- [Load Wallet](#load-wallet)
-- [Recover Wallet](#recover-wallet)
-- [List Wallet](#list-wallet)
-- [Remove Wallet](#remove-wallet)
-- [Declare Node](#declare-node)
+## Create Wallet
 
----
+### Usage
 
-### Create Wallet
-
----
-
-`rpc create_wallet(RequestCreateWallet) returns (ResponseCreateWallet);`
-
-#### RequestCreateWallet
-
-| Name       | Data Type  | Default | Required |
-| :--------- | :--------- | :------ | :------- |
-| passphrase | string     |         |          |
-| type       | WalletType |         |          |
-| moniker    | string     |         |          |
+`create_wallet(RequestCreateWallet)`
 
 ```protobuf
 message RequestCreateWallet {
@@ -45,15 +27,17 @@ message RequestCreateWallet {
 }
 ```
 
+| Name       | Data Type  | Default | Required |
+| :--------- | :--------- | :----: | :-------: |
+| passphrase | string     |         |    Yes      |
+| type (deprecated)      | WalletType |         |          |
+| moniker    | string     |  ""       |    No      |
+
 ---
 
-### ResponseCreateWallet
+### Response
 
-| Name   | Data Type  | Default | Required |
-| :----- | :--------- | :------ | :------- |
-| code   | StatusCode |         |          |
-| token  | string     |         |          |
-| wallet | WalletInfo |         |          |
+Use of `create_wallet(RequestCreateWallet)` returns `ResponseCreateWallet`
 
 ```protobuf
 message ResponseCreateWallet {
@@ -63,7 +47,14 @@ message ResponseCreateWallet {
 }
 ```
 
-#### GRPC example
+| Name   | Data Type  | Default | Required |
+| :----- | :--------- | :------ | :------- |
+| code   | StatusCode |         |          |
+| token  | string     |         |          |
+| wallet | WalletInfo |         |          |
+
+
+### gRPC example
 
 ```elixir
 > {w, t} = ForgeSdk.create_wallet(moniker: "arcblock", passphrase: "abcd1234")
@@ -79,37 +70,30 @@ message ResponseCreateWallet {
  }, "c8b11353a2b9917d4f32042255b6eb49"}
 ```
 
-#### GraphQL example
+### GraphQL example
 
-### Load Wallet
+## Load Wallet
 
----
+### Usage
 
-`rpc load_wallet(RequestLoadWallet) returns (ResponseLoadWallet);`
-
-#### RequestLoadWallet
-
-| Name       | Data Type | Default | Required |
-| :--------- | :-------- | :------ | :------- |
-| address    | string    |         |          |
-| passphrase | string    |         |          |
+`load_wallet(RequestLoadWallet)`
 
 ```protobuf
 message RequestLoadWallet {
   string address = 1;
   string passphrase = 2;
 }
+
+| Name       | Data Type | Default | Required |
+| :--------- | :-------- | :------ | :------- |
+| address    | string    |         |          |
+| passphrase | string    |         |          |
+
+
 ```
 
----
-
-### ResponseLoadWallet
-
-| Name   | Data Type  | Default | Required |
-| :----- | :--------- | :------ | :------- |
-| code   | StatusCode |         |          |
-| token  | string     |         |          |
-| wallet | WalletInfo |         |          |
+### Response
+Use of `load_wallet(RequestLoadWallet)` returns `ResponseLoadWallet`
 
 ```protobuf
 message ResponseLoadWallet {
@@ -119,7 +103,13 @@ message ResponseLoadWallet {
 }
 ```
 
-#### GRPC example
+| Name   | Data Type  | Default | Required |
+| :----- | :--------- | :------ | :------- |
+| code   | StatusCode |         |          |
+| token  | string     |         |          |
+| wallet | WalletInfo |         |          |
+
+### GRPC example
 
 ```elixir
 > {w, t} = ForgeSdk.load_wallet(address: "z11G65tRo2eGFVCjCBj7fdRhVSbzYSUCG6zb", passphrase: "abcd1234")
@@ -133,22 +123,11 @@ message ResponseLoadWallet {
  }, "a804e2c6c4f96fde25c475237f7fbb73"}
 ```
 
-#### GraphQL example
+## Recover Wallet
 
-### Recover Wallet
+### Usage
 
----
-
-`rpc recover_wallet(RequestRecoverWallet) returns (ResponseRecoverWallet);`
-
-#### RequestRecoverWallet
-
-| Name       | Data Type  | Default | Required |
-| :--------- | :--------- | :------ | :------- |
-| data       | bytes      |         |          |
-| type       | WalletType |         |          |
-| passphrase | string     |         |          |
-| moniker    | string     |         |          |
+`recover_wallet(RequestRecoverWallet)`
 
 ```protobuf
 message RequestRecoverWallet {
@@ -159,15 +138,16 @@ message RequestRecoverWallet {
 }
 ```
 
----
+| Name       | Data Type  | Default | Required |
+| :--------- | :--------- | :------ | :------- |
+| data       | bytes      |         |          |
+| type       | WalletType |         |          |
+| passphrase | string     |         |          |
+| moniker    | string     |         |          |
 
-### ResponseRecoverWallet
+### Response
 
-| Name   | Data Type  | Default | Required |
-| :----- | :--------- | :------ | :------- |
-| code   | StatusCode |         |          |
-| token  | string     |         |          |
-| wallet | WalletInfo |         |          |
+Use of `recover_wallet(RequestRecoverWallet)` returns `(ResponseRecoverWallet)`
 
 ```protobuf
 message ResponseRecoverWallet {
@@ -177,34 +157,24 @@ message ResponseRecoverWallet {
 }
 ```
 
-#### GRPC example
+| Name   | Data Type  | Default | Required |
+| :----- | :--------- | :------ | :------- |
+| code   | StatusCode |         |          |
+| token  | string     |         |          |
+| wallet | WalletInfo |         |          |
 
-```
-> ForgeSdk.recover_wallet
-```
+## List Wallet
 
-#### GraphQL example
+### Usage
 
-### List Wallet
-
----
-
-`rpc list_wallet(RequestListWallet) returns (stream ResponseListWallet);`
-
-#### RequestListWallet
+`list_wallet(RequestListWallet)`
 
 ```protobuf
 message RequestListWallet {}
 ```
 
----
-
-### ResponseListWallet
-
-| Name       | Data Type | Default | Required |
-| :--------- | :-------- | :------ | :------- |
-| StatusCode | code      |         |          |
-| address    | string    |         |          |
+### Response
+Use of `list_wallet(RequestListWallet)` returns `stream ResponseListWallet`
 
 ```protobuf
 message ResponseListWallet {
@@ -213,7 +183,12 @@ message ResponseListWallet {
 }
 ```
 
-#### GRPC example
+| Name       | Data Type | Default | Required |
+| :--------- | :-------- | :------ | :------- |
+| StatusCode | code      |         |          |
+| address    | string    |         |          |
+
+### GRPC example
 
 ```elixir
 > ForgeSdk.list_wallet()
@@ -222,15 +197,11 @@ message ResponseListWallet {
  "z11G65tRo2eGFVCjCBj7fdRhVSbzYSUCG6zb", "z11PYpcvZ6JnPnJ9KddmyJ82U1S15LenvWAh"]
 ```
 
-#### GraphQL example
+## Remove Wallet
 
-### Remove Wallet
+### Usage
 
----
-
-`rpc remove_wallet(RequestRemoveWallet) returns (ResponseRemoveWallet);`
-
-#### RequestRemoveWallet
+`remove_wallet(RequestRemoveWallet)`
 
 | Name    | Data Type | Default | Required |
 | :------ | :-------- | :------ | :------- |
@@ -240,47 +211,38 @@ message ResponseListWallet {
 message RequestRemoveWallet { string address = 1; }
 ```
 
----
+### Response
 
-### ResponseRemoveWallet
+Use of `remove_wallet(RequestRemoveWallet)` returns `ResponseRemoveWallet`
 
 ```protobuf
 message ResponseRemoveWallet { StatusCode code = 1; }
 ```
 
-#### GRPC example
+### GRPC example
 
 ```elixir
 > ForgeSdk.remove_wallet(ForgeAbi.RequestRemoveWallet.new(address: "z11316Do74hbGsppsVwB4dtguPkaLjuwW7f8"))
 :ok
 ```
 
-#### GraphQL example
+## Declare Node
 
-### Declare Node
+### Usage
 
----
-
-`rpc declare_node(RequestDeclareNode) returns (ResponseDeclareNode);`
-
-#### RequestDeclareNode
-
-| Name      | Data Type | Default | Required |
-| :-------- | :-------- | :------ | :------- |
-| validator | bool      |         |          |
+`declare_node(RequestDeclareNode)`
 
 ```protobuf
 message RequestDeclareNode { bool validator = 1; }
 ```
 
----
+| Name      | Data Type | Default | Required |
+| :-------- | :-------- | :------ | :------- |
+| validator | bool      |         |          |
 
-### ResponseDeclareNode
+### Response
 
-| Name   | Data Type  | Default | Required |
-| :----- | :--------- | :------ | :------- |
-| code   | StatusCode |         |          |
-| wallet | WalletInfo |         |          |
+Use of `declare_node(RequestDeclareNode)` returns `ResponseDeclareNode`
 
 ```protobuf
 message ResponseDeclareNode {
@@ -289,10 +251,7 @@ message ResponseDeclareNode {
 }
 ```
 
-#### GRPC example
-
-```elixir
-
-```
-
-#### GraphQL example
+| Name   | Data Type  | Default | Required |
+| :----- | :--------- | :------ | :------- |
+| code   | StatusCode |         |          |
+| wallet | WalletInfo |         |          |

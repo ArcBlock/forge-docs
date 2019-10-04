@@ -1,6 +1,6 @@
 ---
-title: 'Overview'
-description: 'Overview'
+title: 'Quick Start'
+description: ''
 keywords: ''
 robots: 'index,follow'
 category: 'docs'
@@ -9,7 +9,6 @@ tags:
   - 'intro'
   - 'index'
 ---
-# Quickstart
 
 Forge is a framework that allows you to launch your decentralized applications (DApps) on your own blockchains.
 
@@ -41,7 +40,11 @@ For additional information about Forge Web, please review its [documentation](ht
 
 Forge comes with `forge-simulator`, a tool designed to help you generate accounts and transactions for use with simulations.
 
-To start Forge Simulator, go to Forge Web, scroll to **Simulator**, and click **Start**.
+To start Forge Simulator, run in the Command Line:
+
+```shell
+forge simulator start
+```
 
 Shortly after you've started the simulator, you'll see newly-created transactions and accounts when viewing Forge Web. The simulator will create 10,000 accounts and some transactions between those accounts. In addition to seeing this data on the Forge Web Dashboard, you'll see data available in the Block Explorer as well.
 
@@ -57,7 +60,7 @@ Wallets are addresses generated using public key encryption algorithms. You need
 
 You can use the Forge CLI to create a new account. To do so, run in the Command Line:
 
-`forge account:create -c [chain_name]`
+`forge account:create`
 
 You will be prompted for several pieces of information:
 
@@ -73,7 +76,7 @@ The CLI will create your wallet and save its information the keystore found in `
 
 Make note of your account address, since you will need it in the following steps.
 
-#### Viewing Wallet Information
+#### Viewing Account Information
 
 Now that you've created an account, you will use Forge's Block Explorer to view information about the account.
 
@@ -102,7 +105,7 @@ The following example will show you how to execute a transfer transaction using 
 
 To begin, run the following in the Command Line:
 
-`forge tx:send -c [chain_name]`
+`forge tx:send`
 
 This launches a wizard that will prompt you to provide the information required to complete the transaction.
 
@@ -138,7 +141,7 @@ Forge will auto-fill several values on your behalf, including:
 The full transaction Forge sends to the blockchain is similar to this:
 
 ```shell
-$ forge tx -c [chain_name] EAF...A4
+$ forge tx EAF...A4
 {
   from: 'z1...bB',
   nonce: 3,
@@ -159,7 +162,7 @@ $ forge tx -c [chain_name] EAF...A4
 Once the transaction executes on the chain, you can get the updated account state for both the sending and receiving accounts:
 
 ```shell
-$ forge account -c [chain_name] z1...bB
+$ forge account z1...bB
 {
   balance: '9999.9999999999999 TOKEN',
   nonce: 3,

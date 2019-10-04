@@ -10,30 +10,28 @@ categories:
     sidebar:
       'null':
       - "/"
-      Quick Start:
-      - "/concepts/transaction"
+      Introduction:
+      - "/intro/quickstart"
       Concepts Explanations:
       - "/concepts/inside_forge"
       - "/concepts/transaction"
       - "/concepts/account"
       - "/concepts/tx_protocol"
-      Blockets:
-      - blocklets/intro
       Usage:
       - "/instruction/install"
       - "/instruction/configuration"
       - "/instruction/log"
+      Reference:
+      - "/reference/rpc"
+      - "/reference/txs"
+      - "/reference/code"
+      - "/reference/protocols"
+      - "/reference/types"
       Forge SDK:
       - "/instruction/sdk/javascript"
       - "/instruction/sdk/python"
       - "/instruction/sdk/elixir"
       - "/instruction/sdk/java"
-      Reference:
-      - "/reference/code"
-      - "/reference/protocols"
-      - "/reference/txs"
-      - "/reference/rpc"
-      - "/reference/types"
       Forge Tools:
       - "/tools"
       - "/tools/forge_cli"
