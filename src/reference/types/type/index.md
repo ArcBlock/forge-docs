@@ -1,5 +1,5 @@
 ---
-title: 'Type'
+title: 'Types'
 description: 'Type'
 keywords: ''
 robots: 'index,follow'

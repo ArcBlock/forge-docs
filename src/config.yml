@@ -10,8 +10,8 @@ categories:
     sidebar:
       'null':
       - "/"
-      Quick Start:
-      - "/intro"
+      Introduction:
+      - "/intro/quickstart"
       Concepts Explanations:
       - "/concepts/inside_forge"
       - "/concepts/transaction"
@@ -21,17 +21,17 @@ categories:
       - "/instruction/install"
       - "/instruction/configuration"
       - "/instruction/log"
+      Reference:
+      - "/reference/rpc"
+      - "/reference/txs"
+      - "/reference/code"
+      - "/reference/protocols"
+      - "/reference/types"
       Forge SDK:
       - "/instruction/sdk/javascript"
       - "/instruction/sdk/python"
       - "/instruction/sdk/elixir"
       - "/instruction/sdk/java"
-      Reference:
-      - "/reference/txs"
-      - "/reference/rpc"
-      - "/reference/code"
-      - "/reference/protocols"
-      - "/reference/types"
       Forge Tools:
       - "/tools"
       - "/tools/forge_cli"

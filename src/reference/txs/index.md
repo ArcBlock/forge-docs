@@ -1,5 +1,5 @@
 ---
-title: 'Forge Transactions'
+title: 'Transactions'
 description: 'Forge Transactions'
 keywords: ''
 robots: 'index,follow'

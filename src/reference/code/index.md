@@ -1,5 +1,5 @@
 ---
-title: 'Forge Status Code'
+title: 'Status Codes'
 description: 'Forge Status Code'
 keywords: ''
 robots: 'index,follow'
