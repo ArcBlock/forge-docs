@@ -1,5 +1,5 @@
 ---
-title: 'Javascript SDK'
+title: 'Javascript'
 description: 'Javascript SDK'
 keywords: ''
 robots: 'index,follow'

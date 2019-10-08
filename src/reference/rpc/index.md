@@ -1,4 +1,5 @@
 ---
+
 title: 'Forge API'
 description: 'Forge RPC Overview'
 keywords: ''
@@ -10,7 +11,8 @@ tags:
   - 'index'
 ---
 
-## Forge APIs Overview
+
+Forge provides two sets of APIs : gRPC and graphQL, which implement a similar set of interface. This guide uses gRPC API as examples.
 
 ### Chain APIs
 
@@ -41,12 +43,25 @@ APIs to interact with wallet.
 
 ### State APIs
 
-Forge provide different types of the state. You can query a state by its address. We provide several APIs for you to easily access the states:
+Forge provides different types of the state. You can query a state by its address. We provide several APIs for you to easily access the states:
 
-- `get_account_state`: return the state for an array of account, node, validator or application address.
-- `get_asset_state`: return the state for an array of assets.
-- `get_forge_state`: return global state for forge.
-- `get_protocol_state`: return installed protocol state.
+- [`get_account_state`](state#get_account_state): return the state for an array of account, node, validator or application address.
+- [`get_asset_state`](state#get_asset_state): return the state for an array of assets.
+- [`get_forge_state`](state#get_forge_state): return global state for forge.
+- [`get_protocol_state`](state#get_protocol_state): return installed protocol state.
+
+### Statistics APIs
+
+Forge provides different ways to check related statistics:
+
+- [`get_forge_states`](stats#get-forge-stats): return statistics about Forge
+- [`list-transactions`](stats#list-transactions): list out transactions based on filter provided
+- [`list-assets`](stats#list-assets): list out assets based on filter provided
+- [`list-account`](stats#list-account): list out accounts based on filter provided
+- [`list-top-accounts`](stats#list-top-accounts): list out accounts with highest balance
+- [`list-asset-transactions`](stats#list-asset-transactions): list out transactions related to certain assets
+- [`list-blocks`](stats#list-blocks): list out blocks based on filter provided
+- [`get-health-status`](stats#get-health-status): get health status of Forge
 
 ### Subscription APIs
 
@@ -55,9 +70,17 @@ In forge you can subscribe to events that exposed by the system, mainly consensu
 - [`subscribe`](../../reference/rpc/event/#subscribe): subscribe to a topic. You can event set a filter for the event that you'd listen.
 - [`unsubscribe`](../../reference/rpc/event/#unsubscribe): terminate the subscription by the topic id.
 
+### Misc APIs
+
+Misc APIs help with the initialization of the SDK, parsing the configuration, etc.
+
+- `init`: init forge SDK (it will setup client RPC socket for you)
+- `parse_config`: parse the forge configuration
+- `display`: provide a display friendly result for a data structure
+
 ### Transaction APIs
 
-To help client to compose a transaction easily we provided the transaction APIs that could help to generate complicated transactions and send it to a given node.
+To help client to compose a transaction easily we provided the transaction APIs that could help to generate complicated transactions and send it to a given node. Each SDK might have different implementations. For specific use case, please use the [Forge SDK](../../instruction/sdk) manual.
 
 
 - account
@@ -77,11 +100,3 @@ To help client to compose a transaction easily we provided the transaction APIs 
   - `exchange`: exchange tokens or/and assets between two parties.
 - misc:
   - `checkin`: one wallet can checkin in a daily basis to get some free tokens (for test chains only).
-
-### Misc APIs
-
-Misc APIs help with the initialization of the SDK, parsing the configuration, etc.
-
-- `init`: init forge SDK (it will setup client RPC socket for you)
-- `parse_config`: parse the forge configuration
-- `display`: provide a display friendly result for a data structure

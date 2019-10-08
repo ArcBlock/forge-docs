@@ -9,28 +9,16 @@ tags:
   - "install"
   - "index"
 ---
+# How to Install Forge
 
-Currently Forge is supported in osx, centos and ubuntu natively. For other platforms, you can run forge under docker.
+Currently, Forge supports native installation for users on macOS, CentOS, and Ubuntu. Users on other platforms will need to run Forge using Docker.
 
-- [Install forge in Mac OS](./macos)
-- [Install forge in centos](./centos)
-- [Install forge in ubuntu](./ubuntu)
-- [Run forge with docker](./docker)
+- [Installing Forge on macOS](./macos)
+- [Installing Forge on CentOS](./centos)
+- [Installing Forge on Ubuntu](./ubuntu)
+- [Running Forge with Docker](./docker)
 
-If you are using aws cloud or azure, please check the marketplace to find abt chain node. It has everything baked in so that you can spawn your node by a few clicks! We will add more and more cloud provider in future.
-
-
-## Install on CentOS
-Click [**here**](centos) for step-by-step instructions.
-
-## Install on MacOS
-Click [**here**](macos) for step-by-step instructions.
-
-## Install on Ubuntu
-Click [**here**](ubuntu) for step-by-step instructions.
-
-## Insatl with Docker
-Click [**here**](docker) for step-by-step instructions.
+If you are using a cloud provider like AWS or Azure, you can find the `abt` chain node in the appropriate marketplace. The `abt` chain node has everything you need to get started with your first Forge nodes.
 
 - [ABT Node on AWS](https://www.arcblock.io/en/node)
 - [ABT Node on Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/arcblock.forge-blockchain-node?tab=Overview)

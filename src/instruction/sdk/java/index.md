@@ -1,5 +1,5 @@
 ---
-title: 'Java-SDK'
+title: 'Java'
 description: 'Java-SDK'
 keywords: ''
 robots: 'index,follow'
