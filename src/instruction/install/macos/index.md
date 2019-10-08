@@ -1,5 +1,5 @@
 ---
-title: 'How to Install Forge on macOS'
+title: 'MacOS'
 description: 'Install Forge on MacOS'
 keywords: ''
 robots: 'index,follow'

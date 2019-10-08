@@ -1,6 +1,6 @@
 ---
 
-title: 'Forge API'
+title: 'Forge APIs'
 description: 'Forge RPC Overview'
 keywords: ''
 robots: 'index,follow'

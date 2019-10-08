@@ -1,5 +1,5 @@
 ---
-title: 'How to Install Forge on CentOS'
+title: 'CentOS'
 description: 'Install Forge on CentOS'
 keywords: ''
 robots: 'index,follow'

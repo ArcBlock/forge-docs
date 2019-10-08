@@ -5,28 +5,24 @@ categories:
   docs:
     basePath: "/docs"
     title: "Docs"
-    link: "/"
+    link: "/intro"
     priority: 9999
     sidebar:
-      'null':
-      - "/"
       Introduction:
       - "/intro/quickstart"
-      Concepts Explanations:
-      - "/concepts/inside_forge"
-      - "/concepts/transaction"
-      - "/concepts/account"
-      - "/concepts/tx_protocol"
-      Usage:
-      - "/instruction/install"
-      - "/instruction/configuration"
-      - "/instruction/log"
+      - "/intro/concepts"
+      Installation:
+      - "/instruction/install/macos"
+      - "/instruction/install/centos"
+      - "/instruction/install/ubuntu"
+      - "/instruction/install/docker"
       Reference:
       - "/reference/rpc"
       - "/reference/txs"
       - "/reference/code"
       - "/reference/protocols"
       - "/reference/types"
+      - "/reference/releases"
       Forge SDK:
       - "/instruction/sdk/javascript"
       - "/instruction/sdk/python"

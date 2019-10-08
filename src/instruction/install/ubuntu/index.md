@@ -1,3 +1,14 @@
+---
+title: 'Ubuntu'
+description: 'Install Forge on Ubuntu'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
+tags:
+  - 'install'
+  - 'ubuntu'
+---
 # How to Install Forge on Ubuntu
 
 The following sections will show you how to install the Forge on a machine running Ubuntu (or a containerized environment running Ubuntu).
