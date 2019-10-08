@@ -1,6 +1,7 @@
 ---
-title: 'API'
-description: 'Overview'
+
+title: 'Forge API'
+description: 'Forge RPC Overview'
 keywords: ''
 robots: 'index,follow'
 category: 'docs'
@@ -9,6 +10,7 @@ tags:
   - 'rpc'
   - 'index'
 ---
+
 
 Forge provides two sets of APIs : gRPC and graphQL, which implement a similar set of interface. This guide uses gRPC API as examples.
 

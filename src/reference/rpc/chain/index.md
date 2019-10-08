@@ -10,18 +10,12 @@ tags:
   - 'chain'
 ---
 
-<!-- General description - purpose of chain rpc, problem it could solve -->
+## Get Chain Info
 
-## RPC list
+### Usage
 
-<!-- list rpc -->
+`get_chain_info(RequestGetChainInfo)`
 
-### create_tx
+```protobuf
 
-<!-- what does it do -->
-
-#### Input & Output
-
-#### GRPC example
-
-#### GraphQL example
+```
