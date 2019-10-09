@@ -24,6 +24,7 @@ categories:
       - "/reference/types"
       - "/reference/releases"
       Forge SDK:
+      - "/instruction/sdk"
       - "/instruction/sdk/javascript"
       - "/instruction/sdk/python"
       - "/instruction/sdk/elixir"

@@ -15,7 +15,7 @@ This article will show you two ways you can use Forge in a Docker container.
 
 ## Quick Start
 
-First, install the [Docker client]("https://www.docker.com/products/docker-desktop")
+First, install the [Docker client](https://www.docker.com/products/docker-desktop)
 
 Obtain the Forge image by running:
 
