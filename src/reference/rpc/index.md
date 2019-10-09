@@ -18,16 +18,16 @@ Forge provides two sets of APIs : gRPC and graphQL, which implement a similar se
 
 APIs to access the chain / node / validator information.
 
-- `get_chain_info`: retrieve the current status of the chain
-- `get_node_info`: retrive the current status of the node
-- `get_net_info`: retrieve the network info
-- `get_validators_info`: retrieve the current validator info
+- [`get_chain_info`](chain#get-chain-info): retrieve the current status of the chain
+- [`get_node_info`](chain#get-node-info): retrieve the current status of the node
+- [`get_net_info`](chain#get-net-info): retrieve the network info
+- [`get_validators_info`](chain#get-validators-info): retrieve the current validator info
   If you want to access blocks / transactions, and send transactions, below APIs could be used:
-- `get_tx`: return an already processed transaction by its hash. If this API returns nil, mostly your tx hasn't been included in a block. You need to wait until it is processed.
-- `get_block`: get a block by its height. All txs included in this block will be returned.
-- `get_blocks`: get a list of blocks between a range.
-- `send_tx`: send the given tx to a node. It will return a tx hash immediately once the tx is accepted, or an error.
-- `multisig`: in Forge we support multisig for a tx, you can use this to endorse an already signed tx. `ExchangeTx`, `ConsumeAssetTx` and some other txs are using multisig technology. If you want to learn more about multisig, see: [multisig](../arch/multisig).
+- [`get_tx`](chain#get-tx): return an already processed transaction by its hash. If this API returns nil, mostly your tx hasn't been included in a block. You need to wait until it is processed.
+- [`get_block`](chain#get-block): get a block by its height. All txs included in this block will be returned.
+- [`get_blocks`](chain#get-blocks): get a list of blocks between a range.
+- [`send_tx`](chain#send-tx): send the given tx to a node. It will return a tx hash immediately once the tx is accepted, or an error.
+- [`multisig`](chain#multisig): in Forge we support multisig for a tx, you can use this to endorse an already signed tx. `ExchangeTx`, `ConsumeAssetTx` and some other txs are using multisig technology. 
 
 ### Wallet APIs
 
@@ -70,13 +70,6 @@ In forge you can subscribe to events that exposed by the system, mainly consensu
 - [`subscribe`](../../reference/rpc/event/#subscribe): subscribe to a topic. You can event set a filter for the event that you'd listen.
 - [`unsubscribe`](../../reference/rpc/event/#unsubscribe): terminate the subscription by the topic id.
 
-### Misc APIs
-
-Misc APIs help with the initialization of the SDK, parsing the configuration, etc.
-
-- `init`: init forge SDK (it will setup client RPC socket for you)
-- `parse_config`: parse the forge configuration
-- `display`: provide a display friendly result for a data structure
 
 ### Transaction APIs
 

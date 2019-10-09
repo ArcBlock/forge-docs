@@ -12,18 +12,9 @@ tags:
 
 State RPC helps users to getting the state of account, asset, stake and forge.
 
-## RPC list
-
-- [Get Account State](#get-account-state)
-- [Get Asset State](#get-asset-state)
-- [Get Stake State](#get-stake-state)
-- [Get Forge State](#get-forge-state)
-
----
 
 ### Get Account State
 
----
 
 `rpc get_account_state(stream RequestGetAccountState) returns (stream ResponseGetAccountState);`
 
@@ -43,7 +34,6 @@ message RequestGetAccountState {
 }
 ```
 
----
 
 #### ResponseGetAccountState
 
