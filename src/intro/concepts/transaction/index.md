@@ -1,5 +1,5 @@
 ---
-title: '1. Transactions'
+title: 'Transactions'
 description: 'Send your first transaction'
 keywords: ''
 robots: 'index,follow'

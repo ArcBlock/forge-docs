@@ -1,5 +1,5 @@
 ---
-title: 'Use Forge in a Docker Container'
+title: 'Docker'
 description: 'Use Forge in a Docker Container'
 keywords: ''
 robots: 'index,follow'

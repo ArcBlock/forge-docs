@@ -10,7 +10,7 @@ tags:
   - 'create_asset_factory'
 ---
 
-**Create Asset Factory** is used to solve a general problem, here's the original proposal:
+**Create Asset Factory** is an advanced version of `createAssetTx`, creating a factory as a specific type of asset.
 
 > From event chain (and future certificate app or the use cases like movie tickets, lecture tickets) we found a common requirement that when the issuer creates an asset, they normally want to create a factory that can further create actual asset based on a template, then when someone wants to buy this asset, it just generates the actual asset and transfers it to the buyer.
 
@@ -22,9 +22,7 @@ You could think asset factory is like a vending machine, you pay the requirement
 
 Note create asset factory tx is currently in **BETA**, its interface is subjected to change (aggressively).
 
-## Protocol definition
-
-To create an asset factory you shall use `CreateAssetTx` message with `AssetFactory` as its data (yeah we're reusing CreateAssetTx without reinvent the wheels):
+## Sample Code
 
 ```proto
 message AssetAttributes {

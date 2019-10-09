@@ -20,7 +20,7 @@ tags:
 
 ### [Type](./type)
 
-`Type` includes basic data structures used all over in Forge. Click [here](./) for the reference of different types.
+`Type` includes basic data structures used all over in Forge. Click [here](./type) for the reference of different types.
 
 ### [Trace Type](./trace_type)
 

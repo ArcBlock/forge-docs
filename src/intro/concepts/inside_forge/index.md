@@ -1,5 +1,5 @@
 ---
-title: '0. Basics about Forge'
+title: '1. Basics about Forge'
 description: 'More about Forge'
 keywords: ''
 robots: 'index,follow'
