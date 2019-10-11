@@ -24,7 +24,7 @@ Today, DApps Workshop includes support for:
 ## How to run
 
 - [Install Forge CLI](https://docs.arcblock.io/forge/latest/tools/forge_cli.html#install-forge-cli)
-- Run command `forge init`, users form China, please run `forge init --mirror http://arcblock.oss-cn-beijing.aliyuncs.com`
+- Run command `forge init`, users form China, please run `forge init --mirror https://releases.arcblockio.cn`
 - Run command `forge start` to start a Forge chain locally.
 - Run command `forge workshop start`
 - Then `forge workshop open` or just visit [http://localhost:8807](http://localhost:8807)

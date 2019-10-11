@@ -16,13 +16,13 @@ ABT 链节点是一个用户友好型应用程序，可以开始/管理 forge �
 
 对中国用户：
 
-- OSX：[ABT 链节点 v0.7.2 OSX 构建](http://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.7.2/ABTChainNode-0.7.2.dmg)
-- Ubuntu：[ABT 链节点 v0.7.2 Ubuntu 构建](https://arcblock.oss-cn-beijing.aliyuncs.com/forge/0.7.2/ABTChainNode_0.7.2_amd64.deb)
+- OSX: [ABTChainNode.dmg](https://releases.arcblockio.cn/forge/latest/ABTChainNode.dmg)
+- Ubuntu: [ABTChainNode_amd64.deb](https://releases.arcblockio.cn/forge/latest/ABTChainNode.deb)
 
 对全球用户：
 
-- OSX：[ABT 链节点 v0.7.2 OSX 构建](http://releases.arcblock.io/node/ABTChainNode-0.7.2.dmg)
-- Ubuntu：[ABT 链节点 v0.7.2 Ubuntu 构建](http://releases.arcblock.io/node/ABTChainNode_0.7.2_amd64.deb)
+- OSX: [ABTChainNode.dmg](http://releases.arcblock.io/forge/latest/ABTChainNode.dmg)
+- Ubuntu: [ABTChainNode_amd64.deb](http://releases.arcblock.io/forge/latest/ABTChainNode.deb)
 
 如果您是 OSX 用户，在下载 dmg 文件并将其拖入应用程序文件夹后，当您尝试第一次运行它时，会出现以下警告：
 

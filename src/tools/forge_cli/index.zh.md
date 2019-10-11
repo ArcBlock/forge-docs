@@ -97,7 +97,7 @@ Options:
 Examples:
   - forge init             download and activate latest version
   - forge init 0.22.0      download and activate forge v0.22.0
-  - forge init --mirror http://arcblock.oss-cn-beijing.aliyuncs.com      specify a custom mirror for download
+  - forge init --mirror https://releases.arcblockio.cn      specify a custom mirror for download
 ```
 
 因为在此列出的大部分命令都在安装和简介章节谈到了，所以我们只对最常用的命令进行简短介绍。

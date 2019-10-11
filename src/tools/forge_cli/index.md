@@ -90,7 +90,7 @@ Examples:
 
   Please install a forge-release before running any other commands
   > forge install latest
-  > forge install --mirror http://arcblock.oss-cn-beijing.aliyuncs.com
+  > forge install --mirror https://releases.arcblockio.cn
 
   Curious about how to use a subcommand?
   > forge help install
@@ -112,7 +112,7 @@ Examples:
   - forge install             download and activate latest version
   - forge install 0.22.0      download and activate forge v0.22.0
   - forge install v0.22.0     download and activate forge v0.22.0
-  - forge install --mirror http://arcblock.oss-cn-beijing.aliyuncs.com      specify a custom mirror for download
+  - forge install --mirror https://releases.arcblockio.cn      specify a custom mirror for download
 ```
 
 As most of the commands listed here are covered in installation and intro chapter, we'll just give a short intro to most popular commands.
