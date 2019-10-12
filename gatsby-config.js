@@ -17,10 +17,11 @@ module.exports = {
           sidebarWidth: 320,
         },
         algoliaSearch: {
-          enabled: process.env.NODE_ENV !== 'production',
+          enabled: process.env.NODE_ENV === 'production',
           appId: process.env.GATSBY_ALGOLIA_APP_ID,
           adminKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
           searchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
+          indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
         },
         navItems: [],
         extraPlugins: [],
