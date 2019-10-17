@@ -9,30 +9,33 @@ tags:
   - 'intro'
   - 'transaction'
 ---
+# Transactions in Forge
 
-One important design aspect for forge is to make it as easy as possible for newbies to get familiar with Forge. If you followed the "Quick Start" section of the [Overview](../../intro), you have already used many of them: forge cli, forge web and forge simulator. Now it's time to send your first transaction - but before that, you need a wallet.
+This article will show you how to create an account and send your first transaction using Forge.
 
-## Prerequisite knowledge for wallet
-
-If you familiar with blockchain technology, feel free to skip to next section.
-
-In blockchain world, a wallet is actually an address that backed by a keypair that generated with public key encryption algorithms. If you have used Bitcoin or Ethereum, you might already know the [ECDSA (Elliptic Curve Digital Signature Algorithm)](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) - ECDSA is a variant of the DSA (Digital Signature Algorithm) that uses elliptic curve cryptography. Basically if you own a wallet, you have the private key, the private key could generate its public key, and the public key could be used to generate the wallet address. If you want to send transaction from your wallet, you need to generate the transaction data and sign the transaction with your private key. Since your public key is included in the transaction, anyone else can use it to verify the transaction is really signed by you. This is the foundation of the "trust" of the blockchain technology. And since everyone can verify the authenticity of the transaction, it is also called "public verifiable".
-
-Bitcoin and Ethereum use secp256k1 for the public key encryption of their wallets, to generate the wallet address, they used fixed hash algorithms. In forge, we make it flexible and extensible - developer or user can choose their favorite algorithms combination. For example, by default, forge uses ED25519 for public key encryption, Sha3 for public key hash, and base58 (actually, base58 with [multibase](https://github.com/multiformats/multibase) prefix) for address.
+**Note:** If you're new to Forge, please review the [Quick Start](../../intro) before proceeding.
 
 ## Create a wallet
 
-### Create a wallet with Forge CLI
-
-You can easily create a wallet by using forge CLI. Note normally you shall not use this to create a wallet that you would store your valuable assets, unless you own the node and the node is in a secure environment. For this example, since we're running it locally, it's good to go:
+To send transactions in Forge, you must first create an account. You can do so using the Forge CLI:
 
 ```bash
 $ forge account:create
-? Please input passphrase: helloworld
-? Please input moniker: tyrchen
-? Please select a account role type? ROLE_ACCOUNT
-? Please select a key pair algorithm? ED25519
-? Please select a hash algorithm? SHA3
+```
+
+You'll see the following series of prompts for additional information related to your new account:
+
+```bash
+? Please input passphrase:
+? Please input moniker:
+? Please select a account role type?
+? Please select a key pair algorithm?
+? Please select a hash algorithm?
+```
+
+Once you've provided the requested information, Forge will create your wallet. If successful, you will see the following"
+
+```bash
 ──────────────
 ✔ account create success!
 ──────────────
@@ -49,14 +52,12 @@ $ forge account:create
 }
 ──────────────
 ✔ account unlocked!
-ℹ run forge account z1frPQRqZbW8wELhAPh1nBMV18c7j1FocbB to inspect account state
+ℹ run forge account z1f...bB to inspect account state
 ```
 
-This CLI will create a wallet and save it as a keystore (you can find the wallet in `$FORGE_HOME/core/keystore/z1f/rPQRqZbW8wELhAPh1nBMV18c7j1FocbB.key`[^1]), encrypted (AES256) with your passphrase. Once you created a wallet in forge CLI, it is unlocked, meaning you can use it to send transactions within a period.
+The CLI will also save your account as a keystore, which is located in `$FORGE_HOME/core/keystore/z1f/rPQRqZbW8wELhAPh1nBMV18c7j1FocbB.key`). Your wallet is AES256- encrypted using the passphrase you provided when creating your wallet. Once you've created a wallet using the Forge CLI, it is unlocked and can be used to send transactions.
 
-[^1]:
-
-  Note that after running the above CLI, the wallet address you created will be different than this one. So the keystore file is different.
+Note that the account's address changes after you run the Forge CLI, so the keystore file changes, too.
 
 ### Create a wallet with forge console
 
