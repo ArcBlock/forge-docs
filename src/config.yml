@@ -11,11 +11,9 @@ categories:
       Introduction:
       - "/intro/quickstart"
       - "/intro/concepts"
-      Installation:
-      - "/instruction/install/macos"
-      - "/instruction/install/centos"
-      - "/instruction/install/ubuntu"
-      - "/instruction/install/docker"
+      Usage:
+      - "/instruction/install"
+      - "/instruction/configuration"
       Reference:
       - "/reference/rpc"
       - "/reference/txs"
