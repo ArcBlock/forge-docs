@@ -1,5 +1,5 @@
 ---
-title: "Forge 状态代码"
+title: "状态码"
 description: "Forge 状态代码"
 keywords: ""
 robots: "index,follow"

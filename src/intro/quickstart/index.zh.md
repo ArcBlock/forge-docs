@@ -1,6 +1,6 @@
 ---
-title: '概览'
-description: '概览'
+title: '快速入门'
+description: ''
 keywords: ''
 robots: 'index,follow'
 category: 'docs'
@@ -9,8 +9,6 @@ tags:
   - 'intro'
   - 'index'
 ---
-
-## 快速入门
 
 ::: tip
 

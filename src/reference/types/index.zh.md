@@ -1,5 +1,5 @@
 ---
-title: 'Types'
+title: '数据类型'
 description: 'Forge Types'
 keywords: ''
 robots: 'index,follow'

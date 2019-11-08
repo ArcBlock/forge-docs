@@ -1,5 +1,5 @@
 ---
-title: "Forge 交易"
+title: "交易类型"
 description: "Forge 交易"
 keywords: ""
 robots: "index,follow"
