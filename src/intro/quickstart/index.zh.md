@@ -1,186 +1,73 @@
 ---
-title: '快速入门'
-description: ''
-keywords: ''
-robots: 'index,follow'
-category: 'docs'
-layout: 'documentation'
+title: 快速上手
+description: 
+keywords: 'forge, forge-cli'
+author: polunzh
+category: docs
+layout: documentation
 tags:
-  - 'intro'
-  - 'index'
+  - forge
 ---
 
+## 安装 Forge CLI
+
+为了最大程度简化安装流程，我们首先需要安装 `Forge CLI` 这个命令行工具，这个工具会帮助我们完成接下来的所有步骤。选择一个合适的系统安装 `Forge CLI`。
+
+* [MacOS](../../instruction/install/macos)
+* [CentOS](../../instruction/install/centos)
+* [Ubuntu](../../instruction/install/ubuntu)
+* [Docker](../../instruction/install/docker)
+
+## 安装 Forge
+
+现在`Forge CLI` 已经安装好了。下面我们要通过 `forge install` 安装 Forge。
+
+![](./assets/1-install.gif)
+
 ::: tip
-
-如果您是 MAC OSX 或 ubuntu 用户，我们为您准备了一个桌面版本（预览版），可以准备好节点并使其尽快开始运行。请访问[ABT Chain Node](../instruction/tools/abt_chain_node)获取更多信息。
-
+对于中国大陆的用户，可以使用阿里云的镜像来加速安装：`forge install --mirror https://releases.arcblockio.cn`
 :::
 
-如果您想快速尝试 Forge 框架，可随意安装 Forge CLI 工具：
+`forge install` 会默认安装最新版本，如果想要安装特定版本的forge 如 `0.40.0`, 运行 `forge install 0.40.0`
 
-```bash
-npm install -g @arcblock/forge-cli
-```
+## 创建一条链
 
-然后，您可以进行`forge init`以从我们的发布中下载最新的 forge 资产：
+现在你的电脑上已经安装好了所有环境，接下来我们就使用 `forge chain:create` 创建一条链.
 
-```bash
-$ forge init
-✔ initialized cache dir for forge-cli: /Users/tchen/.forge_cli/cache
-✔ initialized release dir for forge-cli: /Users/tchen/.forge_cli/release
-ℹ Detected platform is: darwin
-✔ Latest forge release version: v0.18.2
-✔ Release asset info fetch success forge_darwin_amd64.tgz
-ℹ Downloading forge_darwin_amd64.tgz |████████████████████████████████████████ 100% || 88.17/88.17 MB
-✔ Downloaded forge_darwin_amd64.tgz to /tmp/forge_darwin_amd64.tgz
-✔ Expand release asset /tmp/forge_darwin_amd64.tgz to /Users/tchen/.forge_cli/release/forge/0.18.2
-✔ Extract forge config from /Users/tchen/.forge_cli/release/forge/0.18.2/lib/forge_sdk-0.17.0/priv/forge_release.toml
-✔ Forge config written to /Users/tchen/.forge_cli/forge_release.toml
-✔ Release asset info fetch success forge_starter_darwin_amd64.tgz
-ℹ Downloading forge_starter_darwin_amd64.tgz |████████████████████████████████████████ 100% || 12.19/12.19 MB
-✔ Downloaded forge_starter_darwin_amd64.tgz to /tmp/forge_starter_darwin_amd64.tgz
-✔ Expand release asset /tmp/forge_starter_darwin_amd64.tgz to /Users/tchen/.forge_cli/release/forge_starter/0.18.2
-✔ Release asset info fetch success simulator_darwin_amd64.tgz
-ℹ Downloading simulator_darwin_amd64.tgz |████████████████████████████████████████ 100% || 18.81/18.81 MB
-✔ Downloaded simulator_darwin_amd64.tgz to /tmp/simulator_darwin_amd64.tgz
-✔ Expand release asset /tmp/simulator_darwin_amd64.tgz to /Users/tchen/.forge_cli/release/simulator/0.18.2
-✔ Congratulations! forge initialized successfully!
+![](./assets/2-create.gif)
 
-Now you can start a forge node with forge start
-```
+链创建好之后，terminal会提示该条链配置信息的保存路径，你可以通过直接修改这个配置文件来进一步配置链的具体信息，比如区块生成的间隔、具体交易设置、具体币的数量的设置等。具体内容可以参考 [配置指南](../../instruction/configuration)。
 
-请注意，forge 目前尚处在非常早期的阶段，我们只构建了 osx 和 ubuntu 16.04 构件。我们会尽快为更多平台提供构件。
+## 运行创建好的链
 
-如果您试图在 ubuntu 16.04 机器上安装 forge，请查看[Ubuntu 安装指南](../instruction/install/ubuntu)。
+在运行你创建好的链之前，要确保 `链的配置` 已经全部配置好，因为一旦链开始运行，这部分配置信息将不可改动。具体内容可以参考 [配置指南](../../instruction/configuration)。
 
-完成初始化后，forge-cli 会将构件放入`~/.forge_cli`文件夹：
+确保一切配置信息都符合你的要求后，运行 `forge start [your-chain]` 来运行你的链。
 
-```bash
-tree .forge_cli -L 4
-.forge_cli
-├── cache
-├── forge_release.toml
-└── release
-    ├── forge
-    │   ├── 0.18.2
-    │   │   ├── bin
-    │   │   ├── erts-10.2.3
-    │   │   ├── lib
-    │   │   └── releases
-    │   └── release.yml
-    ├── forge_starter
-    │   └── 0.18.2
-    │       ├── bin
-    │       ├── erts-10.2
-    │       ├── lib
-    │       └── releases
-    └── simulator
-        ├── 0.18.2
-        │   ├── bin
-        │   ├── erts-10.2
-        │   ├── lib
-        │   └── releases
-        └── release.yml
-```
+![](./assets/3-start.gif)
 
-一共为您安装了 3 个应用程序和 2 个配置文件：
+## 查看正在运行的链
 
-- forge：forge 核心功能的 erlang 版本。
-- forge_starter：带开始/重启/升级 forge 的 erlang 版本。您可将其视为专门构件的简化系统。`forge`文件夹下的`release.yml`由 forge 启动器用于启动当前的 forge 版本，如果此版本不可成功启动，则 forge 启动器会退回至`release.yml`中定义的旧版本。
-- 模拟器：一个帮助生成模拟数据的 erlang 版本。基本来说，它会创建一万个钱包并在钱包间随机进行各种类型的 tx。
+执行 `forge web open`，本地的浏览器会打开刚刚启动的这条链的区块浏览器，区块浏览器里面能看到链的基本信息：
 
-`forge_release.toml`是 forge 的主要配置，您可以编辑此文件以调整 forge 的行为。目前，我们只使用默认配置。如需了解关于配置的更多信息，请查看[Forge 配置指南](../instruction/configuration)。
+- 链的名称显示在左上角
+- 链的块高、交易数量、账户数量、验证人节点数量显示在仪表盘上
+- 如果你刷新这个页面，会看到块高在不停的变大，是因为即使没有交易的时候 forge 也在出空块
 
-然后，您便可以运行`forge start`以启动 forge 了：
+![](./assets/forge-web.png)
 
-```bash
-forge start
-✔ Forge daemon successfully started
-┌───────────────┬──────────┬───────────────┬───────────────┬────────────────────┐
-│ Name          │ PID      │ Uptime        │ Memory        │ CPU                │
-├───────────────┼──────────┼───────────────┼───────────────┼────────────────────┤
-│ starter       │ 37339    │ 5s            │ 82.1 MB       │ 25.00 %            │
-│ forge         │ 37520    │ 4s            │ 473 MB        │ 139.75 %           │
-│ ipfs          │ 37696    │ 2s            │ 18 MB         │ 4.50 %             │
-│ tendermint    │ 37701    │ 2s            │ 18.2 MB       │ 6.00 %             │
-└───────────────┴──────────┴───────────────┴───────────────┴────────────────────┘
+::: warning
+如果你是在云平台上的远端机器，`forge web open` 大概率无法工作，如果你想通过网络访问刚刚启动链的区块浏览器，需要这个机器有公网的 IP，并且打开 8210 端口。关于 Forge WEB 的更多介绍参见 [这里](../../8-explorer-other-tooling/forge-web)
+:::
 
-ℹ If you want to access interactive console, please run /Users/tchen/.forge_cli/release/forge/0.18.2/bin/forge remote_console
-```
+## 检查链的状态
 
-默认情况下，forge 作为守护进程启动，且会引出共识引擎和存储引擎——目前，我们分别使用 tendermint/ipfs。
+到这里，我们的单节点的链已经启动了，怎么确定这个链的状态是正常的呢？执行 `forge status` 即可看到当前的链块高是多少：
 
-所有数据（共识 db、forge 状态 db、存储）、配置和日志存储于在`forge_release.toml`定义的路径中。默认情况下，其位于`~/.forge_release`下。您可随意将路径修改为`/var/data/forge`或`/mnt/forge`等。在本文件中，为了简便，我们将用`$FORGE_HOME`代表本路径。
+![](./assets/forge-status.png)
 
-祝贺您！现在您的本地 forge 节点已成功启动了！如需了解`forge-cli`支持的命令的更多信息，请访问：[Forge CLI](../../tools/forge_cli)。
+## 检查币的状态
 
-## Forge 日志
+如果想查看链上币的配置，可以执行 `forge status core`，在输出结果中查找 `token` 信息，如下图：
 
-日志是 forge 和其用户之间的重要界面。forge 启动后，您便可在以下位置追踪日志：
-
-- forge 日志：在`$FORGE_HOME/core/logs`下。有三个日志文件：
-  - error.log：所有警告和错误。适合了解 forge 上出现的错误。
-  - transaction.log：与交易处理相关的日志。
-  - mempool.log：与 mempool 处理相关的日志。
-- 共识日志：在`$FORGE_HOME/tendermint/logs`下。
-- 存储日志：在`$FORGE_HOME/storage/logs`下。
-- forge 应用程序日志：在`$FORGE_HOME/app/logs`下。
-
-如需了解关于 forge 日志的详细信息，请查看：[Forge 日志](../instruction/log)。
-
-## Forge 网页
-
-现在，您对 forge 的启动有了基本的了解，您可能想看看如何在 forge 内获取交易和存储数据概览。在您的`forge_release.toml`配置中，forge 网页默认启动，因此，你可以直接前往浏览器并打开`http://localhost:8210`。您会看到如下页面：
-
-![Forge Web](./assets/forge_web.jpg)
-
-目前，forge 网页有以下功能：
-
-- 控制面板：为您提供链上发生事件的概览。
-- 区块探索器：查看和搜索链上数据/状态。
-- RPC 操场：为你提供操场，与 forge 提供的 RPC 互动。
-
-如需了解关于 forge 网页的更多信息，请前往：[Forge 网页](../instruction/tools/forge_web)。
-
-## 发送交易
-
-forge 网页非常棒，但是空白数据可能让您心烦。如需生成一些模拟交易，我们为您提供一个名为`forge-simulator`的工具，以生成钱包，为您提供便利。您只需运行：
-
-```bash
-$ forge simulator start
-```
-
-模拟器将启动，一段时间之后，在您的 forge 网页，便可以看到交易生成。模拟器首先会创建 10,000 个钱包，然后会在钱包间发送交易。
-
-一段时间后，您的 forge 网页控制面板会如下所示：
-
-![Forge Web: updated](./assets/forge_web1.jpg)
-
-forge 区块探索器则拥有您可查看的数据：
-
-![Forge block explorer](./assets/forge_explorer.jpg)
-
-如需了解关于 forge 模拟器的更多信息，请访问：[Forge 模拟器](../instruction/tools/simulator)。
-
-## 创建钱包和发送您自己的 tx
-
-现在，您可以创建自己的钱包并发送自己的 tx 了。我们前往[发送您的首个 tx](../instruction/transaction)
-
-## Forge SDK
-
-如果您想立刻开始编程，我们为您准备了 SDK：
-
-- [Forge JavaScript/NodeJS SDK](../sdk/javascript)
-- [Forge Python SDK](../sdk/python)
-- [Forge Elixir SDK](../sdk/elixir)
-
-## 想了解更多信息吗
-
-请看看[Forge 内有什么](../concepts/inside-forge)！
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5NzA1NzkxOSwzNDkwMjQ5NjMsMjA3MT
-A3ODI0MiwtMTg5NjM5MDA0NywtMTA1ODExMjk2NiwtMTE5NjM0
-MTkyNCwxMTMzMTQyOTk3LC03MTk4MDg3NjgsMTg3MDEwNTgxNi
-wyMDE4OTYxMzEwLDgyMzYzMDEyXX0=
--->
+![](./assets/forge-status-core.png)

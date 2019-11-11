@@ -59,39 +59,8 @@ You can install forge using npm, the package manager that comes with Node.js:
 $ npm install -g @arcblock/forge-cli
 ```
 
-## Step 6: Start Forge
+Once done, you can check if Forge CLI is installed successfully with `forge -h`:
 
-At this point, you're ready to start and run Forge.
+![](../assets/cli-check.gif)
 
-First, you'll need to initialize Forge:
-
-```bash
-$ cd ~
-$ forge init
-```
-
-Next, create a new chain:
-
-```shell
-forge chain:create [chain_name]
-```
-
-You'll need to provide responses to the provided prompts (you can simple press **Enter** to bypass the prompts).
-
-Once done, you can start the chain with:
-
-```shell
-forge chain:create [chain_name]
-```
-
-You can check its status at any time:
-
-```shell
-forge status
-```
-
-You can also use the following command to open Forge Web so that you can work with your chain using the interactive web interface:
-
-```shell
-forge start [chain_name]
-```
+🎉 Forge CLI has been installed successfully! Checkout [Quickstart](../../../intro/quickstart) to launch your chain！

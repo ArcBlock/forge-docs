@@ -17,7 +17,7 @@ Forge is a framework that allows you to launch your decentralized applications (
 Currently, Forge is supported on machines running one of the following operating systems:
 
 * [CentOS](../../instruction/install/centos)
-* [Ubuntu](../../instruction/install//ubuntu)
+* [Ubuntu](../../instruction/install/ubuntu)
 * [MacOS](../../instruction/install/macos)
 * [Docker](../../instruction/install/docker)
 

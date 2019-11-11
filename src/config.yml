@@ -29,7 +29,6 @@ categories:
       - "/instruction/sdk/java"
       Forge Tools:
       - "/tools"
-      - "/tools/forge_cli"
       - "/tools/forge_web"
       - "/tools/abt_chain_node"
       - "/tools/dapps_workshop"
