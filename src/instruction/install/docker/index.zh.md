@@ -14,7 +14,7 @@ tags:
 
 No matter which OS you are using, you have to install [Docker client]("https://www.docker.com/products/docker-desktop")
 
-And then get forge iamge.
+And then get forge image.
 
 ```shell
 docker pull arcblock/forge-release

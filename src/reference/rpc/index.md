@@ -31,15 +31,7 @@ APIs to access the chain / node / validator information.
 
 ### Wallet APIs
 
-APIs to interact with wallet.
-
-- [`create_wallet`](../../reference/rpc/wallet#create-wallet): This will generate a wallet with default DID type: public key type is ED25519, hash type is sha3(256), and DID role type is `account`. this is the most secure way of creating a wallet.
-- [`create_wallet(did_type)`](../../reference/rpc/wallet#create-wallet): you can pass in your own DID type in a map once you want to create a wallet with different settings.
-- [`create_wallet(moniker, passphrase)`](../../reference/rpc/wallet#create-wallet):  The client side would have complete ownership of the wallet. You need to pass in moniker and passphrase inside a map to create a wallet that the forge node manage for you. Passphrase is used to encrypt the wallet into a keystore file.you shouldn't use this API unless you own a node, and your client SDK connects to your node with local/private network.
-- [`load_wallet`](../../reference/rpc/wallet#load-wallet): load a node managed wallet by its address and passphrase from the keystore.
-- [`recover_wallet`](../../reference/rpc/wallet#recover-wallet): if you know the type and the secret key of the wallet, you can recover it into the current forge node. This is useful when you want to switch your wallet from one node to another. This will generate a keystore file.
-- [`list_wallet`](../../reference/rpc/wallet#list-wallet): display the wallet addresses that current forge node hosts.
-- [`remove_wallet`](../../reference/rpc/wallet#remove-wallet): delete the keystore for a given wallet address. This is useful when you finished your work on the forge node and you'd remove the footprint for your wallet.
+- [`declare_node`](../../reference/rpc/wallet#declare-node): declare a new node
 
 ### State APIs
 
@@ -91,5 +83,3 @@ To help client to compose a transaction easily we provided the transaction APIs 
 - trade:
   - `transfer`: transfer tokens or/and assets from one wallet to another.
   - `exchange`: exchange tokens or/and assets between two parties.
-- misc:
-  - `checkin`: one wallet can checkin in a daily basis to get some free tokens (for test chains only).

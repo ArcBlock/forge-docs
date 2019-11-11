@@ -22,7 +22,7 @@ All Forge SDKs implements several categories of pre-built functions, so that dev
 
 If you want to see an overview of what's availiable, checkout  [Forge SDK Overview](../).
 
-### [Forge Python Manual](../../../sdks/python/latest/)
+### [Forge Python Manual](https://docs.arcblock.io/forge/sdks/python/latest/)
 
 Python SDK also has its own reference manual, including detailed function documents and examples.
 
