@@ -22,12 +22,10 @@ APIs to access the chain / node / validator information.
 - [`get_node_info`](chain#get-node-info): retrieve the current status of the node
 - [`get_net_info`](chain#get-net-info): retrieve the network info
 - [`get_validators_info`](chain#get-validators-info): retrieve the current validator info
-  If you want to access blocks / transactions, and send transactions, below APIs could be used:
 - [`get_tx`](chain#get-tx): return an already processed transaction by its hash. If this API returns nil, mostly your tx hasn't been included in a block. You need to wait until it is processed.
 - [`get_block`](chain#get-block): get a block by its height. All txs included in this block will be returned.
 - [`get_blocks`](chain#get-blocks): get a list of blocks between a range.
 - [`send_tx`](chain#send-tx): send the given tx to a node. It will return a tx hash immediately once the tx is accepted, or an error.
-- [`multisig`](chain#multisig): in Forge we support multisig for a tx, you can use this to endorse an already signed tx. `ExchangeTx`, `ConsumeAssetTx` and some other txs are using multisig technology. 
 
 ### Wallet APIs
 

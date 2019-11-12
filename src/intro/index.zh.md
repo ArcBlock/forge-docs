@@ -10,22 +10,18 @@ tags:
   - 'tx_protocol'
 ---
 
-# Welcome to Forge Documentation
+# 欢迎来到 ArcBlock 文档
 
-Forge is a framework that helps developers build decentralized applications in the easiest way.
+ArcBlock 为开发者提供了一个轻松构建去中心化应用的平台。
 
-## Getting started
+## 快速入门
 
-Checkout the [Quick Start Guide](quickstart) to get a sense of how to use Forge.
+通过[快速入门指南](quickstart) 迅速上手 ArcBlock 区块链开放框架.
 
-If you want to learn more about the concepts, checkout the [Concept Explanations](concepts).
+如果你想了解更多基础概念，可以查看[基础概念](concepts).
 
-## Tutorials
+## 指南
 
-Checkout these step-by-step tutorials to help you get familiar with Forge:
+更多有关如何使用ArcBlock开发应用的文章:
 
-- [Vendy: a decentralized vending maching application](https://www.arcblock.io/en/post/2019/09/01/overview-of-vending-machine-dapp)
-
-## Contact Us
-
-If you have any suggestions for this documentation, please don't hesitate to contact us on Gitter.
+- [自动贩卖机 DApp](https://www.arcblock.io/zh/post/2019/09/01/overview-of-vending-machine-dapp)

@@ -12,15 +12,6 @@ tags:
 
 状态 RPC 帮助用户获取账户状态、资产、抵押和 forge。
 
-## RPC 列表
-
-- [获取账户状态](#get-account-state)
-- [获取资产状态](#get-asset-state)
-- [获取抵押状态](#get-stake-state)
-- [获取 Forge 状态](#get-forge-state)
-
----
-
 ### 获取账户状态
 
 ---

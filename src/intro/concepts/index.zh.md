@@ -14,18 +14,18 @@ tags:
 
 ### [Forge](inside_forge)
 
-A framework used to build and run applications. [More Details](inside_forge)
+用于构建和开发去中心化应用的基础框架。 [查看详情](inside_forge)
 
-### [Account](account)
+### [账户](account)
 
-An unique address to identify different users. [More Details](account)
+用户做各种行为时需要的身份 [查看详情](account)
 
-### [Transaction](transaction)
+### [交易](transaction)
 
-Availiable actions users can make on a Forge chain. [More Details](transaction)
+用户可以在链上做的行为 [查看详情](transaction)
 
 ## 进阶概念
 
-### [Multisig](multisig)
+### [多重签名](multisig)
 
-Multiple signatures for one transaction. [More Details](multisig)
+一条交易可以需要多重签名验证[查看详情](multisig)
