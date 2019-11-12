@@ -43,55 +43,61 @@ Or you know another's node config info.
 
 ### Step 1
 
-Find the config your forge is using by `forge config`, find forge section, and get sock_grpc.
+Find the config your forge is using by `forge ps`, find forge section, and get endpoint.
+
+![forge-ps](../assets/forge-ps.png)
 
 ## Tutorials
 
 ### Step 0: create a project.
 
-Create a SpringBoot gradle project. and add forge-java-sdk to it's dependencies.
+Create a SpringBoot gradle project. and ZX forge-java-sdk to it's dependencies.
+
+```bash
+brew install springboot
+spring init --build=gradle --language=kotlin {project_name}
+```
 
 ### Step 1: connect to Forge Node.
 
-add forge.host and forge.port to your application.properties.
-
-```
-forge.host="127.0.0.1"
-forge.port=28210
+```kotlin
+val forge = ForgeSDK.connect("localhost",28210)
 ```
 
-and add `forge = ForgeSDK.connect(host, port);` when you application init
+when you want to connect with forge node.
 
 ### Step 2: create a wallet.
 
 ```kotlin
-val Alice = forge.createWallet(Rpc.RequestCreateWallet.newBuilder()
-                        .setMoniker(usr)
-                        .setPassphrase(pass)
-                        .setType(Type.WalletType.getDefaultInstance())
-                        .build())
-// Alice contains:
-// sk: xxxxx,pk: xxxx, address:xxxx, token:xxxxx
+val chainInfo = forge.getChainInfo().info //get chain info
+val alice = forge.createWallet()
+forge.declare("Alice",alice)
 ```
 
-::: tip
-`moniker` is a nickname for this wallet on Forge. `passphrase` is used by Forge to encrypt the wallet into a keystore file. More details about wallet declaration rules are [here](../../../concepts/concepts).
-:::
+you have to declare your account like sign up your account on chain.
 
 ### Step 3: Query your account information.
 
 ```kotlin
-forge.getForgeSDK().getAccountState()
+// create a stream to listen account state
+val accountRequest = forge.getAccountState(object : StreamObserver<ResponseGetAccountState> {
+	override fun onNext(value: ResponseGetAccountState?) {
+		logger.info("\nAccountState balance:\n${BigInteger(value?.state?.balance?.unSign?.value?.toByteArray())}")
+	}
+	override fun onError(t: Throwable?) {}
+	override fun onCompleted() {}
+	})
+	accountRequest.onNext(RequestGetAccountState.newBuilder().setAddress(alice.address).build())
 ```
 
-### Step 4: Poke your wallet to get some token.
+this interface is a gRPC stream
+
+### Step 4: CheckIn/Poke your wallet to get some token.
 
 ```kotlin
-forge.
-val tx = WalletKit.poke(WalletInfo(Alice), forge)
-val response = forge.sendTx(Rpc.RequestSendTx.newBuilder()
-                    .setTx(createTxResp.getTx())
-                    .build());
+forge.poke(alice)
+Thread.sleep(5000) //wait for block to commit
+accountRequest.onNext(RequestGetAccountState.newBuilder().setAddress(alice.address).build())
 ```
 
 wait some seconds, check your account balance .
@@ -101,23 +107,30 @@ wait some seconds, check your account balance .
 create another wallet (suppose: Bob) as step 2.
 
 ```kotlin
-//create TransferTx
-val sendToken = BigInteger.valueOf(1L).plus(BigDecimal("1e$decimal").toBigInteger())
-val itx = Transfer.TransferTx.newBuilder()
-                .setValue(Type.BigUint.newBuilder().setValue(ByteString.copyFrom(sendToken.toByteArray())).build())
-                .setTo(Bob.address)
-                .build()
-val tx = WalletKit.createTx(Alice, 123L, chainId, itx)
-val response = forge.sendTx(Rpc.RequestSendTx.newBuilder()
-                    .setTx(createTxResp.getTx())
-                    .build());
+//create a transfer tx and send
+forge.transfer(alice, bob.address, BigDecimal("2E18").toBigInteger())
 ```
 
 if it works, response will return a hash string. you can query this hash use forgeSDK,or query it in forgeWeb. After this tx confirmed, check Alice and Bob 's accounts to confirm if this transaction successfully.
 
 ::: tip
-**TBA** is the default currency on Forge Chain. 1 TBA has 16 digits, so it shows as `10000000000000000`.
-and decimal is 16.
+**TBA** is the default currency on Forge Chain. 1 TBA has 18 digits, so it shows as `1000000000000000000`.
+and decimal is 18.
 :::
 
+## For java user
+
+Java user can use kotlin object like below:
+
+```java
+ForgeSDK.Companion.connect("localhost",28210)
+```
+
+and use kotlin extention like below:
+
+```
+TransactionExtKt.multiSig(tx, alice)
+```
+
 🎉 Congratulations! You have finished the tutorial! Now you should have a general sense about how Forge works. Now continue to explore !
+[simple demo project](https://github.com/ArcBlock/forge-java-sdk/blob/master/examples/src/main/java/com/example/demo/DemoApplication.kt)
