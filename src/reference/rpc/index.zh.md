@@ -1,6 +1,6 @@
 ---
-title: "Forge APIs"
-description: "Forge RPC 概览"
+title: "API 接口"
+description: "ArcBlock SDK API 概览"
 keywords: ""
 robots: "index,follow"
 category: "docs"
@@ -10,74 +10,63 @@ tags:
   - "index"
 ---
 
-Forge provides two sets of APIs : gRPC and graphQL, which implement a similar set of interface. This guide uses gRPC API as examples.
+ArcBlock SDK 提供了两种类型的 API：gRPC 和graphQL。两种 API都采用了类似的接口，所以这篇文档主要介绍gRPC API接口。
 
-### Chain APIs
+### 链相关的API
 
-APIs to access the chain / node / validator information.
+- [`get_chain_info`](chain#get-chain-info)：获取与链相关的信息
+- [`get_node_info`](chain#get-node-info): 获取与当前节点相关的信息
+- [`get_net_info`](chain#get-net-info): 获取与当前网络相关的信息
+- [`get_validators_info`](chain#get-validators-info): 获取验证节点相关的信息
+- [`get_tx`](chain#get-tx): 获取某条已经被处理过的交易信息
+- [`get_block`](chain#get-block): 获取某一个区块，和其中所有的交易的信息
+- [`get_blocks`](chain#get-blocks): 获取某一个区间内所有区块的信息
+- [`send_tx`](chain#send-tx): 发送一条交易给节点，如果交易通过验证将返回哈希值，否则将返回错误码
+- 
+### 钱包相关的API
 
-- [`get_chain_info`](chain#get-chain-info): retrieve the current status of the chain
-- [`get_node_info`](chain#get-node-info): retrieve the current status of the node
-- [`get_net_info`](chain#get-net-info): retrieve the network info
-- [`get_validators_info`](chain#get-validators-info): retrieve the current validator info
-  If you want to access blocks / transactions, and send transactions, below APIs could be used:
-- [`get_tx`](chain#get-tx): return an already processed transaction by its hash. If this API returns nil, mostly your tx hasn't been included in a block. You need to wait until it is processed.
-- [`get_block`](chain#get-block): get a block by its height. All txs included in this block will be returned.
-- [`get_blocks`](chain#get-blocks): get a list of blocks between a range.
-- [`send_tx`](chain#send-tx): send the given tx to a node. It will return a tx hash immediately once the tx is accepted, or an error.
-- [`multisig`](chain#multisig): in Forge we support multisig for a tx, you can use this to endorse an already signed tx. `ExchangeTx`, `ConsumeAssetTx` and some other txs are using multisig technology. 
+- [`declare_node`](../../reference/rpc/wallet#declare-node): 声明一个新节点
 
-### Wallet APIs
+### 状态相关的API
 
-- [`declare_node`](../../reference/rpc/wallet#declare-node): declare a new node
+ArcBlock平台上有多种不同的状态，用户可以通过地址来查询某个状态的具体信息：
 
-### State APIs
+- [`get_account_state`](state#get_account_state): 获取一个列表的账户、节点、验证节点或应用的状态信息
+- [`get_asset_state`](state#get_asset_state): 获取一个列表的资产的状态信息
+- [`get_forge_state`](state#get_forge_state): 获取 Forge 链的状态信息
+- [`get_protocol_state`](state#get_protocol_state): 获取安装的智能合约的信息
 
-Forge provides different types of the state. You can query a state by its address. We provide several APIs for you to easily access the states:
+### 统计相关的API
 
-- [`get_account_state`](state#get_account_state): return the state for an array of account, node, validator or application address.
-- [`get_asset_state`](state#get_asset_state): return the state for an array of assets.
-- [`get_forge_state`](state#get_forge_state): return global state for forge.
-- [`get_protocol_state`](state#get_protocol_state): return installed protocol state.
+- [`get_forge_states`](stats#get-forge-stats)：获取链相关统计信息
+- [`list-transactions`](stats#list-transactions): 获取符合筛选条件的交易列表
+- [`list-assets`](stats#list-assets): 获取符合筛选条件的资产列表
+- [`list-account`](stats#list-account): 获取符合筛选条件的账户列表
+- [`list-top-accounts`](stats#list-top-accounts): 获取余额最高的账户列表
+- [`list-asset-transactions`](stats#list-asset-transactions): 获取和某项资产相关的交易列表
+- [`list-blocks`](stats#list-blocks): 过去符合筛选条件的区块列表
+- [`get-health-status`](stats#get-health-status): 获取链的健康信息
 
-### Statistics APIs
+### 订阅相关的API
 
-Forge provides different ways to check related statistics:
+- [`subscribe`](../../reference/rpc/event/#subscribe): 订阅一个主题的交易信息
+- [`unsubscribe`](../../reference/rpc/event/#unsubscribe): 取消一个之前订阅的主题
 
-- [`get_forge_states`](stats#get-forge-stats): return statistics about Forge
-- [`list-transactions`](stats#list-transactions): list out transactions based on filter provided
-- [`list-assets`](stats#list-assets): list out assets based on filter provided
-- [`list-account`](stats#list-account): list out accounts based on filter provided
-- [`list-top-accounts`](stats#list-top-accounts): list out accounts with highest balance
-- [`list-asset-transactions`](stats#list-asset-transactions): list out transactions related to certain assets
-- [`list-blocks`](stats#list-blocks): list out blocks based on filter provided
-- [`get-health-status`](stats#get-health-status): get health status of Forge
+### 交易相关的API
 
-### Subscription APIs
+为了帮助用户更好的构造并发出交易，每个SDK都支持一系列相关的交易API。具体可以参考 [ArcBlock SDK](../../instruction/sdk)。
 
-In forge you can subscribe to events that exposed by the system, mainly consensus events like `begin_block`, `end_block`, `commit_block` or transaction protocol events.
-
-- [`subscribe`](../../reference/rpc/event/#subscribe): subscribe to a topic. You can event set a filter for the event that you'd listen.
-- [`unsubscribe`](../../reference/rpc/event/#unsubscribe): terminate the subscription by the topic id.
-
-
-### Transaction APIs
-
-To help client to compose a transaction easily we provided the transaction APIs that could help to generate complicated transactions and send it to a given node. Each SDK might have different implementations. For specific use case, please use the [Forge SDK](../../instruction/sdk) manual.
-
-
-- account
-  - `declare`: declare a wallet to the chain
-  - `account_migrate`: migrate a wallet from old address (as well as pk, sk) to a new address.
-- asset
-  - `create_asset`: create a new asset
-  - `create_asset_factory`: create a new asset factory
-  - `update_asset`: update an existing asset
-  - `acquire_asset`: acquire an asset from an existing asset factory
-  - `consume_asset`: consume an asset. e.g. use a movie ticket in cinema
-- governance:
-  - `deploy_protocol`: deploy a new protocol into the chain at a given block height
-  - `upgrade_node`: upgrade the node to a new version at a given block height
-- trade:
-  - `transfer`: transfer tokens or/and assets from one wallet to another.
-  - `exchange`: exchange tokens or/and assets between two parties.
+- 账户
+  - `declare`: 声明新账户
+  - `account_migrate`: 把账户从旧地址迁移到新地址
+  - `create_asset`: 创建新资产
+  - `create_asset_factory`: 创建新资产工厂
+  - `update_asset`: 更新资产
+  - `acquire_asset`: 从已有的资产工厂中获取资产
+  - `consume_asset`: 使用资产
+- 治理:
+  - `deploy_protocol`: 部署新智能合约
+  - `upgrade_node`: 在指定高度将链升级
+- 交易:
+  - `transfer`: 将通证或资产从某一个账户转到另一个账户
+  - `exchange`: 两方交换通证或资产

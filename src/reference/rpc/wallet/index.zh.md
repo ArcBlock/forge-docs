@@ -41,15 +41,3 @@ message ResponseDeclareNode {
   WalletInfo wallet = 3;
 }
 ```
-
-#### GRPC 示例
-
-```elixir
-
-```
-
-#### GraphQL 示例
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2Mjk3NzY5OSwxMTc0OTk1Mjc1XX0=
--->
