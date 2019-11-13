@@ -12,7 +12,7 @@ tags:
 
 Forge is a framework that allows you to launch your decentralized applications (DApps) on your own blockchains.
 
-## Installation
+## Install Forge CLI
 
 Currently, Forge is supported on machines running one of the following operating systems:
 
@@ -23,11 +23,35 @@ Currently, Forge is supported on machines running one of the following operating
 
 If you are using other operating systems, you can run Forge using Docker.
 
+## Install Forge
+
+Now we need to install Forge, the ArcBlock framework with `forge install`.
+
+![](./assets/1-install.gif)
+
+`forge install` installs the lastest version by default, if you want to install a specific version, say `0.40.0`, run `forge install 0.40.0`.
+
+## Create A Chain
+
+Now everything is ready. Let's create a chain with `forge chain:create`.
+
+![](./assets/2-create.gif)
+
+After the chain is created, terminal would output the path for your configuration information. You can directly change this file to config your chain, such as block intervals, and token supplies, etc. Check out details in [Configuration Guide](../../instruction/configuration)。
+
+## Start the Chain
+
+Before starting the chain, make sure you have finalized your configurations. Once the chain starts, some configuration can't be modified anymore.Check out details in [Configuration Guide](../../instruction/configuration)。
+
+After checking all configurations, run `forge start [your-chain]` to start.
+
+![](./assets/3-start.gif)
+
 ## Getting Started with Forge Web
 
-Forge Web is a web interface that provides you with visual tools for working with Forge and its blockchain.
+Now your chain is running! To see what's happening on your chain, run `forge web open`.
 
-Once you've installed and started Forge, you can get a high-level view of how Forge stores transactions and data. Forge Web starts by default whenever your start Forge, so you can point your browser to `http://localhost:8210` to access the:
+Forge Web is a web interface that provides you with visual tools for working with Forge and its blockchain, including:
 
 * **Dashboard**: Provides an overview of what is occurring on the chain
 * **Block Explorer**: Allows you to view and query the data and states on the chain

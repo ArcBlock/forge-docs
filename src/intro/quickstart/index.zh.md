@@ -32,7 +32,7 @@ tags:
 
 ## 创建一条链
 
-现在你的电脑上已经安装好了所有环境，接下来我们就使用 `forge chain:create` 创建一条链.
+现在你的电脑上已经安装好了所有环境，接下来我们就使用 `forge chain:create` 创建一条链。
 
 ![](./assets/2-create.gif)
 
