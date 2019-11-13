@@ -60,7 +60,7 @@ There are three steps using the SDK. Detailed explanation can be found below.
 
 ### Step 1: Start Forge
 
-Python SDK needs to connect to a running node to work properly. You can use [Forge CLI](../../tools/forge_cli) to start a local node or connect to an exisiting node.
+Python SDK needs to connect to a running node to work properly. You can use [Forge CLI](/handbook/) to start a local node or connect to an exisiting node.
 
 ### Step 2: Create a Forge Connection
 

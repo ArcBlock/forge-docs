@@ -38,7 +38,7 @@ and java version must >= 8.
 
 ### Step 0
 
-First get your Forge running on local with [Forge CLI](../../tools/forge_cli).
+First get your Forge running on local with [Forge CLI](/handbook).
 Or you know another's node config info.
 
 ### Step 1

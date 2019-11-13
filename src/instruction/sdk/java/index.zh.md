@@ -38,7 +38,7 @@ dependencies {
 
 ### 第 0 步
 
-首先，在本地搭配[Forge CLI](../../tools/forge_cli)运行 Forge。
+首先，在本地搭配[Forge CLI](/handbook/)运行 Forge。
 
 ### 第 1 步
 
