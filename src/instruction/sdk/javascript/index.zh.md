@@ -1,13 +1,13 @@
 ---
-title: "Javascript SDK"
-description: "Javascript SDK"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
+title: 'Javascript SDK'
+description: 'Javascript SDK'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
 tags:
-  - "sdk"
-  - "javascript"
+  - 'sdk'
+  - 'javascript'
 ---
 
 如果您是来自传统网页开发的开发者，不熟悉区块链，请先查看[一般概念](../../../concepts/concepts)。
@@ -68,13 +68,13 @@ touch index.js
 然后，创建 2 个名为`Alice`和`Bob`的钱包，包含随机密钥 (`edit index.js`)：
 
 ```javascript
-const { types } = require("@arcblock/mcrypto");
-const { fromRandom, WalletType } = require("@arcblock/forge-wallet");
+const { types } = require('@arcblock/mcrypto');
+const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
 
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
   pk: types.KeyType.ED25519,
-  hash: types.HashType.SHA3
+  hash: types.HashType.SHA3,
 });
 
 const alice = fromRandom(type);
@@ -121,46 +121,42 @@ console.log({ alice: alice.toJSON(), bob: bob.toJSON() });
 将`@arcblock/graphql-client`作为依赖添加：
 
 ```bash
-yarn add @arcblock/graphql-client moment
+yarn add @arcblock/graphql-client
 ```
 
 然后，创建`GraphQLClient`实例，然后在该实例调用`sendDeclareTx`：
 
 ```javascript
-const { types } = require("@arcblock/mcrypto");
-const { fromRandom, WalletType } = require("@arcblock/forge-wallet");
-const GraphQLClient = require("@arcblock/graphql-client");
+const { types } = require('@arcblock/mcrypto');
+const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
+const GraphQLClient = require('@arcblock/graphql-client');
 
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
   pk: types.KeyType.ED25519,
-  hash: types.HashType.SHA3
+  hash: types.HashType.SHA3,
 });
 
 const alice = fromRandom(type);
 const bob = fromRandom(type);
 
-const host = "http://127.0.0.1:8210";
+const host = 'http://127.0.0.1:8210';
 const client = new GraphQLClient({ endpoint: `${host}/api` });
 
 function registerUser(userName, userWallet) {
-  return client.sendDeclareTx({
-    tx: {
-      itx: {
-        moniker: userName
-      }
-    },
-    wallet: userWallet
+  return client.declare({
+    moniker: userName,
+    wallet: userWallet,
   });
 }
 
 (async () => {
   try {
-    let hash = await registerUser("alice_test", alice);
-    console.log("register alice tx:", hash);
+    let hash = await registerUser('alice_test', alice);
+    console.log('register alice tx:', hash);
 
-    hash = await registerUser("bob_test", bob);
-    console.log("register bob tx:", hash);
+    hash = await registerUser('bob_test', bob);
+    console.log('register bob tx:', hash);
   } catch (err) {
     if (Array.isArray(err.errors)) {
       console.log(err.errors);
@@ -214,7 +210,7 @@ diff --git a/index.js b/index.js
 ```
 
 > 在此，我们使用`getAccountState`从区块链读取数据，我们也可以使用 GraphQLClient 读取交易/区块/资产/链信息，请参考[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)获取完整的 API 列表。
-> 您可能也会注意到，我们等了 5 秒才查看Alice的账户，这是因为，5 秒是 forge 的区块生产暂停时间，即交易由链执行并包含在区块上最多需要 5 秒，这个暂停时间可在您的[forge config](../../configuration)中配置。
+> 您可能也会注意到，我们等了 5 秒才查看 Alice 的账户，这是因为，5 秒是 forge 的区块生产暂停时间，即交易由链执行并包含在区块上最多需要 5 秒，这个暂停时间可在您的[forge config](../../configuration)中配置。
 
 #### 5.2 获取免费代币
 
@@ -226,7 +222,6 @@ diff --git a/index.js b/index.js
  const { types } = require('@arcblock/mcrypto');
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
  const GraphQLClient = require('@arcblock/graphql-client');
-+const moment = require('moment');
 
  const type = WalletType({
    role: types.RoleType.ROLE_ACCOUNT,
@@ -235,16 +230,7 @@ diff --git a/index.js b/index.js
  }
 
 +function getFreeToken(userWallet) {
-+  return client.sendPokeTx({
-+    tx: {
-+      nonce: 0,
-+      itx: {
-+        date: moment(new Date().toISOString())
-+          .utc()
-+          .format('YYYY-MM-DD'),
-+        address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
-+      },
-+    },
++  return client.checkin({
 +    wallet: userWallet,
 +  });
 +}
@@ -304,7 +290,6 @@ diff --git a/index.js b/index.js
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
 +const { fromUnitToToken } = require('@arcblock/forge-util');
  const GraphQLClient = require('@arcblock/graphql-client');
- const moment = require('moment');
 
 @@ -64,6 +65,7 @@ function getFreeToken(userWallet) {
      await sleep(5000);
@@ -375,7 +360,7 @@ diff --git a/index.js b/index.js
  const { types } = require('@arcblock/mcrypto');
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
 -const { fromUnitToToken } = require('@arcblock/forge-util');
-+const { fromUnitToToken, fromTokenToUnit } = require('@arcblock/forge-util');
++const { fromUnitToToken } = require('@arcblock/forge-util');
  const GraphQLClient = require('@arcblock/graphql-client');
 
 @@ -52,16 +52,17 @@ async function checkBalance(userName, userWallet) {
@@ -383,13 +368,9 @@ diff --git a/index.js b/index.js
      await checkBalance('bob.getToken', bob);
 +
 +    // Transfer
-+    hash = await client.sendTransferTx({
-+      tx: {
-+        itx: {
-+          to: bob.toAddress(),
-+          value: fromTokenToUnit(5),
-+        },
-+      },
++    hash = await client.transfer({
++      to: bob.toAddress(),
++      token: 5,
 +      wallet: alice,
 +    });
 +    console.log('transfer hash', hash);
@@ -424,100 +405,86 @@ bob.transfer.balance 30
 目前，完整的源代码是：
 
 ```javascript
-const { types } = require("@arcblock/mcrypto");
-const { fromRandom, WalletType } = require("@arcblock/forge-wallet");
-const { fromUnitToToken, fromTokenToUnit } = require("@arcblock/forge-util");
-const GraphQLClient = require("@arcblock/graphql-client");
-const moment = require("moment");
+const { types } = require('@arcblock/mcrypto');
+const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
+const { fromUnitToToken } = require('@arcblock/forge-util');
+const GraphQLClient = require('@arcblock/graphql-client');
 
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
   pk: types.KeyType.ED25519,
-  hash: types.HashType.SHA3
+  hash: types.HashType.SHA3,
 });
 
 const alice = fromRandom(type);
 const bob = fromRandom(type);
 
-const host = "http://127.0.0.1:8210";
+const host = 'http://127.0.0.1:8210';
 const client = new GraphQLClient({ endpoint: `${host}/api` });
 const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 function registerUser(userName, userWallet) {
-  return client.sendDeclareTx({
+  return client.declare({
     tx: {
       itx: {
-        moniker: userName
-      }
+        moniker: userName,
+      },
     },
-    wallet: userWallet
+    wallet: userWallet,
   });
 }
 
 function getFreeToken(userWallet) {
-  return client.sendPokeTx({
-    tx: {
-      nonce: 0,
-      itx: {
-        date: moment(new Date().toISOString())
-          .utc()
-          .format("YYYY-MM-DD"),
-        address: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
-      }
-    },
-    wallet: userWallet
+  return client.checkin({
+    wallet: userWallet,
   });
 }
 
 async function checkBalance(userName, userWallet) {
   const { state } = await client.getAccountState({
-    address: userWallet.toAddress()
+    address: userWallet.toAddress(),
   });
   console.log(`${userName}.balance`, fromUnitToToken(state.balance));
 }
 
 (async () => {
-  console.log("alice.address(userId)", alice.toAddress());
-  console.log("bob.address(userId)", bob.toAddress());
+  console.log('alice.address(userId)', alice.toAddress());
+  console.log('bob.address(userId)', bob.toAddress());
   try {
     // Register
-    let hash = await registerUser("alice_test", alice);
-    console.log("register alice", hash);
-    hash = await registerUser("bob_test", bob);
-    console.log("register bob", hash);
+    let hash = await registerUser('alice_test', alice);
+    console.log('register alice', hash);
+    hash = await registerUser('bob_test', bob);
+    console.log('register bob', hash);
 
     await sleep(5000);
-    await checkBalance("alice.initial", alice);
-    await checkBalance("bob.initial", bob);
+    await checkBalance('alice.initial', alice);
+    await checkBalance('bob.initial', bob);
 
     // Get token
     hash = await getFreeToken(alice);
-    console.log("get token for alice: ", hash);
+    console.log('get token for alice: ', hash);
     hash = await getFreeToken(bob);
-    console.log("get token for bob: ", hash);
+    console.log('get token for bob: ', hash);
 
     await sleep(5000);
     const { state: aliceStateNew } = await client.getAccountState({
-      address: alice.toAddress()
+      address: alice.toAddress(),
     });
-    await checkBalance("alice.getToken", alice);
-    await checkBalance("bob.getToken", bob);
+    await checkBalance('alice.getToken', alice);
+    await checkBalance('bob.getToken', bob);
 
     // Transfer
-    hash = await client.sendTransferTx({
-      tx: {
-        itx: {
-          to: bob.toAddress(),
-          value: fromTokenToUnit(5)
-        }
-      },
-      wallet: alice
+    hash = await client.transfer({
+      to: bob.toAddress(),
+      token: 5,
+      wallet: alice,
     });
-    console.log("transfer hash", hash);
+    console.log('transfer hash', hash);
 
     await sleep(5000);
-    await checkBalance("alice.transfer", alice);
-    await checkBalance("bob.transfer", bob);
+    await checkBalance('alice.transfer', alice);
+    await checkBalance('bob.transfer', bob);
   } catch (err) {
     if (Array.isArray(err.errors)) {
       console.log(err.errors);
