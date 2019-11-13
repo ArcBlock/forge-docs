@@ -14,14 +14,14 @@ If you are a developer from traditional web development and not familiar with bl
 
 Forge Javascript SDK makes it very easy for developers to building applications on forge, it provides concise and simple api to helper developers accomplish following tasks:
 
-- Create and manipulate wallets using just javascript: [@arcblock/mcrypto](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_mcrypto.html), [@arcblock/forge-wallet](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_forge-wallet.html)
-- Read/Write on-chain data through [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html) or [GRpcClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GRpcClient.html)
-- Derive/validate DID that are used widely in different forge components: [@arcblock/did](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did.html), [@arcblock/did-util](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did-util.html)
+- Create and manipulate wallets using just javascript: [@arcblock/mcrypto](https://www.npmjs.com/package/@arcblock/mcrypto), [@arcblock/forge-wallet](https://www.npmjs.com/package/@arcblock/forge-wallet)
+- Read/Write on-chain data through [GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client) or [GRpcClient](https://www.npmjs.com/package/@arcblock/GRpcClient)
+- Derive/validate DID that are used widely in different forge components: [@arcblock/did](https://www.npmjs.com/package/@arcblock/did), [@arcblock/did-util](https://www.npmjs.com/package/@arcblock/did-util)
 - Assemble/encode/sign a transaction that can be sent to any forge powered blockchain
 
 Now, let's walk through the step-by-step guide to write a simple javascript program that may take a developer days or weeks to accomplish on other blockchain platforms:
 
-1. Create 2 user accounts (`Alice` and `Bob`) on forge powered blockchain, which you can get up and running easily with [forge-cli](../../../tools/forge_cli);
+1. Create 2 user accounts (`Alice` and `Bob`) on forge powered blockchain, which you can get up and running easily with [Forge CLI](/handbook/);
 2. Get 25 free tokens for the newly created account
 3. Transfer 5 token from `Alice` to `Bob`, inspect the balance
 
@@ -38,7 +38,7 @@ The whole process covers most of the tasks that a typical web application will d
 
 This step is not required to proceed to next steps, because forge javascript sdk is designed to work with any forge powered blockchain.
 
-If you are interested in running a chain node on your local machine, take 10 minutes to checkout our awesome command line tool: [forge-cli](../../../tools/forge_cli) and start a node.
+If you are interested in running a chain node on your local machine, take 10 minutes to checkout our awesome command line tool: [Forge CLI](/handbook/) and start a node.
 
 Once your chain node has started, run `forge web open` to verify that the web dashboard/explorer of your chain is up and running. If the web dashboard of your chain node loads without any errors, means our database is set, we can use `http://127.0.0.1:8210/api` as graphql endpoint.
 
@@ -116,15 +116,15 @@ Run `node index.js`, we will get:
 
 Similar to user registration in traditional web applications, forge requires an wallet(user account) to declare itself on the chain before accepting any further activities such as staking, voting and sending transaction from that wallet.
 
-To register `Alice` and `Bob` on the chain, we will use [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html):
+To register `Alice` and `Bob` on the chain, we will use `GraphQLClient`:
 
 Add `@arcblock/graphql-client` as dependency:
 
 ```bash
-yarn add @arcblock/graphql-client moment
+yarn add @arcblock/graphql-client
 ```
 
-Then, create an instance of `GraphQLClient`, then call `sendDeclareTx` on that instance:
+Then, create an instance of `GraphQLClient`, then call `declare` on that instance:
 
 ```javascript
 const { types } = require('@arcblock/mcrypto');
@@ -144,12 +144,8 @@ const host = 'http://127.0.0.1:8210';
 const client = new GraphQLClient({ endpoint: `${host}/api` });
 
 function registerUser(userName, userWallet) {
-  return client.sendDeclareTx({
-    tx: {
-      itx: {
-        moniker: userName,
-      },
-    },
+  return client.declare({
+    moniker: userName,
     wallet: userWallet,
   });
 }
@@ -181,9 +177,9 @@ Open explorer: `http://localhost:8210/node/explorer/txs`, we can see that, the 2
 
 ![](./assets/declare.png)
 
-> The screenshot above is from [forge-web](../../tools/forge_web), which contains a build in web dashboard and block explorer for your chain.
+> The screenshot above is from [Forge WEB](../../../tools/forge_web), which contains a build in web dashboard and block explorer for your chain.
 
-> Here are are using `sendDeclareTx` to write data to the blockchain, many other [transaction types](../../../reference/txs) are supported. Full list of transaction send method list can be found at [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html).
+> Here are are using `declare` to write data to the blockchain, many other [transaction types](../../../reference/txs) are supported. Full list of transaction send method list can be found at [GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client).
 
 ### 5. Get 25 token for `Alice` and `Bob`
 
@@ -213,7 +209,7 @@ diff --git a/index.js b/index.js
    } catch (err) {
 ```
 
-> Here we are using `getAccountState` to read data from the blockchain, we can also use GraphQLClient to read transaction/block/asset/chain info, please refer to [GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html) for full list of API.
+> Here we are using `getAccountState` to read data from the blockchain, we can also use GraphQLClient to read transaction/block/asset/chain info, please refer to [GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client) for full list of API.
 
 > You may also noticed that, we waited for 5 seconds before inspecting Alice's account balance, that's because 5 seconds is the block produce timeout for forge, which means that it takes at most 5 seconds before the transaction was executed by the chain and included in a block, this timeout can be configured in your [forge config](../../configuration).
 
@@ -227,7 +223,6 @@ diff --git a/index.js b/index.js
  const { types } = require('@arcblock/mcrypto');
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
  const GraphQLClient = require('@arcblock/graphql-client');
-+const moment = require('moment');
 
  const type = WalletType({
    role: types.RoleType.ROLE_ACCOUNT,
@@ -236,16 +231,7 @@ diff --git a/index.js b/index.js
  }
 
 +function getFreeToken(userWallet) {
-+  return client.sendPokeTx({
-+    tx: {
-+      nonce: 0,
-+      itx: {
-+        date: moment(new Date().toISOString())
-+          .utc()
-+          .format('YYYY-MM-DD'),
-+        address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
-+      },
-+    },
++  return client.checkin({
 +    wallet: userWallet,
 +  });
 +}
@@ -290,7 +276,7 @@ alice.balanceNew 250000000000000000
 
 You may notice that the token balance for `Alice` is a very large number, the reason big number is used is the deterministic requirement of blockchain, we can format the big number to human readable string with functions provided by `@arcblock/forge-util`.
 
-> For all utility methods of `@arcblock/forge-util`, please refer to the [documentation](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_forge-util.html)
+> For all utility methods of `@arcblock/forge-util`, please refer to the [documentation](https://www.npmjs.com/package/@arcblock/forge-util)
 
 ```bash
 yarn add @arcblock/forge-util
@@ -305,7 +291,6 @@ diff --git a/index.js b/index.js
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
 +const { fromUnitToToken } = require('@arcblock/forge-util');
  const GraphQLClient = require('@arcblock/graphql-client');
- const moment = require('moment');
 
 @@ -64,6 +65,7 @@ function getFreeToken(userWallet) {
      await sleep(5000);
@@ -376,7 +361,7 @@ diff --git a/index.js b/index.js
  const { types } = require('@arcblock/mcrypto');
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
 -const { fromUnitToToken } = require('@arcblock/forge-util');
-+const { fromUnitToToken, fromTokenToUnit } = require('@arcblock/forge-util');
++const { fromUnitToToken } = require('@arcblock/forge-util');
  const GraphQLClient = require('@arcblock/graphql-client');
 
 @@ -52,16 +52,17 @@ async function checkBalance(userName, userWallet) {
@@ -384,13 +369,9 @@ diff --git a/index.js b/index.js
      await checkBalance('bob.getToken', bob);
 +
 +    // Transfer
-+    hash = await client.sendTransferTx({
-+      tx: {
-+        itx: {
-+          to: bob.toAddress(),
-+          value: fromTokenToUnit(5),
-+        },
-+      },
++    hash = await client.transfer({
++      to: bob.toAddress(),
++      token: 5,
 +      wallet: alice,
 +    });
 +    console.log('transfer hash', hash);
@@ -427,9 +408,8 @@ The complete source code so far is:
 ```javascript
 const { types } = require('@arcblock/mcrypto');
 const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
-const { fromUnitToToken, fromTokenToUnit } = require('@arcblock/forge-util');
+const { fromUnitToToken } = require('@arcblock/forge-util');
 const GraphQLClient = require('@arcblock/graphql-client');
-const moment = require('moment');
 
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
@@ -445,27 +425,14 @@ const client = new GraphQLClient({ endpoint: `${host}/api` });
 const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 function registerUser(userName, userWallet) {
-  return client.sendDeclareTx({
-    tx: {
-      itx: {
-        moniker: userName,
-      },
-    },
+  return client.declare({
+    moniker: userName,
     wallet: userWallet,
   });
 }
 
 function getFreeToken(userWallet) {
-  return client.sendPokeTx({
-    tx: {
-      nonce: 0,
-      itx: {
-        date: moment(new Date().toISOString())
-          .utc()
-          .format('YYYY-MM-DD'),
-        address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
-      },
-    },
+  return client.checkin({
     wallet: userWallet,
   });
 }
@@ -501,13 +468,9 @@ async function checkBalance(userName, userWallet) {
     await checkBalance('bob.getToken', bob);
 
     // Transfer
-    hash = await client.sendTransferTx({
-      tx: {
-        itx: {
-          to: bob.toAddress(),
-          value: fromTokenToUnit(5),
-        },
-      },
+    hash = await client.transfer({
+      to: bob.toAddress(),
+      token: 5,
       wallet: alice,
     });
     console.log('transfer hash', hash);
@@ -528,7 +491,7 @@ async function checkBalance(userName, userWallet) {
 
 Here are some resources for you to learn more:
 
-- [Forge Javascript SDK API Reference](https://docs.arcblock.io/forge/sdks/javascript/latest/)
+- [Forge Javascript SDK API Reference](https://forge-js.netlify.com)
 - [Advanced Examples with GraphQLClient](https://github.com/ArcBlock/forge-js/tree/master/packages/graphql-client/examples)
 - [Advanced Examples with GRpcClient](https://github.com/ArcBlock/forge-js/tree/master/packages/grpc-client/examples)
 

@@ -12,7 +12,7 @@ tags:
 
 ## 概述
 
-[Forge CLI](../../tools/forge_cli) 创建出来每一条链都会有自己对应的 `forge_release.toml`，里面是这条链的配置信息。每条链创建成功后会出现如下信息提示配置文件的位置，用户可以直接在文件里修改。
+[Forge CLI](/handbook/) 创建出来每一条链都会有自己对应的 `forge_release.toml`，里面是这条链的配置信息。每条链创建成功后会出现如下信息提示配置文件的位置，用户可以直接在文件里修改。
 
 ```shell
 ✔ Config file /Users/.forge_chains/forge_test1/forge_release.toml is updated!

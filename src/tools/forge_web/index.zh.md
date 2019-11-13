@@ -1,6 +1,6 @@
 ---
-title: 'Forge 网页'
-description: 'Forge 网页'
+title: 'Forge Web'
+description: 'Forge Web'
 keywords: ''
 robots: 'index,follow'
 category: 'docs'
@@ -24,7 +24,7 @@ tags:
 
 - 控制面板：是存储在此节点上数据的信息总结，以及节点的健康状态，包括节点、存储、共识等的当前状态。
 - 节点管理：
-  - 区块探索器：便捷的工具，可查看链上发生的所有交易，以及生成的新区块。您始终可查看 ABT 网络状态以及从https://explorer.abtnetwork.io了解整个网络的信息。
+  - 区块探索器：便捷的工具，可查看链上发生的所有交易，以及生成的新区块。您始终可查看 ABT 网络状态以及从 https://explorer.abtnetwork.io了解整个网络的信息。
   - 已连接同级：连接至您的链节点的其他节点。因为 ABT 区块链节点只是 ABT 链的一员，它需要从其他链节点同步数据。这个已连接同级地图展示了当前同步的节点的位置。
 - 开发者工具：这个区域使开发者可轻松为您的应用程序排错，同时模拟交易，测试并运行不同的去中心化身份(DID)场景，也是进行 GraphQL 请求询问数据的地方。关于 Graphql 的详细信息在此。
 
@@ -64,12 +64,8 @@ tags:
   - 在询问您想的任何东西，以及定义您想获得的回复时非常灵活
   - 对请求和恢复拥有更多控制
 - 弊：
-  - 如需使用和理解，需要额外[GraphQL](https://www.arcblock.io/en/open-chain-access-protocol/)知识
+  - 如需使用和理解，需要额外 GraphQL 知识
 
 ![](./assets/graphql.png)
 
-如果您想了解关于如何创建区块链应用程序的更多信息，请访问我们在此：[https://docs.arcblock.io/forge/latest/](https://docs.arcblock.io/forge/latest/)的“开始”文件。
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk0NzA5NDM5NCwtOTYxNjk0MTE5XX0=
--->
+如果您想了解关于如何创建区块链应用程序的更多信息，请访问我们[在此](../../intro/quickstart)的“开始”文件。

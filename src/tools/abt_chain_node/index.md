@@ -26,7 +26,7 @@ For global users:
 
 ::: warning
 
-Because both [forge-cli](./forge_cli) and ABT Chain Node starts a node on your local machine, if you are already running a node with forge-cli, things may not go as expected when you start ABT Chain Node. For developers, we recommend using [forge-cli](./forge_cli) to manage your local node.
+Because both [Forge CLI](/handbook/) and ABT Chain Node starts a node on your local machine, if you are already running a node with forge-cli, things may not go as expected when you start ABT Chain Node. For developers, we recommend using [Forge CLI](/handbook/) to manage your local node.
 
 :::
 

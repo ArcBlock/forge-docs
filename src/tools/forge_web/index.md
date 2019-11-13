@@ -64,8 +64,8 @@ There are two primary ways to explore your chain data - block explorer and devel
   - Very flexible to query anything you want and define the response you want to get
   - More control over the request and response
 - Cons:
-  - Requires extra [GraphQL](https://www.arcblock.io/en/open-chain-access-protocol/) knowledge to use and understand
+  - Requires extra GraphQL knowledge to use and understand
 
 ![](./assets/graphql.png)
 
-If you want to learn more about how to build a blockchain application, please visit our “Getting Started” documentation here: [https://docs.arcblock.io/forge/latest/](https://docs.arcblock.io/forge/latest/).
+If you want to learn more about how to build a blockchain application, please visit our “Getting Started” documentation [here](../../intro/quickstart).

@@ -30,7 +30,7 @@ pip install forge-python-sdk
 
 ### 第 0 步
 
-首先，通过[Forge CLI](../../tools/forge_cli)在本地运行 Forge。
+首先，通过[Forge CLI](/handbook/)在本地运行 Forge。
 
 ### 第 1 步
 
