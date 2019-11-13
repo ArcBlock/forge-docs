@@ -15,7 +15,7 @@ tags:
 forge sdk 供 java 开发。
 如需了解 Forge-相关的设置，请查看[Forge](https://github.com/ArcBlock/forge)
 
-Forge-java-sdk 的详细参考手册[在此](https://docs.arcblock.io/forge/sdks/java/)。
+Forge-java-sdk 的详细参考手册[在此](../../../instruction/sdk/java)。
 
 ## 安装
 

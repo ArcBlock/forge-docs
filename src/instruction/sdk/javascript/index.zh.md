@@ -14,9 +14,9 @@ tags:
 
 Forge Javascript SDK 方便开发者在 forge 上构建应用程序，它提供精炼简单的 api，帮助开发者完成以下任务：
 
-- 只使用 javascript 创建并操控钱包：[@arcblock/mcrypto](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_mcrypto.html)，[@arcblock/forge-wallet](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_forge-wallet.html)
-- 通过[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)或[GRpcClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GRpcClient.html)读/写链上数据
-- 导出/验证在不同 forge 成分中广泛使用的 DID：[@arcblock/did](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did.html)，[@arcblock/did-util](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did-util.html)
+- 只使用 javascript 创建并操控钱包：[@arcblock/mcrypto](https://www.npmjs.com/package/@arcblock/mcrypto)，[@arcblock/forge-wallet](https://www.npmjs.com/package/@arcblock/forge-wallet)
+- 通过[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)或[GRpcClient](https://www.npmjs.com/package/@arcblock/grpc-client)读/写链上数据
+- 导出/验证在不同 forge 成分中广泛使用的 DID：[@arcblock/did](https://www.npmjs.com/package/@arcblock/did)，[@arcblock/did-util](https://www.npmjs.com/package/@arcblock/did-util)
 - 组装/编码/签署可发送至任何 forge 支持的区块链的交易
 
 现在，我们来看看详细指南，告诉您如何写简单的 javascript 程序，而且这些程序在其他区块链平台上可能需要数天或数周才能完成：
@@ -116,7 +116,7 @@ console.log({ alice: alice.toJSON(), bob: bob.toJSON() });
 
 与传统网页应用程序上的用户注册相似，forge 需要钱包（用户账户）在链上进行自我声明，然后方可接受任何活动，如抵押、投票和从该钱包发出交易。
 
-如需在链上注册`Alice`和`Bob`，我们将使用[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)：
+如需在链上注册`Alice`和`Bob`，我们将使用[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)：
 
 将`@arcblock/graphql-client`作为依赖添加：
 
@@ -124,7 +124,7 @@ console.log({ alice: alice.toJSON(), bob: bob.toJSON() });
 yarn add @arcblock/graphql-client
 ```
 
-然后，创建`GraphQLClient`实例，然后在该实例调用`sendDeclareTx`：
+然后，创建`GraphQLClient`实例，然后在该实例调用`declare`：
 
 ```javascript
 const { types } = require('@arcblock/mcrypto');
@@ -179,7 +179,7 @@ register bob tx: F61C51A9FE31B5E782276F78CAE35945844D7F848E7E008BC75A396AD552C0C
 
 > 上述截图来自[forge-web](../tools/forge_web)，保护链的内置网页控制面板和区块探索器。
 
-> 在此使用`sendDeclareTx`向区块链写数据，支持很多其他[交易类型](../../../reference/txs)。如需查看完整交易发出方式列表，请访问[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)。
+> 在此使用`declare`向区块链写数据，支持很多其他[交易类型](../../../reference/txs)。如需查看完整交易发出方式列表，请访问[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)。
 
 ### 5. 为`Alice`和`Bob`获得 25 颗代币
 
@@ -209,7 +209,7 @@ diff --git a/index.js b/index.js
    } catch (err) {
 ```
 
-> 在此，我们使用`getAccountState`从区块链读取数据，我们也可以使用 GraphQLClient 读取交易/区块/资产/链信息，请参考[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)获取完整的 API 列表。
+> 在此，我们使用`getAccountState`从区块链读取数据，我们也可以使用 GraphQLClient 读取交易/区块/资产/链信息，请参考[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)获取完整的 API 列表。
 > 您可能也会注意到，我们等了 5 秒才查看 Alice 的账户，这是因为，5 秒是 forge 的区块生产暂停时间，即交易由链执行并包含在区块上最多需要 5 秒，这个暂停时间可在您的[forge config](../../configuration)中配置。
 
 #### 5.2 获取免费代币
@@ -275,7 +275,7 @@ alice.balanceNew 250000000000000000
 
 您可以注意到，`Alice`的代币余额数子很大，使用大数字的原因是，这是区块链的决定性要求，我们可以将这个大数字格式化为人类可读的字符串，包含`@arcblock/forge-util`提供的函数。
 
-> 如需获取`@arcblock/forge-util`的所有实用方式，请参考[文件](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_forge-util.html)
+> 如需获取`@arcblock/forge-util`的所有实用方式，请参考[文件](https://www.npmjs.com/package/@arcblock/forge-util)
 
 ```bash
 yarn add @arcblock/forge-util
@@ -498,7 +498,7 @@ async function checkBalance(userName, userWallet) {
 
 以下是帮助您获取更多信息的资源：
 
-- [Forge Javascript SDK API 参考](https://docs.arcblock.io/forge/sdks/javascript/latest/)
+- [Forge Javascript SDK API 参考](https://forge-js.netlify.com)
 - [GraphQLClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/packages/graphql-client/examples)
 - [GRpcClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/packages/grpc-client/examples)
 
@@ -507,9 +507,3 @@ async function checkBalance(userName, userWallet) {
 ## 要报告问题吗
 
 如果您在任何步骤遇到问题，请在我们的[GitHub Repo](https://github.com/ArcBlock/forge-js/issues)报告问题
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzg5MDgwMjksMjAwMzQyNjMxLDE5OT
-A1MDE2NjcsLTEzOTc1ODQ5NjAsMTg4NTEzNTgyMywtOTkxNDgy
-OTUyXX0=
--->

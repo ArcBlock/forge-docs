@@ -29,7 +29,7 @@ GitHub 链接，请查看：
 
 如需获取更多文件，请查看：
 
-- [Forge SDK 概览](https://docs.arcblock.io/forge/latest/sdk/)
+- [Forge SDK 概览](../../../intro)
 - [Forge SDK](https://hexdocs.pm/forge_sdk/ForgeSdk.html)
 - [Abt Did](https://hexdocs.pm/abt_did_elixir/AbtDid.html)
 - [Forge Abi](https://hexdocs.pm/forge_abi/ForgeAbi.html)

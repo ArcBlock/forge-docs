@@ -15,7 +15,7 @@ tags:
 forge sdk for java development.
 For Forge-related setup, please checkout [Forge](https://github.com/ArcBlock/forge)
 
-A detailed reference manual for forge-java-sdk can be found [here](https://docs.arcblock.io/forge/sdks/java/).
+A detailed reference manual for forge-java-sdk can be found [here](../../../instruction/sdk/java).
 
 ## Installation
 
