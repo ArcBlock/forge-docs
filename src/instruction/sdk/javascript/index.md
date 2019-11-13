@@ -121,7 +121,7 @@ To register `Alice` and `Bob` on the chain, we will use [GraphQLClient](https://
 Add `@arcblock/graphql-client` as dependency:
 
 ```bash
-yarn add @arcblock/graphql-client moment
+yarn add @arcblock/graphql-client
 ```
 
 Then, create an instance of `GraphQLClient`, then call `sendDeclareTx` on that instance:
@@ -144,12 +144,8 @@ const host = 'http://127.0.0.1:8210';
 const client = new GraphQLClient({ endpoint: `${host}/api` });
 
 function registerUser(userName, userWallet) {
-  return client.sendDeclareTx({
-    tx: {
-      itx: {
-        moniker: userName,
-      },
-    },
+  return client.declare({
+    moniker: userName,
     wallet: userWallet,
   });
 }
@@ -227,7 +223,6 @@ diff --git a/index.js b/index.js
  const { types } = require('@arcblock/mcrypto');
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
  const GraphQLClient = require('@arcblock/graphql-client');
-+const moment = require('moment');
 
  const type = WalletType({
    role: types.RoleType.ROLE_ACCOUNT,
@@ -236,16 +231,7 @@ diff --git a/index.js b/index.js
  }
 
 +function getFreeToken(userWallet) {
-+  return client.sendPokeTx({
-+    tx: {
-+      nonce: 0,
-+      itx: {
-+        date: moment(new Date().toISOString())
-+          .utc()
-+          .format('YYYY-MM-DD'),
-+        address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
-+      },
-+    },
++  return client.checkin({
 +    wallet: userWallet,
 +  });
 +}
@@ -305,7 +291,6 @@ diff --git a/index.js b/index.js
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
 +const { fromUnitToToken } = require('@arcblock/forge-util');
  const GraphQLClient = require('@arcblock/graphql-client');
- const moment = require('moment');
 
 @@ -64,6 +65,7 @@ function getFreeToken(userWallet) {
      await sleep(5000);
@@ -376,7 +361,7 @@ diff --git a/index.js b/index.js
  const { types } = require('@arcblock/mcrypto');
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
 -const { fromUnitToToken } = require('@arcblock/forge-util');
-+const { fromUnitToToken, fromTokenToUnit } = require('@arcblock/forge-util');
++const { fromUnitToToken } = require('@arcblock/forge-util');
  const GraphQLClient = require('@arcblock/graphql-client');
 
 @@ -52,16 +52,17 @@ async function checkBalance(userName, userWallet) {
@@ -384,13 +369,9 @@ diff --git a/index.js b/index.js
      await checkBalance('bob.getToken', bob);
 +
 +    // Transfer
-+    hash = await client.sendTransferTx({
-+      tx: {
-+        itx: {
-+          to: bob.toAddress(),
-+          value: fromTokenToUnit(5),
-+        },
-+      },
++    hash = await client.transfer({
++      to: bob.toAddress(),
++      token: 5,
 +      wallet: alice,
 +    });
 +    console.log('transfer hash', hash);
@@ -427,9 +408,8 @@ The complete source code so far is:
 ```javascript
 const { types } = require('@arcblock/mcrypto');
 const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
-const { fromUnitToToken, fromTokenToUnit } = require('@arcblock/forge-util');
+const { fromUnitToToken } = require('@arcblock/forge-util');
 const GraphQLClient = require('@arcblock/graphql-client');
-const moment = require('moment');
 
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
@@ -445,27 +425,14 @@ const client = new GraphQLClient({ endpoint: `${host}/api` });
 const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 function registerUser(userName, userWallet) {
-  return client.sendDeclareTx({
-    tx: {
-      itx: {
-        moniker: userName,
-      },
-    },
+  return client.declare({
+    moniker: userName,
     wallet: userWallet,
   });
 }
 
 function getFreeToken(userWallet) {
-  return client.sendPokeTx({
-    tx: {
-      nonce: 0,
-      itx: {
-        date: moment(new Date().toISOString())
-          .utc()
-          .format('YYYY-MM-DD'),
-        address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
-      },
-    },
+  return client.checkin({
     wallet: userWallet,
   });
 }
@@ -501,13 +468,9 @@ async function checkBalance(userName, userWallet) {
     await checkBalance('bob.getToken', bob);
 
     // Transfer
-    hash = await client.sendTransferTx({
-      tx: {
-        itx: {
-          to: bob.toAddress(),
-          value: fromTokenToUnit(5),
-        },
-      },
+    hash = await client.transfer({
+      to: bob.toAddress(),
+      token: 5,
       wallet: alice,
     });
     console.log('transfer hash', hash);
