@@ -12,16 +12,16 @@ tags:
 
 ### [Enum](./enum)
 
-`Enum` includes pre-defined options in Forge. Click [here](./enum) to check the list of `Enums`.
+`Enum` 是 ArcBlock 框架中定义好的数据类型。 [查看详情](./enum)
 
 ### [State](./state)
 
-`State` includes description of different states defined in Forge. Click [here](./enum) to check different states.
+`State` 是 ArcBlock 框架中支持的状态的数据类型。[查看详情](./enum)
 
 ### [Type](./type)
 
-`Type` includes basic data structures used all over in Forge. Click [here](./type) for the reference of different types.
+`Type` 是ArcBlock 框架中使用的基本数据类型。 [查看详情](./type)
 
 ### [Trace Type](./trace_type)
 
-`Trace Type` includes data structure for web API calls. Click [here](./trace_type) for the reference of different trace types.
+`Trace Type` 是主要供网络API使用的数据类型。[查看详情](./trace_type)
