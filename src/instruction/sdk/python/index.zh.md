@@ -10,7 +10,7 @@ tags:
   - "python"
 ---
 
-如需获取详细的 forge-python-sdk 参考手册，请访问[此处](../../../sdks/python/latest)。
+如需获取详细的 forge-python-sdk 参考手册，请访问[此处](https://forge-python-sdk.readthedocs.io/en/release-1.0/)。
 
 Python SDK 的源代码可在[Github](https://github.com/ArcBlock/forge-python-sdk)获取。如果有任何疑问，请联系我们。
 
