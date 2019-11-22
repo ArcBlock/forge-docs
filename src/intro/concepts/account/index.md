@@ -1,5 +1,5 @@
 ---
-title: '2. Accounts'
+title: 'Accounts'
 description: 'Accounts'
 keywords: ''
 robots: 'index,follow'
@@ -9,6 +9,7 @@ tags:
   - 'intro'
   - 'concepts'
 ---
+
 # Accounts
 
 An **account** is a unique address that Forge uses to identify individual users. Each user can have as many accounts as they would like.
