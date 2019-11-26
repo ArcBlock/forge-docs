@@ -22,7 +22,7 @@ All Forge SDKs implements several categories of pre-built functions, so that dev
 
 If you want to see an overview of what's availiable, checkout  [Forge SDK Overview](../).
 
-### [Forge Python Manual](https://docs.arcblock.io/forge/sdks/python/latest/)
+### [Forge Python Manual](https://forge-python-sdk.readthedocs.io/en/release-1.0/)
 
 Python SDK also has its own reference manual, including detailed function documents and examples.
 
@@ -60,7 +60,7 @@ There are three steps using the SDK. Detailed explanation can be found below.
 
 ### Step 1: Start Forge
 
-Python SDK needs to connect to a running node to work properly. You can use [Forge CLI](../../tools/forge_cli) to start a local node or connect to an exisiting node.
+Python SDK needs to connect to a running node to work properly. You can use [Forge CLI](/handbook/) to start a local node or connect to an exisiting node.
 
 ### Step 2: Create a Forge Connection
 

@@ -9,26 +9,41 @@ categories:
     priority: 9999
     sidebar:
       Introduction:
-      - "/intro/quickstart"
-      - "/intro/concepts"
+        links:
+          - "/intro/quickstart"
+          - "/intro/concepts"
+        locales:
+          zh: "Forge 入门"
       Usage:
-      - "/instruction/install"
-      - "/instruction/configuration"
+        links:
+          - "/instruction/install"
+          - "/instruction/configuration"
+        locales:
+          zh: "基本方法"
       Reference:
-      - "/reference/rpc"
-      - "/reference/txs"
-      - "/reference/code"
-      - "/reference/protocols"
-      - "/reference/types"
-      - "/reference/releases"
+        links:
+          - "/reference/rpc"
+          - "/reference/txs"
+          - "/reference/code"
+          - "/reference/protocols"
+          - "/reference/types"
+          - "/reference/releases"
+        locales:
+          zh: "Forge 原理"
       Forge SDK:
-      - "/instruction/sdk"
-      - "/instruction/sdk/javascript"
-      - "/instruction/sdk/python"
-      - "/instruction/sdk/elixir"
-      - "/instruction/sdk/java"
+        links:
+          - "/instruction/sdk"
+          - "/instruction/sdk/javascript"
+          - "/instruction/sdk/python"
+          - "/instruction/sdk/elixir"
+          - "/instruction/sdk/java"
+        locales:
+          zh: "Forge SDK"
       Forge Tools:
-      - "/tools"
-      - "/tools/forge_web"
-      - "/tools/abt_chain_node"
-      - "/tools/dapps_workshop"
+        links:
+          - "/tools"
+          - "/tools/forge_web"
+          - "/tools/abt_chain_node"
+          - "/tools/dapps_workshop"
+        locales:
+          zh: "工具箱"

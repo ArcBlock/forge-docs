@@ -29,7 +29,7 @@ Github link, please see:
 
 For more document, please see:
 
-- [Forge SDK overview](https://docs.arcblock.io/forge/latest/sdk/)
+- [Forge SDK Overview](../../../intro)
 - [Forge SDK](https://hexdocs.pm/forge_sdk/ForgeSdk.html)
 - [Abt Did](https://hexdocs.pm/abt_did_elixir/AbtDid.html)
 - [Forge Abi](https://hexdocs.pm/forge_abi/ForgeAbi.html)
@@ -60,7 +60,7 @@ forge simulator start
 
 ### Step 0
 
-First get your Forge running on local with [Forge CLI](../../tools/forge_cli).
+First get your Forge running on local with [Forge CLI](/handbook/).
 
 ### Step 1
 

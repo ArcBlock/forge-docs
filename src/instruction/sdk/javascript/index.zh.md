@@ -1,27 +1,27 @@
 ---
-title: "Javascript SDK"
-description: "Javascript SDK"
-keywords: ""
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
+title: 'Javascript SDK'
+description: 'Javascript SDK'
+keywords: ''
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
 tags:
-  - "sdk"
-  - "javascript"
+  - 'sdk'
+  - 'javascript'
 ---
 
 如果您是来自传统网页开发的开发者，不熟悉区块链，请先查看[一般概念](../../../concepts/concepts)。
 
 Forge Javascript SDK 方便开发者在 forge 上构建应用程序，它提供精炼简单的 api，帮助开发者完成以下任务：
 
-- 只使用 javascript 创建并操控钱包：[@arcblock/mcrypto](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_mcrypto.html)，[@arcblock/forge-wallet](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_forge-wallet.html)
-- 通过[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)或[GRpcClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GRpcClient.html)读/写链上数据
-- 导出/验证在不同 forge 成分中广泛使用的 DID：[@arcblock/did](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did.html)，[@arcblock/did-util](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_did-util.html)
+- 只使用 javascript 创建并操控钱包：[@arcblock/mcrypto](https://www.npmjs.com/package/@arcblock/mcrypto)，[@arcblock/forge-wallet](https://www.npmjs.com/package/@arcblock/forge-wallet)
+- 通过[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)或[GRpcClient](https://www.npmjs.com/package/@arcblock/grpc-client)读/写链上数据
+- 导出/验证在不同 forge 成分中广泛使用的 DID：[@arcblock/did](https://www.npmjs.com/package/@arcblock/did)，[@arcblock/did-util](https://www.npmjs.com/package/@arcblock/did-util)
 - 组装/编码/签署可发送至任何 forge 支持的区块链的交易
 
 现在，我们来看看详细指南，告诉您如何写简单的 javascript 程序，而且这些程序在其他区块链平台上可能需要数天或数周才能完成：
 
-1. 在 forge 支持的区块链上创建两个用户账户（`Alice`和`Bob`），您可通过[forge-cli](../../tools/forge_cli)轻松设置并运行；
+1. 在 forge 支持的区块链上创建两个用户账户（`Alice`和`Bob`），您可通过[Forge CLI](/handbook/)轻松设置并运行；
 2. 为新创建的账户获取 25 个 代币
 3. 从`Alice`向`Bob`转移 5 个代币，检查余额
 
@@ -38,7 +38,7 @@ Forge Javascript SDK 方便开发者在 forge 上构建应用程序，它提供�
 
 您无需设置即可继续到下一步，因为 forge javascript sdk 的设计使其可搭配任何 forge 支持的区块链使用。
 
-如果您对在本地机器上运行链节点感兴趣，请花 10 分钟看看我们非常棒的命令线工具：[forge-cli](../../tools/forge_cli)并开始节点。
+如果您对在本地机器上运行链节点感兴趣，请花 10 分钟看看我们非常棒的命令线工具：[Forge CLI](/handbook/)并开始节点。
 
 您的链节点开始后，运行`forge web open`以验证链的网页控制面板/探索器已启动并运行。如果链节点的网页控制面板无错误加载，则表明控制面板已设置完毕，我们可以使用`http://127.0.0.1:8210/api`作为 graphql 端点。
 
@@ -68,13 +68,13 @@ touch index.js
 然后，创建 2 个名为`Alice`和`Bob`的钱包，包含随机密钥 (`edit index.js`)：
 
 ```javascript
-const { types } = require("@arcblock/mcrypto");
-const { fromRandom, WalletType } = require("@arcblock/forge-wallet");
+const { types } = require('@arcblock/mcrypto');
+const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
 
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
   pk: types.KeyType.ED25519,
-  hash: types.HashType.SHA3
+  hash: types.HashType.SHA3,
 });
 
 const alice = fromRandom(type);
@@ -116,51 +116,47 @@ console.log({ alice: alice.toJSON(), bob: bob.toJSON() });
 
 与传统网页应用程序上的用户注册相似，forge 需要钱包（用户账户）在链上进行自我声明，然后方可接受任何活动，如抵押、投票和从该钱包发出交易。
 
-如需在链上注册`Alice`和`Bob`，我们将使用[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)：
+如需在链上注册`Alice`和`Bob`，我们将使用[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)：
 
 将`@arcblock/graphql-client`作为依赖添加：
 
 ```bash
-yarn add @arcblock/graphql-client moment
+yarn add @arcblock/graphql-client
 ```
 
-然后，创建`GraphQLClient`实例，然后在该实例调用`sendDeclareTx`：
+然后，创建`GraphQLClient`实例，然后在该实例调用`declare`：
 
 ```javascript
-const { types } = require("@arcblock/mcrypto");
-const { fromRandom, WalletType } = require("@arcblock/forge-wallet");
-const GraphQLClient = require("@arcblock/graphql-client");
+const { types } = require('@arcblock/mcrypto');
+const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
+const GraphQLClient = require('@arcblock/graphql-client');
 
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
   pk: types.KeyType.ED25519,
-  hash: types.HashType.SHA3
+  hash: types.HashType.SHA3,
 });
 
 const alice = fromRandom(type);
 const bob = fromRandom(type);
 
-const host = "http://127.0.0.1:8210";
+const host = 'http://127.0.0.1:8210';
 const client = new GraphQLClient({ endpoint: `${host}/api` });
 
 function registerUser(userName, userWallet) {
-  return client.sendDeclareTx({
-    tx: {
-      itx: {
-        moniker: userName
-      }
-    },
-    wallet: userWallet
+  return client.declare({
+    moniker: userName,
+    wallet: userWallet,
   });
 }
 
 (async () => {
   try {
-    let hash = await registerUser("alice_test", alice);
-    console.log("register alice tx:", hash);
+    let hash = await registerUser('alice_test', alice);
+    console.log('register alice tx:', hash);
 
-    hash = await registerUser("bob_test", bob);
-    console.log("register bob tx:", hash);
+    hash = await registerUser('bob_test', bob);
+    console.log('register bob tx:', hash);
   } catch (err) {
     if (Array.isArray(err.errors)) {
       console.log(err.errors);
@@ -181,9 +177,9 @@ register bob tx: F61C51A9FE31B5E782276F78CAE35945844D7F848E7E008BC75A396AD552C0C
 
 ![ ](./assets/declare.png)
 
-> 上述截图来自[forge-web](../tools/forge_web)，保护链的内置网页控制面板和区块探索器。
+> 上述截图来自[Forge WEB](../../../tools/forge_web)，保护链的内置网页控制面板和区块探索器。
 
-> 在此使用`sendDeclareTx`向区块链写数据，支持很多其他[交易类型](../../../reference/txs)。如需查看完整交易发出方式列表，请访问[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)。
+> 在此使用`declare`向区块链写数据，支持很多其他[交易类型](../../../reference/txs)。如需查看完整交易发出方式列表，请访问[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)。
 
 ### 5. 为`Alice`和`Bob`获得 25 颗代币
 
@@ -213,8 +209,8 @@ diff --git a/index.js b/index.js
    } catch (err) {
 ```
 
-> 在此，我们使用`getAccountState`从区块链读取数据，我们也可以使用 GraphQLClient 读取交易/区块/资产/链信息，请参考[GraphQLClient](https://docs.arcblock.io/forge/sdks/javascript/latest/GraphQLClient.html)获取完整的 API 列表。
-> 您可能也会注意到，我们等了 5 秒才查看Alice的账户，这是因为，5 秒是 forge 的区块生产暂停时间，即交易由链执行并包含在区块上最多需要 5 秒，这个暂停时间可在您的[forge config](../../configuration)中配置。
+> 在此，我们使用`getAccountState`从区块链读取数据，我们也可以使用 GraphQLClient 读取交易/区块/资产/链信息，请参考[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)获取完整的 API 列表。
+> 您可能也会注意到，我们等了 5 秒才查看 Alice 的账户，这是因为，5 秒是 forge 的区块生产暂停时间，即交易由链执行并包含在区块上最多需要 5 秒，这个暂停时间可在您的[forge config](../../configuration)中配置。
 
 #### 5.2 获取免费代币
 
@@ -226,7 +222,6 @@ diff --git a/index.js b/index.js
  const { types } = require('@arcblock/mcrypto');
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
  const GraphQLClient = require('@arcblock/graphql-client');
-+const moment = require('moment');
 
  const type = WalletType({
    role: types.RoleType.ROLE_ACCOUNT,
@@ -235,16 +230,7 @@ diff --git a/index.js b/index.js
  }
 
 +function getFreeToken(userWallet) {
-+  return client.sendPokeTx({
-+    tx: {
-+      nonce: 0,
-+      itx: {
-+        date: moment(new Date().toISOString())
-+          .utc()
-+          .format('YYYY-MM-DD'),
-+        address: 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
-+      },
-+    },
++  return client.checkin({
 +    wallet: userWallet,
 +  });
 +}
@@ -289,7 +275,7 @@ alice.balanceNew 250000000000000000
 
 您可以注意到，`Alice`的代币余额数子很大，使用大数字的原因是，这是区块链的决定性要求，我们可以将这个大数字格式化为人类可读的字符串，包含`@arcblock/forge-util`提供的函数。
 
-> 如需获取`@arcblock/forge-util`的所有实用方式，请参考[文件](https://docs.arcblock.io/forge/sdks/javascript/latest/module-@arcblock_forge-util.html)
+> 如需获取`@arcblock/forge-util`的所有实用方式，请参考[文件](https://www.npmjs.com/package/@arcblock/forge-util)
 
 ```bash
 yarn add @arcblock/forge-util
@@ -304,7 +290,6 @@ diff --git a/index.js b/index.js
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
 +const { fromUnitToToken } = require('@arcblock/forge-util');
  const GraphQLClient = require('@arcblock/graphql-client');
- const moment = require('moment');
 
 @@ -64,6 +65,7 @@ function getFreeToken(userWallet) {
      await sleep(5000);
@@ -375,7 +360,7 @@ diff --git a/index.js b/index.js
  const { types } = require('@arcblock/mcrypto');
  const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
 -const { fromUnitToToken } = require('@arcblock/forge-util');
-+const { fromUnitToToken, fromTokenToUnit } = require('@arcblock/forge-util');
++const { fromUnitToToken } = require('@arcblock/forge-util');
  const GraphQLClient = require('@arcblock/graphql-client');
 
 @@ -52,16 +52,17 @@ async function checkBalance(userName, userWallet) {
@@ -383,13 +368,9 @@ diff --git a/index.js b/index.js
      await checkBalance('bob.getToken', bob);
 +
 +    // Transfer
-+    hash = await client.sendTransferTx({
-+      tx: {
-+        itx: {
-+          to: bob.toAddress(),
-+          value: fromTokenToUnit(5),
-+        },
-+      },
++    hash = await client.transfer({
++      to: bob.toAddress(),
++      token: 5,
 +      wallet: alice,
 +    });
 +    console.log('transfer hash', hash);
@@ -424,100 +405,86 @@ bob.transfer.balance 30
 目前，完整的源代码是：
 
 ```javascript
-const { types } = require("@arcblock/mcrypto");
-const { fromRandom, WalletType } = require("@arcblock/forge-wallet");
-const { fromUnitToToken, fromTokenToUnit } = require("@arcblock/forge-util");
-const GraphQLClient = require("@arcblock/graphql-client");
-const moment = require("moment");
+const { types } = require('@arcblock/mcrypto');
+const { fromRandom, WalletType } = require('@arcblock/forge-wallet');
+const { fromUnitToToken } = require('@arcblock/forge-util');
+const GraphQLClient = require('@arcblock/graphql-client');
 
 const type = WalletType({
   role: types.RoleType.ROLE_ACCOUNT,
   pk: types.KeyType.ED25519,
-  hash: types.HashType.SHA3
+  hash: types.HashType.SHA3,
 });
 
 const alice = fromRandom(type);
 const bob = fromRandom(type);
 
-const host = "http://127.0.0.1:8210";
+const host = 'http://127.0.0.1:8210';
 const client = new GraphQLClient({ endpoint: `${host}/api` });
 const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 function registerUser(userName, userWallet) {
-  return client.sendDeclareTx({
+  return client.declare({
     tx: {
       itx: {
-        moniker: userName
-      }
+        moniker: userName,
+      },
     },
-    wallet: userWallet
+    wallet: userWallet,
   });
 }
 
 function getFreeToken(userWallet) {
-  return client.sendPokeTx({
-    tx: {
-      nonce: 0,
-      itx: {
-        date: moment(new Date().toISOString())
-          .utc()
-          .format("YYYY-MM-DD"),
-        address: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
-      }
-    },
-    wallet: userWallet
+  return client.checkin({
+    wallet: userWallet,
   });
 }
 
 async function checkBalance(userName, userWallet) {
   const { state } = await client.getAccountState({
-    address: userWallet.toAddress()
+    address: userWallet.toAddress(),
   });
   console.log(`${userName}.balance`, fromUnitToToken(state.balance));
 }
 
 (async () => {
-  console.log("alice.address(userId)", alice.toAddress());
-  console.log("bob.address(userId)", bob.toAddress());
+  console.log('alice.address(userId)', alice.toAddress());
+  console.log('bob.address(userId)', bob.toAddress());
   try {
     // Register
-    let hash = await registerUser("alice_test", alice);
-    console.log("register alice", hash);
-    hash = await registerUser("bob_test", bob);
-    console.log("register bob", hash);
+    let hash = await registerUser('alice_test', alice);
+    console.log('register alice', hash);
+    hash = await registerUser('bob_test', bob);
+    console.log('register bob', hash);
 
     await sleep(5000);
-    await checkBalance("alice.initial", alice);
-    await checkBalance("bob.initial", bob);
+    await checkBalance('alice.initial', alice);
+    await checkBalance('bob.initial', bob);
 
     // Get token
     hash = await getFreeToken(alice);
-    console.log("get token for alice: ", hash);
+    console.log('get token for alice: ', hash);
     hash = await getFreeToken(bob);
-    console.log("get token for bob: ", hash);
+    console.log('get token for bob: ', hash);
 
     await sleep(5000);
     const { state: aliceStateNew } = await client.getAccountState({
-      address: alice.toAddress()
+      address: alice.toAddress(),
     });
-    await checkBalance("alice.getToken", alice);
-    await checkBalance("bob.getToken", bob);
+    await checkBalance('alice.getToken', alice);
+    await checkBalance('bob.getToken', bob);
 
     // Transfer
-    hash = await client.sendTransferTx({
-      tx: {
-        itx: {
-          to: bob.toAddress(),
-          value: fromTokenToUnit(5)
-        }
-      },
-      wallet: alice
+    hash = await client.transfer({
+      to: bob.toAddress(),
+      token: 5,
+      wallet: alice,
     });
-    console.log("transfer hash", hash);
+    console.log('transfer hash', hash);
 
     await sleep(5000);
-    await checkBalance("alice.transfer", alice);
-    await checkBalance("bob.transfer", bob);
+    await checkBalance('alice.transfer', alice);
+    await checkBalance('bob.transfer', bob);
   } catch (err) {
     if (Array.isArray(err.errors)) {
       console.log(err.errors);
@@ -531,7 +498,7 @@ async function checkBalance(userName, userWallet) {
 
 以下是帮助您获取更多信息的资源：
 
-- [Forge Javascript SDK API 参考](https://docs.arcblock.io/forge/sdks/javascript/latest/)
+- [Forge Javascript SDK API 参考](https://forge-js.netlify.com)
 - [GraphQLClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/packages/graphql-client/examples)
 - [GRpcClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/packages/grpc-client/examples)
 
@@ -540,9 +507,3 @@ async function checkBalance(userName, userWallet) {
 ## 要报告问题吗
 
 如果您在任何步骤遇到问题，请在我们的[GitHub Repo](https://github.com/ArcBlock/forge-js/issues)报告问题
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzg5MDgwMjksMjAwMzQyNjMxLDE5OT
-A1MDE2NjcsLTEzOTc1ODQ5NjAsMTg4NTEzNTgyMywtOTkxNDgy
-OTUyXX0=
--->
