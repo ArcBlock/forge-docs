@@ -1,5 +1,5 @@
 ---
-title: '2. Accounts'
+title: 'Accounts'
 description: 'Accounts'
 keywords: ''
 robots: 'index,follow'
@@ -9,6 +9,7 @@ tags:
   - 'intro'
   - 'concepts'
 ---
+
 # Accounts
 
 An **account** is a unique address that Forge uses to identify individual users. Each user can have as many accounts as they would like.
@@ -49,3 +50,13 @@ It's important to keep the secret keys safe, since knowledge of the secret key a
 ## Signatures
 
 Each transaction carries a signature generated using the sender's secret key. The recipient can verify the sender's signature using the sender's public key, which is published on the ABT node. This helps ensure that the transaction content received is exactly as it was when the sender initiated the transaction.
+
+## Working with Accounts in Forge
+
+Forge offers a variety of actions related to working with accounts, including:
+
+* Creating an account
+* Loading an account
+* Recovering an account
+* Listing an account
+* Removing an account
