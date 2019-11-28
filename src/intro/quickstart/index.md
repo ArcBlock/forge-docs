@@ -29,7 +29,7 @@ Now we need to install Forge, the ArcBlock framework with `forge install`.
 
 ![](./assets/1-install.gif)
 
-`forge install` installs the lastest version by default, if you want to install a specific version, say `0.40.0`, run `forge install 0.40.0`.
+`forge install` installs the lastest version by default, if you want to install a specific version, say `1.0.0`, run `forge install 1.0.0`.
 
 ## Create A Chain
 

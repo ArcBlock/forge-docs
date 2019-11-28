@@ -1,6 +1,6 @@
 ---
 title: 快速上手
-description: 
+description:
 keywords: 'forge, forge-cli'
 author: polunzh
 category: docs
@@ -28,7 +28,7 @@ tags:
 对于中国大陆的用户，可以使用阿里云的镜像来加速安装：`forge install --mirror https://releases.arcblockio.cn`
 :::
 
-`forge install` 会默认安装最新版本，如果想要安装特定版本的forge 如 `0.40.0`, 运行 `forge install 0.40.0`
+`forge install` 会默认安装最新版本，如果想要安装特定版本的forge 如 `1.0.0`, 运行 `forge install 1.0.0`
 
 ## 创建一条链
 
