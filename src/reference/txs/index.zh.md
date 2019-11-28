@@ -21,15 +21,15 @@ tags:
 - [`DelcareTx`](account/declare): 声明链中的钱包
 - [`AccountMigrateTx`](account/account_migrate):将钱包从一个地址迁移到另一个地址
 - [`DelegateTx`](account/delegate): 委托某些权力给另一个账户
-  
+
 ### 资产
 
 资产相关的交易协议
 
 - [`CreateAssetTx`](asset/create_asset)：创建新资产
-- [`CreateAssetTx`](asset/create_asset)：更新现有资产
+- [`UpdateAssetTx`](asset/update_asset)：更新现有资产
 - [`ConsumeAssetTx`](asset/consume_asset)：消费资产以获得特定服务
-  
+
 高级资产创建和交换：
 
 - [`CreateAssetFactory`](asset/create_asset_factory)：创建如自助售货机一样可生产相似资产的工厂
