@@ -1,6 +1,6 @@
 ---
-title: "Forge Elixir/Erlang SDK"
-description: "Forge Elixir/Erlang SDK"
+title: "Elixir/Erlang SDK"
+description: "Elixir/Erlang SDK"
 keywords: ""
 robots: "index,follow"
 category: "docs"

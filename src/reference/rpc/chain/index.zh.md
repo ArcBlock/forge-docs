@@ -31,7 +31,7 @@ message ResponseGetChainInfo {
 }
 ```
 
-| Name |                Data Type                |
+| Name | Data Type                               |
 | :--- | :-------------------------------------- |
 | code | StatusCode                              |
 | info | [ChainInfo](../../types/type#chaininfo) |
@@ -57,7 +57,7 @@ message ResponseGetNodeInfo {
 }
 ```
 
-| Name |               Data Type               |
+| Name | Data Type                             |
 | :--- | :------------------------------------ |
 | code | StatusCode                            |
 | info | [NodeInfo](../../types/type#nodeinfo) |
@@ -77,7 +77,7 @@ message RequestSendTx {
 }
 ```
 
-|  Name  |                  Data Type                  | Default | Required |
+| Name   | Data Type                                   | Default | Required |
 | ------ | ------------------------------------------- | ------- | -------- |
 | tx     | [Transaction](../../types/type#transaction) |         | Yes      |
 | wallet | [WalletInfo](../../types/type#walletinfo)   |         | Yes      |
@@ -103,13 +103,14 @@ message ResponseSendTx {
 ## Get Block
 
 ### Usage
+
 `get_block(RequestGetBlock)`
 
 ```protobuf
-message RequestGetBlock { uint64 height = 1; 
+message RequestGetBlock { uint64 height = 1;
 ```
 
-|  Name  | Data Type | Default | Required |
+| Name   | Data Type | Default | Required |
 | ------ | --------- | ------- | -------- |
 | height | int       |         | Yes      |
 
@@ -124,7 +125,7 @@ message ResponseGetBlock {
 }
 ```
 
-| Name  |                Data Type                |
+| Name  | Data Type                               |
 | :---- | :-------------------------------------- |
 | code  | StatusCode                              |
 | block | [BlockInfo](../../types/type#blockinfo) |
@@ -143,7 +144,7 @@ message RequestGetBlocks {
 }
 ```
 
-|      Name      |                     Data Type                     | Default | Required |
+| Name           | Data Type                                         | Default | Required |
 | -------------- | ------------------------------------------------- | ------- | -------- |
 | paging         | [PageInfo](../../types/trace_type#pageinfo)       | null    |          |
 | height_filter  | [RangeFilter](../../types/trace_type#rangefilter) | null    |          |
@@ -161,7 +162,7 @@ message ResponseGetBlocks {
 }
 ```
 
-|  Name  |                             Data Type                              |
+| Name   | Data Type                                                          |
 | :----- | :----------------------------------------------------------------- |
 | code   | StatusCode                                                         |
 | page   | [PageInfo](../../types/trace_type#pageinfo)                        |
@@ -192,9 +193,9 @@ message ResponseGetTx {
 }
 ```
 
-| Name  |                Data Type                |
-| :---- | :-------------------------------------- |
-| code  | StatusCode                              |
+| Name | Data Type                                           |
+| :--- | :-------------------------------------------------- |
+| code | StatusCode                                          |
 | info | [TransactionInfo](../../types/type#transactioninfo) |
 
 ## Multisig
@@ -212,7 +213,8 @@ message RequestMultisig {
   string delegatee = 5;
 }
 ```
-|   Name    |                                       Data Type                                       | Default | Required |
+
+| Name      | Data Type                                                                             | Default | Required |
 | --------- | ------------------------------------------------------------------------------------- | ------- | -------- |
 | tx        | [Transaction](../../types/type#transaction)                                           |         | No       |
 | data      | [Google.Protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any) |         | No       |
@@ -228,7 +230,8 @@ message ResponseMultisig {
   Transaction tx = 2;
 }
 ```
-| Name  |                Data Type                |
-| :---- | :-------------------------------------- |
-| code  | StatusCode                              |
-| tx | [Transaction](../../types/type#transaction) |
+
+| Name | Data Type                                   |
+| :--- | :------------------------------------------ |
+| code | StatusCode                                  |
+| tx   | [Transaction](../../types/type#transaction) |
