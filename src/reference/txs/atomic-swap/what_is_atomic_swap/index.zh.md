@@ -1,5 +1,5 @@
 ---
-title: 'Forge 同构链跨链的基本原理'
+title: '同构链跨链的基本原理'
 description: '什么是同构链跨链？其难点和步骤是什么？Forge 里面是怎么实现的？'
 keywords: 'forge, swap, cross-chain'
 robots: 'index,follow'
