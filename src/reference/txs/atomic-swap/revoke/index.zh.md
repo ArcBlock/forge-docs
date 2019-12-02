@@ -16,7 +16,7 @@ tags:
 
 ## Protocol definition
 
-```proto
+```protobuf
 message RevokeSwapTx {
   string address = 1;
 

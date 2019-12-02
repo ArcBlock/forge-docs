@@ -5,7 +5,7 @@ keywords: ''
 robots: 'index,follow'
 category: 'docs'
 layout: 'documentation'
-tags: 
+tags:
   - 'atomic-swap'
   - 'set_up'
 ---
@@ -20,7 +20,7 @@ Normally, Set Up Swap transaction should happen in pairs across two chains. For 
 
 `SetupSwapTx` is defined:
 
-```proto
+```protobuf
 message SetupSwapTx {
   BigUint value = 1;
   repeated string assets = 2;
@@ -84,10 +84,10 @@ hashlock = Mcrypto.hash(%Mcrypto.Hasher.Sha3{}, hashkey)
 
 # Assemble and send the SetupSwapTx
 itx = ForgeAbi.SetupSwapTx.new(
-  value: ForgeAbi.token_to_unit(1), 
-  assets: [], 
-  receiver: receiver.address, 
-  locktime: 1000000, 
+  value: ForgeAbi.token_to_unit(1),
+  assets: [],
+  receiver: receiver.address,
+  locktime: 1000000,
   hashlock: hashlock
 )
 ForgeSdk.setup_swap(itx, wallet: sender, send: :commit)

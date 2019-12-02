@@ -18,13 +18,13 @@ tags:
 
 The `RetrieveSwapTx` is defined as:
 
-```proto
+```protobuf
 message RetrieveSwapTx {
   string address = 1;
   bytes hashkey = 2;
 
   google.protobuf.Any data = 15;
-
+}
 ```
 
 * `address` is the address of the swap state.

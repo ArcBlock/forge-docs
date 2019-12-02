@@ -40,7 +40,7 @@ message SetupSwapTx {
 
 `SwapState` is defined:
 
-```proto
+```protobuf
 message SwapState {
   string hash = 1;
   string address = 2;

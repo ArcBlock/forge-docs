@@ -5,18 +5,18 @@ keywords: ''
 robots: 'index,follow'
 category: 'docs'
 layout: 'documentation'
-tags: 
+tags:
   - 'atomic-swap'
   - 'revoke'
 ---
 
 
 
-**Revoke Swap** transaction redeems the assets and token under swap state back to the sender of the swap. This transaction is useful if the sender wants to stop the atomic swap for whatever reason. But in order to protect the receiver, sender is only allowed to revoke a swap after its locktime. 
+**Revoke Swap** transaction redeems the assets and token under swap state back to the sender of the swap. This transaction is useful if the sender wants to stop the atomic swap for whatever reason. But in order to protect the receiver, sender is only allowed to revoke a swap after its locktime.
 
 ## Protocol definition
 
-```proto
+```protobuf
 message RevokeSwapTx {
   string address = 1;
 
@@ -44,10 +44,10 @@ hashlock = Mcrypto.hash(%Mcrypto.Hasher.Sha3{}, hashkey)
 
 # Assemble and send the SetupSwapTx
 itx = ForgeAbi.SetupSwapTx.new(
-  value: ForgeAbi.token_to_unit(1), 
-  assets: [], 
-  receiver: receiver.address, 
-  locktime: 1000000, 
+  value: ForgeAbi.token_to_unit(1),
+  assets: [],
+  receiver: receiver.address,
+  locktime: 1000000,
   hashlock: hashlock
 )
 hash = ForgeSdk.setup_swap(itx, wallet: sender, send: :commit)

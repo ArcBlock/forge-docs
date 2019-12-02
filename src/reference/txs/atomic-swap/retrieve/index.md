@@ -5,7 +5,7 @@ keywords: ''
 robots: 'index,follow'
 category: 'docs'
 layout: 'documentation'
-tags: 
+tags:
   - 'atomic-swap'
   - 'retrieve'
 ---
@@ -18,13 +18,13 @@ tags:
 
 The `RetrieveSwapTx` is defined as:
 
-```proto
+```protobuf
 message RetrieveSwapTx {
   string address = 1;
   bytes hashkey = 2;
 
   google.protobuf.Any data = 15;
-
+}
 ```
 
 * `address` is the address of the swap state.
@@ -48,10 +48,10 @@ hashlock = Mcrypto.hash(%Mcrypto.Hasher.Sha3{}, hashkey)
 
 # Assemble and send the SetupSwapTx
 itx = ForgeAbi.SetupSwapTx.new(
-  value: ForgeAbi.token_to_unit(1), 
-  assets: [], 
-  receiver: receiver.address, 
-  locktime: 1000000, 
+  value: ForgeAbi.token_to_unit(1),
+  assets: [],
+  receiver: receiver.address,
+  locktime: 1000000,
   hashlock: hashlock
 )
 hash = ForgeSdk.setup_swap(itx, wallet: sender, send: :commit)
