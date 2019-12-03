@@ -16,7 +16,6 @@ categories:
         locales:
           zh: "Forge 入门"
       Usage:
-        url: "/intro"
         links:
           - "/instruction/install"
           - "/instruction/configuration"
