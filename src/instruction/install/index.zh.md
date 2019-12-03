@@ -1,6 +1,6 @@
 ---
-title: "安装"
-description: "安装"
+title: "安装指南"
+description: "安装指南"
 keywords: ""
 robots: "index,follow"
 category: "docs"

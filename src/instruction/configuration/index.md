@@ -1,552 +1,256 @@
 ---
-title: 'Configuration'
-description: 'Forge Configuration Guide'
-keywords: ''
-robots: 'index,follow'
-category: 'docs'
-layout: 'documentation'
+title: Configuration guide
+description: Configuration guide
+keywords: ""
+robots: "index,follow"
+category: docs
+layout: documentation
 tags:
-  - 'core'
-  - 'configuration'
+  - core
+  - configuration
 ---
 
-When Forge starts, it also starts some other applications, such as `tendermint` and `ipfs`. Each appliation has its own configuration file, so does Forge.
+## Overview
 
-We use toml file for Forge's configuration. If you don't know what toml is, please refer to [toml-lang/toml](https://github.com/toml-lang/toml).
+[Forge CLI](/handbook/) Each chain created will have its own corresponding `forge_release.toml`Inside is the configuration information for this chain. After each chain is successfully created, the following information will appear to indicate the location of the configuration file, and users can modify it directly in the file.
 
-One thing we like about toml file is we can have configurations seperate by sections. Forge only use one config file, with different sections for different part of system. Right now we have the following sections:
+```shell
+✔ Config file /Users/.forge_chains/forge_test1/forge_release.toml is updated!
+```
+
+There are two main types of Forge configuration information.**Configuration of the chain**with**Node configuration**。
+
+- **Configuration of the chain** It mainly includes the setting of the chain itself. Once the chain is started, these configuration information will be recorded in the state of the chain and synchronized between all nodes.**Configuration of the chain** The information cannot be changed after the chain is first started.
+- **Node configuration** It mainly includes the setting of the node itself, so it can be changed at any time even after the chain is started, but it only needs to restart the node to take effect.
+
+The user is using for the first time `forge start` All must be determined before starting the chain**Configuration of the chain**。
+
+::: tip
+Forge used `toml` As the format of the configuration file. Each piece of configuration information is a key-value pair and has its own partition.
+
+`[]`The content in square brackets represents unique partitions. Such as: `[forge]`The following configurations represent that these configurations belong to `forge`， `[forge.transaction]` The following configurations represent that these configurations belong to `forge.transaction`. Forge will read the configuration contents under the corresponding partition at runtime.
+:::
+
+Below is a detailed explanation of each configuration in Forge. If an item is configured in `forge_release.toml` Does not appear in Forge, Forge will use the default value, otherwise it will start with `forge_release.toml` In the configuration.
+
+## Configuration of the chain
+
+### All Transactions
+
+`[forge.transaction]` Defined under the partition is the configuration for all transactions. The specific configuration for a certain transaction will be in `[forge.transaction.*]` The configuration will be described later.
 
 ```toml
-[app]
-[forge]
-[tendermint]
-[ipfs]
-[cache]
-[geolix]
+[forge.transaction]
+max_asset_size = 1000000
 ```
 
-Normally the developer doesn't need to provide configuration for everything, she can just provide the things she needs to modify. Then Forge will merge the provided config with default config to produce a final config for Forge to use.
+| area             | meaning                                                 | Examples of default values                                                            |
+| :--------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------ |
+| `max_asset_size` | The maximum value of the custom data field of the asset | The size of the data field that comes with each asset cannot exceed `1000000` bytes。 |
 
-```
-FORGE_CONFIG + forge_default.toml = forge.toml
-```
-
-The developer will pass her custom config to Forge via system env `FORGE_CONFIG`.
-
-If you install Forge with `forge-cli`, a default configuration is generated for you in `~/.forge_cli/forge_release.toml`.
-
-The generated configuration looks like this:
+#### Declare transactions
 
 ```toml
-[app]
+[forge.transaction.declare]
+restricted = false
+```
+
+| area         | meaning                                                                                        | Examples of default values                                                                                                                                                                               |
+| :----------- | :--------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `restricted` | carried out `Declare`Whether to restrict users from freely claiming new accounts when trading. | The chain does not restrict users from claiming new accounts. For how to declare a new account under limited circumstances, you can refer to [Declare](../../reference/txs/account/declare) transaction. |
+
+### Admin account
+
+The administrator account has the highest authority on the chain. Many special transactions, such as upgrading the chain, must be performed by the administrator account. When creating a chain, users can choose whether to use their existing account as the administrator account or generate a new administrator account.**In either case, users need to protect the administrator account. `私钥`。**
+
+If the user chooses to generate an administrator account through the Forge CLI, after creating the chain, `sk`The location will be prompted with the following information:
+
+```shell
+Your moderator SK has been preserved in ~/.forgerc.yml
+```
+
+```toml
+[forge.prime.moderator]
+address = "z11LFAwVJ4NdAHVVbVeNJsJ4nxHH3UJ8Fusy"
+pk = "ABCcGxD3sIzn5qLaxXn0ZPzCJxKsglEobuJOZwEfIoY"
+balance = 0
+```
+
+| area      | meaning                               |
+| :-------- | :------------------------------------ |
+| `address` | Administrator account address         |
+| `pk`      | Administrator account public key      |
+| `balance` | Administrator account initial balance |
+
+### Chain Holding Account
+
+The chain holding account is a special account, no `sk` or `pk`. The coins in the chain holding account can only be transferred out through specific transactions, currently only `Poke`Transactions can be transferred.
+
+```toml
+[forge.prime.token_holder]
+balance = 4000000000
+```
+
+| area      | meaning                                |
+| :-------- | :------------------------------------- |
+| `balance` | Chain currency account initial balance |
+
+::: tip
+If the chain does not support `Poke`For transactions, the initial balance of the chain holding account should be set to 0, otherwise this part of the currency will be trapped in the chain holding account.
+:::
+
+### Initial account
+
+In addition to the previously mentioned**Admin account** with **Chain Holding Account**, Users can also preset more other accounts. When the chain is initialized, it will automatically declare these accounts and generate corresponding account balances according to the configuration.
+
+:::tip
+`[[]]`The double brackets represent repeatable partitions. Such as `[[forge.accounts]]`The partition and the configuration can appear multiple times, representing multiple account configurations.
+:::
+
+```toml
+[[forge.accounts]]
+address = "<addr1>"
+pk = "<base64 of pk1 without padding>"
+balance = 1000
+
+[[forge.accounts]]
+address = "<addr2>"
+pk = "<base64 of pk2 without padding>"
+balance = 2000
+```
+
+### Token Information
+
+```toml
+[forge.token]
+name = "ArcBlock"
+symbol = "ABT"
+unit = "arc"
+description = "Forge token ABT"
+icon = "data:image/png;base64,iVBORw0KGgoAAA"
+decimal = 18
+initial_supply = 7_500_000_000
+total_supply = 7_500_000_000
+inflation_rate = 0
+```
+
+| area             | meaning                                                          | Examples of default values |
+| :--------------- | :--------------------------------------------------------------- | :------------------------- |
+| `name`           | Name of the token                                                | -                          |
+| `symbol`         | Token symbol                                                     | -                          |
+| `unit`           | The smallest unit of the token, similar to Satoshi on Bitcoin    | -                          |
+| `description`    | Description of the token                                         | -                          |
+| `icon`           | The icon of the token needs to be base64 encoded and placed here | -                          |
+| `decimal`        | Token Accuracy                                                   | -                          |
+| `initial_supply` | Initial token supply                                             | -                          |
+| `total_supply`   | Total Supply of Tokens                                           | -                          |
+| `inflation_rate` | Expansion rate of tokens                                         | -                          |
+
+### Consensus engine
+
+```toml
+[tendermint.genesis]
+genesis_time = "2019-02-10T17:29:13.31415926Z"
+chain_id = "forge"
+max_bytes = 150000
+```
+
+| area           | meaning                                                            | Examples of default values                                                                                                                                                          |
+| :------------- | :----------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `genesis_time` | The initial time of the chain must be UTC time in ISO 8601 format. | When the chain is generated, the Forge CLI will fill in the corresponding time. If the above time is entered, it means that the chain was created at 5 pm UTC on February 10, 2019. |
+| `chain_id`     | ID of the chain, all nodes must be consistent                      | The ID of this chain is `forge`。                                                                                                                                                   |
+| `max_bytes`    | Maximum amount of data per block                                   | The size of each block cannot exceed `150000` bytes                                                                                                                                 |
+
+### Initial verification node
+
+Users can add custom verification nodes (nodes participating in the block). But if more than or equal to two-thirds of the verification nodes fail to operate normally, the entire chain will not operate normally. If there is no initial verification node configuration, this node defaults to the only verification node, so that the chain degenerates into a single node chain.
+
+```toml
+[[tendermint.genesis.validators]]
+address = "74BC09AD20D6FC0881B353ABF0F9B7F70236ECF7"
 name = "shanghai"
-version = ""
-path = ""
-executable = ""
-sock_tcp = ""
+power = "1000"
 
+[tendermint.genesis.validators.pub_key]
+type = "tendermint/PubKeyEd25519"
+value = "rO20HkBgLYnXnnAekRpFOrwqfiyVfvqDA5tYH4YCFjo="
+
+[[tendermint.genesis.validators]]
+address = "43D6B21BDCFBB672C7C8375BF127D3466A889DAF"
+name = "beijing"
+power = "1000"
+
+[tendermint.genesis.validators.pub_key]
+type = "tendermint/PubKeyEd25519"
+value = "2ziJ4pHMKmBHrwo1mUzu85C9RR4LyVHfqjSIlwejYBM="
+```
+
+## Node configuration
+
+### Forge
+
+```toml
 [forge]
-proto_version = 1
-path = "/Users/wangshijun/.forge_chains/forge_shanghai/forge_release/core"
+path = "~/.forge_release/core"
 logpath = "logs"
-sock_grpc = "tcp://127.0.0.1:38210"
+sock_grpc = "tcp://127.0.0.1:28210"
 pub_sub_key = "ABTTOTHEMOON"
+```
 
-  [forge.transaction]
-  max_asset_size = 1_000_000
+| area          | meaning                                                                  | Examples of default values                                                            |
+| :------------ | :----------------------------------------------------------------------- | :------------------------------------------------------------------------------------ |
+| `path`        | Forge's main path                                                        | Forge related code is stored in `~/.forge_release/core`under.                         |
+| `logpath`     | Forge log path will follow the main path                                 | Forge related logs will exist `~/.forge_release/core/logs`under.                      |
+| `sock_grpc`   | Forge's gRPC port on this node                                           | Forge's gRPC port on this node will run at `tcp://127.0.0.1:28210`。                  |
+| `pub_sub_key` | The keys that Forge uses to encrypt data when publishing and subscribing | Forge uses when publishing and subscribing to data `ABTTOTHEMOON`To encrypt the data. |
 
-    [forge.transaction.declare]
-    restricted = false
+### Forge Web
 
-    [forge.transaction.delegate]
-    type_urls = [ "fg:t:transfer", "fg:t:exchange" ]
+```toml
+[forge.web]
+enabled = true
+port = 8210
+```
 
-    [forge.transaction.poke]
-    daily_limit = 2_500_000
-    amount = 25
+| area      | meaning                                | Examples of default values        |
+| :-------- | :------------------------------------- | :-------------------------------- |
+| `enabled` | Whether to run Forge Web automatically | Forge Web will run automatically. |
+| `port`    | Forge web listening port               | -                                 |
 
-[forge.stake.timeout]
-general = 10
-stake_for_node = 60
+### Caching
 
-  [forge.web]
-  enabled = true
-  port = 8_211
+```toml
+[cache]
+path = "~/.forge_release/cache/mnesia_data_dir"
+```
 
-  [forge.prime]
-  token_holder = { }
+| area   | meaning                | Examples of default values                                                  |
+| :----- | :--------------------- | :-------------------------------------------------------------------------- |
+| `path` | Forge's cache location | Forge's cache will be placed `~/.forge_release/cache/mnesia_data_dir`under. |
 
-    [forge.prime.moderator]
-    address = "z1VFy8hB9ndynkWAAH9P1a2L5WaU7AvtKGy"
-    pk = "WUtmovNw_DfkDPaffxQc7JjGQ9qOB85hOoC6Oi8an9k"
-    publicKey = "WUtmovNw_DfkDPaffxQc7JjGQ9qOB85hOoC6Oi8an9k"
-    balance = 0
+### Consensus engine
 
-  [[forge.accounts]]
-  address = "z1VFy8hB9ndynkWAAH9P1a2L5WaU7AvtKGy"
-  pk = "WUtmovNw_DfkDPaffxQc7JjGQ9qOB85hOoC6Oi8an9k"
-  balance = 3_500_000_000
-
-  [forge.token_swap]
-  commission_rate = 1_000
-  revoke_commission_rate = 500_000
-  commission_holder_address = "z1X9yFbKTzAmaKqBUEWqSHLpNeAYeWrVzSR"
-  withdraw_interval = 26_400
-
-  [forge.token]
-  name = "ArcBlock"
-  symbol = "ABT"
-  unit = "arc"
-  description = "Forge token ABT"
-  icon = "data:image/png;base64,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"
-  decimal = 18
-  initial_supply = 7_500_000_000
-  total_supply = 7_500_000_000
-  inflation_rate = 0
-
+```toml
 [tendermint]
-moniker = "shanghai"
-path = "/Users/wangshijun/.forge_chains/forge_shanghai/forge_release/tendermint"
-keypath = "/Users/wangshijun/.forge_chains/forge_shanghai/keys"
+moniker = "beijing"
+path = "/home/work/.forge_chains/forge_beijing/forge_release/tendermint"
+keypath = "/home/work/.forge_chains/forge_beijing/keys"
 logpath = "logs"
-sock_proxy_app = "unix://socks/tm_proxy_app.sock"
 sock_rpc = "tcp://127.0.0.1:32001"
 sock_grpc = "tcp://127.0.0.1:36001"
 sock_p2p = "tcp://0.0.0.0:37001"
-sock_prof = ""
-persistent_peers = "11624944e066088086be5b50682cdbbe1ed4b5c8@10.165.105.11:37001,1952c7ea4ac15c3abcb3e2d63252afd5d5fde781@10.165.105.11:37002"
-seed_peers = ""
+persistent_peers = "2b2a41a70f9ab7c43d4772857bcfaa254887e4b6@47.104.23.85:37001,c6525de61a02379108592fcb6514b19d4a196be9@182.92.167.126:37001"
 timeout_commit = "5s"
-create_empty_blocks = true
-seed_mode = false
-recheck = false
-
-  [tendermint.genesis]
-  genesis_time = "2019-02-10T17:29:13.31415926Z"
-  chain_id = "china"
-  max_bytes = 150_000
-  max_gas = -1
-  app_hash = ""
-
-    [[tendermint.genesis.validators]]
-    address = "800D9F8A886CC85A4AD5F7235A9373736E3FF8FA"
-    name = "shanghai"
-    power = "1000"
-
-      [tendermint.genesis.validators.pub_key]
-      type = "tendermint/PubKeyEd25519"
-      value = "p6XSYmi2DhaPs+nLyaYNSATQtaAACmER1r97wn6Zlmg="
-
-    [[tendermint.genesis.validators]]
-    address = "6C711C25546225E7345880662F1BCA03931A0BF3"
-    name = "beijing"
-    power = "1000"
-
-      [tendermint.genesis.validators.pub_key]
-      type = "tendermint/PubKeyEd25519"
-      value = "hlM00dlbRDzpce7omNiiAkqQLiUP5+gNKr4GjQq1rAw="
-
-[ipfs]
-path = "/Users/wangshijun/.forge_chains/forge_shanghai/forge_release/ipfs"
-logpath = "logs"
-
-[cache]
-path = "/Users/wangshijun/.forge_chains/forge_shanghai/forge_release/cache/mnesia_data_dir"
-
-[workshop]
-path = "/Users/wangshijun/.forge_chains/forge_shanghai/workshop"
-db = "sqlite://workshop.sqlite3"
-port = 8_807
-local_forge = "tcp://127.0.0.1:38210"
 ```
 
-It only contains part of full configuration, upon forge start, it will merge with forge default configuration to generate a full configuration. If you'd like to know all the parameters in a forge configuration, you can grab a `forge_default.toml`, either from our github repo, or from a release (e.g. `cat ~/.forge_cli/release/forge/0.18.2/lib/forge_sdk-0.18.2/priv/forge_default.toml`):
-
-```toml
-# ------------------------------------------------------------------
-# forge app configuration
-# ------------------------------------------------------------------
-
-[app]
-
-# name of your application
-name = ""
-
-# version of your application
-version = ""
-
-# home path of your application
-path = ""
-
-# the path of your application's executable file
-executable = ""
-
-# the log file path
-logpath = "logs"
-
-# the ABI connection between app and forge under TCP mode
-sock_tcp = ""
-
-# the ABI connection between app and forge under gRPC mode
-sock_grpc = ""
-
-# the backoff time (in milliseconds) if the ABI connection is cutoff
-sock_backoff = 500
-
-# ------------------------------------------------------------------
-# forge configuration
-# ------------------------------------------------------------------
-
-[forge]
-
-# protobuf version
-proto_version = 1                    # TODO: we should use data_version, keep it for now
-
-# home path of forge
-path = "~/.forge/core"
-
-# the state db path
-db = "data"
-
-# the index db path
-# sqlite://index/index.sqlite3 or postgres://postgres:postgres@localhost:5432/index
-index_db = "sqlite://index/index.sqlite3"
-
-# geo_info
-geo_info = "{\"D6E0D997173D4452E295DCA528F890D0F02B48CD\":{\"city\":\"Tokyo\",\"country\":\"Japan\",\"latitude\":35.652832,\"longitude\":139.839478}}"
-
-# bitmap path
-bitmap = "bitmap"
-
-# the keystore path
-keystore = "keystore"
-
-# the log path
-logpath = "logs"
-
-# index db is nondeterministic, it won't affect statesdb
-enable_index = true
-
-# the gRPC connection between forge and client sdk
-sock_grpc = "tcp://127.0.0.1:27210"
-
-# consensus engine name
-consensus_engine = "tendermint"
-
-# storage engine name
-storage_engine = "ipfs"
-
-# max number of validator nodes for forge
-max_validators = 64
-
-# max number of candidate nodes for forge
-max_candidates = 256
-
-# pub sub key
-pub_sub_key = "ABTTOTHEMOON"
-
-# compression algorithm
-compression = "zstd"
-
-
-[forge.web]
-
-# wether to enable forge web interface
-enabled = false
-
-# the port for forge web
-port = 8210
-
-# The db for DID workshop
-workshop_db = "workshop/workshop.sqlite3"
-
-
-[forge.rpc]
-
-# white list of forge rpc call
-whitelist = "*"
-
-[forge.release]
-# forge release path
-path = "~/.forge_cli/release/forge"
-
-# url for forge release
-url = "http://releases.arcblock.io/forge"
-
-# ------------------------------------------------------------------
-# forge genesis configuration
-# anything put here will only affect chain initialization
-# once a chain is started, changing these params won't take effect
-#
-# for dev: if you extended this please also persist it in forge state
-# ------------------------------------------------------------------
-
-[forge.transaction]
-
-# max asset size
-max_asset_size = 65536
-
-# max list size
-max_list_size = 8
-
-# max number of multi signature
-max_multisig = 4
-
-# minimum stake value
-minimum_stake = 10000000000000000
-
-# tx protocol download url
-protocol_url = "https://releases.arcblock.io/forge-core-protocols/#{version}/all.json"
-
-[forge.transaction.declare]
-
-# if restricted, a new wallet must have the endorsement of an existing wallet
-restricted = false
-
-# how many levels could the hierarchy be. say A -> B means A endoresed B, if A -> B -> C -> D -> E, E cannot endorese others.
-hierarchy = 5
-
-[forge.transaction.delegate]
-
-# delta interval
-delta_interval = 18000
-# allowed type_urls for delegation
-type_urls = ["fg:t:transfer", "fg:t:exchange"]
-
-
-[forge.transaction.stake]
-
-# for general stake, we do T+1
-timeout_general = 86400
-
-# for node stake, we do T+7
-timeout_stake_for_node = 604800
-
-
-[forge.transaction.poke]
-
-enabled = true
-
-# daily limit for poke
-daily_limit = 2500000
-
-# the amount account get with poke tx
-amount = 25
-
-[forge.prime.moderator]
-
-# moderator is a special account that is assigned by the chain owner. It can issue tx that requires certain priveldge, e.g. upgrade node, deploy protocol, etc. Normally the pk of this account shall be sealed at a vault.
-
-# address = "z11N3R6GZrNingR11Dub9EbVMJGgyZTJGMQB"
-
-# public key of the moderator
-# pk = "EyNstcu1Jk9FPgtDT9QJMkW-gh6ihSm6Atj9I412G6Q"
-
-[forge.prime.token_holder]
-# token holder is a special account that has no pk/sk, only special tx can trigger it. Normally it contains all unallocated tokens controlled by the foundation.
-
-address = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
-pk = ""
-# the balance of account, please set it carefully
-balance = 4000000000
-
-[[forge.accounts]]
-
-# a list of accounts that will be deployed upon chain init. These addresses won't be put into forge state.
-
-[forge.token]
-
-# token name
-name = "ArcBlock"
-
-# token symbol
-symbol = "ABT"
-
-# smallest token unit
-unit = "arc"
-
-# token description
-description = "Forge token ABT"
-
-# token icon
-icon = "data:image/png;base64,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"
-
-# token decimal
-decimal = 18
-
-# token initial supply
-initial_supply = 4000000000
-
-# token total supply
-total_supply = 7500000000
-
-# inflation rate
-inflation_rate = 0
-
-[forge.token_swap]
-# token swap configuration.
-
-# commission rate for the deposit / withdraw operation. Unit is 1/1000000
-# commission_rate = 1000 # so here is 0.001
-
-# commission value for the deposit / withdraw operation. Unit is 1 unit. This will override the commission rate config
-# comission_value = 1000000000000000000 # 1 ABT
-
-# commission rate for revoke operation. Unit is 1/1000000. This stands for the how much portion we will take from the normal comission if the user revokes the operation.
-revoke_commission_rate = 100000 # so here is the 10% of the normal comission
-
-# commission holder address must be defined in forge.accounts (address, pk)
-# commission_holder_address = "z11N3R6GZrNingR11Dub9EbVMJGgyZTJGMQB"
-
-# how long will the sender should wait until she can revoke the withdraw operation. In seconds.
-withdraw_interval = 26400
-
-# ------------------------------------------------------------------
-# tendermint configuration
-# ------------------------------------------------------------------
-
-[tendermint]
-
-# a custom human readable name for this node
-moniker = "forge"
-
-# path of tendermint
-path = "~/.forge/tendermint"
-
-# path of tendermint configuration
-keypath = "config"
-
-# log path
-logpath = "logs"
-
-# socket to proxy app
-sock_proxy_app = "tcp://127.0.0.1:27220"
-
-# socket for tendermint json rpc
-sock_rpc = "tcp://127.0.0.1:27221"
-
-# socket for tendermint grpc (right now just use it for send tx and commit immediately)
-sock_grpc = "tcp://127.0.0.1:27222"
-
-# socket for tendermint p2p, normally this shall be opened to the public network
-sock_p2p = "tcp://0.0.0.0:26656"
-
-# socket for performance metrics
-sock_prof = ""
-
-# persistent peers
-persistent_peers = ""
-
-# seed peers
-seed_peers = ""
-
-# timeout for commiting a new block
-timeout_propose = "2s"
-timeout_prevote = "2s"
-timeout_precommit = "2s"
-timeout_commit = "3s"
-skip_timeout_commit = false
-
-# create empty blocks in 5s interval
-create_empty_blocks = true           # TODO: same
-create_empty_blocks_interval = "0s"  # TODO: same
-
-# set if this node runs in a seed mode
-seed_mode = false
-
-# output level for logging, including package level options
-log_level = "consensus:info,main:info,state:info,*:error"
-
-# maximum number of inbound peers
-max_num_inbound_peers = 40
-
-# maximum number of outbound peers to connect to, excluding persistent peers
-max_num_outbound_peers = 10
-
-# UPNP port forwarding
-upnp = false
-
-# wether to recheck unconfirmed transactions in mempool
-recheck = false
-
-  [tendermint.genesis]
-
-  # genesis time
-  genesis_time = "2018-11-05T19:22:08.938749Z"
-
-  # blockchain id
-  chain_id = "forge"
-
-  # max bytes
-  max_bytes = 1200000
-
-  # max gas
-  max_gas = -1
-
-  # application hash
-  app_hash = ""
-
-  # note that if you don't give this information we will use self as validator
-  [[tendermint.genesis.validators]]
-
-# ------------------------------------------------------------------
-# ipfs configuration
-# ------------------------------------------------------------------
-
-[ipfs]
-
-# path of ipfs
-path = "~/.forge/ipfs"
-
-# log path
-logpath = "logs"
-
-# max amount for storage
-storage_max = "10GB"
-
-# bootstrap ipfs node list
-bootstrap = []
-
-# ipfs swarm port
-swarm_port = 24001
-
-# ipfs api port
-api_port = 25001
-
-# ipfs gateway port
-gateway_port = 28080
-
-# max file size for admin/account
-max_file_size.admin = "100M"
-max_file_size.account = "1M"
-
-# ------------------------------------------------------------------
-# cache configuration
-# ------------------------------------------------------------------
-
-[cache]
-
-# path for mnesia
-path = "~/.forge/cache/mnesia_data_dir"
-
-# cache dump limit
-dc_dump_limit = 50
-
-# cache dump log write threshold
-dump_log_write_threshold = 50_000
-
-# mnesia table timeout
-cache_mnesia_table_timeout = 15_000
-
-# ------------------------------------------------------------------
-# geolix configuration
-# ------------------------------------------------------------------
-
-[geolix]
-
-# mmdb url
-mmdb_url = "https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz"
-
-# path for mmdb
-mmdb_path = "~/.mmdb/GeoLite2-City.tar.gz"
-```
+| area               | meaning                                                                                   | Examples of default values                                           |
+| :----------------- | :---------------------------------------------------------------------------------------- | :------------------------------------------------------------------- |
+| `moniker`          | Node nickname                                                                             | Nodes can be self-explanatory and will be displayed in the Peer list |
+| `path`             | tendermint data storage directory                                                         | -                                                                    |
+| `keypath`          | Tendermint node public and private key storage directory                                  | -                                                                    |
+| `logpath`          | tendermint log storage directory, relative to data storage directory                      | -                                                                    |
+| `sock_rpc`         | tendermint rpc port                                                                       | -                                                                    |
+| `sock_grpc`        | Tendermint's grpc port                                                                    | -                                                                    |
+| `sock_p2p`         | P2P port of tendermint. If networking is needed, pay attention to firewall configuration. | -                                                                    |
+| `persistent_peers` | list of nodes that tendermint should keep connected                                       | -                                                                    |
+| `timeout_commit`   | Block time                                                                                | -                                                                    |

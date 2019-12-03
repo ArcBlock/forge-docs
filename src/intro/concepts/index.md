@@ -20,7 +20,7 @@ A framework used to build and run applications. [More Details](./inside_forge)
 
 An unique address to identify different users. [More Details](./account)
 
-### [资产](./assets)
+### [Asset](./assets)
 
 An easy way to store/update and verify data on blockchain，[More Details](./assets)
 

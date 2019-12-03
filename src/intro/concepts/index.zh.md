@@ -1,5 +1,5 @@
 ---
-title: '基本概念介绍'
+title: '基本概念'
 description: '理解 Forge 基本工作原理的最小必要知识'
 keywords: ''
 robots: 'index,follow'
