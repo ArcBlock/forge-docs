@@ -1,5 +1,5 @@
 ---
-title: '同构链跨链的基本原理'
+title: '同构链跨链详解'
 description: '什么是同构链跨链？其难点和步骤是什么？Forge 里面是怎么实现的？'
 keywords: 'forge, swap, cross-chain'
 robots: 'index,follow'
@@ -19,7 +19,7 @@ tags:
 - 同构链跨链：任意两条 Forge 链之间做互换，Forge 原生支持，以原子交换的方式实现，因为这种跨链方式是不依赖中间人的
 - 异构链跨链：Forge 链和非 Forge 链之间做互换，需要运行 Token Swap 服务来实现，不在本文讨论的范围之内
 
-## 基本要素
+## 跨链基本要素
 
 在现实生活中，我们很容易把一个苹果从一个篮子装到另外一个篮子里面，但是在区块链的世界里面，我们无法把一个链上的数据搬到另外一条链上。
 
@@ -55,15 +55,21 @@ tags:
 
 假定我们有一个随机数 x，然后我们对它进行一次 Hash 运算，得到它的 Hash 值 y，那么我们就称 y 是 `Hash Lock`，而对应的我们可以称 x 为 `Hash Key` 或者叫哈希钥匙。我们可以有如下形式化的表示：Hash(x) = y.
 
-## 跨链基本步骤
+## 原子交换的步骤
 
 好，有了这个概念之后，下面我们就来谈谈怎么做原子交换。
+
+### 场景设定
 
 我们假定有如下场景：Alice 和 Bob 想做一次跨链交易，Alice 愿意以她在 A 链上的 100 个 token 来买 Bob 在 B 链上的一个 asset，该 asset 的地址为 z123。
 
 那么假定在做原子交换之前，Alice 和 Bob 的状态如下：在 A 链上，Alice 有 100 个 token，Bob 没有 token；在 B 链上，Alice 没有 Asset，而 Bob 有一个 Asset。
 
+![](./images/atomic-swap1.jpeg)
+
 在这个基础状态的前提下，我们来看原子交换的流程：
+
+### Alice 锁定
 
 **第一步**，由 Alice 发起，Alice 先产生一个随机数 x 作为哈希钥匙，然后生成相应的哈希锁。Alice 用这个哈希锁把 100 个 token 锁在 A 链上。在锁定的时候要指明如下信息：
 
@@ -72,9 +78,13 @@ tags:
 3. 设置一个锁定时间，在这个锁定时间之后，如果 Bob 还没有取走 token 的话，Alice 可以单方面撤走这些 token，但是在锁定时间之前 Alice 不能这么做
 4. 用的是哪个哈希锁
 
+![](./images/atomic-swap2.jpeg)
+
 锁定好之后，这 100 个 token 就从 Alice 的名下给划走了，确保她不能再使用这些 token。
 
 这条 Transaction 的内容在 A 链上是公开可见的，所以 Bob 可以很清楚的知道里面的所有内容。
+
+### Bob 锁定
 
 **第二步**，Bob 在确定 Alice 已经锁好 token 的情况下，用同样的哈希锁把 asset 锁在 B 链上，同样的，锁定的时候需要指明：
 
@@ -83,15 +93,31 @@ tags:
 3. 设置一个锁定时间，在这个锁定时间之后，如果还没有取走 asset 的话，Bob 可以单方面撤走这些 asset，但是在锁定时间之前 Bob 不能这么做
 4. 和 Alice 用同一把锁
 
+![](./images/atomic-swap3.jpeg)
+
+### Alice 取走
+
 **第三步**，由 Alice 先去解锁链上的 asset。 在解锁的时候，Alice 必须提供哈希钥匙，当验证通过之后，Alice 即可取走锁定的资产。
+
+![](./images/atomic-swap4.jpeg)
+
+### Bob 取走
 
 **第四步**，由 Bob 解锁 A 链上的 token。 由于 Alice 已经在 B 链上解锁，所以哈希钥匙也被公布了出来，这个时候 Bob 就可以很轻松的知道钥匙是什么，从而完成在 A 链上的解锁，拿到相应的 token。
 
+![](./images/atomic-swap5.jpeg)
+
 按照上面的流程，Alice 和 Bob 就可以顺利的完成原子交换，并且最终的状态应该是这样的: 在 A 链上，100 个 token 从 Alice 的账户转移到了 Bob 的账户下；在 B 链上 asset 从 Bob 的账户下转移到了 Alice 的账户下。
+
+![](./images/atomic-swap6.jpeg)
+
+### 例外情况
 
 但是，还有另外一种情况，就是在第三步的时候，Alice 如果改变了主意，决定不去取 B 链上的资产。如果是这样的话，那么 Alice 也不会泄露相应的哈希钥匙，所以 Bob 也无法取得 A 链上的 token。在这种情况下，Alice 和 Bob 只需在锁定时间之后，将各自锁定的 token 以及 asset 取回即可。
 
-## 流程小结
+![](./images/atomic-swap7.jpeg)
+
+### 流程小结
 
 下面，我们来总结下这个流程：
 
@@ -105,6 +131,10 @@ tags:
 
 ## Forge 的实现
 
+接下来我们来看看 Forge 里面怎么实现原子交换。
+
+### 锁定：SetupSwap
+
 **第一步是锁定**，我们设计并实现了 [SetUpSwap](../set_up) 这个 Transaction 来让用户锁定 token 和 assets。
 
 在这个 Transaction 中，发送方需要填入 Receiver address， `Hash Lock`, Locktime（锁定时间）, 以及想要锁定的 token 数量和 asset 地址。
@@ -117,17 +147,25 @@ tags:
 
 SwapState 本身不属于任何账号，它只按照原子交换的规则运行。当 [SetUpSwap](../set_up) 上链之后，相应的信息会记录在 SwapState 上，如 Sender address, Receiver address， Locktime， Hashlock，Token 以及 Asset addresses。其中 Token 和 Assets 是从 Sender 转来的，这样确保发送方无法再更改这些 Token 和 Assets。
 
+### 解锁：RetrieveSwap
+
 **第二步是解锁**，对应的 Transaction 是 [RetrieveSwap](../retrieve)。在这个 Transaction 中，我们需要填入想要取回的 SwapState 的地址，以及相应的 Hashkey.
 
 链节点在执行这个 Transaction 的时候会验证 SwapState 中 Receiver 的地址和此 Transaction 发送者的地址是否一致，Hashkey 是否和 Hashlock 匹配，以及 SwapState 中是否还有 Token 或者 Assets。
 
-当条件满足，Transaction 执行通过之后，Hashkey 会被写入 SwapState 以供所有人查阅。SwapState 中的 token 和 assets 会转移到相应的账户中。如果中途想终止交易，那么就需要撤回锁定的 token 或者 assets。我们用 [RevokeSwap](../revoke) 来实现这一步。
+当条件满足，Transaction 执行通过之后，Hashkey 会被写入 SwapState 以供所有人查阅。SwapState 中的 token 和 assets 会转移到相应的账户中。
+
+### 撤销：RevokeSwap
+
+如果中途想终止交易，那么就需要撤回锁定的 token 或者 assets。我们用 [RevokeSwap](../revoke) 来实现这一步。
 
 在这个 Transaction 中，我们只需要填入 SwapState 的地址即可。
 
 Forge 会验证 SetUpSwap 和 [RevokeSwap](../revoke) 的发送方是否为同一个人。同时也会验证，当前区块高度是否已经超过 SwapState 里面记录的 Locktime，以及 SwapState 里面是否还有 token 和 assets。
 
 如果 Transaction 成功被执行 SwapState 里面的 token 和 assets 会被转移给 Transaction 发送方，从而达到撤回的效果。
+
+### 细节考量
 
 在整个设计和实现的时候有很多细节需要去思考。
 

@@ -21,7 +21,7 @@ In the discussion in this article, we divide it into two categories:
 - Isomorphic chain cross-chain: Any two Forge chains are interchanged. Forge natively supports it and implements it in atomic swap mode, because this cross-chain method does not rely on middlemen
 - Heterogeneous chain cross-chain: Forge and non-Forge chains are interchanged and need to run the Token Swap service for implementation, which is beyond the scope of this article.
 
-## Basic elements
+## Basic elements of cross-chain
 
 In real life, we can easily pack an apple from one basket to another, but in the blockchain world, we cannot move data from one chain to another.
 
@@ -57,15 +57,21 @@ One `Hash Lock` It's actually a hash of a random number, and the random number 
 
 Suppose we have a random number x, and then we perform a hash operation on it to get its hash value y, then we say y is `Hash Lock`And the corresponding one can be called x `Hash Key` Or a hash key. We can have the following formal representation: Hash (x) = y.
 
-## Basic steps of cross-chain
+## Atomic exchange steps
 
 Well, with this concept, let's talk about how to do atomic swap.
+
+### Scene settings
 
 We assume the following scenario: Alice and Bob want to make a cross-chain transaction, and Alice is willing to use her 100 tokens on the A chain to buy an asset of Bob on the B chain, and the address of the asset is z123.
 
 Then suppose that before the atomic exchange, the states of Alice and Bob are as follows: On the A chain, Alice has 100 tokens, and Bob has no tokens; on the B chain, Alice has no Asset, and Bob has an Asset.
 
+![](./images/atomic-swap1.jpeg)
+
 Under this premise, let's look at the process of atomic swap:
+
+### Alice locked
 
 **first step**, Initiated by Alice, Alice first generates a random number x as a hash key, and then generates a corresponding hash lock. Alice uses this hash lock to lock 100 tokens on the A chain. When locking, specify the following information:
 
@@ -74,9 +80,13 @@ Under this premise, let's look at the process of atomic swap:
 3.  Set a lock time. After this lock time, if Bob has not taken the token, Alice can unilaterally withdraw these tokens, but Alice cannot do so before the lock time
 4.  Which hash lock is used
 
+![](./images/atomic-swap2.jpeg)
+
 Once locked, the 100 tokens were removed from Alice's name, ensuring that she could no longer use those tokens.
 
 The content of this Transaction is publicly visible on the A chain, so Bob can clearly know all the contents inside.
+
+### Bob locked
 
 **Second step**When Bob determines that Alice has locked the token, he uses the same hash lock to lock the asset on the B chain. Similarly, when locking, he needs to specify:
 
@@ -85,15 +95,31 @@ The content of this Transaction is publicly visible on the A chain, so Bob can c
 3.  Set a lock time. After this lock time, if the asset has not been removed, Bob can unilaterally remove these assets, but Bob cannot do so before the lock time.
 4.  Use the same lock as Alice
 
+![](./images/atomic-swap3.jpeg)
+
+### Alice takes away
+
 **third step**, Alice first unlocks the assets on the chain. When unlocking, Alice must provide a hash key. After the verification is passed, Alice can remove the locked assets.
+
+![](./images/atomic-swap4.jpeg)
+
+### Bob takes it
 
 **the fourth step**, Bob unlocks the token on the A chain. Since Alice has been unlocked on the B chain, the hash key has also been announced. At this time, Bob can easily know what the key is, so as to complete the unlock on the A chain and get the corresponding token.
 
+![](./images/atomic-swap5.jpeg)
+
 According to the above process, Alice and Bob can successfully complete the atomic exchange, and the final state should be like this: On the A chain, 100 tokens are transferred from Alice's account to Bob's account; on the B chain, the asset from Bob's account was transferred to Alice's account.
+
+![](./images/atomic-swap6.jpeg)
+
+### exception
 
 However, there is another situation. In the third step, if Alice changes her mind, she decides not to take the assets on the B chain. If this is the case, then Alice will not leak the corresponding hash key, so Bob cannot obtain the token on the A chain. In this case, Alice and Bob only need to retrieve their locked tokens and assets after the lock time.
 
-## Process summary
+![](./images/atomic-swap7.jpeg)
+
+### Process summary
 
 Let ’s summarize this process:
 
@@ -107,6 +133,10 @@ The above is the general process of atomic swap. After having a general concept,
 
 ## Forge implementation
 
+Let's take a look at how to implement atomic swap in Forge.
+
+### Lock: SetupSwap
+
 **The first step is locking**We designed and implemented [SetUpSwap](../set_up) This transaction allows the user to lock the token and assets.
 
 In this transaction, the sender needs to fill in the Receiver address, `Hash Lock`, Locktime, and the number of tokens and asset addresses you want to lock.
@@ -119,17 +149,25 @@ This also guarantees that each SwapState is independent and does not affect each
 
 SwapState itself does not belong to any account, it only operates according to the rules of atomic swap. when [SetUpSwap](../set_up) After being chained, the corresponding information will be recorded on SwapState, such as Sender address, Receiver address, Locktime, Hashlock, Token and Asset addresses. Tokens and Assets are transferred from Sender, which ensures that the sender can no longer change these Tokens and Assets.
 
+### Unlock: RetrieveSwap
+
 **The second step is to unlock**, The corresponding Transaction is [RetrieveSwap](../retrieve). In this Transaction, we need to fill in the address of the SwapState we want to retrieve and the corresponding Hashkey.
 
 When the chain node executes this transaction, it will verify that the address of the Receiver in SwapState and the address of the sender of this Transaction are consistent, whether the Hashkey matches Hashlock, and whether there are still Tokens or Assets in SwapState.
 
-When the conditions are met and the transaction is passed, the Hashkey is written to SwapState for everyone to review. The tokens and assets in SwapState will be transferred to the corresponding accounts. If you want to terminate the transaction midway, you need to withdraw the locked token or assets. we use [RevokeSwap](../revoke) To achieve this step.
+When the conditions are met and the transaction is passed, the Hashkey is written to SwapState for everyone to review. The tokens and assets in SwapState will be transferred to the corresponding accounts.
+
+### Revocation: RevokeSwap
+
+If you want to terminate the transaction midway, you need to withdraw the locked token or assets. we use [RevokeSwap](../revoke) To achieve this step.
 
 In this Transaction, we only need to fill in the address of SwapState.
 
 Forge validates SetUpSwap and [RevokeSwap](../revoke) Whether the sender is the same person. It will also verify whether the current block height has exceeded the Locktime recorded in SwapState, and whether there are still tokens and assets in SwapState.
 
 If the Transaction is successfully executed, the token and assets in SwapState will be transferred to the Transaction sender to achieve the effect of withdrawal.
+
+### Detailed considerations
 
 There are many details to think about throughout the design and implementation.
 
