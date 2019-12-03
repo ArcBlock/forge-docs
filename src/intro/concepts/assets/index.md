@@ -144,12 +144,13 @@ The results obtained are as follows:
 
 ## Asset security
 
-### Data serialization
+### Privacy requirements
 
-Once the asset is stored on the chain, anyone with the asset address can view all the information in the asset status. In theory, any data can be stored in the asset, so developers have two choices:
+Once the asset is stored on the chain, anyone with the asset address can view all the information in the asset status. In theory, any data can be stored in the asset. As for what kind of data is stored, the developer can choose according to the actual scenario:
 
-- Asset content is saved in serialized format as [Google.Protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any) Exist `data` in. If the other party does not have the content of this asset `protobuf` Files, you will not be able to directly decode the content of the asset, but technically you can view some of the fields inside.
-- If asset content does not pass `protobuf` The serialized file is saved in a way that is also readable in plain text after encoding such as UTF-8. In order to protect the security of the asset content, users can save the asset content on the chain after hashing.
+- If it is a weak type, no privacy protection is required: for example, the certificate can be directly UTF8 encoded and stored in plain text in a readable manner. `data` Domain, so that is fully publicly verifiable
+- If it is strongly typed, some privacy protection requirements are required: `data` The domain can be saved in serialized format as [Google.Protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any), Without this asset content `proto buffer` The person of the file will not be able to directly decode the content of the asset, but technically it is possible to view some of the fields
+- If it is sensitive: such as contracts, pay slips, etc., in order to protect the security of asset content, the asset content should be stored in a hash operation `data` Domain, and put the real content in the off-chain database
 
 ### Prevent counterfeiting
 
