@@ -1,26 +1,24 @@
 ---
-title: 'Set Up Swap Transaction'
-description: 'Set Up Swap Transaction'
-keywords: ''
-robots: 'index,follow'
-category: 'docs'
-layout: 'documentation'
+title: Setup Swap
+description: Setup Swap
+keywords: ""
+robots: "index,follow"
+category: docs
+layout: documentation
 tags:
-  - 'atomic-swap'
-  - 'set_up'
+  - atomic-swap
+  - set_up
 ---
 
+**SetupSwap** 交易是原子交换过程的第一步。此事务的目的是在链上创建一个交换状态，以临时持有令牌和资产。这些资产和令牌由哈希锁保护，哈希锁是 sha3-256 随机数的输出。为了获得资产和令牌，接收者必须知道这个随机数。交易通过后，资产和令牌将转移到交换状态，并被锁定，直到交易者指定的区块号为止。 `locktime`。
 
+通常，“SetupSwap” 交易应成对出现在两个链中。例如，如果 Alice 在链 A 上为 Bob 设置了交换，则 Bob 应该使用以下方式在链 B 上为 Alice 设置交换：**相同的哈希锁**  作为整个原子交换过程的下一步。
 
-**Set Up Swap** Transaction is the first step in an atomic swap process. The purpose of this transaction is to create a swap state on the chain to temporarily hold the token and assets. These assets and token is guarded by a hash lock which is a sha3-256 output of a random number. In order to get the assets and token, a receiver must know this random number. Once the transaction is passed, the assets and token are transferred to the swap state and are locked till a block number specified by the `locktime`.
+## 协议定义
 
-Normally, Set Up Swap transaction should happen in pairs across two chains. For example, if Alice sets up a swap for Bob on chain A, Bob should set up a swap for Alice on chain B by using the **same hashlock** as the next step of the overall atomic swap process.
+`SetupSwapTx`  被定义为：
 
-## Protocol definition
-
-`SetupSwapTx` is defined:
-
-```proto
+```protobuf
 message SetupSwapTx {
   BigUint value = 1;
   repeated string assets = 2;
@@ -32,15 +30,15 @@ message SetupSwapTx {
 }
 ```
 
-* `value` is amount of token to swap.
-* `assets` are the addresses of assets to swap.
-* `receiver` is the address of the account who is the only one allowed to get the token and assets.
-* `hashlock` is the sha3-256 value of the random number.
-* `locktime` is the block height before which the swap cannot be revoked by the sender.
+- `value`  是要交换的代币数量。
+- `assets`  是要交换的资产的地址。
+- `receiver`  是唯一允许获得令牌和资产的帐户地址。
+- `hashlock`  是随机数的 sha3-256 值。
+- `locktime`  是块高度，在此高度之前，发件人无法撤消交换。
 
-`SwapState` is defined:
+`SwapState`  被定义为：
 
-```protobuf
+```proto
 message SwapState {
   string hash = 1;
   string address = 2;
@@ -55,20 +53,20 @@ message SwapState {
 }
 ```
 
-* `hash` is the hash of the SetupSwapTx.
-* `adress` is the address of the swap state. Note, the swap address is generated based on the hash.
-* `hashkey` is the random number determined by the sender. It is empty right after creation.
-* `sender` is the address of the sender.
-* `receiver` is the address of the receiver.
-* `value` is the token to swap.
-* `assets` is the list of assets addresses to swap.
-* `locktime` is the block height before which the swap cannot be revoked by the sender.
-* `hashlock` is the sha3-256 value of the random number.
-* `context` is state context of the swap state.
+- `hash`  是 SetupSwapTx 的哈希值。
+- `adress`  是交换状态的地址。注意，交换地址是基于哈希值生成的。
+- `hashkey`  是发件人确定的随机数。创建后立即为空。
+- `sender`  是发件人的地址。
+- `receiver`  是收件人的地址。
+- `value`  是要交换的令牌。
+- `assets`  是要交换的资产地址列表。
+- `locktime`  是块高度，在此高度之前，发件人无法撤消交换。
+- `hashlock`  是随机数的 sha3-256 值。
+- `context`  是交换状态的状态上下文。
 
-## Example
+## 例
 
-Here's an example of how to send a set up swap transaction.
+这是有关如何发送设置交换交易的示例。
 
 ```elixir
 # Declare sender and receiver

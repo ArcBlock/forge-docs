@@ -1,22 +1,20 @@
 ---
-title: 'Retrieve Swap Transaction'
-description: 'Retrieve Swap Transaction'
-keywords: ''
-robots: 'index,follow'
-category: 'docs'
-layout: 'documentation'
+title: Retrieve Swap
+description: Retrieve Swap
+keywords: ""
+robots: "index,follow"
+category: docs
+layout: documentation
 tags:
-  - 'atomic-swap'
-  - 'retrieve'
+  - atomic-swap
+  - retrieve
 ---
 
+**RetrieveSwap** 接收方发送交易，将令牌和资产从交换状态移到他或她自己的状态。要求接收者指定在此事务中要检索的交换状态的地址，并且还要求显示其 sha3-256 输出等于哈希键的随机数的原始值。交易通过后，所有处于交换状态的资产和令牌都将转移到接收方，并将哈希键写入交换状态。
 
+## 协议定义
 
-**Retrieve Swap** Transaction is sent by the receiver to move the token and assets from the swap state to his or her own state. The receiver is required to specify the address of the swap state to retrieve in this transaction, and is also required reveal the origin value of the random number whose sha3-256 output equals the hashkey. Once the transaction is passed, all assets and token under the swap state is transferred to the receiver and the hashkey is written into the swap state.
-
-## Protocol definition
-
-The `RetrieveSwapTx` is defined as:
+的 `RetrieveSwapTx`  定义为：
 
 ```protobuf
 message RetrieveSwapTx {
@@ -27,12 +25,12 @@ message RetrieveSwapTx {
 }
 ```
 
-* `address` is the address of the swap state.
-* `hashkey` is the origin value of the random number.
+- `address`  是交换状态的地址。
+- `hashkey`  是随机数的原始值。
 
-## Example
+## 例
 
-Here's an example of how to send a retrieve swap transaction.
+这是有关如何发送检索交换交易的示例。
 
 ```elixir
 # Declare sender and receiver

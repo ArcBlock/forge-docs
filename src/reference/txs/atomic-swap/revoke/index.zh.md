@@ -1,20 +1,18 @@
 ---
-title: 'Revoke Swap Transaction'
-description: 'Revoke Swap Transaction'
-keywords: ''
-robots: 'index,follow'
-category: 'docs'
-layout: 'documentation'
+title: Revoke Swap
+description: Revoke Swap
+keywords: ""
+robots: "index,follow"
+category: docs
+layout: documentation
 tags:
-  - 'atomic-swap'
-  - 'revoke'
+  - atomic-swap
+  - revoke
 ---
 
+**RevokeSwap** 交易将处于交换状态的资产和令牌赎回回交换的发送方。如果发送者出于任何原因想要停止原子交换，则此事务很有用。但是为了保护接收者，发送者只能在其锁定时间之后撤消交换。
 
-
-**Revoke Swap** transaction redeems the assets and token under swap state back to the sender of the swap. This transaction is useful if the sender wants to stop the atomic swap for whatever reason. But in order to protect the receiver, sender is only allowed to revoke a swap after its locktime.
-
-## Protocol definition
+## 协议定义
 
 ```protobuf
 message RevokeSwapTx {
@@ -24,11 +22,11 @@ message RevokeSwapTx {
 }
 ```
 
-* `address` is the address of the swap state to revoke.
+- `address`  是要撤销的交换状态的地址。
 
-## Example
+## 例
 
-Here's an example of how to send a revoke swap transaction.
+这是如何发送撤销交换交易的示例。
 
 ```elixir
 # Declare sender and receiver
