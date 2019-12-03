@@ -1,5 +1,5 @@
 ---
-title: 'Elixir/Erlang'
+title: 'Elixir SDK'
 description: 'Forge Elixir/Erlang SDK'
 keywords: ''
 robots: 'index,follow'

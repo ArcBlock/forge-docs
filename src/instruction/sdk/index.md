@@ -1,6 +1,6 @@
 ---
-title: 'Overview'
-description: ''
+title: 'SDK Overview'
+description: 'Which languages are supported? Features included in SDK? How to create your own SDK?'
 keywords: ''
 robots: 'index,follow'
 category: 'docs'
@@ -32,4 +32,3 @@ SDK APIs consists of following categories:
 - [**Wallet**](../../reference/rpc/wallet): interactions with wallet
 - [**State**](../../reference/rpc/state): query states of different objects
 - [**Subscription**](../../reference/rpc/event): receive stream of information
-<!-- - [**Misc**](../../reference/rpc/misc): other functions -->

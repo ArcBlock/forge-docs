@@ -1,6 +1,6 @@
 ---
-title: 'Java-SDK'
-description: 'Java-SDK'
+title: 'Java SDK'
+description: '使用 Java 或者 Kotlin 链接 Forge 链节点'
 keywords: ''
 robots: 'index,follow'
 category: 'docs'

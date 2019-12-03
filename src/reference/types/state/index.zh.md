@@ -89,7 +89,7 @@ message CoreProtocol {
 }
 ```
 
-### forge_state
+### ForgeState
 
 ```protobuf
 message ForgeState {

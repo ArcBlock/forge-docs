@@ -1,6 +1,6 @@
 ---
-title: 'Java'
-description: 'Java-SDK'
+title: 'Java SDK'
+description: 'Connect your app to forge powered chains with Java or Kotlin'
 keywords: ''
 robots: 'index,follow'
 category: 'docs'

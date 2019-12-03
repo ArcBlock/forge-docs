@@ -18,7 +18,9 @@ In addition to the unique address, an account comes with a **secret key (SK)** a
 
 Users need at least one account before they can send and receive transactions using Forge.
 
-*Please note that we will use the terms **account** and **wallet** interchangeably.*
+::: success
+Please note that we will use the terms **account** and **wallet** interchangeably.
+:::
 
 ## The Anatomy of an Account
 

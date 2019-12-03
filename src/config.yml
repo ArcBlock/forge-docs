@@ -25,18 +25,16 @@ categories:
           - "/reference/rpc"
           - "/reference/txs"
           - "/reference/code"
-          - "/reference/protocols"
           - "/reference/types"
-          - "/reference/releases"
         locales:
           zh: "Forge 原理"
       Forge SDK:
         links:
           - "/instruction/sdk"
-          - "/instruction/sdk/javascript"
+          - "/instruction/sdk/js"
+          - "/instruction/sdk/java"
           - "/instruction/sdk/python"
           - "/instruction/sdk/elixir"
-          - "/instruction/sdk/java"
         locales:
           zh: "Forge SDK"
       Forge Tools:
@@ -45,5 +43,7 @@ categories:
           - "/tools/forge_web"
           - "/tools/abt_chain_node"
           - "/tools/dapps_workshop"
+          - "/tools/simulator"
+          - "/tools/forge_indexer"
         locales:
           zh: "工具箱"

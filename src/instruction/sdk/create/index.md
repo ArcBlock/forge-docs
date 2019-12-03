@@ -1,98 +1,98 @@
 ---
-title: "创建新的 SDK"
-description: "基本步骤是什么？有什么注意事项？如何寻求帮助？"
+title: Create new SDK
+description: What are the basic steps? Any notes? How do I get help?
 keywords: ""
 robots: "index,follow"
-category: "docs"
-layout: "documentation"
+category: docs
+layout: documentation
 tags:
-  - "sdk"
-  - "index"
+  - sdk
+  - index
 ---
 
-## SDK 定位
+## SDK positioning
 
-站在很高的高度去看，任何应用，不论是传统的互联网应用还是区块链应用，都是在处理数据状态和应用视图之间的来回变换，SDK 负责简化这个变换过程中的各种必要操作。
+From a very high point of view, any application, whether it is a traditional Internet application or a blockchain application, is processing back and forth transformations between the data state and the application view. operating.
 
 ![](./images/what-sdk-does.png)
 
-从这个视角看，Forge 链是应用状态存储的一种有效方式，而 Forge SDK 是链接状态和应用的桥梁。
+From this perspective, the Forge chain is an effective way to store application state, and the Forge SDK is a bridge between state and application.
 
-Forge 在设计的时候，尽可能的保证了各层、各面的可扩展性。不论什么语言的 Forge SDK，都服务于以下 3 个目标：
+Forge designed to ensure the scalability of all layers and sides as much as possible. Regardless of the language, the Forge SDK serves three goals:
 
-- 支持基本的区块链数据操作，比如哈希、签名、加密、解密等
-- 支持基本的链上数据读写，将应用代码和 Forge 链链接起来
-- 尽可能简化第一个目标中开发者需要做的各种操作
+- Support basic blockchain data operations, such as hashing, signing, encryption, decryption, etc.
+- Support basic on-chain data read and write, link application code with Forge chain
+- Simplify the various operations that developers need to do in the first goal
 
-## 必要组件
+## Necessary components
 
-> 模块化，以及模块的高内聚和低耦合是实现软件可扩展性和可维护性的重要手段。
+> Modularity, as well as high cohesion and low coupling of modules, are important means to achieve software scalability and maintainability.
 
-为完成上述目标，Forge SDK 需要的功能模块划分如下：
+To achieve the above goals, the functional modules required by the Forge SDK are divided as follows:
 
 ![](./images/what-sdk-contains.png)
 
-- 协议层：定义了各种数据结构（Forge 中使用 protobuf 定义）、数据变化方式（哈希、签名、加解密等）、 DID 生成过程
-- 类库层：定义如何组装 Forge 能识别的消息，怎么解码从 Forge 拿回来的数据，比如对钱包的封装、对 Forge 能收发的交易消息的封装
-- 客户端：定义如何连接 Forge 链节点（Forge 支持 gRPC 和 GraphQL 两种方式），如何执行常见的链上操作等
+- Protocol layer: defines various data structures (used in Forge [Protocol Buffers](https://developers.google.com/protocol-buffers) Definition), data changes (hash, signature, encryption and decryption, etc.), DID generation process
+- Class library layer: defines how to assemble messages that Forge can recognize and how to decode the data returned from Forge, such as encapsulation of wallets and encapsulation of transaction messages that Forge can send and receive
+- Client: Define how to connect Forge chain nodes (Forge support [gRPC](https://grpc.io/) with [GraphQL](https://graphql.org/) Two ways), how to perform common on-chain operations, etc.
 
-不同语言应用的领域会有很大不同，对应的 SDK 实现也有侧重点，比如：
+The areas of application for different languages will be very different, and the corresponding SDK implementations also have emphasis, such as:
 
-- 如果是偏后端的语言 SDK，侧重实现 gRPC 就可以了
-- 如果不需要支持 ABT Wallet 交互的逻辑处理，不需要实现 DID 认证相关逻辑
-- 如果不需要支持丰富的数据哈希、加解密、签名算法，支持 Forge 选取的标准算法即可
+- If it is a back-end language SDK, focus on implementing gRPC.
+- If support is not required [ABT Wallet](https://abtwallet.io) Interactive logic processing, no need to implement [DID authentication related logic](https://github.com/ArcBlock/abt-did-spec#abt-did-authentication-protocol)
+- If you do not need to support rich data hashing, encryption, decryption, and signature algorithms, you can support the standard algorithm selected by Forge. The standard algorithm refers to: the hash algorithm uses [SHA3](https://en.wikipedia.org/wiki/SHA-3)Use of asymmetric encryption algorithms [ED25519](https://ed25519.cr.yp.to/)Use of address encoding [base58btc](https://github.com/multiformats/multibase)
 
-## 基本步骤
+## The basic steps
 
-做完模块划分之后再去实现 Forge SDK，只需要按部就班即可。
+After completing the module division, implement the Forge SDK, just follow the steps.
 
-### 数据哈希和加解密
+### Data hashing and encryption
 
-这部分功能主要包括在 `mcrypto` 模块中，不同语言的实现参考：
+This part of the function is mainly included in `mcrypto` In the module, the implementation reference of different languages:
 
-- [Elixir/Erlang](https://github.com/ArcBlock/mcrypto)
+- [Elixir / Erlang](https://github.com/ArcBlock/mcrypto)
 - [Javascript/Node.js](https://github.com/ArcBlock/forge-js/tree/master/forge/mcrypto)
 
-该模块中需要实现的主要功能包括：
+The main functions to be implemented in this module include:
 
-- `Hasher`：对数据做哈希，支持求不同长度的 Hash，至少需要支持的长度为 224、256、384、512，需要支持的哈希算法包括：Sha2、Sha3
-- `Signer`：支持基于非对称加密的签名生成和校验，核心接口是 `sign(data, privateKey) => signature`，`verify(data, publicKey, signature) => true|false`，此外还应该支持随机生成公私钥对，至少需要支持的非对称加密算法包括 `ED25519`
-- `Crypter`：对数据做加密和解密，可以是对称的，也可以是非对称的，至少支持 `AES CBC 256`，目前的 SDK 中还比较少用
+- `Hasher`: Hash the data and support hashing of different lengths. At least the supported lengths are 224, 256, 384, and 512. The required hash algorithms include: Sha2, Sha3
+- `Signer`: Supports signature generation and verification based on asymmetric encryption, the core interface is `sign(data, privateKey) => signature`， `verify(data, publicKey, signature) => true|false`In addition, it should also support the random generation of public and private key pairs. At least the asymmetric encryption algorithms that need to be supported include `ED25519`
+- `Crypter`: Encrypt and decrypt data. It can be symmetric or asymmetric, at least it supports `AES CBC 256`, Which is still relatively rare in the current SDK
 
-### DID 生成
+### DID generation
 
-任何 Forge 体系中的实体都有自己的 DID，包括节点、合约、账户、资产等等，技术视角看，DID 是编码了其所指称的实体部分特征的根据公私钥对计算出来的钱包地址。在 [ABT DID 协议](https://github.com/ArcBlock/ABT-DID-spec#create-did)中详细描述了这个过程，并且我们有篇[工程博客](https://www.arcblock.io/zh/post/2019/05/28/did-101)详细介绍生成步骤。
+Any entity in the Forge system has its own DID, including nodes, contracts, accounts, assets, etc. From a technical perspective, DID is a wallet address calculated from public and private key pairs that encodes the characteristics of the entity it refers to. In [ABT DID protocol](https://github.com/ArcBlock/ABT-DID-spec#create-did)This process is described in detail, and we have a article [Engineering Blog](https://www.arcblock.io/zh/post/2019/05/28/did-101)Describe the generation steps in detail.
 
-不同语言的 DID 生成过程参考：
+DID generation process reference in different languages:
 
 - [JavaScript/Node.js](https://github.com/ArcBlock/forge-js/tree/master/did/did)
-- [Elixir/Erlang](https://github.com/ArcBlock/abt-did-elixir/blob/master/lib/abt_did.ex)
+- [Elixir / Erlang](https://github.com/ArcBlock/abt-did-elixir/blob/master/lib/abt_did.ex)
 
-### 消息编解码
+### Message codec
 
-SDK 和 Forge 通信时需要使用 Protobuf 进行数据的编解码，这样 SDK 里面就需要知道 Forge 里面的数据结构，SDK 里面需要用到的数据结构主要有下面两部分：
+Required for SDK and Forge communication [Protocol Buffers](https://developers.google.com/protocol-buffers) Data encoding and decoding, so the SDK needs to know the data structure in Forge, and the data structure used in the SDK mainly includes the following two parts:
 
 - [Forge ABI](https://github.com/ArcBlock/forge-abi/tree/master/lib/protobuf)
 - [Forge Core Protocols](https://github.com/ArcBlock/forge-core-protocols)
 
-拿到这两份代码之后，需要使用 `protoc` 之类的工具，将其编译成你所需要的特定语言的实现，这样才能在特定语言中实现消息的编解码。
+After getting these two codes, you need to use `protoc` Tools, compile it into the language-specific implementation you need, so that you can implement the encoding and decoding of messages in a specific language.
 
-### 钱包封装
+### Wallet package
 
-对钱包进行封装主要是为了简化操作，比如支持 `fromRandom`、`fromSecretKey`、`fromPublicKey` 等方法都返回相同的钱包结构体，而这些返回值都支持诸如 `toAddress`、`sign(data)`、`verify(data, signature)` 的操作。比如 [Javascript SDK](https://github.com/ArcBlock/forge-js/tree/master/forge/forge-wallet) 就对钱包操作做了特别的封装。
+Encapsulating the wallet is mainly to simplify operations, such as support `fromRandom`、 `fromSecretKey`、 `fromPublicKey` And other methods return the same wallet structure, and these return values support such as `toAddress`、 `sign(data)`、 `verify(data, signature)` Operation. For example [Javascript SDK](https://github.com/ArcBlock/forge-js/tree/master/forge/forge-wallet) The operation of the wallet is specially encapsulated.
 
 ### gRpcClient
 
-#### 数据读操作
+#### Data read operation
 
-完事具备，接下来，借助 `protoc` 生成的代码，我们就可以完成基本的数据读操作：
+Finished with, next, with the help of `protoc` Generated code, we can complete the basic data read operation:
 
 ```javascript
-const grpc = require('grpc');
-const { RequestGetConfig } = require('/path/to/generated/code');
-const { StateRpcClient } = require('/path/to/generated/code');
+const grpc = require("grpc");
+const { RequestGetConfig } = require("/path/to/generated/code");
+const { StateRpcClient } = require("/path/to/generated/code");
 
-const endpoint = 'tcp://127.0.0.1:28210';
+const endpoint = "tcp://127.0.0.1:28210";
 const client = new StateRpcClient(endpoint, grpc.credentials.createInsecure());
 
 const message = new RequestGetConfig();
@@ -102,28 +102,32 @@ const response = await client.getConfig(message);
 console.log(response.toObject());
 ```
 
-#### 数据写操作
+#### Data write operation
 
-因为往区块链写数据，通常等价于发送交易，发送交易前需要对交易做签名：
+Because writing data to the blockchain is usually equivalent to sending a transaction, you need to sign the transaction before sending the transaction, and then put the signature in `Transaction` Instance, use [Protocol Buffers](https://developers.google.com/protocol-buffers) Send it after serialization, the general process is as follows:
 
 ```javascript
-const grpc = require('grpc');
-const Wallet = require('/path/to/your-wallet-implementation');
-const { RequestSendTx, DeclareTx, Transaction } = require('/path/to/generated/code');
-const { ChainRpcClient } = require('/path/to/generated/code');
+const grpc = require("grpc");
+const Wallet = require("/path/to/your-wallet-implementation");
+const {
+  RequestSendTx,
+  DeclareTx,
+  Transaction
+} = require("/path/to/generated/code");
+const { ChainRpcClient } = require("/path/to/generated/code");
 
-const endpoint = 'tcp://127.0.0.1:28210';
+const endpoint = "tcp://127.0.0.1:28210";
 const client = new ChainRpcClient(endpoint, grpc.credentials.createInsecure());
 const wallet = Wallet.fromRandom(); // generates a random wallet with sha3256,role_account,ed25519
 
 const itx = new DeclareTx();
-itx.setMoniker('test-wallet');
+itx.setMoniker("test-wallet");
 
 const tx = new Transaction();
 tx.setNonce(Date.now());
 tx.setFrom(wallet.toAddress());
 tx.setPk(wallet.publicKey);
-tx.setChainId('forge'); // must be same from chain
+tx.setChainId("forge"); // must be same from chain
 tx.setItx(itx);
 
 const signature = wallet.sign(tx.serializeBinary()); // sign the buffer presentation of the message
@@ -136,37 +140,55 @@ const response = await client.getConfig(message);
 console.log(response.toObject());
 ```
 
+### Streaming data subscription
+
+> EVERYTHING
+
 ### GraphQLClient
 
-> TODO
+#### Data read operation
 
-## 基本接口
+> EVERYTHING
 
-封装好 SDK 之后，其基本使用方法，应该足够简洁，比如下面是 Javascript SDK 的基本用法：
+#### Data write operation
+
+> EVERYTHING
+
+#### Streaming data subscription
+
+> EVERYTHING
+
+### Support for custom contracts
+
+> EVERYTHING
+
+## Basic interface
+
+After the SDK is packaged, its basic usage method should be concise. For example, the following is the basic usage of the Javascript SDK:
 
 ```javascript
-const ForgeSDK = require('@arcblock/forge-sdk');
+const ForgeSDK = require("@arcblock/forge-sdk");
 
 // Connect to multi endpoints
-ForgeSDK.connect('https://test.abtnetwork.io/api', { name: 'test' });
-ForgeSDK.connect('https://zinc.abtnetwork.io/api', { name: 'zinc' });
-ForgeSDK.connect('tcp://127.0.0.1:28210', { name: 'local' });
+ForgeSDK.connect("https://test.abtnetwork.io/api", { name: "test" });
+ForgeSDK.connect("https://zinc.abtnetwork.io/api", { name: "zinc" });
+ForgeSDK.connect("tcp://127.0.0.1:28210", { name: "local" });
 
 // Declare on test chain
 ForgeSDK.sendDeclareTx({
-  tx: { itx: { moniker: 'abcd' } },
-  wallet: ForgeSDK.Wallet.fromRandom(),
+  tx: { itx: { moniker: "abcd" } },
+  wallet: ForgeSDK.Wallet.fromRandom()
 }).then(console.log);
 
 // Get zinc chain info
-ForgeSDK.getChainInfo({ conn: 'zinc' }).then(console.log);
+ForgeSDK.getChainInfo({ conn: "zinc" }).then(console.log);
 
 // Get local chain info
-ForgeSDK.getChainInfo({ conn: 'local' }).then(console.log);
+ForgeSDK.getChainInfo({ conn: "local" }).then(console.log);
 ```
 
-## 注意事项
+## Precautions
 
-### 兼容性测试
+### Compatibility test
 
-基本模块比如 mcrypto、did 的输入输出测试用例需要和 `Elixir/Erlang` 严格匹配，测试用例详见对应仓库的 `tests` 目录，ArcBlock 官方维护的 SDK 也是这么做的。
+The input and output test cases of basic modules such as mcrypto and did require and `Elixir/Erlang` Strict matching, see the test case details in the corresponding warehouse `tests` Directory, ArcBlock officially maintained SDK does the same.

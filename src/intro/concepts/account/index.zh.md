@@ -1,25 +1,28 @@
 ---
-title: '2. Accounts'
-description: 'Accounts'
+title: 账户
+description: 账户
 keywords: ''
 robots: 'index,follow'
-category: 'docs'
-layout: 'documentation'
+category: docs
+layout: documentation
 tags:
-  - 'intro'
-  - 'concepts'
+  - intro
+  - concepts
 ---
-# Accounts
 
-An **account** is a unique address that Forge uses to identify individual users. Each user can have as many accounts as they would like.
+## 什么是账户？
 
-In addition to the unique address, an account comes with a **secret key (SK)** and a **public key (PK)**.
+一个**帐户**是 Forge 用于标识个人用户的唯一地址。每个用户可以拥有任意数量的帐户。
 
-Users need at least one account before they can send and receive transactions using Forge.
+除唯一地址外，帐户还附带一个**密钥（SK）**和一个**公钥（PK）**。
 
-*Please note that we will use the terms **account** and **wallet** interchangeably.*
+用户需要至少一个帐户才能使用 Forge 发送和接收交易。
 
-## The Anatomy of an Account
+::: success
+如果不特别说明，Forge 里面的**帐户**和**钱包**概念是相同的。
+:::
+
+## 账户的数据结构
 
 ```code
 message WalletInfo {
@@ -30,22 +33,32 @@ message WalletInfo {
 }
 ```
 
-| Parameter | Description |
-| - | - |
-| `type` | Cryptographic algorithms used to generate the account |
-| `sk` | Secret key |
-| `pk` | Public key |
-| `address` | Wallet/account address, which also the account address |
+| 参数      | 描述                          |
+| --------- | ----------------------------- |
+| `type`    | 用于生成帐户的密码算法        |
+| `sk`      | 密钥                          |
+| `pk`      | 公钥                          |
+| `address` | 钱包/帐户地址，也就是帐户地址，通常也是 DID |
 
-## Keys
+## 按键
 
-The account's secret and public keys are important, because:
+该帐户的公钥和私钥很重要，因为：
 
-* The **secret key** is used to calculate the public key
-* The **public key** is used to calculate the address
+- 的**私钥**用于计算公钥
+- 的**公钥**用于计算地址
 
-It's important to keep the secret keys safe, since knowledge of the secret key allows others to spoof signatures to send unauthorized transactions.
+保持私钥的安全非常重要，因为知道私钥可以使其他人欺骗签名以发送未经授权的交易。
 
-## Signatures
+## 签名
 
-Each transaction carries a signature generated using the sender's secret key. The recipient can verify the sender's signature using the sender's public key, which is published on the ABT node. This helps ensure that the transaction content received is exactly as it was when the sender initiated the transaction.
+每笔交易都带有使用发件人的密钥生成的签名。收件人可以使用在 ABT 节点上发布的发件人的公共密钥来验证发件人的签名。这有助于确保接收到的交易内容与发送方发起交易时的内容完全相同。
+
+## 在 Forge 中使用帐户
+
+Forge 提供了与使用帐户有关的各种操作，包括：
+
+- 创建一个账户
+- 正在加载帐户
+- 找回账户
+- 列出帐户
+- 删除帐号

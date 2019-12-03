@@ -1,6 +1,6 @@
 ---
-title: 'Python'
-description: ''
+title: 'Python SDK'
+description: 'Forge Python SDK'
 keywords: ''
 robots: 'index,follow'
 category: 'docs'

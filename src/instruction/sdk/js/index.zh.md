@@ -1,6 +1,6 @@
 ---
-title: 'Javascript'
-description: 'Javascript SDK'
+title: 'Javascript SDK'
+description: 'Forge Javascript/Node.js SDK'
 keywords: ''
 robots: 'index,follow'
 category: 'docs'
@@ -10,62 +10,62 @@ tags:
   - 'javascript'
 ---
 
-If you are a developer from traditional web development and not familiar with blockchain, please checkout [general concepts](../../../intro/concepts) first.
+如果您是来自传统网页开发的开发者，不熟悉区块链，请先查看[一般概念](../../../concepts/concepts)。
 
-Forge Javascript SDK makes it very easy for developers to building applications on forge, it provides concise and simple api to helper developers accomplish following tasks:
+Forge Javascript SDK 方便开发者在 forge 上构建应用程序，它提供精炼简单的 api，帮助开发者完成以下任务：
 
-- Create and manipulate wallets using just javascript: [@arcblock/mcrypto](https://www.npmjs.com/package/@arcblock/mcrypto), [@arcblock/forge-wallet](https://www.npmjs.com/package/@arcblock/forge-wallet)
-- Read/Write on-chain data through [GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client) or [GRpcClient](https://www.npmjs.com/package/@arcblock/GRpcClient)
-- Derive/validate DID that are used widely in different forge components: [@arcblock/did](https://www.npmjs.com/package/@arcblock/did), [@arcblock/did-util](https://www.npmjs.com/package/@arcblock/did-util)
-- Assemble/encode/sign a transaction that can be sent to any forge powered blockchain
+- 只使用 javascript 创建并操控钱包：[@arcblock/mcrypto](https://www.npmjs.com/package/@arcblock/mcrypto)，[@arcblock/forge-wallet](https://www.npmjs.com/package/@arcblock/forge-wallet)
+- 通过[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)或[GRpcClient](https://www.npmjs.com/package/@arcblock/grpc-client)读/写链上数据
+- 导出/验证在不同 forge 成分中广泛使用的 DID：[@arcblock/did](https://www.npmjs.com/package/@arcblock/did)，[@arcblock/did-util](https://www.npmjs.com/package/@arcblock/did-util)
+- 组装/编码/签署可发送至任何 forge 支持的区块链的交易
 
-Now, let's walk through the step-by-step guide to write a simple javascript program that may take a developer days or weeks to accomplish on other blockchain platforms:
+现在，我们来看看详细指南，告诉您如何写简单的 javascript 程序，而且这些程序在其他区块链平台上可能需要数天或数周才能完成：
 
-1. Create 2 user accounts (`Alice` and `Bob`) on forge powered blockchain, which you can get up and running easily with [Forge CLI](/handbook/);
-2. Get 25 free tokens for the newly created account
-3. Transfer 5 token from `Alice` to `Bob`, inspect the balance
+1. 在 forge 支持的区块链上创建两个用户账户（`Alice`和`Bob`），您可通过[Forge CLI](/handbook/)轻松设置并运行；
+2. 为新创建的账户获取 25 个 代币
+3. 从`Alice`向`Bob`转移 5 个代币，检查余额
 
-The whole process covers most of the tasks that a typical web application will do, such as:
+整个流程覆盖典型网络应用程序可进行的所有任务，例如：
 
-- Setup a database, every blockchain is a public verifiable database
-- Create user accounts (register/login)
-- Update state for users (token/asset)
-- Trade between users (transfer/exchange)
+- 设置数据库，每个区块链都是一个公共可验证的数据库
+- 创建用户账户（注册/登录）
+- 为用户升级状态（代币/资产）
+- 用户间交易（转移/交换）
 
-## Getting Started
+## 开始
 
-### 1. Setup a running node
+### 1. 设置运行节点
 
-This step is not required to proceed to next steps, because forge javascript sdk is designed to work with any forge powered blockchain.
+您无需设置即可继续到下一步，因为 forge javascript sdk 的设计使其可搭配任何 forge 支持的区块链使用。
 
-If you are interested in running a chain node on your local machine, take 10 minutes to checkout our awesome command line tool: [Forge CLI](/handbook/) and start a node.
+如果您对在本地机器上运行链节点感兴趣，请花 10 分钟看看我们非常棒的命令线工具：[Forge CLI](/handbook/)并开始节点。
 
-Once your chain node has started, run `forge web open` to verify that the web dashboard/explorer of your chain is up and running. If the web dashboard of your chain node loads without any errors, means our database is set, we can use `http://127.0.0.1:8210/api` as graphql endpoint.
+您的链节点开始后，运行`forge web open`以验证链的网页控制面板/探索器已启动并运行。如果链节点的网页控制面板无错误加载，则表明控制面板已设置完毕，我们可以使用`http://127.0.0.1:8210/api`作为 graphql 端点。
 
-If you prefer to use existing chain(public sandbox database), please remember to replace endpoint in following code to our public testing chain endpoint: `https://test.abtnetwork.io/api`.
+如果您更希望使用现有链（公共沙箱数据库），请记住在我们的公共测试链端点以下方代码替换端点：`https://test.abtnetwork.io/api`。
 
-### 2. Init the javascript object
+### 2. 启动 javascript 项目
 
 ```bash
-mkdir -p /tmp/hello-forge
+mkdir -p /tmp/hell-forge
 cd /tmp/hello-forge
 npm init -y
 ```
 
-### 3. Create user accounts(wallets)
+### 3. 创建用户账户（钱包）
 
-Cryptography is hard! So we created a multi-language package called `mcrypto` and utility library `forge-wallet` to help developers manipulate wallets that are compatible with forge.
+密码编码很难！所以我们创建了一个多语言的数据包，名为`mcrypto`和实用工具图书馆`forge-wallet`，帮助开发者操控与 forge 兼容的钱包。
 
-To create user accounts we need first configure some properties of the accounts.
+为了创建用户账户，我们首先需要配置账户的一些属性。
 
-Add the following dependency:
+添加以下依赖：
 
 ```bash
 yarn add @arcblock/forge-wallet @arcblock/mcrypto -S
 touch index.js
 ```
 
-Then, create 2 wallets named `Alice` and `Bob` with random secret key(`edit index.js`):
+然后，创建 2 个名为`Alice`和`Bob`的钱包，包含随机密钥 (`edit index.js`)：
 
 ```javascript
 const { types } = require('@arcblock/mcrypto');
@@ -83,7 +83,7 @@ const bob = fromRandom(type);
 console.log({ alice: alice.toJSON(), bob: bob.toJSON() });
 ```
 
-Run `node index.js`, we will get:
+运行`node index.js`，我们会得到：
 
 ```text
 { alice:
@@ -110,21 +110,21 @@ Run `node index.js`, we will get:
      address: 'z1m8hfeWSD4fZcycrHDgpJCRTHi2sowPXBt' } }
 ```
 
-> Please note that, forge supports many wallet types, and developers can whatever types they want to use, the above wallet type is a typical combination, and it's ok to stick with this even in production. For all supported wallet types please refer to [enums](../../../reference/types/enum)
+> 请注意，forge 支持很多钱包类型，开发者可选择希望使用的任何类型，上述钱包类型是典型的组合型，即使在生产中，也可以继续选择这个。如需了解所有支持的钱包类型，请参考[enums](../../../reference/types/enum)
 
-### 4. Register user on the chain
+### 4. 在链上注册用户
 
-Similar to user registration in traditional web applications, forge requires an wallet(user account) to declare itself on the chain before accepting any further activities such as staking, voting and sending transaction from that wallet.
+与传统网页应用程序上的用户注册相似，forge 需要钱包（用户账户）在链上进行自我声明，然后方可接受任何活动，如抵押、投票和从该钱包发出交易。
 
-To register `Alice` and `Bob` on the chain, we will use `GraphQLClient`:
+如需在链上注册`Alice`和`Bob`，我们将使用[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)：
 
-Add `@arcblock/graphql-client` as dependency:
+将`@arcblock/graphql-client`作为依赖添加：
 
 ```bash
 yarn add @arcblock/graphql-client
 ```
 
-Then, create an instance of `GraphQLClient`, then call `declare` on that instance:
+然后，创建`GraphQLClient`实例，然后在该实例调用`declare`：
 
 ```javascript
 const { types } = require('@arcblock/mcrypto');
@@ -166,28 +166,28 @@ function registerUser(userName, userWallet) {
 })();
 ```
 
-Run `node index.js` again, we will get:
+再次运行`node index.js`，我们将得到：
 
 ```bash
 register alice tx: DC684CA8783665245B909A15CFD884DC36FF0CFB5315517ED5655F7DBD0BCAEC
 register bob tx: F61C51A9FE31B5E782276F78CAE35945844D7F848E7E008BC75A396AD552C0CB
 ```
 
-Open explorer: `http://localhost:8210/node/explorer/txs`, we can see that, the 2 accounts have already been registered on the chain:
+打开探索器：`http://localhost:8210/node/explorer/txs`，我们可以看到，这两个账户已在链上注册：
 
-![](./assets/declare.png)
+![ ](./assets/declare.png)
 
-> The screenshot above is from [Forge WEB](../../../tools/forge_web), which contains a build in web dashboard and block explorer for your chain.
+> 上述截图来自[Forge WEB](../../../tools/forge_web)，保护链的内置网页控制面板和区块探索器。
 
-> Here are are using `declare` to write data to the blockchain, many other [transaction types](../../../reference/txs) are supported. Full list of transaction send method list can be found at [GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client).
+> 在此使用`declare`向区块链写数据，支持很多其他[交易类型](../../../reference/txs)。如需查看完整交易发出方式列表，请访问[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)。
 
-### 5. Get 25 token for `Alice` and `Bob`
+### 5. 为`Alice`和`Bob`获得 25 颗代币
 
-The most important usage of blockchain is recording state and transfers of value, value are presented with token, forge also support that.
+区块链最重要的用途是记录状态和转移价值，价值以代币形式展示，forge 也支持这个功能。
 
-#### 5.1 Default account balance
+#### 5.1 默认账户余额
 
-If we inspect the account we just created, we can see there balance is `0`:
+如果我们查看刚刚创建的账户，可以看到余额为`0`：
 
 ```diff
 diff --git a/index.js b/index.js
@@ -209,13 +209,12 @@ diff --git a/index.js b/index.js
    } catch (err) {
 ```
 
-> Here we are using `getAccountState` to read data from the blockchain, we can also use GraphQLClient to read transaction/block/asset/chain info, please refer to [GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client) for full list of API.
+> 在此，我们使用`getAccountState`从区块链读取数据，我们也可以使用 GraphQLClient 读取交易/区块/资产/链信息，请参考[GraphQLClient](https://www.npmjs.com/package/@arcblock/graphql-client)获取完整的 API 列表。
+> 您可能也会注意到，我们等了 5 秒才查看 Alice 的账户，这是因为，5 秒是 forge 的区块生产暂停时间，即交易由链执行并包含在区块上最多需要 5 秒，这个暂停时间可在您的[forge config](../../configuration)中配置。
 
-> You may also noticed that, we waited for 5 seconds before inspecting Alice's account balance, that's because 5 seconds is the block produce timeout for forge, which means that it takes at most 5 seconds before the transaction was executed by the chain and included in a block, this timeout can be configured in your [forge config](../../configuration).
+#### 5.2 获取免费代币
 
-#### 5.2 Get free token
-
-Forge provides a special transaction type for developers to get test tokens for free:
+Forge 为开发者提供特别交易类型，以免费检测代币：
 
 ```diff
 diff --git a/index.js b/index.js
@@ -259,7 +258,7 @@ diff --git a/index.js b/index.js
        console.log(err.errors);
 ```
 
-Then, run `node index.js` again, we will get:
+然后，再次运行`node index.js`，我们将得到：
 
 ```bash
 alice.address(userId) z1WrEtEV8QfVqfdVpMgP84zjqsAyvu9JQJx
@@ -272,17 +271,17 @@ get token for bob:  C9C3A24FB12746F4E8049AD7088B9FADE92D5991152BA14B7C86B0DBDE92
 alice.balanceNew 250000000000000000
 ```
 
-#### 5.3 Format account balance
+#### 5.3 格式账户余额
 
-You may notice that the token balance for `Alice` is a very large number, the reason big number is used is the deterministic requirement of blockchain, we can format the big number to human readable string with functions provided by `@arcblock/forge-util`.
+您可以注意到，`Alice`的代币余额数子很大，使用大数字的原因是，这是区块链的决定性要求，我们可以将这个大数字格式化为人类可读的字符串，包含`@arcblock/forge-util`提供的函数。
 
-> For all utility methods of `@arcblock/forge-util`, please refer to the [documentation](https://www.npmjs.com/package/@arcblock/forge-util)
+> 如需获取`@arcblock/forge-util`的所有实用方式，请参考[文件](https://www.npmjs.com/package/@arcblock/forge-util)
 
 ```bash
 yarn add @arcblock/forge-util
 ```
 
-Then change `index.js` to format account balance:
+改变`index.js`以格式化账户余额：
 
 ```diff
 diff --git a/index.js b/index.js
@@ -300,7 +299,7 @@ diff --git a/index.js b/index.js
    } catch (err) {
 ```
 
-Run `node index.js` again, we can see that `Alice` got 25 token:
+再次运行`node index.js`，我们可以看到，`Alice`有 25 个代币：
 
 ```bash
 alice.balanceNew 250000000000000000
@@ -309,11 +308,11 @@ alice.balanceNew.readable 25
 
 > Forge allows developers to customize the token name/symbol/decimal on each chain, refer to [configuration](../../configuration) for details.
 
-### 6. Transfer 5 token from `Alice` to `Bob`
+### 6. 从`Alice`向`Bob`转移 5 颗代币
 
-Now both `Alice` and `Bob` can spend money on the chain, let's ask `Alice` to transfer 5 token to `Bob`.
+现在，`Alice`和`Bob`都可以在链上花钱了，我们让`Alice向`Bob`转移 5 颗代币。
 
-Before we do actual transfer, let's do a little refactor: extract account balance inspecting to a helper function that will be reused:
+在进行实际转移前，我们先做一下代码重构：提取账户余额，检查将被重新使用的帮助者函数：
 
 ```diff
 diff --git a/index.js b/index.js
@@ -353,7 +352,7 @@ diff --git a/index.js b/index.js
        console.log(err.errors);
 ```
 
-Token transfer is just a function call:
+代币转移只是函数调用：
 
 ```diff
 diff --git a/index.js b/index.js
@@ -383,7 +382,7 @@ diff --git a/index.js b/index.js
      if (Array.isArray(err.errors)) {
 ```
 
-Run `node index.js`, we can get:
+运行`node index.js`，我们会得到：
 
 ```bash
 alice.address(userId) z1WE7HCTNgshF7i5EbnDawA2MthfJghxC5j
@@ -401,9 +400,9 @@ alice.transfer.balance 20
 bob.transfer.balance 30
 ```
 
-Now we have completed our first program with Forge Javascript SDK, you are quite familiar with the basic steps to write programs on forge powered blockchain.
+现在，我们完成了 Forge Javascript SDK 的第一个程序，您已经很熟悉在 forge 支持的区块链上写程序的基础步骤了。
 
-The complete source code so far is:
+目前，完整的源代码是：
 
 ```javascript
 const { types } = require('@arcblock/mcrypto');
@@ -426,7 +425,11 @@ const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 function registerUser(userName, userWallet) {
   return client.declare({
-    moniker: userName,
+    tx: {
+      itx: {
+        moniker: userName,
+      },
+    },
     wallet: userWallet,
   });
 }
@@ -438,7 +441,9 @@ function getFreeToken(userWallet) {
 }
 
 async function checkBalance(userName, userWallet) {
-  const { state } = await client.getAccountState({ address: userWallet.toAddress() });
+  const { state } = await client.getAccountState({
+    address: userWallet.toAddress(),
+  });
   console.log(`${userName}.balance`, fromUnitToToken(state.balance));
 }
 
@@ -463,7 +468,9 @@ async function checkBalance(userName, userWallet) {
     console.log('get token for bob: ', hash);
 
     await sleep(5000);
-    const { state: aliceStateNew } = await client.getAccountState({ address: alice.toAddress() });
+    const { state: aliceStateNew } = await client.getAccountState({
+      address: alice.toAddress(),
+    });
     await checkBalance('alice.getToken', alice);
     await checkBalance('bob.getToken', bob);
 
@@ -487,16 +494,16 @@ async function checkBalance(userName, userWallet) {
 })();
 ```
 
-## Want More ?
+## 想了解更多吗
 
-Here are some resources for you to learn more:
+以下是帮助您获取更多信息的资源：
 
-- [Forge Javascript SDK API Reference](https://forge-js.netlify.com)
-- [Advanced Examples with GraphQLClient](https://github.com/ArcBlock/forge-js/tree/master/forge/graphql-client/examples)
-- [Advanced Examples with GRpcClient](https://github.com/ArcBlock/forge-js/tree/master/forge/grpc-client/examples)
+- [Forge Javascript SDK API 参考](https://forge-js.netlify.com)
+- [GraphQLClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/forge/graphql-client/examples)
+- [GRpcClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/forge/grpc-client/examples)
 
-Besides, more documentation to make you up to speed on building applications on forge are on the way, stay tuned!
+此外，我们正在设计更多可帮助您掌握在 forge 构建应用程序的文件，请不要错过！
 
-## Report Issues ?
+## 要报告问题吗
 
-If you got stuck on any step with the above work through, feel free to open issues on our [GitHub Repo](https://github.com/ArcBlock/forge-js/issues)
+如果您在任何步骤遇到问题，请在我们的[GitHub Repo](https://github.com/ArcBlock/forge-js/issues)报告问题
