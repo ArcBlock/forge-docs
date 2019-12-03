@@ -1,6 +1,6 @@
 ---
-title: "关于 Forge 的更多信息"
-description: "关于 Forge 的更多信息"
+title: "Forge 的更多信息"
+description: "为什么有 Forge？Forge 的设计理念？我们在讨论 Forge 的时候到底指的是什么？"
 keywords: ""
 robots: "index,follow"
 category: "docs"
