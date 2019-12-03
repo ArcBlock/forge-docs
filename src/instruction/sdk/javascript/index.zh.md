@@ -499,8 +499,8 @@ async function checkBalance(userName, userWallet) {
 以下是帮助您获取更多信息的资源：
 
 - [Forge Javascript SDK API 参考](https://forge-js.netlify.com)
-- [GraphQLClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/packages/graphql-client/examples)
-- [GRpcClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/packages/grpc-client/examples)
+- [GraphQLClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/forge/graphql-client/examples)
+- [GRpcClient 高级示例](https://github.com/ArcBlock/forge-js/tree/master/forge/grpc-client/examples)
 
 此外，我们正在设计更多可帮助您掌握在 forge 构建应用程序的文件，请不要错过！
 

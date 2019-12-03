@@ -492,8 +492,8 @@ async function checkBalance(userName, userWallet) {
 Here are some resources for you to learn more:
 
 - [Forge Javascript SDK API Reference](https://forge-js.netlify.com)
-- [Advanced Examples with GraphQLClient](https://github.com/ArcBlock/forge-js/tree/master/packages/graphql-client/examples)
-- [Advanced Examples with GRpcClient](https://github.com/ArcBlock/forge-js/tree/master/packages/grpc-client/examples)
+- [Advanced Examples with GraphQLClient](https://github.com/ArcBlock/forge-js/tree/master/forge/graphql-client/examples)
+- [Advanced Examples with GRpcClient](https://github.com/ArcBlock/forge-js/tree/master/forge/grpc-client/examples)
 
 Besides, more documentation to make you up to speed on building applications on forge are on the way, stay tuned!
 
