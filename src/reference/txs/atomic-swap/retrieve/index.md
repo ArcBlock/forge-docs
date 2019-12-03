@@ -10,8 +10,6 @@ tags:
   - 'retrieve'
 ---
 
-
-
 **Retrieve Swap** Transaction is sent by the receiver to move the token and assets from the swap state to his or her own state. The receiver is required to specify the address of the swap state to retrieve in this transaction, and is also required reveal the origin value of the random number whose sha3-256 output equals the hashkey. Once the transaction is passed, all assets and token under the swap state is transferred to the receiver and the hashkey is written into the swap state.
 
 ## Protocol definition
@@ -27,8 +25,8 @@ message RetrieveSwapTx {
 }
 ```
 
-* `address` is the address of the swap state.
-* `hashkey` is the origin value of the random number.
+- `address` is the address of the swap state.
+- `hashkey` is the origin value of the random number.
 
 ## Example
 

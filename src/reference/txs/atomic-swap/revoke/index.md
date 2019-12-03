@@ -10,8 +10,6 @@ tags:
   - 'revoke'
 ---
 
-
-
 **Revoke Swap** transaction redeems the assets and token under swap state back to the sender of the swap. This transaction is useful if the sender wants to stop the atomic swap for whatever reason. But in order to protect the receiver, sender is only allowed to revoke a swap after its locktime.
 
 ## Protocol definition
@@ -24,7 +22,7 @@ message RevokeSwapTx {
 }
 ```
 
-* `address` is the address of the swap state to revoke.
+- `address` is the address of the swap state to revoke.
 
 ## Example
 
