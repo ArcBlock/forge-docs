@@ -346,7 +346,7 @@ iex(forge@127.0.0.1)4> ForgeSdk.get_tx(hash: "9C2CD01B5EA739AEB430F300757DA74AB5
 }
 ```
 
-请注意，`code`在此为 0，即 tx 成功执行。不是 0 的代码意味着 tx 执行失败。如需了解状态代码的更多信息，请查看：[Forge 状态代码](../../reference/code)。
+请注意，`code`在此为 0，即 tx 成功执行。不是 0 的代码意味着 tx 执行失败。如需了解状态代码的更多信息，请查看：[Forge 状态代码](../../../error_codes/error)。
 
 现在，我们看看余额的格式：
 

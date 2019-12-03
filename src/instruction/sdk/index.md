@@ -32,5 +32,4 @@ SDK APIs consists of following categories:
 - [**Wallet**](../../reference/rpc/wallet): interactions with wallet
 - [**State**](../../reference/rpc/state): query states of different objects
 - [**Subscription**](../../reference/rpc/event): receive stream of information
-- [**Transaction**](../../reference/rpc/transaction): helpers functions to simplify building and sending a tx
-- [**Misc**](../../reference/rpc/misc): other functions
+<!-- - [**Misc**](../../reference/rpc/misc): other functions -->

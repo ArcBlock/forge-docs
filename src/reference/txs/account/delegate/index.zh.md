@@ -5,7 +5,7 @@ keywords: ''
 robots: 'index,follow'
 category: 'docs'
 layout: 'documentation'
-tags: 
+tags:
   - 'account'
   - 'delegate'
 ---
@@ -22,7 +22,7 @@ The following shows how to use `DelegateTx` in Protocol Buffers.
 message DelegateTx {
   string address = 1;
   string to = 2;
-  repeated DelegateOp ops = 3; // 
+  repeated DelegateOp ops = 3; //
 
   google.protobuf.Any data = 15;
 }
@@ -44,7 +44,7 @@ message DelegateOp {
 
 ### Configuration
 
-To `DelegateTx`, user needs to have following setup in configuration. See detailed instructions to [Set Up Forge Configuration](../../../instruction/configuration).
+To `DelegateTx`, user needs to have following setup in configuration. See detailed instructions to [Set Up Forge Configuration](../../../../instruction/configuration).
 
 ```toml
 [forge.transaction.delegate]

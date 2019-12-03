@@ -12,20 +12,24 @@ tags:
 
 ## Basics
 
-### [Forge](inside_forge)
+### [Forge](./inside_forge)
 
-A framework used to build and run applications. [More Details](inside_forge)
+A framework used to build and run applications. [More Details](./inside_forge)
 
-### [Account](account)
+### [Account](./account)
 
-An unique address to identify different users. [More Details](account)
+An unique address to identify different users. [More Details](./account)
 
-### [Transaction](transaction)
+### [资产](./assets)
 
-Availiable actions users can make on a Forge chain. [More Details](transaction)
+An easy way to store/update and verify data on blockchain，[More Details](./assets)
+
+### [Transaction](./transaction)
+
+Available actions users can make on a Forge chain. [More Details](./transaction)
 
 ## Advanced
 
-### [Multisig](multisig)
+### [Multisig](./multisig)
 
-Multiple signatures for one transaction. [More Details](multisig)
+Multiple signatures for one transaction. [More Details](./multisig)

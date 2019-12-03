@@ -28,8 +28,7 @@ Forge SDK 的目的是，使与 Forge 构建的链的互动尽可能简单。所
 - [**钱包API**](../../reference/rpc/wallet): 链上创建账户相关的API接口
 - [**状态API**](../../reference/rpc/state): 查询链上状态信息的API接口
 - [**订阅API**](../../reference/rpc/event): 订阅某种交易的API结构
-- [**交易API**](../../reference/rpc/transaction): 简化发送交易的API接口
-- [**杂项API**](../../reference/rpc/misc): 解析配置等
+<!-- - [**杂项API**](../../reference/rpc/misc): 解析配置等 -->
 
 ## 创建新的 SDK
 
