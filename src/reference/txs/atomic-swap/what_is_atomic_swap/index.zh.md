@@ -175,4 +175,11 @@ Forge 会验证 SetUpSwap 和 [RevokeSwap](../revoke) 的发送方是否为同�
 
 在实际中，失败的原因可能是网络问题或者是 gas 不够等。为此我们在钱包里面也做了相应的优化。钱包会在用户发送 RetrieveSwap 之前比较当前块高和 Locktime，如果两者过于接近，钱包会有相应提示。
 
-第二个潜在的安全因素是 Hashkey 的大小。 在 SetUpSwap Transaction 中，我们只包含 Hashlock 的值。由于该值是一个 Hash 值，所以大小是固定的。但是我们并不知道 Hashkey 的大小，Hashkey 可以是任何值。在一些极限情况下，一个特别大的 Hashkey 可以导致单方面的 ReceivSwap Transaction 验证失败。所以我们把 Hashkey 的大小限制在 64 字节。
+第二个潜在的安全因素是 Hashkey 的大小。 在 SetUpSwap 中，我们只包含 Hashlock 的值。由于该值是一个 Hash 值，所以大小是固定的。但是我们并不知道 Hashkey 的大小，Hashkey 可以是任何值。在一些极限情况下，一个特别大的 Hashkey 可以导致单方面的 ReceiveSwap 验证失败。所以我们把 Hashkey 的大小限制在 64 字节。
+
+## 接下来做什么？
+
+看明白原子互换的原理之后，我们再来看看怎么在应用中实现原子互换：
+
+- [如何基于 SDK 实现原子互换](./atomic-swap/sdk-usage)
+- [如何基于 ABT 钱包实现原子互换](./atomic-swap/wallet-usage)
