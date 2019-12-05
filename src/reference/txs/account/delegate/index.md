@@ -5,14 +5,14 @@ keywords: ''
 robots: 'index,follow'
 category: 'docs'
 layout: 'documentation'
-tags: 
+tags:
   - 'account'
   - 'delegate'
 ---
 
 **`DelegateTx`** is used for an account to delegate its signature rights to other accounts. This is useful if user wants to reduce the times of using an important account to sign transactions by using other accounts to perfrom certain activities.
 
-After **`DelegateTx`** executes successfully, a delegation relationship is established between the two accounts. And the delegatee account and sign transactions on behalf of the delagator account based on the rule specified in the **`DelegateTx`**.
+After **`DelegateTx`** executes successfully, a delegation relationship is established between the two accounts. And the delegatee account can sign transactions on behalf of the delagator account based on the rule specified in the **`DelegateTx`**.
 
 ## Sample Code
 
@@ -22,7 +22,7 @@ The following shows how to use `DelegateTx` in Protocol Buffers.
 message DelegateTx {
   string address = 1;
   string to = 2;
-  repeated DelegateOp ops = 3; // 
+  repeated DelegateOp ops = 3; //
 
   google.protobuf.Any data = 15;
 }
