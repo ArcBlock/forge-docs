@@ -16,7 +16,7 @@ tags:
 
 ## 样例代码
 
-下面的例子展示了如何使用 `DelegateTx`  在 `protobuf` 中。
+下面的例子展示了如何在 `Protocol Buffers` 中 使用 `DelegateTx`。
 
 ```protobuf
 message DelegateTx {
