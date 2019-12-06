@@ -12,7 +12,7 @@ tags:
 
 ## Fast Start
 
-No matter which OS you are using, you have to install [Docker client]("https://www.docker.com/products/docker-desktop")
+No matter which OS you are using, you have to install [Docker client](https://www.docker.com/products/docker-desktop)
 
 And then get forge image.
 
