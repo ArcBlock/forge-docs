@@ -2,26 +2,38 @@
 # yarn lockfile v1
 
 
-"@arcblock/did-connect@^0.50.0":
-  version "0.50.0"
-  resolved "https://registry.yarnpkg.com/@arcblock/did-connect/-/did-connect-0.50.0.tgz#4c44e8a75779f65ec2c3878f64cf6c8c5d182387"
-  integrity sha512-eKYKKJs2derloEhy1gC/k5codZRC4+sdyhOAlsaLBjDEipPLG0F7XhURdYAZ/AmvKU1U79xDax4eHp3mZqY8Gg==
+"@arcblock/did-connect@^0.57.0":
+  version "0.57.0"
+  resolved "https://registry.npm.taobao.org/@arcblock/did-connect/download/@arcblock/did-connect-0.57.0.tgz#67d10a61c44d90f0b3fcd41f62aa0fb3ff2c6c00"
+  integrity sha1-Z9EKYcRNkPCz/NQfYqoPs/8sbAA=
   dependencies:
-    "@arcblock/did-react" "^0.50.0"
-    "@arcblock/ux" "^0.50.0"
+    "@arcblock/did-react" "^0.57.0"
+    "@arcblock/ux" "^0.57.0"
     axios "^0.19.0"
     react-use "^13.8.0"
 
-"@arcblock/did-react@^0.50.0":
-  version "0.50.0"
-  resolved "https://registry.yarnpkg.com/@arcblock/did-react/-/did-react-0.50.0.tgz#1e5260778f66afc5bbde6186ee594fb93990cbe4"
-  integrity sha512-h8pSlrjkWdPYEP7x/CyGHjytIhWI0716JTXgmCXsmLm3h2AD1rhjuaczx4ZZISh13lWo/PZwNnLmTC3T0JxhpQ==
+"@arcblock/did-react@^0.57.0":
+  version "0.57.0"
+  resolved "https://registry.npm.taobao.org/@arcblock/did-react/download/@arcblock/did-react-0.57.0.tgz#55d617545c40582fc7fe2d8e5b2af4b686b067c4"
+  integrity sha1-VdYXVFxAWC/H/i2OWyr0toawZ8Q=
   dependencies:
-    "@arcblock/react-hooks" "^0.50.0"
-    "@arcblock/ux" "^0.50.0"
+    "@arcblock/event-client" "^1.0.13"
+    "@arcblock/react-hooks" "^0.57.0"
+    "@arcblock/ux" "^0.57.0"
     ismobilejs "^0.5.2"
     qrcode.react "^0.9.3"
     react-load-script "^0.0.6"
+
+"@arcblock/event-client@^1.0.13":
+  version "1.0.23"
+  resolved "https://registry.npm.taobao.org/@arcblock/event-client/download/@arcblock/event-client-1.0.23.tgz#9f59c0aa50a39af5e6320f4e040bbdb7dd34dfe3"
+  integrity sha1-n1nAqlCjmvXmMg9OBAu9t9003+M=
+  dependencies:
+    debug "^4.1.1"
+    isomorphic-ws "^4.0.1"
+    phoenix "^1.4.11"
+    wolfy87-eventemitter "^5.2.5"
+    ws "^7.2.0"
 
 "@arcblock/gatsby-awesome-pagination@^0.3.4":
   version "0.3.4"
@@ -40,18 +52,18 @@
     remark-containers "^1.1.0"
     remark-generic-extensions "^1.4.0"
 
-"@arcblock/gatsby-theme-docs@^6.59.0":
-  version "6.59.0"
-  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-theme-docs/-/gatsby-theme-docs-6.59.0.tgz#ab6c1d9a2ee448f987fe161aee5151bd57d3a5ea"
-  integrity sha512-DWHCCSFGUWpBGj0byx6jN0AvjJfwYI8z/W3/YHTK5wbJ9yMXsJeCvWv1vMcRexBP5ulKEvHluDBFoLQNSTA3Sw==
+"@arcblock/gatsby-theme-docs@^6.67.0":
+  version "6.67.0"
+  resolved "https://registry.npm.taobao.org/@arcblock/gatsby-theme-docs/download/@arcblock/gatsby-theme-docs-6.67.0.tgz#048b277debdc277a83cf03e9de370edfa1d0cccd"
+  integrity sha1-BIsnfevcJ3qDzwPp3jcO36HQzM0=
   dependencies:
     "@arcblock/gatsby-awesome-pagination" "^0.3.4"
     "@arcblock/gatsby-remark-extensions" "^6.28.0"
     "@arcblock/gatsby-transformer-remark" "^6.28.0"
     "@arcblock/gatsby-transformer-terminal-recording" "^6.29.0"
     "@arcblock/remark-include" "^6.28.0"
-    "@arcblock/ux" "^0.50.0"
-    "@arcblock/www" "^6.56.0"
+    "@arcblock/ux" "^0.57.0"
+    "@arcblock/www" "^6.67.0"
     "@material-ui/core" "^4.6.1"
     "@material-ui/icons" "^4.5.1"
     "@mdx-js/mdx" "^1.1.0"
@@ -66,6 +78,7 @@
     "@xmark/transform-shower" "^0.20.0"
     "@xmark/transform-wrap-headings" "^0.20.0"
     algoliasearch "^3.33.0"
+    autosuggest-highlight "^3.1.1"
     debug "^4.1.1"
     gatsby "2.17.15"
     gatsby-plugin-algolia "^0.3.2"
@@ -90,12 +103,12 @@
     gatsby-source-git "^1.0.1"
     gatsby-transformer-sharp "^2.3.5"
     github-markdown-css "^3.0.1"
-    instantsearch.css "^7.3.1"
     js-yaml "^3.13.1"
     md-attr-parser "^1.2.1"
     polished "^3.4.1"
     prop-types "^15.7.2"
     react "^16.12.0"
+    react-autosuggest "^9.4.3"
     react-dom "^16.12.0"
     react-instantsearch-dom "^5.7.0"
     react-use "^10.3.0"
@@ -147,10 +160,10 @@
     lodash "^4.17.15"
     unist-util-select "^1.5.0"
 
-"@arcblock/react-hooks@^0.50.0":
-  version "0.50.0"
-  resolved "https://registry.yarnpkg.com/@arcblock/react-hooks/-/react-hooks-0.50.0.tgz#81c9b4266f3f0eee53f78389c2901279333d6ca0"
-  integrity sha512-GJTHCMlfITgNXhEpVuNex0XukzqqsXUNs0a2trNw9SMl097rWWyjpMSm8Dlbru+Ez5/TNDQkCY81BqlU65HF8Q==
+"@arcblock/react-hooks@^0.57.0":
+  version "0.57.0"
+  resolved "https://registry.npm.taobao.org/@arcblock/react-hooks/download/@arcblock/react-hooks-0.57.0.tgz#484018ac0df59ca99d560d63ec89e2e52dfdf61e"
+  integrity sha1-SEAYrA31nKmdVg1j7Ini5S399h4=
   dependencies:
     event-target-shim "^5.0.1"
     qrcode.react "^0.9.3"
@@ -163,12 +176,12 @@
   dependencies:
     vfile "^2.0.0"
 
-"@arcblock/ux@^0.50.0":
-  version "0.50.0"
-  resolved "https://registry.yarnpkg.com/@arcblock/ux/-/ux-0.50.0.tgz#5cef50a1b00444814cf11ac7bf9361cd32122f6f"
-  integrity sha512-u3pUv8DzJBwhZIKP+W0fvkNrc6pscwy1bHi0nEunsVW6GLXIxWjEo+XMA+z+RhF82ysXmhgHvQPCbxHte8lKbQ==
+"@arcblock/ux@^0.57.0":
+  version "0.57.0"
+  resolved "https://registry.npm.taobao.org/@arcblock/ux/download/@arcblock/ux-0.57.0.tgz#352c981331bfceb4ef3fb687cc70fa1cf7dc7bd5"
+  integrity sha1-NSyYEzG/zrTvP7aHzHD6HPfce9U=
   dependencies:
-    "@arcblock/react-hooks" "^0.50.0"
+    "@arcblock/react-hooks" "^0.57.0"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
     copy-to-clipboard "^3.2.0"
     d3-geo "^1.11.6"
@@ -188,13 +201,13 @@
     xterm-addon-fit "^0.2.1"
     xterm-addon-web-links "^0.2.1"
 
-"@arcblock/www@^6.56.0":
-  version "6.56.0"
-  resolved "https://registry.yarnpkg.com/@arcblock/www/-/www-6.56.0.tgz#0b6a27ba28415620b6c916954c3183ff62efe0dc"
-  integrity sha512-rspA2lq2uOmhkLnDUiEoDGKgWhgQg8f/DspjvaxSZxSrmWvW9MtzfIzTOmdDpFOzP2ua6gFWq3FZ4ArCV4qhlg==
+"@arcblock/www@^6.67.0":
+  version "6.67.0"
+  resolved "https://registry.npm.taobao.org/@arcblock/www/download/@arcblock/www-6.67.0.tgz#0398e21296206401fbf4c9fd348540f2dc6002f5"
+  integrity sha1-A5jiEpYgZAH79Mn9NIVA8txgAvU=
   dependencies:
-    "@arcblock/did-connect" "^0.50.0"
-    "@arcblock/ux" "^0.50.0"
+    "@arcblock/did-connect" "^0.57.0"
+    "@arcblock/ux" "^0.57.0"
     "@material-ui/core" "^4.6.1"
     "@material-ui/icons" "^4.5.1"
     axios "^0.19.0"
@@ -3049,6 +3062,13 @@ autoprefixer@^9.6.1, autoprefixer@^9.7.1:
     postcss "^7.0.23"
     postcss-value-parser "^4.0.2"
 
+autosuggest-highlight@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.npm.taobao.org/autosuggest-highlight/download/autosuggest-highlight-3.1.1.tgz#70bb4f9125fe8a849e85f825f7bb2a1a4806743d"
+  integrity sha1-cLtPkSX+ioSehfgl97sqGkgGdD0=
+  dependencies:
+    diacritic "0.0.2"
+
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -5869,6 +5889,11 @@ devcert-san@^0.3.3:
     mkdirp "^0.5.1"
     tmp "^0.0.31"
     tslib "^1.6.0"
+
+diacritic@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npm.taobao.org/diacritic/download/diacritic-0.0.2.tgz#fc2a887b5a5bc0a0a854fb614c7c2f209061ee04"
+  integrity sha1-/CqIe1pbwKCoVPthTHwvIJBh7gQ=
 
 diff@^4.0.1:
   version "4.0.1"
@@ -9643,11 +9668,6 @@ inquirer@^7.0.0:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-instantsearch.css@^7.3.1:
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/instantsearch.css/-/instantsearch.css-7.3.1.tgz#7ab74a8f355091ae040947a9cf5438f379026622"
-  integrity sha512-/kaMDna5D+Q9mImNBHEhb9HgHATDOFKYii7N1Iwvrj+lmD9gBJLqVhUw67gftq2O0QI330pFza+CRscIwB1wQQ==
-
 internal-ip@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/internal-ip/-/internal-ip-4.3.0.tgz#845452baad9d2ca3b69c635a137acb9a0dad0907"
@@ -10413,6 +10433,11 @@ isomorphic-fetch@^2.1.1:
   dependencies:
     node-fetch "^1.0.1"
     whatwg-fetch ">=0.10.0"
+
+isomorphic-ws@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.npm.taobao.org/isomorphic-ws/download/isomorphic-ws-4.0.1.tgz#55fd4cd6c5e6491e76dc125938dd863f5cd4f2dc"
+  integrity sha1-Vf1M1sXmSR523BJZON2GP1zU8tw=
 
 isstream@~0.1.2:
   version "0.1.2"
@@ -12360,6 +12385,11 @@ oauth-sign@~0.9.0:
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
   integrity sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==
 
+object-assign@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/object-assign/download/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
+  integrity sha1-m+3VygiXlJvKR+f/QIBi1Un1h/I=
+
 object-assign@^4, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
@@ -13142,6 +13172,11 @@ phin@^2.9.1:
   version "2.9.3"
   resolved "https://registry.yarnpkg.com/phin/-/phin-2.9.3.tgz#f9b6ac10a035636fb65dfc576aaaa17b8743125c"
   integrity sha512-CzFr90qM24ju5f88quFC/6qohjC144rehe5n6DH900lgXmUe86+xCKc10ev56gRKC4/BkHUoG4uSiQgBiIXwDA==
+
+phoenix@^1.4.11:
+  version "1.4.11"
+  resolved "https://registry.npm.taobao.org/phoenix/download/phoenix-1.4.11.tgz#3e70cd2461600ef3b0d4308e8fef7d2005fe000a"
+  integrity sha1-PnDNJGFgDvOw1DCOj+99IAX+AAo=
 
 physical-cpu-count@^2.0.0:
   version "2.0.0"
@@ -14046,6 +14081,24 @@ rc@^1.0.1, rc@^1.1.0, rc@^1.1.6, rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-autosuggest@^9.4.3:
+  version "9.4.3"
+  resolved "https://registry.npm.taobao.org/react-autosuggest/download/react-autosuggest-9.4.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-autosuggest%2Fdownload%2Freact-autosuggest-9.4.3.tgz#eb46852422a48144ab9f39fb5470319222f26c7c"
+  integrity sha1-60aFJCKkgUSrnzn7VHAxkiLybHw=
+  dependencies:
+    prop-types "^15.5.10"
+    react-autowhatever "^10.1.2"
+    shallow-equal "^1.0.0"
+
+react-autowhatever@^10.1.2:
+  version "10.2.1"
+  resolved "https://registry.npm.taobao.org/react-autowhatever/download/react-autowhatever-10.2.1.tgz#a6d421dc6135173efedc249ab7216e4f5b691bcc"
+  integrity sha1-ptQh3GE1Fz7+3CSatyFuT1tpG8w=
+  dependencies:
+    prop-types "^15.5.8"
+    react-themeable "^1.1.0"
+    section-iterator "^2.0.0"
+
 react-dev-utils@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.3.tgz#5b42d9ea58d5e9e017a2f57a40a8af408a3a46fb"
@@ -14216,6 +14269,13 @@ react-sticky@^6.0.3:
   dependencies:
     prop-types "^15.5.8"
     raf "^3.3.0"
+
+react-themeable@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npm.taobao.org/react-themeable/download/react-themeable-1.1.0.tgz#7d4466dd9b2b5fa75058727825e9f152ba379a0e"
+  integrity sha1-fURm3ZsrX6dQWHJ4JenxUro3mg4=
+  dependencies:
+    object-assign "^3.0.0"
 
 react-transition-group@^4.3.0:
   version "4.3.0"
@@ -15413,6 +15473,11 @@ scroll-behavior@^0.9.10:
     dom-helpers "^3.2.1"
     invariant "^2.2.2"
 
+section-iterator@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/section-iterator/download/section-iterator-2.0.0.tgz#bf444d7afeeb94ad43c39ad2fb26151627ccba2a"
+  integrity sha1-v0RNev7rlK1Dw5rS+yYVFifMuio=
+
 section-matter@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/section-matter/-/section-matter-1.0.0.tgz#e9041953506780ec01d59f292a19c7b850b84167"
@@ -15586,6 +15651,11 @@ shallow-compare@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/shallow-compare/-/shallow-compare-1.2.2.tgz#fa4794627bf455a47c4f56881d8a6132d581ffdb"
   integrity sha512-LUMFi+RppPlrHzbqmFnINTrazo0lPNwhcgzuAXVVcfy/mqPDrQmHAyz5bvV0gDAuRFrk804V0HpQ6u9sZ0tBeg==
+
+shallow-equal@^1.0.0:
+  version "1.2.1"
+  resolved "https://registry.npm.taobao.org/shallow-equal/download/shallow-equal-1.2.1.tgz#4c16abfa56043aa20d050324efa68940b0da79da"
+  integrity sha1-TBar+lYEOqINBQMk76aJQLDaedo=
 
 shallowequal@^1.0.1, shallowequal@^1.1.0:
   version "1.1.0"
@@ -18076,6 +18146,11 @@ with-open-file@^0.1.6:
     p-try "^2.1.0"
     pify "^4.0.1"
 
+wolfy87-eventemitter@^5.2.5:
+  version "5.2.8"
+  resolved "https://registry.npm.taobao.org/wolfy87-eventemitter/download/wolfy87-eventemitter-5.2.8.tgz#fb7fff095cb972aa2a246b25e15b2764688c18a7"
+  integrity sha1-+3//CVy5cqoqJGsl4VsnZGiMGKc=
+
 word-wrap@~1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
@@ -18191,6 +18266,11 @@ ws@^7.1.2:
   integrity sha512-+SqNqFbwTm/0DC18KYzIsMTnEWpLwJsiasW/O17la4iDRRIO9uaHbvKiAS3AHgTiuuWerK/brj4O6MYZkei9xg==
   dependencies:
     async-limiter "^1.0.0"
+
+ws@^7.2.0:
+  version "7.2.1"
+  resolved "https://registry.npm.taobao.org/ws/download/ws-7.2.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fws%2Fdownload%2Fws-7.2.1.tgz#03ed52423cd744084b2cf42ed197c8b65a936b8e"
+  integrity sha1-A+1SQjzXRAhLLPQu0ZfItlqTa44=
 
 ws@~6.1.0:
   version "6.1.4"
