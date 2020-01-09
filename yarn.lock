@@ -2,24 +2,24 @@
 # yarn lockfile v1
 
 
-"@arcblock/did-connect@^0.58.0":
-  version "0.58.0"
-  resolved "https://registry.npm.taobao.org/@arcblock/did-connect/download/@arcblock/did-connect-0.58.0.tgz#787a38adf157155827e4de2df6dd9be3500880b5"
-  integrity sha1-eHo4rfFXFVgn5N4t9t2b41AIgLU=
+"@arcblock/did-connect@^0.59.0":
+  version "0.59.0"
+  resolved "https://registry.yarnpkg.com/@arcblock/did-connect/-/did-connect-0.59.0.tgz#af2fe15d0a2d0084f3ae1a553a767d32ee84ec33"
+  integrity sha512-DUuaPDEJVoY3DPkXKlHaIMAmzE9iZAj9w0/ZqpNryECikIwl/zSWmTa1HBRMGM53dk+cg0ueX4UPPo4X0qZQUg==
   dependencies:
-    "@arcblock/did-react" "^0.58.0"
-    "@arcblock/ux" "^0.58.0"
+    "@arcblock/did-react" "^0.59.0"
+    "@arcblock/ux" "^0.59.0"
     axios "^0.19.0"
     react-use "^13.8.0"
 
-"@arcblock/did-react@^0.58.0":
-  version "0.58.0"
-  resolved "https://registry.npm.taobao.org/@arcblock/did-react/download/@arcblock/did-react-0.58.0.tgz#dd783db66b241bde945a968a2aade0db31dec9fc"
-  integrity sha1-3Xg9tmskG96UWpaKKq3g2zHeyfw=
+"@arcblock/did-react@^0.59.0":
+  version "0.59.0"
+  resolved "https://registry.yarnpkg.com/@arcblock/did-react/-/did-react-0.59.0.tgz#987ad30b2e981886d8cc55e8a49f858e9fbfe5aa"
+  integrity sha512-3xzm9r6xaO++AX2xhz0PHErwkp6tSQ6nq3t4aW4Nx1zyKwkCRcCMrKFHUarisGxWUApsmLiYfnQEzCcHhGKv/Q==
   dependencies:
     "@arcblock/event-client" "^1.0.13"
-    "@arcblock/react-hooks" "^0.58.0"
-    "@arcblock/ux" "^0.58.0"
+    "@arcblock/react-hooks" "^0.59.0"
+    "@arcblock/ux" "^0.59.0"
     ismobilejs "^0.5.2"
     qrcode.react "^0.9.3"
     react-load-script "^0.0.6"
@@ -52,18 +52,18 @@
     remark-containers "^1.1.0"
     remark-generic-extensions "^1.4.0"
 
-"@arcblock/gatsby-theme-docs@^6.68.0":
-  version "6.68.0"
-  resolved "https://registry.npm.taobao.org/@arcblock/gatsby-theme-docs/download/@arcblock/gatsby-theme-docs-6.68.0.tgz#aeb504cb1592d22213a7ce9838c4bf657c9175ae"
-  integrity sha1-rrUEyxWS0iITp86YOMS/ZXyRda4=
+"@arcblock/gatsby-theme-docs@^6.69.0":
+  version "6.69.0"
+  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-theme-docs/-/gatsby-theme-docs-6.69.0.tgz#7a1242ed96ddf53a0d4c61e16b750a9ea709fb18"
+  integrity sha512-uQLJxqdjb1bsrN8Y4wzajlbgTC/H3ITulwJTWtvDyT+Myk4QAzjTf6Ur3Dz/8fRVA+GxDfeD2Y3PeILLsQ3XrQ==
   dependencies:
     "@arcblock/gatsby-awesome-pagination" "^0.3.4"
     "@arcblock/gatsby-remark-extensions" "^6.28.0"
     "@arcblock/gatsby-transformer-remark" "^6.28.0"
     "@arcblock/gatsby-transformer-terminal-recording" "^6.29.0"
     "@arcblock/remark-include" "^6.28.0"
-    "@arcblock/ux" "^0.58.0"
-    "@arcblock/www" "^6.68.0"
+    "@arcblock/ux" "^0.59.0"
+    "@arcblock/www" "^6.69.0"
     "@material-ui/core" "^4.6.1"
     "@material-ui/icons" "^4.5.1"
     "@mdx-js/mdx" "^1.1.0"
@@ -160,10 +160,10 @@
     lodash "^4.17.15"
     unist-util-select "^1.5.0"
 
-"@arcblock/react-hooks@^0.58.0":
-  version "0.58.0"
-  resolved "https://registry.npm.taobao.org/@arcblock/react-hooks/download/@arcblock/react-hooks-0.58.0.tgz#ca575332425ea528fc23b39c97853388b22b1c46"
-  integrity sha1-yldTMkJepSj8I7Ocl4UziLIrHEY=
+"@arcblock/react-hooks@^0.59.0":
+  version "0.59.0"
+  resolved "https://registry.yarnpkg.com/@arcblock/react-hooks/-/react-hooks-0.59.0.tgz#25583d87d8910244a16bbee1d16d937aaad2ba3f"
+  integrity sha512-fjbh/hlJVyM58pmBLGBEbezQXhPhl+2GUfzvBc/jezYgaZNvtoUq+ScYlFiDRm8DTVD+1B9ODmNqdt6UKvGddg==
   dependencies:
     event-target-shim "^5.0.1"
     qrcode.react "^0.9.3"
@@ -176,12 +176,12 @@
   dependencies:
     vfile "^2.0.0"
 
-"@arcblock/ux@^0.58.0":
-  version "0.58.0"
-  resolved "https://registry.npm.taobao.org/@arcblock/ux/download/@arcblock/ux-0.58.0.tgz#188e04c10882d229fa8de808f047e9d65b04e6d7"
-  integrity sha1-GI4EwQiC0in6jegI8Efp1lsE5tc=
+"@arcblock/ux@^0.59.0":
+  version "0.59.0"
+  resolved "https://registry.yarnpkg.com/@arcblock/ux/-/ux-0.59.0.tgz#e21b516743b1e9b607bb75ccfa8224064c974d17"
+  integrity sha512-AVP6Az8ymoT/2u040SDcP4T5l8+uCs46rnbIc4+wa7pl6EqEH2YruzOiQR23h/oqEr+SQU4ike64RcYxMsNV7Q==
   dependencies:
-    "@arcblock/react-hooks" "^0.58.0"
+    "@arcblock/react-hooks" "^0.59.0"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
     copy-to-clipboard "^3.2.0"
     d3-geo "^1.11.6"
@@ -201,13 +201,13 @@
     xterm-addon-fit "^0.2.1"
     xterm-addon-web-links "^0.2.1"
 
-"@arcblock/www@^6.68.0":
-  version "6.68.0"
-  resolved "https://registry.npm.taobao.org/@arcblock/www/download/@arcblock/www-6.68.0.tgz?cache=0&sync_timestamp=1578298439201&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40arcblock%2Fwww%2Fdownload%2F%40arcblock%2Fwww-6.68.0.tgz#30e1ec9299dd43bd356ca3e9e9b712af877a426d"
-  integrity sha1-MOHskpndQ701bKPp6bcSr4d6Qm0=
+"@arcblock/www@^6.69.0":
+  version "6.69.0"
+  resolved "https://registry.yarnpkg.com/@arcblock/www/-/www-6.69.0.tgz#6319c3d940d4578e67ab0ab95bfc3343678ed9d2"
+  integrity sha512-A9eL3aAFlS9c+krsl+V1AifUj09expdXEigyVBG428Hy9u3+jFftLH+kG6fyprX7TQsQ5udv7PQ/6UDfcoJrnQ==
   dependencies:
-    "@arcblock/did-connect" "^0.58.0"
-    "@arcblock/ux" "^0.58.0"
+    "@arcblock/did-connect" "^0.59.0"
+    "@arcblock/ux" "^0.59.0"
     "@material-ui/core" "^4.6.1"
     "@material-ui/icons" "^4.5.1"
     axios "^0.19.0"
