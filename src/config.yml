@@ -47,5 +47,10 @@ categories:
           - "/tools/dapps_workshop"
           - "/tools/simulator"
           - "/tools/forge_indexer"
+      Token Swap:
+        url: "/token_swap"
+        links:
+          - "/token_swap/deposit"
+          - "/token_swap/withdraw"
         locales:
-          zh: "工具箱"
+          zh: "换币服务"
