@@ -1,12 +1,12 @@
 ---
-title: "如何转入"
-description: "如何转入 ERC20 ABT 到原生 ABT"
-keywords: "token swap"
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
+title: '如何转入'
+description: '如何转入 ERC20 ABT 到原生 ABT'
+keywords: 'token swap'
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
 tags:
-  - "token swap"
+  - 'token swap'
 ---
 
 ## 如何转入
@@ -38,5 +38,3 @@ tags:
 ### 第四步，当你向转账地址转入 ERC20 ABT 之后，可以在转入历史记录中追踪转入状态
 
 ![](../imgs/deposit_history.png)
-
-

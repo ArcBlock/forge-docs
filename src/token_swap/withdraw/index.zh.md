@@ -1,12 +1,12 @@
 ---
-title: "如何转出"
-description: "如何转出原生 ABT 到 ERC20 ABT"
-keywords: "token swap"
-robots: "index,follow"
-category: "docs"
-layout: "documentation"
+title: '如何转出'
+description: '如何转出原生 ABT 到 ERC20 ABT'
+keywords: 'token swap'
+robots: 'index,follow'
+category: 'docs'
+layout: 'documentation'
 tags:
-  - "token swap"
+  - 'token swap'
 ---
 
 ## 如何转出
@@ -27,11 +27,11 @@ tags:
 
 ### 第三步，进入转出页面之后，按照下面的步骤完成一次转出操作
 
-  1. 输入收款地址
-  2. 输入转出数量
-  3. 确认无误之后，点击“提交申请”，生成转出二维码
-  4. 打开您的 ABT 钱包，扫描二维码，完成签名验证
-  5. 完成转出申请
+1. 输入收款地址
+2. 输入转出数量
+3. 确认无误之后，点击“提交申请”，生成转出二维码
+4. 打开您的 ABT 钱包，扫描二维码，完成签名验证
+5. 完成转出申请
 
 ![](../imgs/withdraw_action.png)
 
@@ -45,7 +45,6 @@ tags:
 
 ![](../imgs/use_whitelist.png)
 
-
 ### 第四步，扫码完成转出申请之后，在首页可以查看转出历史的进行状态
 
 ![](../imgs/withdraw_history.png)
@@ -57,7 +56,6 @@ tags:
 当用户有一个提出申请还在进行中的状态时，系统是不允许用户再进行新的转出申请的，此时进入转出页面会看到如下提示：
 
 ![](../imgs/withdraw_limit.png)
-
 
 ## 撤销转出
 
