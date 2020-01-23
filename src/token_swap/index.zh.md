@@ -106,3 +106,16 @@ ArcBlock 系统的主要设计目标是应用，因此处于 ABT 链上的通证
 
 这种情况应该会很少发生，如果遇到换币服务在升级，可能会出现短暂的换币历史为空，是因为前端页面拉不到数据，这时候不要惊慌，通常过几分钟就能恢复，所有的换币操作在以太坊和 ArcBlock 资产链上都有记录。
 
+## 如何查看链上交易？
+
+换币服务中跟原生币有关的交易全部都存储在 ArcBlock 资产链上，除了在 ABT 钱包里面查看之外，也可以到我们的资产链区块浏览器上查看：
+
+- 全球访问地址：[xenon.abtnetwork.io](https://xenon.abtnetwork.io/node/explorer/txs)
+- 大陆访问地址：[xenon.network.arcblockio.cn](https://xenon.network.arcblockio.cn/node/explorer/txs)
+
+## 换币服务的访问地址？
+
+- 全球访问地址：[swap.abtnetwork.io](https://swap.abtnetwork.io)
+- 大陆访问地址：[swap.arcblockio.cn](https://swap.arcblockio.cn)
+
+我们即将会在更多地，包括中国大陆部署换币服务的实例。
