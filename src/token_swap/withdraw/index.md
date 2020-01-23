@@ -13,27 +13,24 @@ tags:
 
 ![](../imgs/login_system.png)
 
-After login, a native ABT account will be generated in the ABT wallet, and this account card will always be the first of all cards.
+After login, a native ABT account will be generated in the ABT wallet, and this account will always be displayed on the top.
 
 ![](../imgs/native_abt_account.png)
-
-> **Please check the above steps at this step to ensure that the account on the chain has been successfully registered before proceeding to the next step, otherwise please contact our staff**
 
 ### 2. Open `ArcBlock->Ethereum` Page
 
 ![](../imgs/enter_withdraw.png)
 
-### 3. Fill the swap form
+### 3. Fill the form
 
 1.  Enter recipient address, must be valid ETH address, if you enter the wrong address, your token will be lost.
 2.  Enter the number of swapping
-3.  After confirming that it is correct, click "Submit" to generate the authentication QR code
+3.  Click "Submit" to generate the authentication QR code
 4.  Open your ABT wallet, scan the QR code, and complete the signature verification
-5.  Submit the swapping
 
 ![](../imgs/withdraw_action.png)
 
-The system provides the function of saving the white list, which is convenient for users to initiate a swapping next time:
+Token Swap supports saving recipient to the whitelist, which is convenient for users to initiate a swapping next time:
 
 3.1  Adding address to whitelist
 
@@ -43,19 +40,19 @@ The system provides the function of saving the white list, which is convenient f
 
 ![](../imgs/use_whitelist.png)
 
-### 4. Confirm the swapping and track it's progress
+### 4. Track swapping progress
 
 ![](../imgs/withdraw_history.png)
 
-Before the transfer is not confirmed by the system, if the user wants to cancel the transfer, follow the steps below to cancel the transfer:
-
 ### Swapping out limitations
 
-When the user has a swap-out in progress, the system does not allow the user to make a new transfer application. At this time, when entering the transfer page, you will see the following prompt:
+When the user has a swapping-out in progress, the system does not allow the user to make a new swapping out. You will see the following prompt:
 
 ![](../imgs/withdraw_limit.png)
 
 ## Revoke swapping
+
+Before the swapping is done, user can cancel it, here are the steps to cancel:
 
 ### 1. Open swapping detail page
 
