@@ -9,8 +9,6 @@ tags:
   - 'token swap'
 ---
 
-## 如何转入
-
 ### 第一步，使用钱包登录 `换币服务` 系统
 
 ![](../imgs/login_system.png)
