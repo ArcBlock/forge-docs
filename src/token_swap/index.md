@@ -20,68 +20,66 @@ Below we refer to the conversion of ERC20 to native currency as swap-in, and the
 
 ## Why do I need to swap tokens?
 
-It can be considered that ABT tokens can exist on the ABT asset chain or Ethereum chain, and can be transferred according to the needs of users.
+The main design goal of the ArcBlock system is the application, so they pass on the ABT chain is fully utilized in the application ecosystem of various ArcBlock platforms, and while Ethereum’s design is the same, it has not been easy to develop applications due to performance issues.
 
-The main design goal of the ArcBlock system is application, so the tokens on the ABT chain can be fully used in the application ecology of various ArcBlock platforms. Although the original meaning of Ethereum's design is also the same, it has not been easy to develop applications due to performance issues. .
+But Ethereum, as a popular public chain, has advantages in terms of asset security, universal access, and so on, so we have bridged (enabled interoperability) the two ecosystems through currency exchange services, giving developers and users maximum convenience and advantages.
 
-However, as a popular public chain, Ethereum has advantages in asset security and universal access. Therefore, we bridge the two ecosystems through Token Swaps to allow developers and users to obtain the greatest degree of convenience and advantages.
+## Is swapping to Native ABT more secure?  
 
-## Is my asset more secure by swapping to native ABT?
+If you used to use a decentralized wallet to save ERC20 ABT instead of being managed on an exchange, then the security of the native ABT is theoretically the same as the asset security of the ERC20.
 
-If you used to use a decentralized wallet to store ERC20 ABT instead of escrow on the swap, the asset security of native ABT and ERC20 asset security are theoretically the same. If you are just looking at asset security, we do n’t recommend you swap.
-
-## How to swap to native ABT?
+## How to swap your ERC tokens (Swap In) to native ABT tokens? 
 
 We have prepared step-by-step reference documents for you: [Transfer to operating instructions](./deposit)
 
-## How to swap out for ERC20 ABT?
+## How to swap out for ERC20 ABT tokens?
 
 We have prepared step-by-step reference documents for you: [Transfer out operating instructions](./withdraw)
 
-## How to swap in the given address is an Ethereum address? What happens if I transfer into ETH or other ERC20 assets?
+## How to swap using an Ethereum address? What happens if I transfer into ETH or other ERC20 assets?
 
-The given address is a normal Ethereum address. You can use Etherscan or other block browsers to check its status.
+The given address is a normal Ethereum address. You can use Etherscan or other block browsers to check  and verify its status.
 
 Keep in mind that this address is only used to accept ERC20 ABT for Token Swaps. Do not transfer ETH or other ERC20 assets. Any non-ABT asset transfer will have no effect and cannot be recovered.
 
 ## Why is there a time delay in swapping in?
 
-The swap operation is that the user transfers the ERC20 account to the account designated by the Token Swap. After the transaction is confirmed, the user will be given a corresponding number of native ABTs on the asset chain. Among them, the Token Swap waits for the transaction confirmation on Ethereum. It is time consuming, because the block production time of Ethereum is usually about 15 seconds, and the Token Swap needs to wait for 12 blocks to confirm to prevent a temporary fork in Ethereum, so there is usually a delay of several minutes for the swap operation. However, there may be longer delays when Ethereum is blocked and the network is busy.
+The swap operation is the user to transfer the ERC20 account to the account designated by the currency exchange service, and after the transaction is confirmed, the corresponding number of native ABT Tokens will be given to the user and are based on the asset chain.
 
-Do n’t worry about delays or network failures, you wo n’t lose your ABT. If Ethereum fails or is severely delayed, your sending transaction will not be successful and therefore your ABT will still be in the original place; if Ethereum is successfully sent, your transaction records will remain on Ethereum, even if the Token Swap appears during this period Failures or network problems will also generate corresponding conversion actions based on transaction records on Ethereum.
+When swapping, the currency exchange service waits for the transaction confirmation on Ethereum, which can be slow as the Ethereum’s network has a block time of around 15 seconds. The currency exchange service needs to wait for 12 Blocks to confirm that temporary forks are prevented from occurring in Ethereum, so there is usually a delay in the swap operation that can be as short as a few minutes, but longer depending on the size and available network capacity.
+
+Don’t worry about latency or network failures, your ABT won’t be lost. If Ethereum fails or is severely delayed, your send transaction will not succeed so your ABT will remain in place, and if Ethereum sends your transaction successfully it will remain on Ethereum even if the currency exchange service fails or network issues will generate a corresponding conversion action based on the transaction on Ethereum during this period.
 
 ## Why is there a delay in swapping out?
 
-After the swap is initiated, the Token Swap will perform a stricter verification. After the verification is passed, ERC20 ABT will be transferred to the user on Ethereum, and there is a delay in Ethereum (the same reason as above). These steps They are all time consuming.
+After logging in to the swap service, the currency exchange requires stringent verification. Our verification delay could be as long as 24 hours during the initial launch period of the swap service, and we will gradually reduce the delay in the future.
 
-During the grayscale release, our verification delay may be longer (up to 24 hours), and we will gradually improve the system's automatic risk control capabilities to gradually reduce this delay to a few minutes.
+Just as a reminder, don’t worry about latency or network failures, your ABT won’t be lost. During this period you can always cancel the currency exchange if necessary.
 
-Do n’t worry about delays or network failures, you wo n’t lose your ABT. During this period you can also cancel the swap if necessary.
-
-## Why swap out ( `ArcBlock → Ethereum`) Is there a handling fee?
+## Why is there a fee for swapping out  (`ArcBlock → Ethereum`)?
 
 The swap operation requires Ethereum ERC20's smart contract to transfer money to the Ethereum address specified by the user. The transaction requires gas consumption. Secondly, this design is to prevent service abuse attacks. We do not consider it necessary for users to swap in and out frequently.
 
-## What are the swap fee rules?
+## Are there any swap fees for Swapping Out?
 
-You need to bear the Ethereum handling fee when you swap, and the Token Swap will not generate any additional fees.
+Yes, there is an Ethereum handling fee when you swap, however the Token Swap itself will not generate any additional fees.
 
 The swap operation fee rules are as follows:
 
 - Charge commission at 0.1% of transfer amount
 - Charge a minimum of 1 ABT for a single transfer and a maximum of 100 ABT
 
-These fees belong to the ArcBlock Foundation and are used for the operating costs of the Token Swap. If the balance is generated, it will be used for ArcBlock application ecological rewards in the future. The ArcBlock Foundation reserves the right to adjust the proportion of this procedure at any time.
+These fees belong to the ArcBlock Foundation and are used for the operating costs of the swap service. The ArcBlock Foundation reserves the right to adjust the proportions of this procedure at any time.
 
 ## Could the swap out be rejected? why?
 
-In most cases, the swap will be processed as soon as possible, but the transaction that is determined to be suspicious by the service's security policy may be rejected. Users who are rejected to swap can cancel the swap themselves, and their assets are still stored in the asset chain. on.
+In the vast majority of cases, swaps are processed as quickly as possible, but transactions that are determined to not meet the predetermined criteria, or suspicious may be rejected, and users who are rejected can cancel their own swaps, and their assets are maintained on the asset chain.
 
 ## Can I cancel the swap operation?
 
-Before the swap-out request enters the formal processing flow, the user can choose to cancel it by himself. Most of the processing fee will be refunded when canceling. Of course, in order to protect the service from being abused, canceling the swap-out will charge a very small fee.
+Before the swap request is processed, the user can choose to cancel the action and the cancellation will also return the vast majority of the handling fee. It should be noted that in order to protect the swap service from abuse, there will be a fee for any cancellations.
 
-## Is there a limit for swaps?
+## Are there any swap limits?
 
 Since the swap operation is an ordinary Ethereum transfer operation, our system will not limit the amount.
 
@@ -89,22 +87,20 @@ We do not recommend swapping in more than the recommended amount, there will be 
 
 ## Why is there a limit for swapping out?
 
-Currently in the grayscale release period, this limit will gradually increase until a state that the user does not perceive.
-
-The security of user assets is the first in our design. When the Token Swap is initially launched, a clear single-day transfer limit will be set for the account. This single-day transfer limit will gradually be relaxed. The current limit strategy is:
+During the launch phase, we will implement limitations on swap activities and will increase those limits as needed in the future.
+User security is a priority, the swap service will use a one-day transfer limit for each account.
 
 ## What should I do if I encounter a problem? How do I get help?
 
-If you encounter problems in using the Token Swap, there are the following feedback channels:
+If you encounter any problems using the Token Swap Service you can reach our team directly by visiting: 
 
 - Feedback in the official community: [community.arcblockio.cn](https://community.arcblockio.cn)
-- Raising work orders in Token Swaps: users in mainland China may be slow to access
 
 Remember to post screenshots, transaction hashes, and other key information when you post a question.
 
 ## Why is my currency swap history empty?
 
-This situation should rarely happen. If the Token Swap is being upgraded, the short currency swap history may appear empty because the front-end page cannot pull data. Don't panic at this time, usually you can recover in a few minutes. All currency swap operations are recorded on the Ethereum and ArcBlock asset chains.
+If you encounter changes in the service or history it may be due to a system upgrade. During those times, there may be a short period when history may not be reflected. However, there is no need to panic if this occurs. The system will recover in a few minutes, and all currency change operations in Ethereum and ArcBlock asset chain are recorded.
 
 ## How do I view transactions on the chain?
 
@@ -118,4 +114,4 @@ All transactions related to native currency in the Token Swap are stored on the 
 - Global Website: [swap.abtnetwork.io](https://swap.abtnetwork.io)
 - China Mainland Website: [swap.arcblockio.cn](https://swap.arcblockio.cn)
 
-We are about to deploy more Token Swaps around the world.
+We will be deploying additional token swap locations in the near future. 
