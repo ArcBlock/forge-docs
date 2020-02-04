@@ -41,7 +41,7 @@ Forge 工具集：
 在 forge release 配置中，tendermint 的 RPC 运行在 28222 端口，p2p 运行在 26656 端口。tendermint 的 28222 端口并不对外暴露，仅仅由 Forge server 访问。Forge 和 tendermint 保持三个逻辑上的通道：
 
 - TSP（Tendermint Socket Protocol）：Forge 与 tendermint 在 TSP 端口建立 TCP 长连接，提供 ABCI 支持。其中：一个 TCP 连接串行处理 begin_block，deliver_tx，end_block，commit_block 等和 consensus 相关的消息，另外有一个连接池处理 mempool 相关的消息（主要是 check_tx）。
-- tendermint RPC：Forge 与 tendermint 建立若干个（可配置的连接池）http/2 长连接，提供 tendermint RPC 的封装（https://docs.tendermint.com/master/rpc/#/）。其中，主要处理的 RPC 是发送 tx（`/broadcast_tx_async`）。
+- tendermint RPC：Forge 与 tendermint 建立若干个（可配置的连接池）http/2 长连接，提供 tendermint RPC 的封装（https://docs.tendermint.com/master/rpc/#/ ）。其中，主要处理的 RPC 是发送 tx（`/broadcast_tx_async`）。
 - tendermint GRPC：Forge 与 tendermint 建立 GRPC 的长连接，提供 tendermint GRPC 封装。目前 tendermint 只提供了 `/broadcast_tx_commit` 的 GRPC 版本。所以当我们使用 `commit: true` 发送 tx 时，使用的是这个连接。注意：该接口返回时间取决于出块时间，建议只在 unit test / integration test 中使用。开发 dApps 除非必要，不要使用该接口。
 
 在 forge 启动时，会同时启动 tendermint。Forge 接管了 tendermint 的配置，每次启动时会根据自己的配置重新生成 tendermint 的配置，因而手工改动 tendermint 配置无法生效。Forge 使用 `erlexec` 监控 tendermint daemon，如果非正常退出，根据退出时的 exit code 会重启 tendermint 或者把 forge crash 掉。
