@@ -47,6 +47,13 @@ jobs:
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        GATSBY_ALGOLIA_ADMIN_KEY: ${{ secrets.GATSBY_ALGOLIA_ADMIN_KEY }}
+        GATSBY_ALGOLIA_APP_ID: ${{ secrets.GATSBY_ALGOLIA_APP_ID }}
+        GATSBY_ALGOLIA_INDEX_NAME: ${{ secrets.GATSBY_ALGOLIA_INDEX_NAME }}
+        GATSBY_ALGOLIA_SEARCH_KEY: ${{ secrets.GATSBY_ALGOLIA_SEARCH_KEY }}
+        GATSBY_DID_CONNECT_APP_DID: zNKioYRndr9NAMX1WbLHgXQ6pY9991gxg2JL
+        GATSBY_DID_CONNECT_SERVICE: https://did-connect.netlify.com/.netlify/functions/app
+        GATSBY_DID_CONNECT_SERVICE_ZH: https://connect.wallet.arcblockio.cn
       run: |
         npm install netlify-cli -g
         netlify deploy --prod public
