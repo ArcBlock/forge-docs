@@ -1,0 +1,54 @@
+name: Netlify deployment
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+
+    - name: Setup Node.js for use with actions
+      uses: actions/setup-node@v1.1.0
+      with:
+        # Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0, lts
+        version: lts # optional, default is 10.x
+        # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN
+        registry-url: https://registry.npmjs.org # optional
+        # Optional scope for authenticating against scoped registries
+        # scope: # optional
+
+    - name: NPM or Yarn install with caching
+      uses: bahmutov/npm-install@v1.1.0
+         
+    - name: Cache public folder
+      uses: actions/cache@v1.1.0
+      with:
+        path: public
+
+    - name: Cache public folder
+      uses: actions/cache@v1.1.0
+      with:
+        path: .cache
+
+    - name: Build gatsby sites
+      run: DEBUG=@arcblock/* npm run build
+
+    - name: Deploy to Netlify
+      # NETLIFY_AUTH_TOKEN added in the repo's secrets
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: |
+        npm install netlify-cli -g
+        netlify deploy --prod public
+        
+    
