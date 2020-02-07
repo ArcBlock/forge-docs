@@ -167,8 +167,41 @@ update:
 - extract_signer：从 tx.signatures 里找到 signer 的 state，并放在 info 中。
 - extract_state：根据 pipe 的配置，从 tx 中拿到相应的 address，然后读取对应的 state 放在 info 中。
 - extract_tx：从 itx 中的 itx hash 获取对应的 tx receipt，放在 info 中。
-- final：
+- final：deprecated
+- forward：deprecated
+- get_config：根据 tx 的配置读取 forge state 中的配置信息
+- reset_halted：临时将 halted 标志取消。用于 final_pipeline。
+- update_delegation_state：更新 delegation state 里的统计信息，为 delegation rule 而用。
+- update_gas_balance：更新 sender 的 gas。
+- update_owner：更新 asset 的 owner。
+- update_receipt_db：更新 receipt db。
+- update_state：更新 account state。（并未使用，且没有实现）
+- update_tx_statistics：更新 statistics。
+- verify_account_migration：检查 sender 和 multisig signer 地址是否与 state 中的地址一致（如果一个 address migrate 后，之前的 sk 不能用来签名，但这个 address 依旧可以作为接收方）
+- verify_balance：检查对应的 state 中是否有足够的 balance 来处理当前 tx。
+- verify_blacklist：检查 sender 是否在 blacklist 中（目前未使用）。
+- verify_date：检查 itx 中的日期是否与 block 时间一致。
+- verify_delegaion：检查 tx 的 sender 或者 multisig signer 有正确的 delegation 信息（要么没有做 delegate，如果做了 delegate，那么 delegate state 是正确的）
+- verify_expiration：检查 tx 是否已经过期。
+- verify_gas_balance：检查 sender 有足够的 gas 来执行这个 tx。
+- verify_info：检查 tx pipeline 中提供的表达式是否为真，不为真就返回错误代码。
+- verify_itx_size：检查 itx 大小，防止 DoS。
+- verify_locktime：检查 itx 的 locktime 是否满足。
+- verify_moderator：检查 sender 是否为 moderator。
+- verify_modifiable：检查 asset 是否可以修改。
+- verify_multisig：检查 multisig 签名是否合法。
+- verify_owner：检查在 tx 中的 asset 确实为 sender 所有。
+- verify_protocol_state：检查当前的 tx 对应的 protocol 是否是使能的状态，如果不是，则返回错误。
+- verify_receiver：检查 receiver 是否在 blacklist 中（目前未使用）。
+- verify_replay：检查当前的 tx 是否是一个已经存在的 tx（anti-replay）。
+- verify_sender：检查当前 sender tx 是否存在（如果是 declare，sender state 必须不存在）
+- verify_signature：检查 signature 是否正确。
+- verify_signer：对于那些提供 multisig 的 tx，检查第一个 signer 是否是 receiver。
+- verify_timestamp：检查 locktime 是否合法（与 verify_locktime 重复，目前未使用）
+- verify_transferrable：检查一个 asset 是否被标记成可以 transfer。
+- verify_tx_size：检查 tx 大小是否合法（防止 DoS）。
+- verify_tx：确保 tx 的基本字段正确。
 
 ## 注意事项
 
-如果在 `ForgePipe.Info` 里面添加新的域，记得要在合适的地方将其初始化（比如：forge abci server 里）。如果尚未初始化就在后续的 pipeline 里使用，会导致 tx 出错。
+ 无。
