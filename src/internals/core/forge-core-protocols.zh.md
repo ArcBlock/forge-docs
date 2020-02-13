@@ -111,3 +111,58 @@ message AccountMigrateTx {
 在 `UpdateTx` 中，新的 wallet 的对应的 state 会被创建。并且原先 wallet 的 state 会通过 `migrate_to` 指向新的 state。
 
 图
+
+### declare
+
+创建一个钱包的链上 state。
+
+```proto
+message DeclareTx {
+  string moniker = 1;
+  string issuer = 2;
+
+  // forge won't update data into state if app is interested in this tx.
+  google.protobuf.Any data = 15;
+}
+```
+
+declare 可以被配置为 restricted 和 non-restricted 模式。在 restricted 模式下，declare 需要 multisign，愿意为 sender 出钱 declare 的用户可以 multisign 这个 tx。
+
+### delegate
+
+delegate 允许一个钱包向另一个钱包授予可以代表自己签字的权限。这个签字权可以细分到每个 type_url，并且支持一系列的规则。
+
+```proto
+message DelegateTx {
+  string address = 1; // address of the delegation between sender and receiver
+  string to = 2;      // delegatee's address
+  repeated DelegateOp ops = 3; // a list of operations permitted
+
+  google.protobuf.Any data = 15;
+}
+
+// if rules are empty, signature for this type_url is entirely delegated
+// otherwise rules are checked one by one, relationship between rules is AND.
+// a rule is an expression defined in rule_parser
+// (github.com/arcblock/rule-parser) one can setup
+message DelegateOp {
+  string type_url = 1;
+  repeated string rules = 2;
+}
+```
+
+一旦 delegate 关系建立起来，在 forge state 里会
+
+## revoke_delegage
+
+revoke 已有的 delegation。
+
+```proto
+message RevokeDelegateTx {
+  string address = 1; // address of the delegation between sender and receiver
+  string to = 2;      // delegatee's address
+  repeated string type_urls = 3;
+
+  google.protobuf.Any data = 15;
+}
+```
