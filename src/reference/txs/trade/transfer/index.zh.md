@@ -39,7 +39,7 @@ ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "alice"), wallet: w)
 
 w1 = ForgeSdk.create_wallet()
 
-ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "bob"), wallet: w)
+ForgeSdk.declare(ForgeAbi.DeclareTx.new(moniker: "bob"), wallet: w1)
 
 # transfer to bob's address
 
