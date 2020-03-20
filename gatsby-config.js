@@ -12,6 +12,8 @@ module.exports = {
       resolve: require.resolve('@arcblock/gatsby-theme-docs'),
       options: {
         version: `v${version}`,
+        official: true,
+        disableI18n: false,
         sourceDirs: [path.resolve(__dirname, 'src')],
         siteMetadata: {
           title: 'Documentation',
