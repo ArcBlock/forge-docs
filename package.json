@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@arcblock/gatsby-theme-docs": "^6.69.0",
+    "@arcblock/gatsby-theme-docs": "^7.8.0",
     "dotenv": "^8.0.0",
     "gatsby": "2.18.22",
     "prettier": "^1.13.7",
