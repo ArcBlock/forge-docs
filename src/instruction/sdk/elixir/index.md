@@ -169,7 +169,7 @@ Let's try to help Bob create a laptop asset with the **CreateAssetTx**. The `dat
 
 ```elixir
 asset_data = Google.Protobuf.Any.new(type_url: "laotop", value: "brand new")
-hash = ForgeSdk.create_asset(ForgeAbi.CreateAssetTx.new(data: asset_data), wallet: w2)
+hash = ForgeSdk.create_asset(ForgeAbi.CreateAssetTx.new(data: asset_data,  transferrable: true), wallet: w2)
 asset_address = ForgeSdk.get_address(hash)
 ```
 
