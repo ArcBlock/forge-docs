@@ -6,8 +6,7 @@ robots: 'index,follow'
 category: 'docs'
 layout: 'documentation'
 tags:
-  - 'core'
-  - 'tx_protocol'
+  - 'forge'
 ---
 
 # 欢迎来到 ArcBlock 文档
