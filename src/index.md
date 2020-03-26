@@ -6,8 +6,7 @@ robots: 'index,follow'
 category: 'docs'
 layout: 'documentation'
 tags:
-  - 'core'
-  - 'tx_protocol'
+  - 'forge'
 ---
 
 # Welcome to Forge Documentation

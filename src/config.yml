@@ -54,3 +54,9 @@ categories:
           - "/token_swap/withdraw"
         locales:
           zh: "换币服务"
+      ABT Wallet:
+        url: "/abt_wallet"
+        links:
+          - "/abt_wallet/webview"
+        locales:
+          zh: "ABT 钱包"
