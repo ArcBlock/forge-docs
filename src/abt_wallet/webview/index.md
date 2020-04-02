@@ -1,56 +1,56 @@
 ---
-title: 'ABT 钱包的 Webview 支持'
-description: '如何让你的 dApp 在钱包 Webview 里面更加流畅'
+title: Webview support for ABT wallet
+description: How to make your dApp smoother in Wallet Webview
 keywords: ''
 robots: 'index,follow'
-category: 'docs'
-layout: 'documentation'
+category: docs
+layout: documentation
 tags:
-  - 'wallet'
-  - 'webview'
+  - wallet
+  - webview
 ---
 
 <style>table {display:table}</style>
 
-## 为什么要支持 Webview？
+## Why support Webview?
 
-在最初的 [ABT 钱包](https://abtwallet.io)产品设计中，为了钱包内数据的安全，我们直接砍掉了在钱包里面支持 Webview 的想法，让钱包只是个纯粹的 DID 管理工具，毕竟 ABT 钱包的用户会在里面存储数字资产，不管是通证还是 NFT。
+In the initial [ABT wallet](https://abtwallet.io) product design, for the security of the data in the wallet, we directly cut off the idea of supporting Webview in the wallet, so that the wallet is just a pure DID management tool. After all, users of ABT wallets will store digital assets in it, regardless of tokens. Still NFT.
 
-钱包支持 [DID Auth 协议](https://github.com/ArcBlock/abt-did-spec)之后，所有基于 ArcBlock 技术开发的应用都会以二维码作为入口发起多种类型的交互，完成应用和用户之间的点对点通信，比如请求用户提供 Profile、请求用户签名转账交易、签名互换交易等。
+With [DID Auth protocol](https://github.com/ArcBlock/abt-did-spec) support all applications developed based on ArcBlock technology will use the QR code as an entrance to initiate multiple types of interactions to complete point-to-point communication between the application and the user, such as requesting the user to provide a profile, requesting the user to sign a transfer transaction, and signing swap transactions.
 
-随着钱包的迭代，我们在开发各种小应用的过程中愈发觉得手机操作系统的安全限制：比如从手机浏览器调起 ABT 钱包并完成授权操作之后可能会回调到另外 1 个浏览器（见[这里](https://community.arcblockio.cn/t/topic/54)和[这里](https://github.com/ArcBlock/forge-js/issues/436)），这些安全限制所带来的的钱包用户体验问题如鲠在喉，不除不快。
+With the iteration of the wallet, we are more and more aware of the security restrictions of the mobile phone operating system during the development of various small applications: for example, when the ABT wallet is called from the mobile browser and the authorization operation is completed, it may be called back to another browser ( see [Here](https://community.arcblockio.cn/t/topic/54)with [Here](https://github.com/ArcBlock/forge-js/issues/436)), The wallet user experience problems brought about by these security restrictions just likes lingering in the throat, we cannot live with it.
 
-从长期角度，用户体验决定了生态的发展，这个问题必须解决掉。做了仔细的讨论和调研之后，我们发现在现在的环境下支持钱包内的 WebView 是利远大于弊的：
+In the long run, user experience determines the development of the ecology, and this problem must be solved. After careful discussion and research, we found that in the current environment, supporting WebView in the wallet has more advantages than disadvantages:
 
-- Webview 已经是比较成熟的技术，经历过几次注明的安全事件之后，手机操作系统已经做了很多改进，我们可以站在巨人的肩上
-- Webview 最大的安全隐患可能存在 JS 注入到原生应用里面的代码，这个在 ABT 钱包里面是不允许和不支持的，原因见下条
-- Webview 里面用户触发的和原生钱包的交互（称为 DID-Auth 会话）实际上是应用和钱包之间的点对点通信，有非对称加密技术来保障安全，会话结果直接提到应用后端，也保障了应用的安全
+- Webview is a relatively mature technology. After several security incidents, the mobile phone operating system has made many improvements. We can stand on the shoulders of giants.
+- The biggest security risk of Webview may be the code injected into the native application by JS. This is not allowed and not supported in the ABT wallet.
+- In Webview, the user-triggered interaction with the native wallet (called a DID-Auth session) is actually a point-to-point communication between the application and the wallet. There is asymmetric encryption technology to ensure security. The session result is directly referred to the application backend, which also guarantees Application security
 
-## Webview 会带来哪些改变？
+## What changes will Webview bring?
 
-ABT 钱包支持 Webview 之后有哪些改变呢？
+What's changed since ABT wallet supports Webview?
 
-- 首先，ABT 钱包的扫码功能可以直接打开网址，如果网址恰巧是 dApp，交互过一次之后就会被钱包记录下来
-- 其次，ABT 钱包交互过的应用都被会记录下来，下次可以直接在钱包的 Webview 里面打开，让用户的搜索路径更短
-- 最后，任何使用 ArcBlock 技术开发的 dApp 如果想在钱包里面打开，可以通过钱包支持的 Deep Link 以直接在钱包内打开该应用，以提供最流畅的体验
+- First of all, the code scanning function of the ABT wallet can directly open the URL. If the URL happens to be a dApp, it will be remembered by the wallet after one interaction.
+- Secondly, all applications that have been interacted with the ABT wallet will be remembered. The next time they can be opened directly in the wallet's application list, making the user's search path shorter.
+- Finally, any dApp developed using ArcBlock technology, if you want to open it in the wallet, you can open the application directly in the wallet through Deep Link supported by the wallet to provide the smoothest experience
 
-如果你想体验这几种场景，可以扫描下面两个二维码，扫码前需要把 ABT 钱包升级到 v2.5（需要升级的可以猛击[钱包全球站](https://abtwallet.io)或[钱包中国站](https://demo.wallet.arcblockio.cn)）：
+If you want to experience these scenarios, you can scan the following two QR codes. You need to upgrade the ABT wallet to v2.5 before scanning. [Wallet Global Station](https://abtwallet.io)or [Wallet China](https://demo.wallet.arcblockio.cn)）：
 
-| 打开普通网址             | 直接打开应用                 |
+| Open regular URL         | Open the app directly        |
 | ------------------------ | ---------------------------- |
 | ![](./images/wallet.png) | ![](./images/playground.png) |
 
-可能有同学会问：**ABT 钱包的 Webview 有什么特别之处？**其实除了上面说的安全限制外，它就是个标准的内嵌了现代浏览器内核的 Webview，对 HTML5 和 CSS3 都有很不错的支持。
+Some classmates may ask:**What's so special about ABT Wallet's Webview?**In fact, in addition to the security restrictions mentioned above, it is a standard Webview with a modern browser kernel embedded, and has very good support for HTML5 and CSS3.
 
-## 如何让 dApp 支持 Webview？
+## How to make dApp support Webview?
 
-如果你不是开发者，到这里可以关闭这篇文章了。
+If you are not a developer, you can close this article now.
 
-接下来我们介绍下怎么做才能让你的应用在钱包 Webview 里面的体验更好。
+Next, we will introduce how to make your application experience in the wallet Webview better.
 
-### 使用 Blocklet
+### Use Blocklet
 
-这种方式适合于创建全新的项目，我们已经更新了所有的 Starter Blocklet，使用这些 Blocklet 创建的应用已经对 ABT 钱包做了很好的适配，比如自动登录、基本的响应式布局等等，并且内置了基本的会话管理、用户管理、支付案例，使用 Blocklet 的步骤也非常简单：
+This method is suitable for creating brand-new projects. We have updated all Starter Blocklets. The applications created using these Blocklets have adapted the ABT wallet well, such as automatic login, basic responsive layout, and so on. Built-in basic session management, user management, payment cases, and the steps to use Blocklet are very simple:
 
 ```shell
 npm install -g @arcblock/forge-cli
@@ -58,20 +58,20 @@ forge blocklet:use forge-react-starter
 ```
 
 ::: warning
-如果你还没有使用过 Forge CLI（ArcBlock 打造的 dApp 开发的瑞士军刀），请猛击[这里](/handbook/1-introduction/install-forge-cli)。
+If you haven't used the Forge CLI (Swiss Army Knife developed by ArcBlock for dApps), please smash [Here](/handbook/1-introduction/install-forge-cli)。
 :::
 
-目前发布的 Javascript Blocklet 前端都是用 [React.js](https://reactjs.org/) 编写，后端使用了 [Express.js](http://expressjs.com/)，你可以根据自己的偏好和实际需求选择如下几个 Blocklet：
+The currently released Javascript Blocklet front-ends use [React.js](https://reactjs.org/) Writing, backend used [Express.js](http://expressjs.com/)You can choose the following blocklets according to your preferences and actual needs:
 
-- [forge-react-starter](https://blocklet.arcblockio.cn/starter/forge-react-starter)，把我们的 Forge SDK 集成到了 [create-react-app](https://github.com/facebook/create-react-app) 而成，非常适合入门
-- [forge-next-starter](https://blocklet.arcblockio.cn/starter/forge-next-starter)，把我们的 Forge SDK 集成到了 [next.js](https://nextjs.org/) 而成，适合需要服务端渲染的同学
-- [forge-keystone-starter](https://blocklet.arcblockio.cn/starter/forge-keystone-starter)，把我们的 Forge SDK 集成到了 [next.js](https://nextjs.org/) 和 [keystone.js](https://www.keystonejs.com/) 而成，适合需要服务端渲染和管理后台的场景
+- [forge-react-starter](https://blocklet.arcblockio.cn/starter/forge-react-starter)To integrate our Forge SDK into [create-react-app](https://github.com/facebook/create-react-app) Made, perfect for getting started
+- [forge-next-starter](https://blocklet.arcblockio.cn/starter/forge-next-starter)To integrate our Forge SDK into [next.js](https://nextjs.org/) Made for students who need server rendering
+- [forge-keystone-starter](https://blocklet.arcblockio.cn/starter/forge-keystone-starter)To integrate our Forge SDK into [next.js](https://nextjs.org/) with [keystone.js](https://www.keystonejs.com/) Made, suitable for scenarios that require server-side rendering and management background
 
-### 集成响应式布局
+### Integrated responsive layout
 
-如果你已经有在运行中的应用需要适配 ABT 钱包的 Webview，首先需要考虑的是响应式布局，响应式布局能让任何 WebApp 在不同大小的屏幕尺寸上伸缩自如，我们把内部的响应式布局做了封装，可以按如下步骤使用：
+If you already have a running application that needs to adapt to the WebView of the ABT wallet, the first thing to consider is the responsive layout. Responsive layout allows any WebApp to flexibly scale on different screen sizes. We put the internal responsive layout After encapsulation, you can use it as follows:
 
-首先，安装依赖：
+First, install the dependencies:
 
 ```shell
 yarn add @arcblock/ux
@@ -79,7 +79,7 @@ yarn add @arcblock/ux
 # npm install @arcblock/ux -S
 ```
 
-然后，在 WebApp 的布局组件里面使用 `Layout` 组件：
+Then, use it in the layout component of the WebApp `Layout` Components:
 
 ```javascript
 import React from 'react';
@@ -93,7 +93,10 @@ export default function Layout({ title, children }) {
   ];
 
   if (env.chainHost) {
-    links.push({ url: getExplorerUrl(env.chainHost, 'local'), title: 'Local Chain' });
+    links.push({
+      url: getExplorerUrl(env.chainHost, 'local'),
+      title: 'Local Chain',
+    });
   }
 
   return (
@@ -109,21 +112,21 @@ Layout.propTypes = {
 };
 ```
 
-这个响应式布局在 PC 端渲染出来的样子如下图：
+This responsive layout looks like this on the PC:
 
 ![](./images/layout-pc.png)
 
-在移动端的样子如下图：
+It looks like this on the mobile end:
 
-| 菜单折叠样式                  | 菜单打开样式                  |
+| Menu collapse style           | Menu open style               |
 | ----------------------------- | ----------------------------- |
 | ![](./images/layout-h5-1.png) | ![](./images/layout-h5-2.png) |
 
-### 组件的条件渲染
+### Conditional rendering of components
 
-某些场景下，可能某些页面元素只需要在钱包 Webview 里面才显示或者隐藏，这个时候需要检查 User Agent，但是我们也做了拆箱即用的封装
+In some scenarios, some page elements may only be displayed or hidden in the wallet Webview. At this time, the User Agent needs to be checked, but we have also done out-of-the-box packaging.
 
-首先，安装依赖：
+First, install the dependencies:
 
 ```shell
 yarn add @arcblock/react-hooks
@@ -131,7 +134,7 @@ yarn add @arcblock/react-hooks
 # npm install @arcblock/react-hooks -S
 ```
 
-然后，在 WebApp 的页面里面使用 `useBrowser` Hook：
+Then, use it in the WebApp page `useBrowser` Hook：
 
 ```javascript
 import React from 'react';
@@ -149,11 +152,11 @@ export default function MyComponent() {
 }
 ```
 
-### 自动调起登录
+### Automatically DID Login
 
-用户打开应用的时候，如果需要自动登录，可以这么做：
+When the user opens the application, if they need to log in automatically, they can do this:
 
-首先，安装依赖：
+First, install the dependencies:
 
 ```shell
 yarn add @arcblock/did-react @arcblock/react-hooks
@@ -161,7 +164,7 @@ yarn add @arcblock/did-react @arcblock/react-hooks
 # npm install @arcblock/did-react @arcblock/react-hooks -S
 ```
 
-然后，在 WebApp 的登录页面里面使用 `useBrowser` Hook 和 `DidAuth` 组件，更完整的代码可以参见 [forge-react-starter](https://github.com/ArcBlock/forge-dapp-starters/tree/master/packages/forge-react-starter/templates)：
+Then, in the login page of the WebApp, use `useBrowser` Hook 和 `DidAuth` Component, for more complete code see [forge-react-starter](https://github.com/ArcBlock/forge-dapp-starters/tree/master/packages/forge-react-starter/templates)：
 
 ```javascript
 import React, { useState, useEffect } from 'react';
@@ -207,24 +210,24 @@ export function Login({ onLogin, loading }) {
 
 ## FAQ
 
-下面是如何让你的 dApp 在开发环境下的跑在 ABT Wallet 中的几个可能帮到你的建议：
+Here are some suggestions on how to get your dApp to run in ABT Wallet in the development environment:
 
-### 用 Chrome 开发者工具模拟钱包？
+### Use Chrome Developer Tools to simulate a wallet?
 
-参考[这里](https://developers.google.com/web/updates/2015/07/add-a-new-custom-device-as-a-preset)的教程为你的 Chrome 浏览器添加几个自定义设备，新设备的 User Agent 字符串可以设定如下：
+reference [Here](https://developers.google.com/web/updates/2015/07/add-a-new-custom-device-as-a-preset)The tutorial adds a few custom devices to your Chrome browser. The User Agent string for the new device can be set as follows:
 
-- ABT Wallet 安卓版: `Mozilla/5.0 (Linux; Android 9; MIX 2 Build/PKQ1.190118.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/80.0.3987.99 Mobile Safari/537.36 ABTWallet/2.5.0`
-- ABT Wallet iOS 版: `Mozilla/5.0 (iPhone; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3 ABTWallet/2.3.24`
+- ABT Wallet for Android: `Mozilla/5.0 (Linux; Android 9; MIX 2 Build/PKQ1.190118.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/80.0.3987.99 Mobile Safari/537.36 ABTWallet/2.5.0`
+- ABT Wallet for iOS: `Mozilla/5.0 (iPhone; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3 ABTWallet/2.3.24`
 
-这样打开调试工具之后就能看到你的 dApp 在 ABT 钱包 Webview 时的表现。
+In this way, after opening the debugging tool, you can see how your dApp behaves in ABT Wallet Webview.
 
-### 用钱包直接打开开发环境的 dApp？
+### Use the wallet to directly open the dApp of the development environment?
 
-需要具备两个条件：
+Two conditions are required:
 
-- 在 Chrome 上安装[这个插件](https://chrome.google.com/webstore/detail/quick-qr-code-generator/afpbjjgbdimpioenaedcjgkaigggcdpp)，一键把当前地址栏的网址转化为二维码
-- 确保你的钱包和电脑在同一个网络里面，不然钱包是无法打开开发环境的 dApp
+- Install on Chrome [This plugin](https://chrome.google.com/webstore/detail/quick-qr-code-generator/afpbjjgbdimpioenaedcjgkaigggcdpp), One-click to convert the URL of the current address bar into a QR code
+- Make sure your wallet and computer are in the same network, otherwise the wallet cannot open the dApp of the development environment
 
-### 遇到问题？
+### Encounter problems?
 
-如果遇到其他问题，请到[开发者社区](https://community.arcblockio.cn)求助，或者到 [GitHub 仓库](https://github.com/ArcBlock/forge-dapp-starters)给我们提 Issue。
+If you encounter other problems, please go to [Developer community](https://community.arcblockio.cn)For help, or to [GitHub repository](https://github.com/ArcBlock/forge-dapp-starters)Give us an issue.
