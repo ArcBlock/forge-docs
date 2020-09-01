@@ -15,9 +15,6 @@ This chapter gives a high level overview of the SDK. If you want to understand t
 Quick Access to all languages of SDK supported:
 
 - [JavaScript SDK](./javascript)
-- [Java SDK](./java)
-- [Python SDK](./python)
-- [Elixir SDK](./elixir)
 
 ## Overview of Forge SDK
 

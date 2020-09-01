@@ -34,17 +34,12 @@ categories:
         url: "/instruction/sdk"
         links:
           - "/instruction/sdk/js"
-          - "/instruction/sdk/java"
-          - "/instruction/sdk/python"
-          - "/instruction/sdk/elixir"
         locales:
           zh: "Forge SDK"
       Forge Tools:
         url: "/tools"
         links:
           - "/tools/forge_web"
-          - "/tools/abt_chain_node"
-          - "/tools/dapps_workshop"
           - "/tools/simulator"
           - "/tools/forge_indexer"
       Token Swap:

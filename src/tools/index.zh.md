@@ -11,7 +11,5 @@ tags:
 ---
 
 - [Forge WEB](./forge_web)
-- [ABT Chain Node](./abt_chain_node)
-- [dApps Workshop](./dapps_workshop)
 - [Simulator](./simulator)
 - [Forge Indexer](./forge_indexer)
