@@ -10,7 +10,7 @@ tags:
   - "index"
 ---
 
-目前我们提供支持多种语言，包括 Javascript/Node.js、Python、Java、Elixir/Erlang 等的 SDK。我们会继续发展 SDK，以支持更多语言。如果您对为您最喜欢的语言构建 SDK，请告诉我们，以便我们的团队迅速为您提供帮助。
+目前我们提供支持 Javascript SDK。我们会继续发展 SDK，以支持更多语言。如果您对为您最喜欢的语言构建 SDK，请告诉我们，以便我们的团队迅速为您提供帮助。
 
 - [JavaScript SDK](./javascript)
 
