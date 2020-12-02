@@ -1,3 +1,6 @@
+## 1.1.5 (December 02, 2020)
+  - fix edit on github
+
 ## 1.1.4 (December 02, 2020)
 
 
