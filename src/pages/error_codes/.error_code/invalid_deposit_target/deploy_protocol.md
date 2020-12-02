@@ -1,1 +1,0 @@
-The target of this deposit is invalid.

@@ -1,0 +1,1 @@
+This wallet is invalid.

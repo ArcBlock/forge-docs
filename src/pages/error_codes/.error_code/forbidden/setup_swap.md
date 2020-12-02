@@ -1,1 +1,0 @@
-Operation is not permitted with current authorization.

@@ -1,1 +1,0 @@
-The tether is duplicated.
