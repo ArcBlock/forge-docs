@@ -1,0 +1,67 @@
+{
+  "name": "forge-docs",
+  "description": "Forge framework Documentation",
+  "version": "1.1.3",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arcblock/forge-docs.git"
+  },
+  "keywords": [
+    "arcblock",
+    "blockchain",
+    "middleware"
+  ],
+  "author": "ArcBlock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arcblock/forge-docs/issues"
+  },
+  "homepage": "https://arcblock.io/docs/",
+  "scripts": {
+    "clean": "rm -rf public .cache .blocklet",
+    "lint:json": "prettier \"**/*.json\" --write",
+    "lint:md": "prettier \"**/*.md\" --write && remark . && textlint \"md/**\"",
+    "lint": "yarn lint:json && yarn lint:md",
+    "start": "gatsby develop",
+    "build": "NODE_ENV=production GATSBY_APP_DOMAIN=docs.arcblock.io gatsby build",
+    "build:gatsby": "gatsby build --prefix-paths && rm public/*.map",
+    "build:dir": "mv public public_tmp && mkdir public && mv public_tmp public/docs",
+    "bundle": "npm run clean && npm run build:gatsby && npm run build:dir && abtnode bundle --create-release",
+    "deploy": "npm run bundle && abtnode deploy .blocklet/bundle --skip-hooks",
+    "serve": "gatsby serve",
+    "commit": "standard-commit",
+    "release": "standard-version"
+  },
+  "dependencies": {
+    "@arcblock/gatsby-i18n-redirect": "^7.31.1",
+    "@arcblock/gatsby-theme-docs": "^7.33.0",
+    "dotenv": "^8.2.0",
+    "gatsby": "2.27.1",
+    "prettier": "^1.13.7",
+    "remark-cli": "^5.0.0",
+    "remark-lint-no-dead-urls": "^0.3.0",
+    "remark-lint-write-good": "^1.0.3",
+    "remark-preset-lint-recommended": "^3.0.2",
+    "textlint": "^10.2.1",
+    "textlint-rule-stop-words": "^1.0.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.1.2",
+    "@commitlint/config-conventional": "^7.1.2",
+    "standard-commit": "^0.6.0",
+    "standard-version": "^4.4.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-lint-no-dead-urls",
+      "remark-lint-write-good",
+      "remark-preset-lint-recommended"
+    ]
+  }
+}
