@@ -5,7 +5,7 @@ title: 'Dummy Markdown Post'
 description: 'Dummy Markdown Post'
 keywords: 'dummy, post'
 robots: 'index,follow'
-category: Docs | Tutorials | Video
+category: '' | Tutorials | Video
 layout: 'documentation'
 tags:
   - Tools
@@ -58,7 +58,7 @@ const processFile = (folder, file) => {
       `description: '${description}'`,
       `keywords: ''`,
       `robots: 'index,follow'`,
-      `category: 'docs'`,
+      `category: ''`,
       `layout: 'documentation'`,
       `tags: \n  - '${tag1}'\n  - '${tag2}'`,
       '---',

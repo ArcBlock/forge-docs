@@ -1,0 +1,34 @@
+name: forge-docs
+description: Forge framework Documentation
+version: 0.25.2
+main: public
+repository:
+  type: git
+  url: 'git+https://github.com/arcblock/forge-docs.git'
+keywords:
+  - arcblock
+  - blockchain
+  - middleware
+author:
+  name: ArcBlock
+license: ISC
+homepage: 'https://arcblock.io/docs/'
+title: Forge Docs
+group: static
+did: z8iZmDHDzEMA85xVHByoHnw1fVnYfd1RoN8yK
+community: 'https://gitter.im/ArcBlock/community'
+documentation: 'https://docs.arcblock.io'
+timeout:
+  start: 10
+interfaces:
+  - type: web
+    name: publicUrl
+    path: /
+    prefix: /docs
+    port: BLOCKLET_PORT
+    protocol: tcp
+environments: []
+screenshots: []
+specVersion: 1.0.2
+scripts: {}
+gitHash: 4bc89a00146db4e1ef8e6ad03c5f9bc1fe4d09ed

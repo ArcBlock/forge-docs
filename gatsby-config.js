@@ -2,8 +2,10 @@ require('dotenv').config();
 
 const path = require('path');
 const { version } = require('./package.json');
+const pathPrefix = '/docs/';
 
 module.exports = {
+  pathPrefix,
   plugins: [
     {
       resolve: require.resolve('@arcblock/www'),
@@ -14,7 +16,8 @@ module.exports = {
         version: `v${version}`,
         official: true,
         disableI18n: false,
-        sourceDirs: [path.resolve(__dirname, 'src')],
+        showGetStarted: true,
+        sourceDirs: [path.resolve(__dirname, 'src', 'pages')],
         siteMetadata: {
           title: 'Documentation',
           description: 'Forge SDK Documentation',
@@ -22,7 +25,7 @@ module.exports = {
           sidebarWidth: 320,
         },
         algoliaSearch: {
-          enabled: process.env.NODE_ENV === 'production',
+          enabled: false,
           appId: process.env.GATSBY_ALGOLIA_APP_ID,
           adminKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
           searchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
@@ -30,6 +33,15 @@ module.exports = {
         },
         navItems: [],
         extraPlugins: [],
+      },
+    },
+    {
+      resolve: require.resolve('@arcblock/gatsby-i18n-redirect'),
+      options: {
+        languages: ['en', 'zh'],
+        cookieName: 'nf_lang',
+        pathPrefix,
+        pathSuffix: '/',
       },
     },
   ],

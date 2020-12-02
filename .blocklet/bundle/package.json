@@ -1,0 +1,18 @@
+{
+  "name": "forge-docs",
+  "version": "0.25.2",
+  "description": "Forge framework Documentation",
+  "keywords": [
+    "arcblock",
+    "blockchain",
+    "middleware"
+  ],
+  "author": "ArcBlock",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arcblock/forge-docs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arcblock/forge-docs/issues"
+  }
+}

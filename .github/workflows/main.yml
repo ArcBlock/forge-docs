@@ -1,63 +1,37 @@
-name: Netlify deployment
+name: Npm deployment
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
 
 jobs:
-  build:
+  Deploy:
 
     runs-on: ubuntu-latest
 
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip ci]')"
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
 
-    - name: Setup Node.js for use with actions
-      uses: actions/setup-node@v1.1.0
-      with:
-        # Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0, lts
-        version: 10.16.3 # optional, default is 10.x
-        # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN
-        # registry-url: https://registry.npmjs.org # optional
-        # Optional scope for authenticating against scoped registries
-        # scope: # optional
+    - name: Checkout repo
+      uses: actions/checkout@v2
 
-    - name: NPM or Yarn install with caching
-      uses: bahmutov/npm-install@v1.1.0
-         
-    - name: Cache public folder
-      uses: actions/cache@v1.1.0
-      with:
-        path: public
-        key: netlify-build-result
-
-    - name: Cache public folder
-      uses: actions/cache@v1.1.0
-      with:
-        path: .cache
-        key: netlify-build-cache
-
-    - name: Build gatsby sites
+    - name: Deploy
       env:
-        GATSBY_ALGOLIA_ADMIN_KEY: ${{ secrets.GATSBY_ALGOLIA_ADMIN_KEY }}
+        AWS_NODE_ENDPOINT: ${{ secrets.AWS_NODE_ENDPOINT }}
+        AWS_NODE_ACCESS_KEY: ${{ secrets.AWS_NODE_ACCESS_KEY }}
+        AWS_NODE_ACCESS_SECRET: ${{ secrets.AWS_NODE_ACCESS_SECRET }}
+        ALIYUN_NODE_ENDPOINT: ${{ secrets.ALIYUN_NODE_ENDPOINT }}
+        ALIYUN_NODE_ACCESS_SECRET: ${{ secrets.ALIYUN_NODE_ACCESS_SECRET }}
+        ALIYUN_NODE_ACCESS_KEY: ${{ secrets.ALIYUN_NODE_ACCESS_KEY }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GIT_HUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
         GATSBY_ALGOLIA_APP_ID: ${{ secrets.GATSBY_ALGOLIA_APP_ID }}
-        GATSBY_ALGOLIA_INDEX_NAME: ${{ secrets.GATSBY_ALGOLIA_INDEX_NAME }}
+        GATSBY_ALGOLIA_ADMIN_KEY: ${{ secrets.GATSBY_ALGOLIA_ADMIN_KEY }}
         GATSBY_ALGOLIA_SEARCH_KEY: ${{ secrets.GATSBY_ALGOLIA_SEARCH_KEY }}
-        GATSBY_DID_CONNECT_APP_DID: zNKioYRndr9NAMX1WbLHgXQ6pY9991gxg2JL
-        GATSBY_DID_CONNECT_SERVICE: https://did-connect.netlify.com/.netlify/functions/app
-        GATSBY_DID_CONNECT_SERVICE_ZH: https://connect.wallet.arcblockio.cn
-      run: npm run build
-      
-    - name: Deploy to Netlify
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      run: |
-        npm install netlify-cli -g
-        netlify deploy --prod --dir=public
-        
-    
+        GATSBY_ALGOLIA_INDEX_NAME: ${{ secrets.GATSBY_ALGOLIA_INDEX_NAME }}
+
+      run: bash ./tools/publish.sh
