@@ -20,8 +20,6 @@ clean:
 
 deploy:
 	@echo "Building and publishing the documenation..."
-	@gem install travis -v 1.8.9
-	@.makefiles/trigger_main_build.sh
 
 run:
 	@yarn start

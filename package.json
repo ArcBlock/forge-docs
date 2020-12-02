@@ -1,8 +1,9 @@
 {
   "dependencies": {
-    "@arcblock/gatsby-theme-docs": "^7.11.2",
-    "dotenv": "^8.0.0",
-    "gatsby": "2.20.3",
+    "@arcblock/gatsby-i18n-redirect": "^7.31.1",
+    "@arcblock/gatsby-theme-docs": "^7.33.0",
+    "dotenv": "^8.2.0",
+    "gatsby": "2.27.1",
     "prettier": "^1.13.7",
     "remark-cli": "^5.0.0",
     "remark-lint-no-dead-urls": "^0.3.0",
@@ -12,11 +13,16 @@
     "textlint-rule-stop-words": "^1.0.3"
   },
   "scripts": {
+    "clean": "rm -rf public .cache .blocklet",
     "lint:json": "prettier \"**/*.json\" --write",
     "lint:md": "prettier \"**/*.md\" --write && remark . && textlint \"md/**\"",
     "lint": "yarn lint:json && yarn lint:md",
     "start": "gatsby develop",
     "build": "NODE_ENV=production GATSBY_APP_DOMAIN=docs.arcblock.io gatsby build",
+    "build:gatsby": "gatsby build --prefix-paths && rm public/*.map",
+    "build:dir": "mv public public_tmp && mkdir public && mv public_tmp public/docs",
+    "bundle": "npm run clean && npm run build:gatsby && npm run build:dir && abtnode bundle --create-release",
+    "deploy": "npm run bundle && abtnode deploy .blocklet/bundle --skip-hooks",
     "serve": "gatsby serve",
     "commit": "standard-commit",
     "release": "standard-version"
