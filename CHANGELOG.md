@@ -1,3 +1,6 @@
+## 1.1.6 (December 02, 2020)
+  - remove blocklet folder
+
 ## 1.1.5 (December 02, 2020)
   - fix edit on github
 
