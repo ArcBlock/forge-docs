@@ -1,0 +1,1 @@
+This asset is readonly and therefore can not be modified.

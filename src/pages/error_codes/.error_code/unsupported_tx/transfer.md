@@ -1,1 +1,0 @@
-This transaction contains type_urls that are not registered on the chain.

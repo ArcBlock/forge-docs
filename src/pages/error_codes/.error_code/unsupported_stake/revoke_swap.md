@@ -1,1 +1,0 @@
-This stake is not supported.

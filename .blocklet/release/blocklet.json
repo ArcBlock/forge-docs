@@ -1,6 +1,6 @@
 {
   "name": "forge-docs",
-  "version": "0.25.2",
+  "version": "1.1.4",
   "description": "Forge framework Documentation",
   "keywords": [
     "arcblock",
@@ -30,7 +30,7 @@
       "type": "web",
       "name": "publicUrl",
       "path": "/",
-      "prefix": "/docs",
+      "prefix": "/forge",
       "port": "BLOCKLET_PORT",
       "protocol": "tcp"
     }
@@ -39,7 +39,7 @@
   "screenshots": [],
   "specVersion": "1.0.2",
   "scripts": {},
-  "gitHash": "4bc89a00146db4e1ef8e6ad03c5f9bc1fe4d09ed",
+  "gitHash": "9ae52969baa7a5cce31c9b1fcf253f460f5b25ae",
   "path": "/static/forge-docs",
   "charging": {
     "price": 0
@@ -48,8 +48,8 @@
     "dynamicPathPrefix": true
   },
   "dist": {
-    "tarball": "forge-docs-0.25.2.tgz",
-    "integrity": "sha512-syEdNJi8VE0/NYlZATqbVnaTqw9vs1/Wkvk62m8dI61U1TxZTbERXnYLfVc4wM9hbswN+mmiVcU+7RrtzPpQkw==",
-    "shasum": "286c44f8b143a4aeb8dcc0f950308a816ed649c6"
+    "tarball": "forge-docs-1.1.4.tgz",
+    "integrity": "sha512-gfcjozblWyurXX9PP1+WW47uYFl0/p38aI34Mw6medRVy3k9TcHQZQh0veW+ABVijwFMZsrjF7/yybngRyvBQw==",
+    "shasum": "c9718ff8e527c52c352c2780d1adcb2321ff6e2c"
   }
 }

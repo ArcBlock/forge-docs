@@ -1,1 +1,0 @@
-The required stake state is invalid.

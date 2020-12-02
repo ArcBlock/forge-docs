@@ -1,1 +1,0 @@
-The amount exceeds the deposit cap.

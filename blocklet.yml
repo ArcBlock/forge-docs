@@ -24,7 +24,7 @@ interfaces:
   - type: web
     name: publicUrl
     path: /
-    prefix: /docs
+    prefix: /forge
     port: BLOCKLET_PORT
     protocol: tcp
 environments: []

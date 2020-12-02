@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const path = require('path');
 const { version } = require('./package.json');
-const pathPrefix = '/docs/';
+const pathPrefix = '/forge/';
 
 module.exports = {
   pathPrefix,
@@ -17,11 +17,11 @@ module.exports = {
         official: true,
         disableI18n: false,
         showGetStarted: true,
-        sourceDirs: [path.resolve(__dirname, 'src', 'pages')],
+        sourceDirs: [path.resolve(__dirname, 'src')],
         siteMetadata: {
           title: 'Documentation',
           description: 'Forge SDK Documentation',
-          logoUrl: '/docs/intro',
+          logoUrl: '/forge/intro',
           sidebarWidth: 320,
         },
         algoliaSearch: {

@@ -1,1 +1,0 @@
-This multisig is invalid.

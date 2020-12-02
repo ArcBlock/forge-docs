@@ -1,1 +1,0 @@
-This account has migrated to a new one.

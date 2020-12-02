@@ -1,1 +1,0 @@
-The require stake amount should be more than minimum stake.

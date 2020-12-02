@@ -1,1 +1,0 @@
-Internal error occurred - mainly a server implementation issue.

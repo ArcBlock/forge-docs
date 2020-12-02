@@ -1,1 +1,0 @@
-This asset has already been consumed before.
