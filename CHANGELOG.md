@@ -1,3 +1,6 @@
+## 1.1.7 (December 03, 2020)
+  - udpate gatsby extension lib
+
 ## 1.1.6 (December 02, 2020)
   - remove blocklet folder
 
