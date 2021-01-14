@@ -27,8 +27,8 @@
     "build": "NODE_ENV=production GATSBY_APP_DOMAIN=docs.arcblock.io gatsby build",
     "build:gatsby": "gatsby build --prefix-paths && rm public/*.map",
     "build:dir": "mv public public_tmp && mkdir public && mv public_tmp public/forge",
-    "bundle": "npm run clean && npm run build:gatsby && npm run build:dir && abtnode bundle --create-release",
-    "deploy": "npm run bundle && abtnode deploy .blocklet/bundle --skip-hooks",
+    "bundle": "npm run clean && npm run build:gatsby && npm run build:dir && blocklet bundle --create-release",
+    "deploy": "npm run bundle && blocklet deploy .blocklet/bundle --skip-hooks",
     "serve": "gatsby serve",
     "commit": "standard-commit",
     "release": "standard-version"
