@@ -1,3 +1,6 @@
+## 1.1.9 (January 14, 2021)
+  - fix: extract version error
+
 ## 1.1.8 (January 14, 2021)
   - replace abtnode command with blocklet command
 
