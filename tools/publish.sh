@@ -1,7 +1,6 @@
 set -e
 
 VERSION=$(cat version | awk '{$1=$1;print}')
-echo "publish version ${VERSION}"
 
 yarn
 
@@ -14,7 +13,7 @@ npm run bundle
 # deploy to remote ABT Node
 set +e
 NAME=$(cat package.json | grep name |  awk '{print $2}' | sed 's/"//g' | sed 's/,//g')
-VERSION=$(cat package.json | grep version |  awk '{print $2}' | sed 's/"//g' | sed 's/,//g')
+
 if [ "${ALIYUN_NODE_ENDPOINT}" != "" ]; then
   blocklet deploy .blocklet/bundle --endpoint ${ALIYUN_NODE_ENDPOINT} --access-key ${ALIYUN_NODE_ACCESS_KEY} --access-secret ${ALIYUN_NODE_ACCESS_SECRET} --skip-hooks
   if [ $? == 0 ]; then
