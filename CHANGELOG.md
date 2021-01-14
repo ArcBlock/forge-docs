@@ -1,3 +1,6 @@
+## 1.1.8 (January 14, 2021)
+  - replace abtnode command with blocklet command
+
 ## 1.1.7 (December 03, 2020)
   - udpate gatsby extension lib
 
