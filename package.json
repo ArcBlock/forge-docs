@@ -1,7 +1,7 @@
 {
   "name": "forge-docs",
   "description": "Forge framework Documentation",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@arcblock/gatsby-i18n-redirect": "^7.33.1",
-    "@arcblock/gatsby-theme-docs": "^7.33.2",
+    "@arcblock/gatsby-theme-docs": "^7.33.9",
     "dotenv": "^8.2.0",
     "gatsby": "2.27.1",
     "prettier": "^1.13.7",

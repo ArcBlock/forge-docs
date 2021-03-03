@@ -1,3 +1,6 @@
+## 1.1.10 (March 03, 2021)
+  - add search
+
 ## 1.1.9 (January 14, 2021)
   - fix: extract version error
 
