@@ -2,26 +2,26 @@
 # yarn lockfile v1
 
 
-"@arcblock/did-connect@^0.78.19":
-  version "0.78.19"
-  resolved "https://registry.yarnpkg.com/@arcblock/did-connect/-/did-connect-0.78.19.tgz#bac72e0e2fdd4a0fa48c40f7235b6d6459ec5071"
-  integrity sha512-XiuWlp2h+oWWKEsRDV7ryDi5pr6Y5XiKBl7sBmsygRHTgzGc2YBsxVu6HNa/Qse1MYg9+IHPpa/m9vAgpGlrCw==
+"@arcblock/did-connect@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@arcblock/did-connect/-/did-connect-1.11.3.tgz#3fb3fd2494315a5f1d5ed3170d66d9a8c6f298f4"
+  integrity sha512-4Vhpt/uw7Qzyq91JJERDz+OyPWfJ8V1UMfy+P+DWTbv0HfJm8RpHPISWyQ2Q+UI32Bz2qZ/L2TF4iPz1KqrTxw==
   dependencies:
-    "@arcblock/did-react" "^0.78.19"
-    "@arcblock/ux" "^0.78.19"
+    "@arcblock/did-react" "^1.11.3"
+    "@arcblock/ux" "^1.11.3"
     "@material-ui/core" "^4.10.1"
     core-js "^3.6.4"
     react-use "^13.22.4"
     styled-components "^5.0.0"
 
-"@arcblock/did-playground@^1.9.1":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@arcblock/did-playground/-/did-playground-1.9.1.tgz#5f56a41c73b3698f6a38256d3b57f94345bd1b1c"
-  integrity sha512-PhIwa9otcG/tmSpW0sYVzdRdwjtf7TE4ySv6DnFTVntd7MjxKdXqbA7+Uok+Ztz+mngkZWbFM39wey3yOOhEew==
+"@arcblock/did-playground@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@arcblock/did-playground/-/did-playground-1.11.3.tgz#94bedb42570ce6fb55c354e915d2fd573275e48d"
+  integrity sha512-0sFe9KDVdVLh1ZxiJ4JL+YiPNywssh5vhl2qvn+lrpyld/BsMWGpZHxYpaEOvlM5Xn8mX+5DpBb6tHCs9fPLlw==
   dependencies:
-    "@arcblock/did-react" "^0.78.14"
-    "@arcblock/react-hooks" "^0.78.0"
-    "@arcblock/ux" "^0.78.14"
+    "@arcblock/did-react" "^1.11.3"
+    "@arcblock/react-hooks" "^1.11.3"
+    "@arcblock/ux" "^1.11.3"
     "@material-ui/core" "^4.11.0"
     axios "^0.19.2"
     core-js "^3.6.4"
@@ -29,18 +29,19 @@
     react-use "^13.27.0"
     styled-components "^5.0.1"
 
-"@arcblock/did-react@^0.78.14", "@arcblock/did-react@^0.78.19":
-  version "0.78.19"
-  resolved "https://registry.yarnpkg.com/@arcblock/did-react/-/did-react-0.78.19.tgz#1ef7c2ce6a829cbae8d71d2cf8248e9d04367751"
-  integrity sha512-6KPAS9qfcrdhCCHtIxz0Ej6XatqAclyKRA6CsPS7tJnrGXd5MThxUHrCD1kqws1T7WnRAWfzS608IyB1Y078rA==
+"@arcblock/did-react@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@arcblock/did-react/-/did-react-1.11.3.tgz#9bbf4910033cb29668a0fd0d204ad39a033ecf36"
+  integrity sha512-H+nJEAwBH7cCO0RM0eTlbbwRMUxzXFxoquQlSR9xqFOyAaDCX+AkJy6Ony6KQPu+0qWsXrbzQN2g80m25uCuwQ==
   dependencies:
     "@arcblock/event-client" "^1.0.23"
-    "@arcblock/react-hooks" "^0.78.19"
-    "@arcblock/ux" "^0.78.19"
+    "@arcblock/react-hooks" "^1.11.3"
+    "@arcblock/ux" "^1.11.3"
     "@material-ui/core" "^4.10.1"
     axios "^0.19.2"
     core-js "^3.6.4"
     dsbridge "3.1.4"
+    js-cookie "^2.2.1"
     qrcode.react "^1.0.0"
     react-load-script "^0.0.6"
     react-use "^13.22.4"
@@ -82,10 +83,10 @@
     remark-containers "^1.1.0"
     remark-generic-extensions "^1.4.0"
 
-"@arcblock/gatsby-theme-docs@^7.33.2":
-  version "7.33.2"
-  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-theme-docs/-/gatsby-theme-docs-7.33.2.tgz#803ae678bb43dd0ca60b25431980ea4ea478dd54"
-  integrity sha512-RH7wZ/V02LIj3/gcxXSggNIBaeVXe9xzLZ5ncAcIR3OmrXrFUpfaKf1/LL6wkM1EOnAq9eNHKlXLtAdU+wgJlw==
+"@arcblock/gatsby-theme-docs@^7.33.9":
+  version "7.33.9"
+  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-theme-docs/-/gatsby-theme-docs-7.33.9.tgz#8bc151ed5364912300c06b9b11fca76410fc45fb"
+  integrity sha512-x36nRsTDw4F4hi24bWqORRdiEVt1VAp4xkZOpUcB1hmxLd0cdoqYZtX8I5P4QYiIvmMBy+ziJrNTTe1HSGMbbg==
   dependencies:
     "@arcblock/gatsby-awesome-pagination" "^0.3.4"
     "@arcblock/gatsby-remark-extensions" "^7.27.0"
@@ -93,8 +94,8 @@
     "@arcblock/gatsby-transformer-slide-track" "^7.33.1"
     "@arcblock/gatsby-transformer-terminal-recording" "^7.33.1"
     "@arcblock/remark-include" "^7.27.0"
-    "@arcblock/ux" "^0.78.19"
-    "@arcblock/www" "^7.33.1"
+    "@arcblock/ux" "^1.11.3"
+    "@arcblock/www" "^7.33.9"
     "@material-ui/core" "^4.10.2"
     "@material-ui/icons" "4.5.1"
     "@svgr/webpack" "^4.1.0"
@@ -200,10 +201,10 @@
     lodash "^4.17.15"
     unist-util-select "^1.5.0"
 
-"@arcblock/react-hooks@^0.78.0", "@arcblock/react-hooks@^0.78.19":
-  version "0.78.19"
-  resolved "https://registry.yarnpkg.com/@arcblock/react-hooks/-/react-hooks-0.78.19.tgz#b4d1c3746c62a524a8b00954959aa5fef9f5a305"
-  integrity sha512-ydey9o4ua6b6eCFvRmo+cFs/mqADyukPNNoMD6cZ/NEQ7cVQuXjz1/RZSH3O+IfInHsEp3Yiy7DxyDf1Kpk8Ng==
+"@arcblock/react-hooks@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@arcblock/react-hooks/-/react-hooks-1.11.3.tgz#b2b48688f55cb89ba765227f5306b0f4669afed1"
+  integrity sha512-gKBXJu7zhwLOs6f31V3twY2vAHzC4wlpc/zR/2/6/9LQRgEcYc6feVVEU8XeQA0Tg2b6rrATDPPrSbPeuajtjA==
   dependencies:
     core-js "^3.6.4"
     event-target-shim "^5.0.1"
@@ -217,12 +218,12 @@
     debug "^4.1.1"
     vfile "^2.0.0"
 
-"@arcblock/ux@^0.78.14", "@arcblock/ux@^0.78.19":
-  version "0.78.19"
-  resolved "https://registry.yarnpkg.com/@arcblock/ux/-/ux-0.78.19.tgz#0239c3f1719001c3606a3e2b3e9db9e0230fb6c7"
-  integrity sha512-Fr+vEQrHaI3A8FHC5IeFk5ldjn7P0SJkVXr+TsW3/A95/RfMEKHEdEtRr6fLWrWA/14W9d60FzARj+m5s4vsAQ==
+"@arcblock/ux@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@arcblock/ux/-/ux-1.11.3.tgz#9b33c3b36516ca9e2c0e065c32da5084b78137ed"
+  integrity sha512-o0aekP86H6kwOvAR57oTQdSpXlbTGBGk7LR8nHE+3IGJC6Wl42nSGsx92UhmpGd4DEv232z4u0yXE9bzlP0Uvw==
   dependencies:
-    "@arcblock/react-hooks" "^0.78.19"
+    "@arcblock/react-hooks" "^1.11.3"
     "@babel/plugin-syntax-dynamic-import" "^7.8.3"
     "@material-ui/core" "^4.10.1"
     "@material-ui/icons" "4.5.1"
@@ -252,14 +253,14 @@
     xterm-addon-fit "^0.2.1"
     xterm-addon-web-links "^0.2.1"
 
-"@arcblock/www@^7.33.1":
-  version "7.33.1"
-  resolved "https://registry.yarnpkg.com/@arcblock/www/-/www-7.33.1.tgz#f34fa21cdbbbdacef395ca87dd26b1c34e71573c"
-  integrity sha512-BnGFAtpNvWKHp2VZT9SlrKxNVjhfBZax5obk/5ZWNclIg91dJS8eOLWdnXSFrxYMZHknbnrvXfkC3xOtNE0/Nw==
+"@arcblock/www@^7.33.9":
+  version "7.33.9"
+  resolved "https://registry.yarnpkg.com/@arcblock/www/-/www-7.33.9.tgz#cfa8ca8c1b2e465a5ce7473b6c1106b8f7c5be0e"
+  integrity sha512-uVUBAX3+ZOgg6Fx1hzttW94pyKIchZgCeHSZfb05Gj8YGKCvnH9HxJj0KF7nTfbTNkxtfJ80Bhsxv+2K131ZCQ==
   dependencies:
-    "@arcblock/did-connect" "^0.78.19"
-    "@arcblock/did-playground" "^1.9.1"
-    "@arcblock/ux" "^0.78.19"
+    "@arcblock/did-connect" "^1.11.3"
+    "@arcblock/did-playground" "^1.11.3"
+    "@arcblock/ux" "^1.11.3"
     "@material-ui/core" "^4.10.2"
     "@material-ui/icons" "4.5.1"
     "@stripe/stripe-js" "^1.10.0"
