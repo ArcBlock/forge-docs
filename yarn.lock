@@ -2,43 +2,43 @@
 # yarn lockfile v1
 
 
-"@arcblock/did-connect@^1.11.3":
-  version "1.11.3"
-  resolved "https://registry.yarnpkg.com/@arcblock/did-connect/-/did-connect-1.11.3.tgz#3fb3fd2494315a5f1d5ed3170d66d9a8c6f298f4"
-  integrity sha512-4Vhpt/uw7Qzyq91JJERDz+OyPWfJ8V1UMfy+P+DWTbv0HfJm8RpHPISWyQ2Q+UI32Bz2qZ/L2TF4iPz1KqrTxw==
+"@arcblock/did-connect@^1.12.5":
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/@arcblock/did-connect/-/did-connect-1.12.5.tgz#2ccb9aa4522d3aff269269a72b4c213b4334aad6"
+  integrity sha512-6BOKNeHy64vrg2EndzoUE5mF+NNDU6dw4C3aDf2OcL6VpD4oTX+rDR13IjL1SKm6vumvYcYvEsA07ktubFkFkw==
   dependencies:
-    "@arcblock/did-react" "^1.11.3"
-    "@arcblock/ux" "^1.11.3"
+    "@arcblock/did-react" "^1.12.5"
+    "@arcblock/ux" "^1.12.5"
     "@material-ui/core" "^4.10.1"
     core-js "^3.6.4"
     react-use "^13.22.4"
     styled-components "^5.0.0"
 
-"@arcblock/did-playground@^1.11.3":
-  version "1.11.3"
-  resolved "https://registry.yarnpkg.com/@arcblock/did-playground/-/did-playground-1.11.3.tgz#94bedb42570ce6fb55c354e915d2fd573275e48d"
-  integrity sha512-0sFe9KDVdVLh1ZxiJ4JL+YiPNywssh5vhl2qvn+lrpyld/BsMWGpZHxYpaEOvlM5Xn8mX+5DpBb6tHCs9fPLlw==
+"@arcblock/did-playground@^1.12.5":
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/@arcblock/did-playground/-/did-playground-1.12.5.tgz#9877ffd44a678cc4773161e87c162e40bf6d4b40"
+  integrity sha512-j5GMxV6hd7LlL7UN2rW1tOPgMPGEZX1LQdU69fDmwXG/L8Rs/jLfo0y4GaG5CjQ25ZHfUqMGv4jmk83ja7fh6A==
   dependencies:
-    "@arcblock/did-react" "^1.11.3"
-    "@arcblock/react-hooks" "^1.11.3"
-    "@arcblock/ux" "^1.11.3"
+    "@arcblock/did-react" "^1.12.5"
+    "@arcblock/react-hooks" "^1.12.5"
+    "@arcblock/ux" "^1.12.5"
     "@material-ui/core" "^4.11.0"
-    axios "^0.19.2"
+    axios "^0.21.1"
     core-js "^3.6.4"
     mustache "^4.0.0"
     react-use "^13.27.0"
     styled-components "^5.0.1"
 
-"@arcblock/did-react@^1.11.3":
-  version "1.11.3"
-  resolved "https://registry.yarnpkg.com/@arcblock/did-react/-/did-react-1.11.3.tgz#9bbf4910033cb29668a0fd0d204ad39a033ecf36"
-  integrity sha512-H+nJEAwBH7cCO0RM0eTlbbwRMUxzXFxoquQlSR9xqFOyAaDCX+AkJy6Ony6KQPu+0qWsXrbzQN2g80m25uCuwQ==
+"@arcblock/did-react@^1.12.5":
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/@arcblock/did-react/-/did-react-1.12.5.tgz#43ad0f997036d32d901fb6ff84f83b3181d0de2e"
+  integrity sha512-avdcFjgh7YlEyRMm/imRbR6LJcTQ6EheNMRRiVKf+pgRWV/sRQeTtE3s+2JkW6zFz2bx/NQQR2OB6IZuDrIPkQ==
   dependencies:
     "@arcblock/event-client" "^1.0.23"
-    "@arcblock/react-hooks" "^1.11.3"
-    "@arcblock/ux" "^1.11.3"
+    "@arcblock/react-hooks" "^1.12.5"
+    "@arcblock/ux" "^1.12.5"
     "@material-ui/core" "^4.10.1"
-    axios "^0.19.2"
+    axios "^0.21.1"
     core-js "^3.6.4"
     dsbridge "3.1.4"
     js-cookie "^2.2.1"
@@ -70,32 +70,32 @@
   resolved "https://registry.yarnpkg.com/@arcblock/gatsby-i18n-redirect/-/gatsby-i18n-redirect-7.33.1.tgz#d6d3386ce41faa9a780c605f02c99e6137564797"
   integrity sha512-n0k6GZ28NvQHzvRRyU2D/CyfT1/930EK8tXpQt1rhLExsvPoB/4xBa9GXTikelzvUWP3v0D8FFTsJ2tHIj3GWQ==
 
-"@arcblock/gatsby-remark-extensions@^7.27.0":
-  version "7.27.0"
-  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-remark-extensions/-/gatsby-remark-extensions-7.27.0.tgz#1d18f798a1b4837876f00edd5f644df68b397065"
-  integrity sha512-vvBjrIwPgZgivQtSf+6EItHXET6qnudkZhpjOAPBJ056No1Y/5elGigb2imHcMEgZPH5qANBV6xRIQcJ2IZelA==
+"@arcblock/gatsby-remark-extensions@^7.34.0":
+  version "7.34.0"
+  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-remark-extensions/-/gatsby-remark-extensions-7.34.0.tgz#bb620c04b6e2ab7362bdc130077cf07dc163ba3b"
+  integrity sha512-wwabReywCV82/+61DZEZc2UP8jJeAILI3oyX6kX87M8WzaJC563/kUFweFI68wYThm3lyYQH6+eQ8zJzM8TXMA==
   dependencies:
     "@arcblock/remark-include" "^7.27.0"
     debug "^4.1.1"
-    lodash "^4.17.11"
+    lodash "^4.17.21"
     remark "10.0.1"
     remark-attr "0.8.0"
     remark-containers "^1.1.0"
     remark-generic-extensions "^1.4.0"
 
-"@arcblock/gatsby-theme-docs@^7.33.9":
-  version "7.33.9"
-  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-theme-docs/-/gatsby-theme-docs-7.33.9.tgz#8bc151ed5364912300c06b9b11fca76410fc45fb"
-  integrity sha512-x36nRsTDw4F4hi24bWqORRdiEVt1VAp4xkZOpUcB1hmxLd0cdoqYZtX8I5P4QYiIvmMBy+ziJrNTTe1HSGMbbg==
+"@arcblock/gatsby-theme-docs@^7.34.4":
+  version "7.34.4"
+  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-theme-docs/-/gatsby-theme-docs-7.34.4.tgz#094db875817753e2f18b82160aec24676808395a"
+  integrity sha512-ltk7uBIbww/nDfbJ03G/DEnA1AmlxLclgW3eGd9UYW1oFRJjzFeHkNdCbp2Heo3Xs0TeAkOQ4p8TJOidTiyYgA==
   dependencies:
     "@arcblock/gatsby-awesome-pagination" "^0.3.4"
-    "@arcblock/gatsby-remark-extensions" "^7.27.0"
-    "@arcblock/gatsby-transformer-remark" "^7.33.1"
-    "@arcblock/gatsby-transformer-slide-track" "^7.33.1"
-    "@arcblock/gatsby-transformer-terminal-recording" "^7.33.1"
+    "@arcblock/gatsby-remark-extensions" "^7.34.0"
+    "@arcblock/gatsby-transformer-remark" "^7.34.0"
+    "@arcblock/gatsby-transformer-slide-track" "^7.34.0"
+    "@arcblock/gatsby-transformer-terminal-recording" "^7.34.0"
     "@arcblock/remark-include" "^7.27.0"
-    "@arcblock/ux" "^1.11.3"
-    "@arcblock/www" "^7.33.9"
+    "@arcblock/ux" "^1.12.5"
+    "@arcblock/www" "^7.34.4"
     "@material-ui/core" "^4.10.2"
     "@material-ui/icons" "4.5.1"
     "@svgr/webpack" "^4.1.0"
@@ -151,10 +151,10 @@
     striptags "^3.1.1"
     styled-components "^5.0.1"
 
-"@arcblock/gatsby-transformer-remark@^7.33.1":
-  version "7.33.1"
-  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-transformer-remark/-/gatsby-transformer-remark-7.33.1.tgz#733002115d57e5920a1270ada7d96d2f4bccc023"
-  integrity sha512-+h9DVpTuDu6TeZ2Z3vB2yU6rUnT2WVGeRnjZQCNEKP6tBkdtP3DrWos11zcpml/boyR3WtfQkr6odMkYVDHLIA==
+"@arcblock/gatsby-transformer-remark@^7.34.0":
+  version "7.34.0"
+  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-transformer-remark/-/gatsby-transformer-remark-7.34.0.tgz#32504850b7c5196e7eb4a890f2e3de0f9f5b38e3"
+  integrity sha512-/Y/mteP83ZXoj8Fqz0mX1vXRgIpzCbvSwicztTtCXD5sxTYQXzmxTAp+CCVWgdQmTM4ZXZSr0x0uT1Wa6JTF3w==
   dependencies:
     "@babel/runtime" "^7.0.0"
     bluebird "^3.5.0"
@@ -162,7 +162,7 @@
     gray-matter "^4.0.0"
     hast-util-raw "^4.0.0"
     hast-util-to-html "^4.0.0"
-    lodash "^4.17.14"
+    lodash "^4.17.21"
     mdast-util-to-hast "^3.0.0"
     mdast-util-to-string "^1.0.5"
     mdast-util-toc "^2.0.1"
@@ -179,32 +179,32 @@
     unist-util-select "^1.5.0"
     unist-util-visit "^1.3.0"
 
-"@arcblock/gatsby-transformer-slide-track@^7.33.1":
-  version "7.33.1"
-  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-transformer-slide-track/-/gatsby-transformer-slide-track-7.33.1.tgz#7eec975351edf2fd2484440da27daeace0affdbd"
-  integrity sha512-d5jVl54Xqv+wWslMlEOnrqHEs4yfNcjh0IG/b8sVpPJjsqa1T99rlO+LGhAuHzz+VoL7bEUpq3eOpLqCErF+NQ==
+"@arcblock/gatsby-transformer-slide-track@^7.34.0":
+  version "7.34.0"
+  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-transformer-slide-track/-/gatsby-transformer-slide-track-7.34.0.tgz#6e738ac89d068cdb52323d69bb7df651dff6d01d"
+  integrity sha512-sjGTW8F8+Aoq3bayEqmaoJxh1Eaqd8EYA1pksXdRIhWp+YaIfNzV/fz1ZsE7K7/b5jUIgNuyBgq1L1/MTpAJ2Q==
   dependencies:
     "@babel/runtime" "^7.6.2"
     debug "^4.1.1"
     js-yaml "^3.13.1"
-    lodash "^4.17.15"
+    lodash "^4.17.21"
     unist-util-select "^1.5.0"
 
-"@arcblock/gatsby-transformer-terminal-recording@^7.33.1":
-  version "7.33.1"
-  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-transformer-terminal-recording/-/gatsby-transformer-terminal-recording-7.33.1.tgz#14e2101e8a6733f974265f436f2ce12588f94270"
-  integrity sha512-buAfMdx/xYgQl2902NHd3y0vddA5kGMHgXO2R7yPuWD68H8EyJZEFW6Tet1kKWJvbFsW5Sktb+UcRpmlNYPiJw==
+"@arcblock/gatsby-transformer-terminal-recording@^7.34.0":
+  version "7.34.0"
+  resolved "https://registry.yarnpkg.com/@arcblock/gatsby-transformer-terminal-recording/-/gatsby-transformer-terminal-recording-7.34.0.tgz#8e906276288d255bca92c4319f5717df47372303"
+  integrity sha512-R/JbrKUuooka7zeN8MWHtCs7D/92WIutPS7QEeMImS88fOXbzjBolti1fLhGXw72UFKqKROjA6iS0JlB/pHU2Q==
   dependencies:
     "@babel/runtime" "^7.6.2"
     debug "^4.1.1"
     js-yaml "^3.13.1"
-    lodash "^4.17.15"
+    lodash "^4.17.21"
     unist-util-select "^1.5.0"
 
-"@arcblock/react-hooks@^1.11.3":
-  version "1.11.3"
-  resolved "https://registry.yarnpkg.com/@arcblock/react-hooks/-/react-hooks-1.11.3.tgz#b2b48688f55cb89ba765227f5306b0f4669afed1"
-  integrity sha512-gKBXJu7zhwLOs6f31V3twY2vAHzC4wlpc/zR/2/6/9LQRgEcYc6feVVEU8XeQA0Tg2b6rrATDPPrSbPeuajtjA==
+"@arcblock/react-hooks@^1.12.5":
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/@arcblock/react-hooks/-/react-hooks-1.12.5.tgz#44264d22a382fb5915d38056c1ebe189be58e1c2"
+  integrity sha512-zxCjRW1+pl7FPgrfNbIs7Dij8nU/t1j2ogBazg7WyDayo5Q9jWw7ge4AX5ELTZuIwLqOZILUrrNcJtQ7jBsN2Q==
   dependencies:
     core-js "^3.6.4"
     event-target-shim "^5.0.1"
@@ -218,16 +218,16 @@
     debug "^4.1.1"
     vfile "^2.0.0"
 
-"@arcblock/ux@^1.11.3":
-  version "1.11.3"
-  resolved "https://registry.yarnpkg.com/@arcblock/ux/-/ux-1.11.3.tgz#9b33c3b36516ca9e2c0e065c32da5084b78137ed"
-  integrity sha512-o0aekP86H6kwOvAR57oTQdSpXlbTGBGk7LR8nHE+3IGJC6Wl42nSGsx92UhmpGd4DEv232z4u0yXE9bzlP0Uvw==
+"@arcblock/ux@^1.12.5":
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/@arcblock/ux/-/ux-1.12.5.tgz#763806b49e25eae4a63321abb7313846eb0e1741"
+  integrity sha512-tX5Tt5N/KSXR+81bzNnFVDkBpjF7t9c+bnEwJ6q2mqAxVdaAU1pQZolELhosXCna1+t5cITh6edTdjNmRZHTUA==
   dependencies:
-    "@arcblock/react-hooks" "^1.11.3"
+    "@arcblock/react-hooks" "^1.12.5"
     "@babel/plugin-syntax-dynamic-import" "^7.8.3"
     "@material-ui/core" "^4.10.1"
     "@material-ui/icons" "4.5.1"
-    axios "^0.19.2"
+    axios "^0.21.1"
     copy-to-clipboard "^3.2.0"
     core-js "^3.6.4"
     d3-geo "^1.11.6"
@@ -238,7 +238,7 @@
     graphql "^14.6.0"
     highlight.js "^9.15.8"
     js-cookie "^2.2.0"
-    lodash "^4.17.15"
+    lodash "^4.17.21"
     react-helmet "^5.2.1"
     react-image "^4.0.3"
     react-load-script "^0.0.6"
@@ -253,18 +253,18 @@
     xterm-addon-fit "^0.2.1"
     xterm-addon-web-links "^0.2.1"
 
-"@arcblock/www@^7.33.9":
-  version "7.33.9"
-  resolved "https://registry.yarnpkg.com/@arcblock/www/-/www-7.33.9.tgz#cfa8ca8c1b2e465a5ce7473b6c1106b8f7c5be0e"
-  integrity sha512-uVUBAX3+ZOgg6Fx1hzttW94pyKIchZgCeHSZfb05Gj8YGKCvnH9HxJj0KF7nTfbTNkxtfJ80Bhsxv+2K131ZCQ==
+"@arcblock/www@^7.34.4":
+  version "7.34.4"
+  resolved "https://registry.yarnpkg.com/@arcblock/www/-/www-7.34.4.tgz#c585e3d9b9149cc651562c7477ddee7852eba3ef"
+  integrity sha512-cvAUcOO1StPo+375+FZOcMT0V9CFU2zQeV3oLhUwxn4QbqExPAKoRDmBBBGXjSjaj7AosPoRL1pZGwZS/Md0yQ==
   dependencies:
-    "@arcblock/did-connect" "^1.11.3"
-    "@arcblock/did-playground" "^1.11.3"
-    "@arcblock/ux" "^1.11.3"
+    "@arcblock/did-connect" "^1.12.5"
+    "@arcblock/did-playground" "^1.12.5"
+    "@arcblock/ux" "^1.12.5"
     "@material-ui/core" "^4.10.2"
     "@material-ui/icons" "4.5.1"
     "@stripe/stripe-js" "^1.10.0"
-    axios "^0.19.0"
+    axios "^0.21.1"
     capitalize "^2.0.0"
     flat "^5.0.0"
     gatsby-image "^2.7.0"
@@ -4666,17 +4666,17 @@ axios@^0.19.0:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
 
-axios@^0.19.2:
-  version "0.19.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
-  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
-  dependencies:
-    follow-redirects "1.5.10"
-
 axios@^0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.20.0.tgz#057ba30f04884694993a8cd07fa394cff11c50bd"
   integrity sha512-ANA4rr2BDcmmAQLOKft2fufrtuvlqR+cXNNinUmvfeSNCOF98PZL+7M/v1zIdGo7OLjEA9J2gXJL+j4zGsl0bA==
+  dependencies:
+    follow-redirects "^1.10.0"
+
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
     follow-redirects "^1.10.0"
 
@@ -13445,6 +13445,11 @@ lodash@^4.17.19, lodash@^4.17.20:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^1.0.2:
   version "1.0.2"

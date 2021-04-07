@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@arcblock/gatsby-i18n-redirect": "^7.33.1",
-    "@arcblock/gatsby-theme-docs": "^7.33.9",
+    "@arcblock/gatsby-theme-docs": "^7.34.4",
     "dotenv": "^8.2.0",
     "gatsby": "2.27.1",
     "prettier": "^1.13.7",
